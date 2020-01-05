@@ -88,7 +88,7 @@ var featureImages = theme.featureImages;
                 <a href="<%- url_for(page.path) %>">
                     <div class="card-image">
                         <% if (page.img) { %>
-                        <img src="<%= page.img %>" class="responsive-img" alt="<%- page.title %>">
+                        <img src="<%= '/' + page.img %>" class="responsive-img" alt="<%- page.title %>">
                         <% } else { %>
                         <%
                             var len = featureImages.length;
