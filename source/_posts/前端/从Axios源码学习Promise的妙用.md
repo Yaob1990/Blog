@@ -8,6 +8,7 @@ tags:
   - axios
   - promise
 typora-root-url: ..\..
+typora-copy-images-to: ..\..\images
 ---
 
 
@@ -17,6 +18,8 @@ typora-root-url: ..\..
 惭愧，虽然一直在使用`Promise/async/await`，但是自己其实对`Promise`并不是特别理解，导致这次遇到问题时候，一直不是特别明白。
 
 ------
+
+## 需求分析
 
 > 需求：前端定时刷新token接口
 
@@ -137,7 +140,13 @@ requests.forEach(cb => cb(token))
 
 然鹅，你以为我懂了...其实我还是懵逼的...
 
-![“一脸懵逼”的图片搜索结果](../../images/Sun,%2005%20Jan%202020%20210130.png)
+
+
+![奴家不会啊](/images/1-1578487578225.png)
+
+
+
+## 如何理解Promise
 
 > ```js
 >  const retryOriginalRequest = new Promise((resolve) => {
@@ -228,6 +237,8 @@ export default class InterceptorManager<T> {
 4. 数据的流转，全部是通过`promise`传递，这里`while`方法，还是递归
 
 
+
+## 理解 axios 中的 Promise
 
 再回头看官方的示例：
 
