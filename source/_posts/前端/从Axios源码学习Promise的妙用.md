@@ -256,10 +256,8 @@ axios.interceptors.request.use(function (config) {
 error 时候，返回reject，正常时候，只返回了config。在下一步的执行中，实际变成了
 
 ```js
-promise = promise.then(config,rejected)
+promise = promise.then(resolve(config),rejected)
 ```
-
-虽然没有使用`resolve(config)`的形式，但是实际上是一样的，`promise.then()`中`return value` 会被包装成`Promise.then(return value)`
 
 
 
