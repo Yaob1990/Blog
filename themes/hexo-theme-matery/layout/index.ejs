@@ -6,7 +6,9 @@
 
 <main class="content">
 
-    <% if (page.current === 1) { %>
+    <% if (page.current === 1
+            && (theme.dream.enable || (theme.music.enable && !theme.music.fixed))
+                    || theme.video.enable || theme.recommend.enable) { %>
     <div id="indexCard" class="index-card">
         <div class="container ">
             <div class="card">
@@ -15,7 +17,7 @@
                         <%- partial('_widget/dream') %>
                     <% } %>
 
-                    <% if (theme.music.enable && site.data && site.data.musics) { %>
+                    <% if (theme.music.enable && site.data && site.data.musics && !theme.music.fixed) { %>
                         <%- partial('_widget/music') %>
                     <% } %>
 
@@ -23,13 +25,20 @@
                         <%- partial('_widget/video') %>
                     <% } %>
 
+                    <% if (theme.recommend.enable) { %>
                     <div id="recommend-sections" class="recommend">
                         <%- partial('_widget/recommend') %>
                     </div>
+                    <% } %>
                 </div>
             </div>
         </div>
     </div>
+    <% } %>
+
+    <% if (page.current === 1 && theme.music.enable
+            && site.data && site.data.musics && theme.music.fixed) { %>
+        <%- partial('_widget/music') %>
     <% } %>
 
     <%
@@ -56,7 +65,7 @@
                     <a href="<%- url_for(post.path) %>">
                         <div class="card-image">
                             <% if (post.img) { %>
-                            <img src="<%= post.img %>" class="responsive-img" alt="<%- post.title %>">
+                            <img src="<%- theme.jsDelivr.url %><%= post.img %>" class="responsive-img" alt="<%- post.title %>">
                             <% } else { %>
                             <%
                                 var featureimg = '/medias/featureimages/0.jpg';
@@ -69,7 +78,7 @@
                                 var num = Math.abs(hashCode(post.title) % len);
                                 featureimg = featureImages[num];
                             %>
-                            <img src="<%- featureimg %>" class="responsive-img" alt="<%- post.title %>">
+                            <img src="<%- theme.jsDelivr.url %><%- featureimg %>" class="responsive-img" alt="<%- post.title %>">
                             <% } %>
                             <span class="card-title"><%- post.title %></span>
                         </div>
