@@ -27,7 +27,7 @@ typora-root-url: ..\..\..
 
 emoji 是字符，不是图片。emoji 使用 Unicode 编码方式，可以方便的转换成其他格式。
 
-[维基百科关于 emoji 的介绍](<[https://zh.wikipedia.org/wiki/%E7%B9%AA%E6%96%87%E5%AD%97](https://zh.wikipedia.org/wiki/繪文字)>)
+[维基百科关于 emoji 的介绍](https://zh.wikipedia.org/wiki/繪文字)
 
 [charbase.com](https://charbase.com/1f602-unicode-face-with-tears-of-joy) ，网站提供了，各种格式 emoji 编码的查看方式：
 
