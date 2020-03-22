@@ -116,9 +116,9 @@ export const actions={
 
 
 
-如果，我想，使用fetch设置vuex，然后再执行页面的`asyncData`方法，直接使用是不行的。需要再状态树中指定 `nuxtServerInit`方法。
+如果，我想，设置初始化数据，然后再执行页面的`asyncData`方法，直接使用是不行的。需要在状态树中指定 `nuxtServerInit`方法。
 
-页面首先执行`fetch`方法，然后执行`nuxtServerInit`，结束后触发`asyncData`
+页面首先执行`nuxtServerInit`方法，结束后触发`asyncData`或者页面`fetch`方法
 
 
 
