@@ -60,8 +60,9 @@ cover:
 dream:
   enable: true
   showTitle: true
-  title: 书摘
-  text: 当这个时代到来的时候，锐不可当。万物肆意生长，尘埃与曙光升腾，江河汇聚成川，无名山丘崛起为峰，天地一时，无比开阔。——吴晓波
+  title: 
+  text: 两条平行线就是它们相交于无穷远
+  #text: 当这个时代到来的时候，锐不可当。万物肆意生长，尘埃与曙光升腾，江河汇聚成川，无名山丘崛起为峰，天地一时，无比开阔。——吴晓波
 
 # Whether to display the musics.
 # 是否在首页显示音乐.
