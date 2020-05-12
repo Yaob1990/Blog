@@ -6,7 +6,31 @@
     <% } %>
     <div class="row">
         <div class="col l8 offset-l2 m10 offset-m1 s10 offset-s1 center-align text">
-            <%- theme.dream.text %>
+            <div id="dream"></div>
         </div>
     </div>
 </div>
+
+<script>
+    $('#dream').text('123456')
+
+    $.ajax({
+      method: "GET",
+      url: "https://word.aocoding.com/api/word/random", 
+      dataType: "json",
+     success(data){
+           console.log(data)
+           if(data.code===0){
+               if(data.data.word){
+                $('#dream').text(data.data.word)
+               }
+           }else{
+            $('#dream').text('今天也要努力哦~')
+           }
+     },
+     error(){
+        $('#dream').text('今天也要努力哦~')
+     }
+});
+
+</script>
