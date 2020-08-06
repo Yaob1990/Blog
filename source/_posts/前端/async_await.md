@@ -60,7 +60,7 @@ export function promieWapper(promise) {
 
 ## 添加函数类型（ts）
 
-```JS
+```typescript
 async function promieWapper<T, U = Error>(promise: Promise<T>): Promise<[U, undefined] | [null, T]> {
   return promise.then<[null, T]>((data) => ([null, data]))
     .catch<[U, undefined]>((error: U) => [error, undefined])
