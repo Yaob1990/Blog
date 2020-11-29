@@ -32,7 +32,7 @@ jobs:
       - uses: actions/checkout@v1
       - name: Push to Coding
         run: |
-          remote_repo="https://${CODING_USERNAME}:${CODING_PASSWORD}https://e.coding.net/js-coder/blog/Blog.git"
+          remote_repo="https://${CODING_USERNAME}:${CODING_PASSWORD}@e.coding.net/js-coder/blog/Blog.git"
           git remote add coding "${remote_repo}"
           git show-ref # useful for debugging
           git branch --verbose
