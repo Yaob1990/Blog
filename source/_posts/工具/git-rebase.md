@@ -3,7 +3,7 @@ title: git 简易教程 ~~ git rebase
 date: 2020-11-30 07:18:46
 categories: 工具
 tags: git
-img: ../../coverImages/git.png
+img: ../../coverImages/git.jpg
 typora-root-url: ../../images
 ---
 
