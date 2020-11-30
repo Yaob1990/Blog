@@ -4,8 +4,6 @@ date: 2020-11-30 07:18:46
 categories: 工具
 tags: git
 img: ../../coverImages/git.png
-tags:
-  - 支付宝小程序,herbjs
 typora-root-url: ../../images
 ---
 
