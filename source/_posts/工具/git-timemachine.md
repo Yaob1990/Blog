@@ -1,6 +1,6 @@
 ---
 title: 回到过去的一万种方式 —— git 时光机
-date: 2020-12-01 23:00:00
+date: 2020-12-02 23:00:00
 categories: 工具
 tags: git
 img: ../../coverImages/git.jpg
