@@ -1,27 +1,33 @@
-name: Build and Deploy
+# 文件路径 .github/workflows/deployment.yml
+name: Deployment
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master ] # only push events on source branch trigger deployment
 
 jobs:
-  build:
+  hexo-deployment:
     runs-on: ubuntu-latest
-    name: A job to deploy blog.
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v1
-        with:
-          submodules: true # Checkout private submodules(themes or something else).
+    env:
+      TZ: Asia/Shanghai
 
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
 
       - name: Install dependencies & Generate static files
         run: |
           node -v
           npm i -g hexo-cli
           npm i
-
-      # Deploy hexo blog website.
+          hexo clean
       - name: Deploy (Hexo g -d)
         id: deploy
         uses: sma11black/hexo-action@v1.0.4
