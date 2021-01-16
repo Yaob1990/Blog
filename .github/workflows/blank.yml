@@ -33,11 +33,18 @@ jobs:
         env:
           GIT_NAME: Yaob1990
           GIT_EMAIL: yekongbuye@gmail.com
-          REPO: github.com/WillCAI2020/WillCAI2020.github.io
+          REPO: github.com/Yaob1990/Blog
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           cd ./public && git init && git add .
           git config --global user.name $GIT_NAME
           git config --global user.email $GIT_EMAIL
           git commit -m "Site deployed by GitHub Actions"
-          git push --force --quiet "https://$GH_TOKEN@$REPO" dist:dist
+          git push --force --quiet "https://$GH_TOKEN@$REPO" master:dist
+
+
+  cd ./public && git init && git add .
+  git config --global user.name Yaob1990
+  git config --global user.email yekongbuye@gmail.com
+  git commit -m "Site deployed by GitHub Actions"
+  git push --force --quiet "https://044671abb8182222250969ee23ae1d2d26cd10a8@github.com/Yaob1990/Blog" dist:dist
