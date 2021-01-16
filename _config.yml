@@ -83,20 +83,6 @@ theme: hexo-theme-matery
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
-deploy:
-  type: cos
-  bucket: blog-1256172097
-  region: ap-shanghai
-  secretId: SecretId
-  secretKey: SecretKey
-  cdnConfig:
-    enable: true
-    cdnUrl: http://aocoding.com
-    bucket: static-1256172097
-    region: ap-shanghai
-    folder: blog
-    secretId: SecretId
-    secretKey: SecretKey
 
 search:
   path: search.xml
