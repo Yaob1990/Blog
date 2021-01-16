@@ -1,0 +1,1152 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="code-surfer 中文翻译, 不知">
+    <meta name="description" content="code-surfer  炫酷的代码演示ppt。
+用起来还是有些小毛病，比如无法居中，要手动条件，但是瑕不掩瑜，这是一款非常棒的软件。
+顺手做了个翻译，已提到官方库。
+和博客的渲染有点冲突，移步官方库，地址：https://github.c">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>code-surfer 中文翻译 | 不知</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    
+    <script src="/libs/jquery/jquery.min.js"></script>
+    
+<meta name="generator" content="Hexo 4.1.1"><link rel="alternate" href="/atom.xml" title="不知" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper head-container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">不知</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">不知</div>
+        <div class="logo-desc">
+            
+            没有绝境，只是绝望的心态
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('../../coverImages/code-surfer.png')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">code-surfer 中文翻译</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/code-surfer/">
+                                <span class="chip bg-color">code-surfer</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E7%BF%BB%E8%AF%91/" class="post-category">
+                                翻译
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-05-12
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.5k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    6 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p><a href="https://github.com/pomber/code-surfer" target="_blank" rel="noopener">code-surfer</a>  炫酷的代码演示ppt。</p>
+<p>用起来还是有些小毛病，比如无法居中，要手动条件，但是瑕不掩瑜，这是一款非常棒的软件。</p>
+<p>顺手做了个翻译，已提到官方库。</p>
+<p>和博客的渲染有点冲突，移步官方库，地址：<a href="https://github.com/pomber/code-surfer/blob/master/readme-zh.md" target="_blank" rel="noopener">https://github.com/pomber/code-surfer/blob/master/readme-zh.md</a></p>
+<hr>
+<h1 id="Code-Surfer"><a href="#Code-Surfer" class="headerlink" title="Code Surfer"></a>Code Surfer</h1><blockquote>
+<p>在 <a href="https://opencollective.com/code-surfer" target="_blank" rel="noopener">support</a>  上赞助这个项目，保持她的生命力❤️</p>
+</blockquote>
+<p>Code Surfer为 <a href="https://github.com/jxnblk/mdx-deck" target="_blank" rel="noopener">MDX Deck</a> 幻灯片增加代码高亮、代码缩放、代码滚动、代码聚焦、代码变形等功能。</p>
+<p>创建并运行一个新的项目:</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> init code-surfer-deck my-deck
+<span class="token function">cd</span> my-deck
+<span class="token function">npm</span> start</code></pre>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><ul>
+<li><a href="https://advanced-graphql-workshop.netlify.com/" target="_blank" rel="noopener">强大的GraphQL工作坊</a> 作者 <a href="https://twitter.com/_philpl" target="_blank" rel="noopener">Phil Pluckthun</a></li>
+<li><a href="https://github.com/pomber/react-conf-2018-hooks-demo" target="_blank" rel="noopener">React Conf 2018 Hooks Demo</a></li>
+</ul>
+<h2 id="如何使用-Code-Surfer"><a href="#如何使用-Code-Surfer" class="headerlink" title="如何使用 Code Surfer"></a>如何使用 Code Surfer</h2><blockquote>
+<p>首先了解 <a href="https://github.com/jxnblk/mdx-deck" target="_blank" rel="noopener">MDX Deck</a> 的工作方式可能会有所帮助</p>
+</blockquote>
+<p>要使用 Code Surfer，你需要先将其导入，并使用 <code>&lt;CodeSurfer&gt;</code> 标签包裹要显示的代码（<strong>需要在代码块之前和之后保留空行</strong>）:</p>
+<pre class=" language-markdown"><code class="language-markdown">import { CodeSurfer } from "code-surfer"
+
+<span class="token title important"><span class="token punctuation">#</span> Deck Title</span>
+
+<span class="token hr punctuation">---</span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>CodeSurfer</span><span class="token punctuation">></span></span>
+
+​```js
+console.log(1);
+console.log(2);
+console.log(3);
+```
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>CodeSurfer</span><span class="token punctuation">></span></span></code></pre>
+<p>特性:</p>
+<ul>
+<li><a href="#focus">高亮</a></li>
+<li><a href="#steps">步骤</a></li>
+<li><a href="#title-and-subtitle">标题和副标题</a></li>
+<li><a href="#themes">主题</a></li>
+<li><a href="#custom-styles">自定义样式</a></li>
+<li><a href="#languages">多语言支持</a></li>
+<li><a href="#columns">列</a></li>
+<li><a href="#import-code">导入代码</a></li>
+<li><a href="#line-numbers">行号</a></li>
+<li><a href="#diffs">差异</a></li>
+</ul>
+<blockquote>
+<p>这是一个 <a href="https://codesurfer.pomb.us/full/" target="_blank" rel="noopener">使用所有功能</a> (及 <a href="https://raw.githubusercontent.com/pomber/code-surfer/code-surfer-v2/sites/docs/decks/full.mdx" target="_blank" rel="noopener">mdx 源码</a>)的演示文稿，万一你更喜欢阅读代码而不是文档😀</p>
+</blockquote>
+<h2 id="高亮"><a href="#高亮" class="headerlink" title="高亮"></a>高亮</h2><p>在代码块第一行中的（设置）语言之后添加 _高亮字符串位置_，以告诉Code Surfer你要高亮的行和列。</p>
+<p>Code Surfer将淡出所有未高亮的代码，并在必要时将其缩小以适合幻灯片。</p>
+<p>​````md<br><CodeSurfer></p>
+<p>​```js 1:2,3[8:10]<br>console.log(1);<br>console.log(2);<br>console.log(3);</p>
+<pre><code>
+&lt;/CodeSurfer&gt;</code></pre>
+<p>在上面的示例中，<code>1:2,3[8:10]</code> 意思是：“行1行2高亮，行3到列8到10高亮”。更多示例：</p>
+<ul>
+<li><code>5:10</code> 第 5,6,7,8,9 行 和第 10 行高亮</li>
+<li><code>1,3:5,7</code> 第1行，第 3~5 行，第 7 行高亮，</li>
+<li><code>2[5]</code> 第 2 行第5高亮</li>
+<li><code>2[5:8]</code> 第 2 行 5~8 列高亮</li>
+<li><code>1,2[1,3:5,7],3</code> 第1行，第2行，第2行第1列、3~5列、7列高亮</li>
+</ul>
+<p><em>注意: 在以前的CodeSurfer版本中，我们使用标记代替列。</em></p>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p>添加更多代码块，以向 Code Surfer 幻灯片添加步骤。</p>
+<p>​````md<br><CodeSurfer></p>
+<p>​```js<br>console.log(1);<br>console.log(2);<br>console.log(3);</p>
+<pre><code>
+```js 1
+console.log(1);
+console.log(2);
+console.log(3);</code></pre>
+<pre class=" language-js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+</CodeSurfer>
+````
+
+<p>你可以为不同的步骤更改焦点和/或代码，然后 Code Surfer 会在以下步骤之间进行变换：缩放，滚动，淡入，淡出，添加和删除行。</p>
+<h2 id="标题和副标题"><a href="#标题和副标题" class="headerlink" title="标题和副标题"></a>标题和副标题</h2><p>​````md<br><CodeSurfer></p>
+<p>​```js 1 title=”Title” subtitle=”Look at the first line”<br>console.log(1);<br>console.log(2);<br>console.log(3);</p>
+<pre><code>
+```js 2 title=&quot;Title&quot; subtitle=&quot;and now the second&quot;
+console.log(1);
+console.log(2);
+console.log(3);</code></pre>
+</CodeSurfer>
+````
+
+<h2 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h2><p><a href="https://codesurfer.pomb.us/themes/" target="_blank" rel="noopener"><img src="https://user-images.githubusercontent.com/1911623/66016573-97df9c00-e4ad-11e9-9095-225d5c9b46a8.png" alt="Code Surfer Themes"></a></p>
+<p>在 <a href="https://github.com/pomber/code-surfer/blob/code-surfer-v2/packs/themes/src/index.ts" target="_blank" rel="noopener"><code>@code-surfer/themes</code></a> 包里面有许多Code Surfer主题。</p>
+<p>你可以通过 theme 传递 prop <code>&lt;CodeSurfer theme={someTheme}&gt;</code>:</p>
+<p>​````md<br>import { CodeSurfer } from “code-surfer”<br>import { nightOwl } from “@code-surfer/themes”</p>
+<CodeSurfer theme={nightOwl}>
+
+<p>​```js<br>console.log(1);<br>console.log(2);<br>console.log(3);</p>
+<pre><code>
+&lt;/CodeSurfer&gt;</code></pre>
+<p>或者像设置其他任何<a href="https://github.com/jxnblk/mdx-deck#theming" target="_blank" rel="noopener">MDX Deck 主题</a>一样设置整个项目的主题：</p>
+<p>​````md<br>import { CodeSurfer } from “code-surfer”<br>import { nightOwl } from “@code-surfer/themes”</p>
+<p>export const theme = nightOwl</p>
+<CodeSurfer>
+
+<p>​```js<br>console.log(1);<br>console.log(2);<br>console.log(3);</p>
+<pre><code>
+&lt;/CodeSurfer&gt;</code></pre>
+<blockquote>
+<p>以这种方式导出主题还将更改未使用Code Surfer的幻灯片的文本和背景颜色。如果要保留其他mdx主题的颜色，可以将<a href="https://github.com/jxnblk/mdx-deck/blob/master/docs/theming.md#composing-themes" target="_blank" rel="noopener">两个主题组合在一起</a>：<code>export const themes = [codeSurferTheme, mdxDeckTheme]</code></p>
+</blockquote>
+<h2 id="自定义样式"><a href="#自定义样式" class="headerlink" title="自定义样式"></a>自定义样式</h2><p>你可以编写自己的Code Surfer主题，更改代码，标题和副标题的样式：</p>
+<blockquote>
+<p>在主题中使用 <a href="https://theme-ui.com/" target="_blank" rel="noopener">Theme UI</a></p>
+</blockquote>
+<p>​```js<br>// custom-theme.js<br>export default {<br>  colors: {<br>    background: “#222”,<br>    text: “#ddd”,<br>    primary: “#a66”<br>  },<br>  styles: {<br>    CodeSurfer: {<br>      pre: {<br>        color: “text”,<br>        backgroundColor: “background”<br>      },<br>      code: {<br>        color: “text”,<br>        backgroundColor: “background”<br>      },<br>      tokens: {<br>        “comment cdata doctype”: {<br>          fontStyle: “italic”<br>        },<br>        “builtin changed keyword punctuation operator tag deleted string attr-value char number inserted”: {<br>          color: “primary”<br>        },<br>        “line-number”: {<br>          opacity: 0.8<br>        }<br>      },<br>      title: {<br>        backgroundColor: “background”,<br>        color: “text”<br>      },<br>      subtitle: {<br>        color: “#d6deeb”,<br>        backgroundColor: “rgba(10,10,10,0.9)”<br>      },<br>      unfocused: {<br>        // only the opacity of unfocused code can be changed<br>        opacity: 0.1<br>      }<br>    }<br>  }<br>};</p>
+<pre><code>
+像其他卡片主题一样使用它:
+
+````md
+import { CodeSurfer } from &quot;code-surfer&quot;
+import customTheme from &quot;./custom-theme&quot;
+
+&lt;CodeSurfer theme={customTheme}&gt;
+
+​```js
+console.log(1);
+console.log(2);
+console.log(3);</code></pre>
+</CodeSurfer>
+````
+
+<h2 id="语言支持"><a href="#语言支持" class="headerlink" title="语言支持"></a>语言支持</h2><p>Code Surfer 使用 <a href="https://prismjs.com/" target="_blank" rel="noopener">Prism</a> 解析不同的语言, 因此它支持 <a href="https://prismjs.com/#supported-languages" target="_blank" rel="noopener">Prism 支持的所有语言</a>.</p>
+<p>开箱即用的支持大多数流行语言，其余的则需要导入它们:</p>
+<p>​````md<br>import { CodeSurfer } from “code-surfer”<br>import “prismjs/components/prism-smalltalk”</p>
+<CodeSurfer>
+
+<p>​```smalltalk<br>result := a &gt; b<br>    ifTrue:[ ‘greater’ ]<br>    ifFalse:[ ‘less or equal’ ]</p>
+<pre><code>
+&lt;/CodeSurfer&gt;</code></pre>
+<h2 id="列"><a href="#列" class="headerlink" title="列"></a>列</h2><p>如果需要同时显示多个代码, 请使用 <code>&lt;CodeSurferColumns&gt;</code>:</p>
+<p>​````md<br>import { CodeSurferColumns, Step } from “code-surfer”</p>
+<CodeSurferColumns>
+
+<Step subtitle="First Step">
+
+<p>​```js<br>console.log(1);<br>console.log(2);</p>
+<pre><code>
+```js
+console.log(&quot;a&quot;);
+console.log(&quot;b&quot;);</code></pre>
+</Step>
+
+<Step subtitle="Second Step">
+
+<pre class=" language-js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<pre class=" language-js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"a"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"b"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+</Step>
+
+</CodeSurferColumns>
+````
+
+<p>每个 <code>&lt;Step&gt;</code> 有自己的 <code>title</code> and <code>subtitle</code>.</p>
+<p>你可以为各列使用不同的主题: <code>&lt;CodeSurferColumns themes={[nightOwl, ultramin]}&gt;</code>. 并更改列的相对大小 <code>&lt;CodeSurferColumns sizes={[1,3]}&gt;</code>.</p>
+<p>列不仅用于代码，还可以将它们用于任何类型的内容：</p>
+<p>​````md<br>import { CodeSurferColumns, Step } from “code-surfer”<br>import MyComponent from “./my-component.jsx”</p>
+<CodeSurferColumns>
+
+<Step>
+
+<p>​```js<br>console.log(1);<br>console.log(2);</p>
+<pre><code>
+# Some Markdown
+
+&lt;/Step&gt;
+
+&lt;Step&gt;
+
+```js 2
+console.log(1);
+console.log(2);</code></pre>
+<MyComponent/>
+
+</Step>
+
+</CodeSurferColumns>
+````
+
+<h2 id="导入代码文件"><a href="#导入代码文件" class="headerlink" title="导入代码文件"></a>导入代码文件</h2><p>你可以从文件中导入代码，而不必在代码块中编写代码：</p>
+<p>​````md<br>import { CodeSurfer } from “code-surfer”</p>
+<CodeSurfer>
+
+<p>​```js 5:10 file=./my-code.js</p>
+<pre><code>
+```js file=./my-other-code.js
+</code></pre>
+</CodeSurfer>
+````
+
+<h2 id="行号"><a href="#行号" class="headerlink" title="行号"></a>行号</h2><p>要显示行号，将<code>showNumbers</code>添加到语言标识之后:</p>
+<p>​````md<br>import { CodeSurfer } from “code-surfer”</p>
+<CodeSurfer>
+
+<p>​```js showNumbers<br>console.log(1);<br>console.log(2);<br>console.log(3);</p>
+<pre><code>
+```js
+console.log(1);
+console.log(2);
+console.log(4);</code></pre>
+</CodeSurfer>
+````
+
+<h2 id="差异"><a href="#差异" class="headerlink" title="差异"></a>差异</h2><p>代码块也可以展示差异。 This is particularly useful when using empty diffs for code that doesn’t change:</p>
+<p>代码块也可以展示差异。 当讲空的diffs用在不变的代码块时候，这特别有用：</p>
+<p>​````md<br>import { CodeSurfer } from “code-surfer”</p>
+<CodeSurfer>
+
+<p>​```js<br>console.log(1);<br>console.log(2);<br>console.log(3);</p>
+<pre><code>
+```diff 1 subtitle=&quot;log 1&quot;
+</code></pre>
+<pre class=" language-diff"><code class="language-diff"></code></pre>
+<pre class=" language-diff"><code class="language-diff"></code></pre>
+</CodeSurfer>
+````
+
+<h2 id="相关"><a href="#相关" class="headerlink" title="相关"></a>相关</h2><ul>
+<li><a href="https://github.com/jxnblk/mdx-deck" target="_blank" rel="noopener">MDX Deck</a></li>
+<li><a href="https://github.com/jamiebuilds/spectacle-code-slide" target="_blank" rel="noopener">spectacle-code-slide</a></li>
+<li><a href="https://github.com/PrismJS/prism" target="_blank" rel="noopener">Prism</a></li>
+<li><a href="https://github.com/pomber/create-code-surfer-deck" target="_blank" rel="noopener">create-code-surfer-deck</a></li>
+<li><a href="https://github.com/pomber/gatsby-waves" target="_blank" rel="noopener">Gatsby Waves</a></li>
+</ul>
+<h2 id="支持-Code-Surfer"><a href="#支持-Code-Surfer" class="headerlink" title="支持 Code Surfer"></a>支持 Code Surfer</h2><p>你可以帮助保持该项目的生命。</p>
+<h3 id="赞助商"><a href="#赞助商" class="headerlink" title="赞助商"></a>赞助商</h3><p>通过成为赞助者来支持该项目。你的徽标将显示在此处，并带有指向你网站的链接。 [<a href="https://opencollective.com/code-surfer#sponsor" target="_blank" rel="noopener">成为赞助商</a>]</p>
+<p><a href="https://opencollective.com/code-surfer/sponsor/0/website" target="_blank"><img src="https://opencollective.com/code-surfer/sponsor/0/avatar.svg"></a></p>
+<h3 id="支持者"><a href="#支持者" class="headerlink" title="支持者"></a>支持者</h3><p>感谢所有的支持者! 🙏 [<a href="https://opencollective.com/code-surfer#backer" target="_blank" rel="noopener">成为支持者</a>]</p>
+<p><a href="https://opencollective.com/code-surfer#backers" target="_blank"><img src="https://opencollective.com/code-surfer/backers.svg?width=890"></a></p>
+<h3 id="贡献者"><a href="#贡献者" class="headerlink" title="贡献者"></a>贡献者</h3><p>这个项目的存在要感谢所有贡献者。<br><img src="https://opencollective.com/code-surfer/contributors.svg?width=890&button=false" /></p>
+<p>````</p>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://aocoding.com" rel="external nofollow noreferrer">Yao</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://aocoding.com/2020/05/12/fan-yi/code-surfer-zh/">https://aocoding.com/2020/05/12/fan-yi/code-surfer-zh/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://aocoding.com" target="_blank">Yao</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/code-surfer/">
+                                    <span class="chip bg-color">code-surfer</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2020/05/22/qian-duan/debugger-typescript-in-webstorm/">
+                    <div class="card-image">
+                        
+                        <img src="/../../coverImages/ts-node.svg" class="responsive-img" alt="webstorm 中调试typescript单文件">
+                        
+                        <span class="card-title">webstorm 中调试typescript单文件</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            leetCode 最近支持了typescript刷题，高高兴兴把webstorm切换到typescript刷题,记录下切换过程。
+安装因为刷题都是单文件，我们需要用webstorm支持debugger单ts文件。
+yarn add type
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-22
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/typescript/">
+                        <span class="chip bg-color">typescript</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/04/20/qian-duan/axios-in-nuxt/">
+                    <div class="card-image">
+                        
+                        <img src="/../../coverImages/nuxt-axios.png" class="responsive-img" alt="在nuxtjs中组织api调用">
+                        
+                        <span class="card-title">在nuxtjs中组织api调用</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            对与api的组织调用，nuxtjs的官方文档都是axios.get(&#39;https://jsonplaceholder.typicode.com/users&#39;)这样的格式。简单的用一用，也问题不大，但是项目一大之后，对请求ur
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-20
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/nuxt/">
+                        <span class="chip bg-color">nuxt</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number(''),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+    <footer class="page-footer bg-color">
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 l12 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2018</span>
+            <a href="https://aocoding.com" target="_blank">Yao</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2018";
+                    var startMonth = "1";
+                    var startDate = "1";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+            <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                <a href="http://beian.miit.gov.cn/" target="_blank">苏ICP备15047519号-4</a>
+            </span>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!---->
+<!--    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">-->
+<!--        <i class="fas fa-rss"></i>-->
+<!--    </a>-->
+<!---->
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-134816961-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'UA-134816961-1');
+</script>
+
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+    
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
