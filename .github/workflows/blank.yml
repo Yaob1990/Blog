@@ -3,7 +3,7 @@ name: Deployment
 
 on:
   push:
-    branches: [master] # only push events on source branch trigger deployment
+    branches: [ master ] # only push events on source branch trigger deployment
 
 jobs:
   hexo-deployment:
@@ -40,8 +40,9 @@ jobs:
           git config --global user.name $GIT_NAME
           git config --global user.email $GIT_EMAIL
           git commit -m "Site deployed by GitHub Actions"
+
       - name: Push changes
-          uses: ad-m/github-push-action@master
-          with:
-            github_token: ${{ secrets.$GH_TOKEN }}
-            branch: dist
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.$GH_TOKEN }}
+          branch: dist
