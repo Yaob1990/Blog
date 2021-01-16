@@ -33,7 +33,7 @@ jobs:
         env:
           GIT_NAME: Yaob1990
           GIT_EMAIL: yekongbuye@gmail.com
-          REPO: github.com/WillCAI2020/WillCAI2020.github.io
+          REPO: github.com/Yaob1990/Blog
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           cd ./public && git init && git add .
