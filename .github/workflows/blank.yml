@@ -1,25 +1,43 @@
-name: Deploy # workflow name
+# 文件路径 .github/workflows/deployment.yml
+name: Deployment
 
 on:
-  [push] # 触发事件
+  push:
+    branches: [master] # only push events on source branch trigger deployment
 
 jobs:
-  build: # job1 id
-    runs-on: ubuntu-latest # 运行环境为最新版 Ubuntu
-    name: A job to deploy blog.
-    steps:
-    - name: Checkout # step1 获取源码
-      uses: actions/checkout@v1 # 使用 actions/checkout@v1
-      with: # 条件
-        submodules: true # Checkout private submodules(themes or something else). 当有子模块时切换分支？
-    - name: Install Dependencies # step3 name
-      run: npm install # 安装 node modules 相关依赖
+  hexo-deployment:
+    runs-on: ubuntu-latest
+    env:
+      TZ: Asia/Shanghai
 
-    # Deploy hexo blog website.
-    - name: Deploy # step4
-      id: deploy
-      uses: sma11black/hexo-action@v1.0.4
-      with:
-        deploy_key: ${{ secrets.DEPLOY_KEY }}
-        user_name: Yaob1990
-        user_email: yekongbuye@gmail.com
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+
+      - name: Install dependencies & Generate static files
+        run: |
+          node -v
+          npm i -g hexo-cli
+          npm i
+          hexo clean
+          hexo g
+      - name: Deploy
+        env:
+          GIT_NAME: Yaob1990
+          GIT_EMAIL: yekongbuye@gmail.com
+          REPO: github.com/WillCAI2020/WillCAI2020.github.io
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          cd ./public && git init && git add .
+          git config --global user.name $GIT_NAME
+          git config --global user.email $GIT_EMAIL
+          git commit -m "Site deployed by GitHub Actions"
+          git push --force --quiet "https://$GH_TOKEN@$REPO" dist:dist
