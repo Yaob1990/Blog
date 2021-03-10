@@ -4,17 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="docker 简易入门, 不知">
-    <meta name="description" content="
-
-拔一根毫毛，吹出猴万个。他叫孙悟空，也叫 docker。
-
-docker 无所不能？
-安装 wordpress
-
-docker run --name wordpress -p 8080:80 -d wordpress
-
-安装 Nextc">
+    <meta name="keywords" content="vuex 4.0 源码解析, 不知">
+    <meta name="description" content="vuex 源码短小精悍，很短时间就可以大致浏览一遍，值得学习。在后续看其他框架的过程中，也发现很多框架都有参考 vuex（比如 herbjs 的插件体系）。
+猜想
+一定有一个地方集中存放所有的数据（state），可以挂载到 window 上">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -22,7 +15,7 @@ docker run --name wordpress -p 8080:80 -d wordpress
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>docker 简易入门 | 不知</title>
+    <title>vuex 4.0 源码解析 | 不知</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -206,12 +199,12 @@ docker run --name wordpress -p 8080:80 -d wordpress
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('../../coverImages/docker.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('../../coverImages/vuex.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">docker 简易入门</h1>
+                    <h1 class="description center-align post-title">vuex 4.0 源码解析</h1>
                 </div>
             </div>
         </div>
@@ -328,14 +321,23 @@ docker run --name wordpress -p 8080:80 -d wordpress
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/docker/">
-                                <span class="chip bg-color">docker</span>
+                            <a href="/tags/%E6%BA%90%E7%A0%81/">
+                                <span class="chip bg-color">源码</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                前端
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -344,7 +346,7 @@ docker run --name wordpress -p 8080:80 -d wordpress
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-12-17
+                    2021-03-10
                 </div>
                 
 
@@ -353,14 +355,14 @@ docker run --name wordpress -p 8080:80 -d wordpress
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    625
+                    291
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    1 分
                 </div>
                 
 
@@ -376,88 +378,24 @@ docker run --name wordpress -p 8080:80 -d wordpress
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><img src="/images/20180125141147_61638d31e51d85f2a5d62e04191fe55f_1.jpg" alt="齐天大圣孙悟空"></p>
-<blockquote>
-<p>拔一根毫毛，吹出猴万个。他叫孙悟空，也叫 docker。</p>
-</blockquote>
-<h2 id="docker-无所不能？"><a href="#docker-无所不能？" class="headerlink" title="docker 无所不能？"></a>docker 无所不能？</h2><ol>
-<li>安装 wordpress</li>
+                <p>vuex 源码短小精悍，很短时间就可以大致浏览一遍，值得学习。在后续看其他框架的过程中，也发现很多框架都有参考 vuex（比如 herbjs 的插件体系）。</p>
+<h2 id="猜想"><a href="#猜想" class="headerlink" title="猜想"></a>猜想</h2><ol>
+<li>一定有一个地方集中存放所有的数据（state），可以挂载到 window 上面（污染全局），或者挂载到 vue 的原型上面。</li>
+<li>mutation action getter 这些方法，其实都是获取或者修改 state 的值，这些方法和 state 刚好可以组成一个 类（class），类封装对 state 状态的操作。</li>
 </ol>
-<pre class=" language-shell"><code class="language-shell">docker run --name wordpress -p 8080:80 -d wordpress</code></pre>
-<ol start="2">
-<li>安装 Nextcloud 网盘</li>
-</ol>
-<pre class=" language-shell"><code class="language-shell">docker run -d -p 8080:80 nextcloud</code></pre>
-<p>wordpress 安装中，我们只看到安装界面，数据库需要选择本地或者远程。Nextcloud 网盘安装中，我们安装完成就可以直接使用，因为 Nextcloud 内部默认携带了 SQLite 数据库，所以安装之后，就能够直接使用。</p>
-<h2 id="docker-基本概念"><a href="#docker-基本概念" class="headerlink" title="docker 基本概念"></a>docker 基本概念</h2><p><strong>镜像（Image）</strong>：Docker 镜像是一个特殊的文件系统，除了提供容器运行时所需的程序、库、资源、配置等文件外，还包含了一些为运行时准备的一些配置参数（如匿名卷、环境变量、用户等）。镜像不包含任何动态数据，其内容在构建之后也不会被改变。</p>
-<p><strong>容器（Container）</strong>：镜像（Image）和容器（Container）的关系，就像是面向对象程序设计中的 类 和 实例 一样，镜像是静态的定义，容器是镜像运行时的实体。容器可以被创建、启动、停止、删除、暂停等。</p>
-<p><strong>仓库（eg:dockerHub）</strong>：一个 Docker Registry 中可以包含多个 仓库（Repository）；每个仓库可以包含多个 标签（Tag）；每个标签对应一个镜像。</p>
-<h2 id="docker-常用命令"><a href="#docker-常用命令" class="headerlink" title="docker 常用命令"></a>docker 常用命令</h2><p>显示可用容器：</p>
-<pre class=" language-shell"><code class="language-shell">docker images</code></pre>
-<p>删除指定容器：</p>
-<pre class=" language-shell"><code class="language-shell">docker rmi <镜像ID></code></pre>
-<p>查看容器：</p>
-<pre class=" language-shell"><code class="language-shell">docker ps</code></pre>
-<p>拉取并运行容器：</p>
-<pre class=" language-shell"><code class="language-shell">docker run hello-world</code></pre>
-<p>进入容器内部，并运行 bash：</p>
-<pre class=" language-shell"><code class="language-shell">docker exec -it <id/container_name>  /bin/bash</code></pre>
-<h2 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h2><p>Dockerfile 是一个用来构建镜像的文本文件，文本内容包含了一条条构建镜像所需的指令和说明。<br>有时候一个镜像需要很多命令，这时候可以写到 Dockerfile 文件中，一次性执行完毕。<br>我们尝试将<a href="https://github.com/Yaob1990/OMRON_Blood_Pressure_Analyse" target="_blank" rel="noopener">欧姆龙血压计</a>解析工具源码编译成一个 docker 镜像</p>
-<ol>
-<li><p>在项目根目录新建 Dockerfile 文件，并写上以下内容。</p>
-<pre class=" language-shell"><code class="language-shell">FROM node:14.15.1-slim
-RUN yarn global add http-server
-COPY dist public
-EXPOSE 4000
-CMD ["http-server","-p","4000"]</code></pre>
-</li>
-<li><p>编译项目：<code>npm run build</code></p>
-</li>
-<li><p>打包项目：</p>
-<pre class=" language-shell"><code class="language-shell">docker build -t yekongbuye/omron .</code></pre>
-</li>
-<li><p>推送到 docker hub</p>
-<pre class=" language-shell"><code class="language-shell">docker login
-docker push yekongbuye/omron</code></pre>
-</li>
-</ol>
-<h2 id="docker-compose"><a href="#docker-compose" class="headerlink" title="docker-compose"></a>docker-compose</h2><p>主要是对容器进行编排。一次性编排，运行多个容器。</p>
-<ol>
-<li><p>创建 docker-compose.yml 文件</p>
-<pre class=" language-yml"><code class="language-yml">version: '3.3'
-services:
-  db:
-    image: mysql:5.7
-    volumes:
-      - db_data:/var/lib/mysql
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: somewordpress
-      MYSQL_DATABASE: wordpress
-      MYSQL_USER: wordpress
-      MYSQL_PASSWORD: wordpress
-
-  wordpress:
-    depends_on:
-      - db
-    image: wordpress:latest
-    ports:
-      - '8000:80'
-    restart: always
-    environment:
-      WORDPRESS_DB_HOST: db:3306
-      WORDPRESS_DB_USER: wordpress
-      WORDPRESS_DB_PASSWORD: wordpress
-      WORDPRESS_DB_NAME: wordpress
-volumes:
-  db_data: {}</code></pre>
-</li>
-</ol>
-<h2 id="分布式部署"><a href="#分布式部署" class="headerlink" title="分布式部署"></a>分布式部署</h2><ul>
-<li>swarm</li>
-<li>kubernetes（k8s）</li>
-</ul>
-
+<h2 id="如何安装"><a href="#如何安装" class="headerlink" title="如何安装"></a>如何安装</h2><p>4.0 版本适配了 composition api，提供了导出方法 createStore，通过它可以创建 store。<br>源码：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">export</span> <span class="token keyword">function</span> createStore <span class="token punctuation">(</span>options<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Store</span><span class="token punctuation">(</span>options<span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
+<p>可以看到，这里只是简单的对 store 进行了一次 new 操作，返回了 store 这个类。<br>进一步查看，我们看到 install 方法，通过暴露install方法，按照 vue3 的插件规则进行安装，也就是挂载到了 vue3 的原型上面。</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">Store</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 暴露给 vue3 进行安装</span>
+  install <span class="token punctuation">(</span>app<span class="token punctuation">,</span> injectKey<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    app<span class="token punctuation">.</span><span class="token function">provide</span><span class="token punctuation">(</span>injectKey <span class="token operator">||</span> storeKey<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">)</span>
+    app<span class="token punctuation">.</span>config<span class="token punctuation">.</span>globalProperties<span class="token punctuation">.</span>$store <span class="token operator">=</span> <span class="token keyword">this</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<h2 id="store-初始化"><a href="#store-初始化" class="headerlink" title="store 初始化"></a>store 初始化</h2><h2 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h2><h2 id="commit"><a href="#commit" class="headerlink" title="commit"></a>commit</h2><h2 id="dispatch"><a href="#dispatch" class="headerlink" title="dispatch"></a>dispatch</h2><h2 id="插件体系"><a href="#插件体系" class="headerlink" title="插件体系"></a>插件体系</h2>
             </div>
             <hr/>
 
@@ -482,7 +420,7 @@ volumes:
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://aocoding.com/2020/12/17/yun-wei/easy-docker/">https://aocoding.com/2020/12/17/yun-wei/easy-docker/</a>
+                    <a href="https://aocoding.com/2021/03/10/qian-duan/vuex-4.0-source/">https://aocoding.com/2021/03/10/qian-duan/vuex-4.0-source/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -520,8 +458,8 @@ volumes:
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/docker/">
-                                    <span class="chip bg-color">docker</span>
+                                <a href="/tags/%E6%BA%90%E7%A0%81/">
+                                    <span class="chip bg-color">源码</span>
                                 </a>
                             
                         </div>
@@ -559,9 +497,10 @@ volumes:
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2021/03/10/qian-duan/vuex-4.0-source/">
                     <div class="card-image">
@@ -580,9 +519,9 @@ volumes:
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-10
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-10
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -595,6 +534,7 @@ volumes:
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -613,35 +553,37 @@ volumes:
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/12/14/qian-duan/atomic-in-tailwindcss/">
+                <a href="/2020/12/17/yun-wei/easy-docker/">
                     <div class="card-image">
                         
-                        <img src="/../../coverImages/tailwindcss.png" class="responsive-img" alt="从 Tailwind 看 css 中的原子化流变">
+                        <img src="/../../coverImages/docker.jpg" class="responsive-img" alt="docker 简易入门">
                         
-                        <span class="card-title">从 Tailwind 看 css 中的原子化流变</span>
+                        <span class="card-title">docker 简易入门</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
                             
-回不到的过去，忘不掉的人。某个路口，转角再次遇见，她还是她吗，你还是你吗？
 
-禅意花园禅意花园，做前端的人或多或少都听说过项目。一样的 HTML 结构，用不同的 css 去装饰，形成截然不同的页面风格，探索 css 之美。html css
+拔一根毫毛，吹出猴万个。他叫孙悟空，也叫 docker。
+
+docker 无所不能？
+安装 wordpress
+
+docker run --name wordpress -p 8080:80 -d wordpress
+
+安装 Nextc
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-17
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
-                                    前端
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Yao
                             
                         </span>
                     </div>
@@ -649,8 +591,8 @@ volumes:
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/css/">
-                        <span class="chip bg-color">css</span>
+                    <a href="/tags/docker/">
+                        <span class="chip bg-color">docker</span>
                     </a>
                     
                 </div>
