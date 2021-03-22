@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>js 中 setTimeout 计时器最大值</title>
+      <link href="/2021/03/23/qian-duan/settimeout/"/>
+      <url>/2021/03/23/qian-duan/settimeout/</url>
+      
+        <content type="html"><![CDATA[<p>项目中踩坑，记录下。<br>没有意识到 <code>setTimeout/setInterval</code> 计时器有最大值问题。</p><pre class=" language-js"><code class="language-js"><span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">1111</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">2</span> <span class="token operator">**</span> <span class="token number">31</span><span class="token punctuation">)</span></code></pre><p>这部分代码，不会等到计时器结束，而是会被会被立即执行。</p><h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>setTimeout/setInterval 使用 <code>int32</code> 存储延时参数值，也就是说最大延时值是 <code>2^31-1</code>(约为24.85天) ，超过这个值会被立即执行。</p><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h3 id="web"><a href="#web" class="headerlink" title="web"></a>web</h3><p>在 web 页面中很少有需要这么大延时值得情况，根据业务场景，超过1小时，不做定时器设置，1小时以内，做定时器设置。</p><h3 id="node"><a href="#node" class="headerlink" title="node"></a>node</h3><p>服务端，确实有类似的情况，比如1月一次的定时任务。建议使用 <code>corn</code> 代替 <code>setTimeout</code>，也会比 <code>setTimeout</code> 更加准确。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> js </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>vuex 4.0 源码解析</title>
       <link href="/2021/03/10/qian-duan/vuex-4.0-source/"/>
       <url>/2021/03/10/qian-duan/vuex-4.0-source/</url>
