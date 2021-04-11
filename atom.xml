@@ -5,9 +5,9 @@
   <subtitle>知之为知之，不知为不知</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://aocoding.com/"/>
-  <updated>2021-03-22T23:13:43.333Z</updated>
-  <id>https://aocoding.com/</id>
+  <link href="https://jscoder.com/"/>
+  <updated>2021-04-11T09:01:51.663Z</updated>
+  <id>https://jscoder.com/</id>
   
   <author>
     <name>Yao</name>
@@ -17,11 +17,39 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>前端 font 优化</title>
+    <link href="https://jscoder.com/2021/04/11/front-end/font/"/>
+    <id>https://jscoder.com/2021/04/11/front-end/font/</id>
+    <published>2021-04-11T08:00:00.000Z</published>
+    <updated>2021-04-11T09:01:51.663Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;开发中，一般直接引入字体，使用即可，似乎字体本身并没有很多可以说道的地方，其实不然。字体本身涉及到印刷工业，是一个历史悠久的行业，css 字体的大部分属性都可以在印刷工业中找到映射。这篇博客，整理常见的字体使用细节。&lt;/p&gt;
+&lt;h2 id=&quot;衬线体和非衬线体&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="前端" scheme="https://jscoder.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="css" scheme="https://jscoder.com/tags/css/"/>
+    
+  </entry>
+  
+  <entry>
     <title>js 中 setTimeout 计时器最大值</title>
-    <link href="https://aocoding.com/2021/03/23/qian-duan/settimeout/"/>
-    <id>https://aocoding.com/2021/03/23/qian-duan/settimeout/</id>
+    <link href="https://jscoder.com/2021/03/23/front-end/settimeout/"/>
+    <id>https://jscoder.com/2021/03/23/front-end/settimeout/</id>
     <published>2021-03-22T23:00:00.000Z</published>
-    <updated>2021-03-22T23:13:43.333Z</updated>
+    <updated>2021-04-11T09:01:51.663Z</updated>
     
     <summary type="html">
     
@@ -37,19 +65,19 @@
     </summary>
     
     
-      <category term="前端" scheme="https://aocoding.com/categories/%E5%89%8D%E7%AB%AF/"/>
+      <category term="前端" scheme="https://jscoder.com/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-      <category term="js" scheme="https://aocoding.com/tags/js/"/>
+      <category term="js" scheme="https://jscoder.com/tags/js/"/>
     
   </entry>
   
   <entry>
     <title>vuex 4.0 源码解析</title>
-    <link href="https://aocoding.com/2021/03/10/qian-duan/vuex-4.0-source/"/>
-    <id>https://aocoding.com/2021/03/10/qian-duan/vuex-4.0-source/</id>
+    <link href="https://jscoder.com/2021/03/10/front-end/vuex-4.0-source/"/>
+    <id>https://jscoder.com/2021/03/10/front-end/vuex-4.0-source/</id>
     <published>2021-03-10T14:40:00.000Z</published>
-    <updated>2021-03-22T23:13:43.333Z</updated>
+    <updated>2021-04-11T09:01:51.663Z</updated>
     
     <summary type="html">
     
@@ -65,19 +93,19 @@
     </summary>
     
     
-      <category term="前端" scheme="https://aocoding.com/categories/%E5%89%8D%E7%AB%AF/"/>
+      <category term="前端" scheme="https://jscoder.com/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-      <category term="源码" scheme="https://aocoding.com/tags/%E6%BA%90%E7%A0%81/"/>
+      <category term="源码" scheme="https://jscoder.com/tags/%E6%BA%90%E7%A0%81/"/>
     
   </entry>
   
   <entry>
     <title>docker 简易入门</title>
-    <link href="https://aocoding.com/2020/12/17/yun-wei/easy-docker/"/>
-    <id>https://aocoding.com/2020/12/17/yun-wei/easy-docker/</id>
+    <link href="https://jscoder.com/2020/12/17/ops/easy-docker/"/>
+    <id>https://jscoder.com/2020/12/17/ops/easy-docker/</id>
     <published>2020-12-17T15:00:00.000Z</published>
-    <updated>2021-03-22T23:13:43.333Z</updated>
+    <updated>2021-04-11T09:01:51.663Z</updated>
     
     <summary type="html">
     
@@ -95,16 +123,16 @@
     
     
     
-      <category term="docker" scheme="https://aocoding.com/tags/docker/"/>
+      <category term="docker" scheme="https://jscoder.com/tags/docker/"/>
     
   </entry>
   
   <entry>
     <title>从 Tailwind 看 css 中的原子化流变</title>
-    <link href="https://aocoding.com/2020/12/14/qian-duan/atomic-in-tailwindcss/"/>
-    <id>https://aocoding.com/2020/12/14/qian-duan/atomic-in-tailwindcss/</id>
+    <link href="https://jscoder.com/2020/12/14/front-end/atomic-in-tailwindcss/"/>
+    <id>https://jscoder.com/2020/12/14/front-end/atomic-in-tailwindcss/</id>
     <published>2020-12-14T15:00:00.000Z</published>
-    <updated>2021-03-22T23:13:43.333Z</updated>
+    <updated>2021-04-11T09:01:51.663Z</updated>
     
     <summary type="html">
     
@@ -122,19 +150,19 @@
     </summary>
     
     
-      <category term="前端" scheme="https://aocoding.com/categories/%E5%89%8D%E7%AB%AF/"/>
+      <category term="前端" scheme="https://jscoder.com/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-      <category term="css" scheme="https://aocoding.com/tags/css/"/>
+      <category term="css" scheme="https://jscoder.com/tags/css/"/>
     
   </entry>
   
   <entry>
     <title>弱水三千，只取一瓢 —— git cherry-pick</title>
-    <link href="https://aocoding.com/2020/12/03/gong-ju/git-cherry-pick/"/>
-    <id>https://aocoding.com/2020/12/03/gong-ju/git-cherry-pick/</id>
+    <link href="https://jscoder.com/2020/12/03/tool/git-cherry-pick/"/>
+    <id>https://jscoder.com/2020/12/03/tool/git-cherry-pick/</id>
     <published>2020-12-03T15:00:00.000Z</published>
-    <updated>2021-03-22T23:13:43.333Z</updated>
+    <updated>2021-04-11T09:01:51.663Z</updated>
     
     <summary type="html">
     
@@ -149,19 +177,19 @@
     </summary>
     
     
-      <category term="工具" scheme="https://aocoding.com/categories/%E5%B7%A5%E5%85%B7/"/>
+      <category term="工具" scheme="https://jscoder.com/categories/%E5%B7%A5%E5%85%B7/"/>
     
     
-      <category term="git" scheme="https://aocoding.com/tags/git/"/>
+      <category term="git" scheme="https://jscoder.com/tags/git/"/>
     
   </entry>
   
   <entry>
     <title>回到过去的一万种方式 —— git 时光机</title>
-    <link href="https://aocoding.com/2020/12/02/gong-ju/git-timemachine/"/>
-    <id>https://aocoding.com/2020/12/02/gong-ju/git-timemachine/</id>
+    <link href="https://jscoder.com/2020/12/02/tool/git-timemachine/"/>
+    <id>https://jscoder.com/2020/12/02/tool/git-timemachine/</id>
     <published>2020-12-02T15:00:00.000Z</published>
-    <updated>2021-03-22T23:13:43.333Z</updated>
+    <updated>2021-04-11T09:01:51.663Z</updated>
     
     <summary type="html">
     
@@ -180,19 +208,19 @@
     </summary>
     
     
-      <category term="工具" scheme="https://aocoding.com/categories/%E5%B7%A5%E5%85%B7/"/>
+      <category term="工具" scheme="https://jscoder.com/categories/%E5%B7%A5%E5%85%B7/"/>
     
     
-      <category term="git" scheme="https://aocoding.com/tags/git/"/>
+      <category term="git" scheme="https://jscoder.com/tags/git/"/>
     
   </entry>
   
   <entry>
     <title>忘记该忘记的，记住该记住的 —— git filter-branch</title>
-    <link href="https://aocoding.com/2020/12/01/gong-ju/filter-branch/"/>
-    <id>https://aocoding.com/2020/12/01/gong-ju/filter-branch/</id>
+    <link href="https://jscoder.com/2020/12/01/tool/filter-branch/"/>
+    <id>https://jscoder.com/2020/12/01/tool/filter-branch/</id>
     <published>2020-12-01T14:00:00.000Z</published>
-    <updated>2021-03-22T23:13:43.333Z</updated>
+    <updated>2021-04-11T09:01:51.663Z</updated>
     
     <summary type="html">
     
@@ -208,19 +236,19 @@
     </summary>
     
     
-      <category term="工具" scheme="https://aocoding.com/categories/%E5%B7%A5%E5%85%B7/"/>
+      <category term="工具" scheme="https://jscoder.com/categories/%E5%B7%A5%E5%85%B7/"/>
     
     
-      <category term="git" scheme="https://aocoding.com/tags/git/"/>
+      <category term="git" scheme="https://jscoder.com/tags/git/"/>
     
   </entry>
   
   <entry>
     <title>重置过去，面向未来 —— git rebase</title>
-    <link href="https://aocoding.com/2020/11/30/gong-ju/git-rebase/"/>
-    <id>https://aocoding.com/2020/11/30/gong-ju/git-rebase/</id>
+    <link href="https://jscoder.com/2020/11/30/tool/git-rebase/"/>
+    <id>https://jscoder.com/2020/11/30/tool/git-rebase/</id>
     <published>2020-11-29T23:18:46.000Z</published>
-    <updated>2021-03-22T23:13:43.333Z</updated>
+    <updated>2021-04-11T09:01:51.663Z</updated>
     
     <summary type="html">
     
@@ -238,19 +266,19 @@
     </summary>
     
     
-      <category term="工具" scheme="https://aocoding.com/categories/%E5%B7%A5%E5%85%B7/"/>
+      <category term="工具" scheme="https://jscoder.com/categories/%E5%B7%A5%E5%85%B7/"/>
     
     
-      <category term="git" scheme="https://aocoding.com/tags/git/"/>
+      <category term="git" scheme="https://jscoder.com/tags/git/"/>
     
   </entry>
   
   <entry>
     <title>11 月的碎碎念</title>
-    <link href="https://aocoding.com/2020/11/29/bian-ma-dian-di/jscoder/"/>
-    <id>https://aocoding.com/2020/11/29/bian-ma-dian-di/jscoder/</id>
+    <link href="https://jscoder.com/2020/11/29/anything/jscoder/"/>
+    <id>https://jscoder.com/2020/11/29/anything/jscoder/</id>
     <published>2020-11-29T13:33:36.000Z</published>
-    <updated>2021-03-22T23:13:43.333Z</updated>
+    <updated>2021-04-11T09:01:51.663Z</updated>
     
     <summary type="html">
     
@@ -267,17 +295,17 @@
     </summary>
     
     
-      <category term="编码点滴" scheme="https://aocoding.com/categories/%E7%BC%96%E7%A0%81%E7%82%B9%E6%BB%B4/"/>
+      <category term="编码点滴" scheme="https://jscoder.com/categories/%E7%BC%96%E7%A0%81%E7%82%B9%E6%BB%B4/"/>
     
     
   </entry>
   
   <entry>
     <title>vue3 h5 脚手架</title>
-    <link href="https://aocoding.com/2020/09/21/qian-duan/vue3-h5/"/>
-    <id>https://aocoding.com/2020/09/21/qian-duan/vue3-h5/</id>
+    <link href="https://jscoder.com/2020/09/21/front-end/vue3-h5/"/>
+    <id>https://jscoder.com/2020/09/21/front-end/vue3-h5/</id>
     <published>2020-09-21T14:22:22.000Z</published>
-    <updated>2021-03-22T23:13:43.333Z</updated>
+    <updated>2021-04-11T09:01:51.663Z</updated>
     
     <summary type="html">
     
@@ -293,19 +321,19 @@
     </summary>
     
     
-      <category term="前端" scheme="https://aocoding.com/categories/%E5%89%8D%E7%AB%AF/"/>
+      <category term="前端" scheme="https://jscoder.com/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-      <category term="vue" scheme="https://aocoding.com/tags/vue/"/>
+      <category term="vue" scheme="https://jscoder.com/tags/vue/"/>
     
   </entry>
   
   <entry>
     <title>herbjs 简明数据流</title>
-    <link href="https://aocoding.com/2020/08/16/qian-duan/leran-herbjs/"/>
-    <id>https://aocoding.com/2020/08/16/qian-duan/leran-herbjs/</id>
+    <link href="https://jscoder.com/2020/08/16/front-end/leran-herbjs/"/>
+    <id>https://jscoder.com/2020/08/16/front-end/leran-herbjs/</id>
     <published>2020-08-16T08:29:42.000Z</published>
-    <updated>2021-03-22T23:13:43.333Z</updated>
+    <updated>2021-04-11T09:01:51.663Z</updated>
     
     <summary type="html">
     
@@ -321,19 +349,19 @@
     </summary>
     
     
-      <category term="前端" scheme="https://aocoding.com/categories/%E5%89%8D%E7%AB%AF/"/>
+      <category term="前端" scheme="https://jscoder.com/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-      <category term="支付宝小程序,herbjs" scheme="https://aocoding.com/tags/%E6%94%AF%E4%BB%98%E5%AE%9D%E5%B0%8F%E7%A8%8B%E5%BA%8F-herbjs/"/>
+      <category term="支付宝小程序,herbjs" scheme="https://jscoder.com/tags/%E6%94%AF%E4%BB%98%E5%AE%9D%E5%B0%8F%E7%A8%8B%E5%BA%8F-herbjs/"/>
     
   </entry>
   
   <entry>
     <title>async await 的终极封装</title>
-    <link href="https://aocoding.com/2020/08/06/qian-duan/async-await/"/>
-    <id>https://aocoding.com/2020/08/06/qian-duan/async-await/</id>
+    <link href="https://jscoder.com/2020/08/06/front-end/async-await/"/>
+    <id>https://jscoder.com/2020/08/06/front-end/async-await/</id>
     <published>2020-08-06T02:00:00.000Z</published>
-    <updated>2021-03-22T23:13:43.333Z</updated>
+    <updated>2021-04-11T09:01:51.663Z</updated>
     
     <summary type="html">
     
@@ -348,19 +376,19 @@
     </summary>
     
     
-      <category term="前端" scheme="https://aocoding.com/categories/%E5%89%8D%E7%AB%AF/"/>
+      <category term="前端" scheme="https://jscoder.com/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-      <category term="promise" scheme="https://aocoding.com/tags/promise/"/>
+      <category term="promise" scheme="https://jscoder.com/tags/promise/"/>
     
   </entry>
   
   <entry>
     <title>丰云行app 探索</title>
-    <link href="https://aocoding.com/2020/06/17/qian-duan/fyx/"/>
-    <id>https://aocoding.com/2020/06/17/qian-duan/fyx/</id>
+    <link href="https://jscoder.com/2020/06/17/front-end/fyx/"/>
+    <id>https://jscoder.com/2020/06/17/front-end/fyx/</id>
     <published>2020-06-17T00:21:37.000Z</published>
-    <updated>2021-03-22T23:13:43.333Z</updated>
+    <updated>2021-04-11T09:01:51.663Z</updated>
     
     <summary type="html">
     
@@ -376,21 +404,21 @@
     </summary>
     
     
-      <category term="前端" scheme="https://aocoding.com/categories/%E5%89%8D%E7%AB%AF/"/>
+      <category term="前端" scheme="https://jscoder.com/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-      <category term="promise" scheme="https://aocoding.com/tags/promise/"/>
+      <category term="promise" scheme="https://jscoder.com/tags/promise/"/>
     
-      <category term="axios" scheme="https://aocoding.com/tags/axios/"/>
+      <category term="axios" scheme="https://jscoder.com/tags/axios/"/>
     
   </entry>
   
   <entry>
     <title>Typescript 该不该学？</title>
-    <link href="https://aocoding.com/2020/06/02/qian-duan/learntypescript/"/>
-    <id>https://aocoding.com/2020/06/02/qian-duan/learntypescript/</id>
+    <link href="https://jscoder.com/2020/06/02/front-end/learntypescript/"/>
+    <id>https://jscoder.com/2020/06/02/front-end/learntypescript/</id>
     <published>2020-06-02T01:00:00.000Z</published>
-    <updated>2021-03-22T23:13:43.333Z</updated>
+    <updated>2021-04-11T09:01:51.663Z</updated>
     
     <summary type="html">
     
@@ -405,19 +433,19 @@
     </summary>
     
     
-      <category term="前端" scheme="https://aocoding.com/categories/%E5%89%8D%E7%AB%AF/"/>
+      <category term="前端" scheme="https://jscoder.com/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-      <category term="Typescript" scheme="https://aocoding.com/tags/Typescript/"/>
+      <category term="Typescript" scheme="https://jscoder.com/tags/Typescript/"/>
     
   </entry>
   
   <entry>
     <title>webstorm 中调试typescript单文件</title>
-    <link href="https://aocoding.com/2020/05/22/qian-duan/debugger-typescript-in-webstorm/"/>
-    <id>https://aocoding.com/2020/05/22/qian-duan/debugger-typescript-in-webstorm/</id>
+    <link href="https://jscoder.com/2020/05/22/front-end/debugger-typescript-in-webstorm/"/>
+    <id>https://jscoder.com/2020/05/22/front-end/debugger-typescript-in-webstorm/</id>
     <published>2020-05-22T02:56:35.000Z</published>
-    <updated>2021-03-22T23:13:43.333Z</updated>
+    <updated>2021-04-11T09:01:51.663Z</updated>
     
     <summary type="html">
     
@@ -433,19 +461,19 @@
     </summary>
     
     
-      <category term="前端" scheme="https://aocoding.com/categories/%E5%89%8D%E7%AB%AF/"/>
+      <category term="前端" scheme="https://jscoder.com/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-      <category term="typescript" scheme="https://aocoding.com/tags/typescript/"/>
+      <category term="typescript" scheme="https://jscoder.com/tags/typescript/"/>
     
   </entry>
   
   <entry>
     <title>code-surfer 中文翻译</title>
-    <link href="https://aocoding.com/2020/05/12/fan-yi/code-surfer-zh/"/>
-    <id>https://aocoding.com/2020/05/12/fan-yi/code-surfer-zh/</id>
+    <link href="https://jscoder.com/2020/05/12/translation/code-surfer-zh/"/>
+    <id>https://jscoder.com/2020/05/12/translation/code-surfer-zh/</id>
     <published>2020-05-11T22:25:00.000Z</published>
-    <updated>2021-03-22T23:13:43.333Z</updated>
+    <updated>2021-04-11T09:01:51.663Z</updated>
     
     <summary type="html">
     
@@ -460,19 +488,19 @@
     </summary>
     
     
-      <category term="翻译" scheme="https://aocoding.com/categories/%E7%BF%BB%E8%AF%91/"/>
+      <category term="翻译" scheme="https://jscoder.com/categories/%E7%BF%BB%E8%AF%91/"/>
     
     
-      <category term="code-surfer" scheme="https://aocoding.com/tags/code-surfer/"/>
+      <category term="code-surfer" scheme="https://jscoder.com/tags/code-surfer/"/>
     
   </entry>
   
   <entry>
     <title>在nuxtjs中组织api调用</title>
-    <link href="https://aocoding.com/2020/04/20/qian-duan/axios-in-nuxt/"/>
-    <id>https://aocoding.com/2020/04/20/qian-duan/axios-in-nuxt/</id>
+    <link href="https://jscoder.com/2020/04/20/front-end/axios-in-nuxt/"/>
+    <id>https://jscoder.com/2020/04/20/front-end/axios-in-nuxt/</id>
     <published>2020-04-20T02:58:44.000Z</published>
-    <updated>2021-03-22T23:13:43.333Z</updated>
+    <updated>2021-04-11T09:01:51.663Z</updated>
     
     <summary type="html">
     
@@ -487,19 +515,19 @@
     </summary>
     
     
-      <category term="前端" scheme="https://aocoding.com/categories/%E5%89%8D%E7%AB%AF/"/>
+      <category term="前端" scheme="https://jscoder.com/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-      <category term="nuxt" scheme="https://aocoding.com/tags/nuxt/"/>
+      <category term="nuxt" scheme="https://jscoder.com/tags/nuxt/"/>
     
   </entry>
   
   <entry>
     <title>基础Linux学习</title>
-    <link href="https://aocoding.com/2020/03/29/yun-wei/learnlinux/"/>
-    <id>https://aocoding.com/2020/03/29/yun-wei/learnlinux/</id>
+    <link href="https://jscoder.com/2020/03/29/ops/learnlinux/"/>
+    <id>https://jscoder.com/2020/03/29/ops/learnlinux/</id>
     <published>2020-03-29T12:03:48.000Z</published>
-    <updated>2021-03-22T23:13:43.333Z</updated>
+    <updated>2021-04-11T09:01:51.663Z</updated>
     
     <summary type="html">
     
@@ -515,21 +543,21 @@
     </summary>
     
     
-      <category term="运维" scheme="https://aocoding.com/categories/%E8%BF%90%E7%BB%B4/"/>
+      <category term="运维" scheme="https://jscoder.com/categories/%E8%BF%90%E7%BB%B4/"/>
     
     
-      <category term="Linux" scheme="https://aocoding.com/tags/Linux/"/>
+      <category term="Linux" scheme="https://jscoder.com/tags/Linux/"/>
     
-      <category term="运维" scheme="https://aocoding.com/tags/%E8%BF%90%E7%BB%B4/"/>
+      <category term="运维" scheme="https://jscoder.com/tags/%E8%BF%90%E7%BB%B4/"/>
     
   </entry>
   
   <entry>
     <title>前端nuxt框架ssr初体验</title>
-    <link href="https://aocoding.com/2020/03/08/qian-duan/qian-duan-nuxt-kuang-jia-ssr-chu-ti-yan/"/>
-    <id>https://aocoding.com/2020/03/08/qian-duan/qian-duan-nuxt-kuang-jia-ssr-chu-ti-yan/</id>
+    <link href="https://jscoder.com/2020/03/08/front-end/qian-duan-nuxt-kuang-jia-ssr-chu-ti-yan/"/>
+    <id>https://jscoder.com/2020/03/08/front-end/qian-duan-nuxt-kuang-jia-ssr-chu-ti-yan/</id>
     <published>2020-03-08T12:16:00.000Z</published>
-    <updated>2021-03-22T23:13:43.333Z</updated>
+    <updated>2021-04-11T09:01:51.663Z</updated>
     
     <summary type="html">
     
@@ -544,38 +572,10 @@
     </summary>
     
     
-      <category term="前端" scheme="https://aocoding.com/categories/%E5%89%8D%E7%AB%AF/"/>
+      <category term="前端" scheme="https://jscoder.com/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-      <category term="nuxt" scheme="https://aocoding.com/tags/nuxt/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>nest 初体验</title>
-    <link href="https://aocoding.com/2020/02/23/hou-duan/nest-chu-ti-yan/"/>
-    <id>https://aocoding.com/2020/02/23/hou-duan/nest-chu-ti-yan/</id>
-    <published>2020-02-23T09:07:03.000Z</published>
-    <updated>2021-03-22T23:13:43.333Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;假期中，学习了&lt;code&gt;nest&lt;/code&gt;这个node后端框架。感觉整体比较简约，学习相对来说，比较容易。本篇，写一下自己对这个框架的理解。&lt;/p&gt;
-&lt;h3 id=&quot;特点&quot;&gt;&lt;a href=&quot;#特点&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="后端" scheme="https://aocoding.com/categories/%E5%90%8E%E7%AB%AF/"/>
-    
-    
-      <category term="nest" scheme="https://aocoding.com/tags/nest/"/>
+      <category term="nuxt" scheme="https://jscoder.com/tags/nuxt/"/>
     
   </entry>
   

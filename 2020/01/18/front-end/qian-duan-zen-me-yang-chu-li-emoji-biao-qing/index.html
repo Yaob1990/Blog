@@ -1,0 +1,980 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="前端怎么样处理emoji表情, 不知">
+    <meta name="description" content="
+一个 bug 的心路历程…
+😀：新项目耶 ✌
+🤔：怎么做是最佳实践呢
+😁：终于好了
+😎：测试通过，顺利上线
+😱🥵😡：什么，线上 bug！
+
+一般而言，不推荐前端处理 emoji，最好的方式还是把数据库修改成 utf8mb4格">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>前端怎么样处理emoji表情 | 不知</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    
+    <script src="/libs/jquery/jquery.min.js"></script>
+    
+<meta name="generator" content="Hexo 4.1.1"><link rel="alternate" href="/atom.xml" title="不知" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper head-container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">不知</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">不知</div>
+        <div class="logo-desc">
+            
+            没有绝境，只是绝望的心态
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('../../coverImages/emoji.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">前端怎么样处理emoji表情</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/JSON/">
+                                <span class="chip bg-color">JSON</span>
+                            </a>
+                        
+                            <a href="/tags/emoji/">
+                                <span class="chip bg-color">emoji</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                前端
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-01-18
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    931
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    3 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <blockquote>
+<p>一个 bug 的心路历程…</p>
+<p>😀：新项目耶 ✌</p>
+<p>🤔：怎么做是最佳实践呢</p>
+<p>😁：终于好了</p>
+<p>😎：测试通过，顺利上线</p>
+<p>😱🥵😡：什么，线上 bug！</p>
+</blockquote>
+<p>一般而言，不推荐前端处理 emoji，最好的方式还是把数据库修改成 <code>utf8mb4</code>格式，但是，如果数据库不在你这里呢？如果是一个延续性项目呢…那前端可能没办法,就要自己去处理 emoji 了。</p>
+<h3 id="emoji-是什么"><a href="#emoji-是什么" class="headerlink" title="emoji 是什么"></a>emoji 是什么</h3><p>emoji 是字符，不是图片。emoji 使用 Unicode 编码方式，可以方便的转换成其他格式。</p>
+<p><a href="https://zh.wikipedia.org/wiki/%E7%B9%AA%E6%96%87%E5%AD%97" target="_blank" rel="noopener">维基百科关于 emoji 的介绍</a></p>
+<p><a href="https://charbase.com/1f602-unicode-face-with-tears-of-joy" target="_blank" rel="noopener">charbase.com</a> ，网站提供了，各种格式 emoji 编码的查看方式：</p>
+<p><img src="/images/image-20200118191909665.png" alt="笑哭"></p>
+<p>上图可以方便的查看笑哭的 Unicode 编码：U+1F602，Javascript Escape：”\ud83d\ude02”等。</p>
+<h3 id="常见-emoji-处理方式"><a href="#常见-emoji-处理方式" class="headerlink" title="常见 emoji 处理方式"></a>常见 emoji 处理方式</h3><ol>
+<li>后台更改数据库格式为<code>utf8mb4</code>格式</li>
+<li>使用文字替换，比如微信，QQ 等是使用<code>[笑哭]</code>格式表示 😂，</li>
+<li>文字替换，但是不使用系统的 emoji，而是根据文字显示图片，实现多端显示统一</li>
+<li>使用系统自带的 emoji 表情</li>
+</ol>
+<h3 id="emoji-常用转换函数"><a href="#emoji-常用转换函数" class="headerlink" title="emoji 常用转换函数"></a>emoji 常用转换函数</h3><p>转换函数，涉及到 unicode 的编码算法，属于专有领域知识，比较复杂，需要的时候复制就行了…不必深究。</p>
+<p>方法一：转成Unicode</p>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// https://github.com/channg/umoji/blob/master/src/emojiToUnicode.js</span>
+<span class="token comment" spellcheck="true">// 转换为js编码方式  😀=>"\ud83d\ude00"</span>
+<span class="token keyword">function</span> <span class="token function">emojiToUnicode</span><span class="token punctuation">(</span>emoji<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> backStr <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>emoji <span class="token operator">&amp;&amp;</span> emoji<span class="token punctuation">.</span>length <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> char <span class="token keyword">of</span> emoji<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> index <span class="token operator">=</span> char<span class="token punctuation">.</span><span class="token function">codePointAt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>index <span class="token operator">></span> <span class="token number">65535</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> h <span class="token operator">=</span>
+          <span class="token string">"\\u"</span> <span class="token operator">+</span> <span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span><span class="token punctuation">(</span>index <span class="token operator">-</span> <span class="token number">0x10000</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">0x400</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">0xd800</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">const</span> c <span class="token operator">=</span> <span class="token string">"\\u"</span> <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span>index <span class="token operator">-</span> <span class="token number">0x10000</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">0x400</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">0xdc00</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        backStr <span class="token operator">=</span> backStr <span class="token operator">+</span> h <span class="token operator">+</span> c<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        backStr <span class="token operator">=</span> backStr <span class="token operator">+</span> char<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>backStr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> backStr<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</code></pre>
+<p>方法二：转成HTML实体编码</p>
+<p><strong>不推荐！！！</strong></p>
+<p>如果显示HTML编码，那么在<code>vue</code>框架中必须使用<code>v-html</code>,这是非常危险的，很容易导致<code>xss</code>攻击！</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// https://jordonwang.github.io/2018/06/06/emoji-string/</span>
+<span class="token comment" spellcheck="true">// 转换为HTML实体字符</span>
+<span class="token keyword">function</span> <span class="token function">emojiToHTMLEscape</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> patt <span class="token operator">=</span> <span class="token regex">/[\ud800-\udbff][\udc00-\udfff]/g</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 检测utf16字符正则</span>
+  str <span class="token operator">=</span> str<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span>patt<span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>char<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> H<span class="token punctuation">,</span> L<span class="token punctuation">,</span> code<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>char<span class="token punctuation">.</span>length <span class="token operator">===</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      H <span class="token operator">=</span> char<span class="token punctuation">.</span><span class="token function">charCodeAt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 取出高位</span>
+      L <span class="token operator">=</span> char<span class="token punctuation">.</span><span class="token function">charCodeAt</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 取出低位</span>
+      code <span class="token operator">=</span> <span class="token punctuation">(</span>H <span class="token operator">-</span> <span class="token number">0xd800</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">0x400</span> <span class="token operator">+</span> <span class="token number">0x10000</span> <span class="token operator">+</span> L <span class="token operator">-</span> <span class="token number">0xdc00</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 转换算法</span>
+      <span class="token keyword">return</span> <span class="token string">"&amp;#"</span> <span class="token operator">+</span> code <span class="token operator">+</span> <span class="token string">";"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> char<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> str<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>如果想深入研究，可以参考：</p>
+<p><a href="https://blog.csdn.net/binjly/article/details/47321043" target="_blank" rel="noopener">移动前端手机输入法自带 emoji 表情字符处理</a></p>
+<p><a href="http://www.ruanyifeng.com/blog/2014/12/unicode.html" target="_blank" rel="noopener">Unicode 与 JavaScript 详解</a></p>
+<h3 id="bug-场景及解决办法"><a href="#bug-场景及解决办法" class="headerlink" title="bug 场景及解决办法"></a>bug 场景及解决办法</h3><pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 数据来自服务端,我传递时候做JSON编码，\被转义为\\</span>
+<span class="token keyword">let</span> serverValue <span class="token operator">=</span> <span class="token string">"\\ud83d\\ude00\\ud83d\\ude00"</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> value <span class="token operator">=</span> JSON<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>serverValue<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">&lt;</span>div<span class="token operator">></span><span class="token punctuation">{</span>value<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span><span class="token punctuation">;</span></code></pre>
+<p>看起来是一切正常，没有问题。我传递给后端的数据，做<code>JSON.Stringfy(value)</code>编码，拿到时候，再对字符串做 <code>JSON.parse(value)</code>解码。</p>
+<p>但是，线上报错。仔细研究发现，有些数据，并不是我传递给后端的，而这些数据里面含有 JSON 的非法字符，导致 JSON 报错。</p>
+<p>解决方式也简单：</p>
+<ol>
+<li>不使用 JSON.parse 解码，直接替换\\为\,就可以直接显示在页面上</li>
+<li>如果使用 JSON.parse 解码，加个 try catch</li>
+</ol>
+<p>似乎问题解决了，但是JS似乎并不能很好的处理\\为\，<a href="https://stackoverflow.com/questions/33685680/emoji-surrogate-string-with-javascript-how-to-parse" target="_blank" rel="noopener">stackoverflow</a>这个方法正则方法可以：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">parseUnicode</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">var</span> r <span class="token operator">=</span> <span class="token regex">/\\u([\d\w]{4})/gi</span><span class="token punctuation">;</span>
+    str <span class="token operator">=</span> str<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span>r<span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>match<span class="token punctuation">,</span> grp<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> String<span class="token punctuation">.</span><span class="token function">fromCharCode</span><span class="token punctuation">(</span><span class="token function">parseInt</span><span class="token punctuation">(</span>grp<span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> str<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>在线测试：</p>
+<iframe scrolling="no" width="100%" height="500" src="https://jsfiddle.net/wukong/6e1fjz4w/23/embedded/js,html,result/dark" frameborder="0" loading="lazy" allowfullscreen></iframe>
+
+
+
+<h3 id="JSON-对字符串的处理"><a href="#JSON-对字符串的处理" class="headerlink" title="JSON 对字符串的处理"></a>JSON 对字符串的处理</h3><p>前端使用 json，基本都是对 object 进行编码，解码，很少对字符串进行编码解码。如果 JSON.parse()遇到’&#39;，往往会报错，基本上都需要转义为‘’\\‘</p>
+<p>自己对<code>JSON</code>规范并不熟悉，关于<code>JSON</code>以后单独再写一篇。</p>
+<p><img src="/images/image-20200118203439540.png" alt="JSON 转义测试"></p>
+<img src="/images/json.png" alt="轨道图" style="zoom: 33%;" />
+
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>问题最终定位在 JSON 的转义上面，虽然天天在用 JSON，但是并不理解，查了很多资料，还是一星半解，这篇博客是很难写好了…</p>
+
+            </div>
+            <hr/>
+
+            
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/JSON/">
+                                    <span class="chip bg-color">JSON</span>
+                                </a>
+                            
+                                <a href="/tags/emoji/">
+                                    <span class="chip bg-color">emoji</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2020/02/23/back-endback-end-nest-chu-ti-yan/">
+                    <div class="card-image">
+                        
+                        <img src="/../../coverImages/nest.svg" class="responsive-img" alt="nest 初体验">
+                        
+                        <span class="card-title">nest 初体验</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            假期中，学习了nest这个node后端框架。感觉整体比较简约，学习相对来说，比较容易。本篇，写一下自己对这个框架的理解。
+特点
+类angular的代码组织形式:imports、module、service
+基于typescript，面向未来
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-02-23
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                    后端
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/nest/">
+                        <span class="chip bg-color">nest</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/01/05/front-end/cong-axios-yuan-ma-xue-xi-promise-de-miao-yong/">
+                    <div class="card-image">
+                        
+                        <img src="/../../coverImages/axios.jpg" class="responsive-img" alt="从Axios源码学习Promise的妙用">
+                        
+                        <span class="card-title">从Axios源码学习Promise的妙用</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            惭愧，虽然一直在使用Promise/async/await，但是自己其实对Promise并不是特别理解，导致这次遇到问题时候，一直不是特别明白。
+
+需求分析
+需求：前端定时刷新 token 接口
+
+分析：看起来不复杂，但是如果考虑到 tok
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-05
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/promise/">
+                        <span class="chip bg-color">promise</span>
+                    </a>
+                    
+                    <a href="/tags/axios/">
+                        <span class="chip bg-color">axios</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number(''),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+    <footer class="page-footer bg-color">
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 l12 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2018</span>
+            <a href="https://jscoder.com" target="_blank">Yao</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2018";
+                    var startMonth = "1";
+                    var startDate = "1";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+            <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                <a href="http://beian.miit.gov.cn/" target="_blank">苏ICP备15047519号-4</a>
+            </span>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/Yaob1990" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!---->
+<!--    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">-->
+<!--        <i class="fas fa-rss"></i>-->
+<!--    </a>-->
+<!---->
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-134816961-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'UA-134816961-1');
+</script>
+
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+    
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
