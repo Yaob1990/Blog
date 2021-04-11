@@ -60,7 +60,7 @@ cover:
 dream:
   enable: true
   showTitle: true
-  title: 
+  title:
   text: 两条平行线就是它们相交于无穷远
   #text: 当这个时代到来的时候，锐不可当。万物肆意生长，尘埃与曙光升腾，江河汇聚成川，无名山丘崛起为峰，天地一时，无比开阔。——吴晓波
 
@@ -72,10 +72,10 @@ music:
   title: 听听音乐
   fixed: false # 开启吸底模式
   autoplay: false # 是否自动播放
-  theme: "#42b983"
-  loop: "all" # 音频循环播放, 可选值: 'all', 'one', 'none'
-  order: "list" # 音频循环顺序, 可选值: 'list', 'random'
-  preload: "auto" # 预加载，可选值: 'none', 'metadata', 'auto'
+  theme: '#42b983'
+  loop: 'all' # 音频循环播放, 可选值: 'all', 'one', 'none'
+  order: 'list' # 音频循环顺序, 可选值: 'list', 'random'
+  preload: 'auto' # 预加载，可选值: 'none', 'metadata', 'auto'
   volume: 0.7 # 默认音量，请注意播放器会记忆用户设置，用户手动设置音量后默认音量即失效
   listFolded: false # 列表默认折叠
   listMaxHeight: #列表最大高度
@@ -91,9 +91,9 @@ video:
   thumbnails:
   height: # 如：400
   autoplay: false # 是否自动播放
-  theme: "#42b983"
+  theme: '#42b983'
   loop: false # 是否循环播放
-  preload: "auto" # 预加载，可选值: 'none', 'metadata', 'auto'
+  preload: 'auto' # 预加载，可选值: 'none', 'metadata', 'auto'
   volume: 0.7
 
 # Whether to display the title of the recommended posts
@@ -121,7 +121,7 @@ indexbtn:
 # icon/button will not show up if you leave the corresponding socialLink empty
 # 首页 banner 中的第二行个人信息配置，留空即不启用
 socialLink:
-  github: # https://github.com/xxx
+  github: https://github.com/Yaob1990
   email: # xxx@xxx.com
   facebook: # https://www.facebook.com/xxx
   twitter: # https://twitter.com/xxx
@@ -196,7 +196,7 @@ clicklove:
 profile:
   avatar: /medias/avatar.jpg
   career: 软件工程师
-  introduction: 我想写出更好的代码
+  introduction: 我要写出更好的代码
 
 # config my projects informations in about page.
 # If you don't want to display this `My Projects` content, you can deactivate or delete this configuration.
@@ -206,17 +206,17 @@ myProjects:
   data:
     hexo-theme-matery:
       icon: fas fa-file-alt
-      iconBackground: "linear-gradient(to bottom right, #66BB6A 0%, #81C784 100%)"
+      iconBackground: 'linear-gradient(to bottom right, #66BB6A 0%, #81C784 100%)'
       url: http://github.com/blinkfox/hexo-theme-matery
       desc: This is a Hexo blog theme with 'Material Design' and responsive design.
     zealt:
       icon: fas fa-database
-      iconBackground: "linear-gradient(to bottom right, #F06292 0%, #EF5350 100%)"
+      iconBackground: 'linear-gradient(to bottom right, #F06292 0%, #EF5350 100%)'
       url: https://github.com/blinkfox/zealot
       desc: 一个轻量级的SQL和参数动态生成工具库
     typora-vue-theme:
       icon: fas fa-file-alt
-      iconBackground: "linear-gradient(to bottom right, #29B6F6 0%, #1E88E5 100%)"
+      iconBackground: 'linear-gradient(to bottom right, #29B6F6 0%, #1E88E5 100%)'
       url: https://github.com/blinkfox/typora-vue-theme
       desc: This is a typora theme inspired by Vue document style.
 
@@ -227,22 +227,22 @@ mySkills:
   enable: false
   data:
     Java:
-      background: "linear-gradient(to right, #FF0066 0%, #FF00CC 100%)"
+      background: 'linear-gradient(to right, #FF0066 0%, #FF00CC 100%)'
       percent: 85%
     JavaScript:
-      background: "linear-gradient(to right, #9900FF 0%, #CC66FF 100%)"
+      background: 'linear-gradient(to right, #9900FF 0%, #CC66FF 100%)'
       percent: 80%
     HTML5:
-      background: "linear-gradient(to right, #2196F3 0%, #42A5F5 100%)"
+      background: 'linear-gradient(to right, #2196F3 0%, #42A5F5 100%)'
       percent: 80%
     CSS:
-      background: "linear-gradient(to right, #00BCD4 0%, #80DEEA 100%)"
+      background: 'linear-gradient(to right, #00BCD4 0%, #80DEEA 100%)'
       percent: 70%
     SQL:
-      background: "linear-gradient(to right, #4CAF50 0%, #81C784 100%)"
+      background: 'linear-gradient(to right, #4CAF50 0%, #81C784 100%)'
       percent: 90%
     程序设计:
-      background: "linear-gradient(to right, #FFEB3B 0%, #FFF176 100%)"
+      background: 'linear-gradient(to right, #FFEB3B 0%, #FFF176 100%)'
       percent: 75%
 
 # config gallery of my photos in about page.
@@ -302,9 +302,9 @@ valine:
   notify: false
   verify: false
   visitor: true
-  avatar: "mm" # Gravatar style : mm/identicon/monsterid/wavatar/retro/hide
+  avatar: 'mm' # Gravatar style : mm/identicon/monsterid/wavatar/retro/hide
   pageSize: 10
-  placeholder: "just go go" # Comment Box placeholder
+  placeholder: 'just go go' # Comment Box placeholder
   background: /medias/comment_bg.png
 
 # Whether to display fork me on github icon and link, default true, You can change it to your repo address
@@ -432,7 +432,7 @@ featureImages:
 # noreprint（不允许转载 not allowed to reprint）
 # pay（付费转载 pay for reprinting）
 reprint:
-  enable: true # whether enable reprint section 是否启用“转载规则限定模块”
+  enable: false # whether enable reprint section 是否启用“转载规则限定模块”
   default: cc_by
 
 # DaoVoice online contact
@@ -492,7 +492,7 @@ subtitle:
 # 手机二级菜单.
 navMenu:
   mleft: false # 二级侧栏子菜单是否对齐左边
-  bgColor: " " # 二级侧栏子菜单背景颜色,留空即为全局背景色
+  bgColor: ' ' # 二级侧栏子菜单背景颜色,留空即为全局背景色
 
 # 网页预加载.
 instantpage:
