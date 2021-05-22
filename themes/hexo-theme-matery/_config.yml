@@ -339,7 +339,7 @@ busuanziStatistics:
 # 添加 Google Analytics 配置
 googleAnalytics:
   enable: true
-  id: UA-134816961-1
+  id: G-NNFT7CSJRC
 
 # Add baidu analytics configuration
 # 添加 baidu Analytics 配置
