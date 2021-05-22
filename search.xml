@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>运动步数修改器 web 版本</title>
+      <link href="/2021/05/22/front-end/sync-movement-steps/"/>
+      <url>/2021/05/22/front-end/sync-movement-steps/</url>
+      
+        <content type="html"><![CDATA[<p><img src="/images/16216988358049.jpg"></p><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol><li>修改本地步数，比如健康的数据，比较麻烦，没有找到特别方便的方法。</li><li>摇步器，慢慢慢，工作时间内只能摇 20 公里左右</li><li>通过第三方同步数据，比如乐心健康，小米运动等通过接口同步到微星、支付宝等平台</li></ol><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>实现其实挺简单的，github 上面的代码也挺多，包括 nodejs 的实现，shell 的实现，python 的实现。<br>这里我们选择了 nodejs 的实现，前端使用 react + antd，后端使用 nestjs，使用时候，直接返回日志给用户，方便用户查看失败详情。<br>代码写的比较烂，就暂时不开源了。<br>访问地址：<a href="https://walk.jscoder.com/" target="_blank" rel="noopener">https://walk.jscoder.com/</a></p><h2 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h2><ol><li>注册小米运动 app</li><li>小米运动 app，我的-第三方接入，设置接入的第三方平台，支持微信、QQ、支付宝、阿里体育</li><li><a href="https://walk.jscoder.com/" target="_blank" rel="noopener">https://walk.jscoder.com/</a> 输入小米运动的账号密码，需要的步数，点击确定</li></ol><h3 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h3><ol><li>不要频繁修改你的数据</li><li>不要在 0:00 ~ 5:00 这个时间段修改你的数据</li><li>我不会记录你的密码，但是依然建议你使用临时密码</li></ol><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul><li><a href="https://github.com/Devifish/sport-editor" target="_blank" rel="noopener">Devifish/sport-editor: 通过小米运动API实现的自动刷运动步数工具😒（可同步到微信、支付宝）</a></li><li><a href="https://github.com/mixool/mimotion" target="_blank" rel="noopener">mixool/mimotion: 小米运动 微信步数 支付宝步数</a></li><li><a href="https://github.com/lisztomania-Zero/SportsChange" target="_blank" rel="noopener">lisztomania-Zero/SportsChange: 微信、支付宝、QQ、阿里体育运动步数修改</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>【支付宝小程序】我们常用的 &#39;my&#39; 是什么？</title>
       <link href="/2021/04/24/front-end/mini-my/"/>
       <url>/2021/04/24/front-end/mini-my/</url>

@@ -4,8 +4,14 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="【支付宝小程序】我们常用的 &#39;my&#39; 是什么？, 不知">
-    <meta name="description" content="支付宝小程序开发中我们使用的 my 其实就是 jsbrige 注入的一个对象。JSBridge，简单来说就是web和native之间的桥梁,有了它你就可以在web页面中唤起native应用提供的能力。例如：唤起相册，获取应用登陆用户信息等等">
+    <meta name="keywords" content="运动步数修改器 web 版本, 不知">
+    <meta name="description" content="
+思路
+修改本地步数，比如健康的数据，比较麻烦，没有找到特别方便的方法。
+摇步器，慢慢慢，工作时间内只能摇 20 公里左右
+通过第三方同步数据，比如乐心健康，小米运动等通过接口同步到微星、支付宝等平台
+
+实现实现其实挺简单的，github ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +19,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>【支付宝小程序】我们常用的 &#39;my&#39; 是什么？ | 不知</title>
+    <title>运动步数修改器 web 版本 | 不知</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -219,12 +225,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('../../coverImages/mini-alipay.jpeg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('../../coverImages/step.jpeg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">【支付宝小程序】我们常用的 &#39;my&#39; 是什么？</h1>
+                    <h1 class="description center-align post-title">运动步数修改器 web 版本</h1>
                 </div>
             </div>
         </div>
@@ -339,13 +345,9 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
-                                <span class="chip bg-color">小程序</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -366,7 +368,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-04-24
+                    2021-05-22
                 </div>
                 
 
@@ -375,14 +377,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    849
+                    372
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    1 分
                 </div>
                 
 
@@ -398,429 +400,27 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>支付宝小程序开发中我们使用的 <code>my</code> 其实就是 jsbrige 注入的一个对象。<br>JSBridge，简单来说就是web和native之间的桥梁,有了它你就可以在web页面中唤起native应用提供的能力。例如：唤起相册，获取应用登陆用户信息等等。</p>
-<p>在支付宝小程序中，’my’ 这个对象可读可写。</p>
-<pre class=" language-js"><code class="language-js">my<span class="token punctuation">.</span>a <span class="token operator">=</span> <span class="token number">1</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>my<span class="token punctuation">.</span>a<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 1</span></code></pre>
-<h2 id="遍历-my-对象"><a href="#遍历-my-对象" class="headerlink" title="遍历 my 对象"></a>遍历 my 对象</h2><pre class=" language-js"><code class="language-js"> Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>my<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>key <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
- <span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
-<p>结果：</p>
-<pre class=" language-js"><code class="language-js">isIDE 
-on 
-off 
-emit 
-callSync 
-call 
-reLaunch 
-navigateTo 
-switchTab 
-redirectTo 
-navigateBack 
-postMessage 
-createAnimation 
-pageScrollTo 
-loadPlugin 
-SDKVersion 
-ExtSDKVersion 
-getExtConfigSync 
-getAppIdSync 
-getExtConfig 
-canIUse 
-onAppShow 
-offAppShow 
-onAppHide 
-offAppHide 
-getLaunchOptionsSync 
-onError 
-offError 
-onUnhandledRejection 
-offUnhandledRejection 
-env 
-createWorker 
-connectSocket 
-downloadFile 
-uploadFile 
-request 
-uploadFileToAliCloud 
-createInnerAudioContext 
-getBackgroundAudioManager 
-createAudioContext 
-reportAnalytics 
-reportCustomEvent 
-getChinfoChain 
-appendChinfoChain 
-createSelectorQuery 
-navigateToMiniService 
-navigateBackFromMiniService 
-startMiniService 
-setOptionMenu 
-getOpenUserInfo 
-getPhoneNumber 
-getIDNumber 
-getRecorderManager 
-getUpdateManager 
-getFileSystemManager 
-createIntersectionObserver 
-_fireIntersectionObserver 
-loadFontFace 
-createRDSContext 
-stopPullDownRefresh 
-hideKeyboard 
-__reportFrameworkPerf 
-reportCustomError 
-saveSnapshot 
-saveTemplateSnapshot 
-showSharePanel 
-hideDebugVersion 
-getSelectedTextRange 
-canvasToTempFilePath 
-preloadCanvasImage 
-createCanvasContext 
-_createCanvas 
-_createOffscreenCanvas 
-createWebViewContext 
-createAICameraContext 
-createARContext 
-createCameraContext 
-createLivePlayerContext 
-createLivePusherContext 
-createLottieContext 
-createMapContext 
-createVideoContext 
-rpc 
-ocr 
-ap 
-startRecord 
-stopRecord 
-cancelRecord 
-playVoice 
-pauseVoice 
-resumeVoice 
-stopVoice 
-playBackgroundAudio 
-pauseBackgroundAudio 
-stopBackgroundAudio 
-seekBackgroundAudio 
-getBackgroundAudioPlayerState 
-onBackgroundAudioPlay 
-offBackgroundAudioPlay 
-onBackgroundAudioPause 
-offBackgroundAudioPause 
-onBackgroundAudioStop 
-offBackgroundAudioStop 
-getAvailableAudioSources 
-openBluetoothAdapter 
-closeBluetoothAdapter 
-getBluetoothAdapterState 
-startBluetoothDevicesDiscovery 
-stopBluetoothDevicesDiscovery 
-getBluetoothDevices 
-getConnectedBluetoothDevices 
-connectBLEDevice 
-disconnectBLEDevice 
-writeBLECharacteristicValue 
-readBLECharacteristicValue 
-notifyBLECharacteristicValueChange 
-getBLEDeviceServices 
-getBLEDeviceCharacteristics 
-onBLECharacteristicValueChange 
-offBLECharacteristicValueChange 
-onBLEConnectionStateChanged 
-offBLEConnectionStateChanged 
-onBluetoothDeviceFound 
-offBluetoothDeviceFound 
-startBeaconDiscovery 
-stopBeaconDiscovery 
-getBeacons 
-onBeaconUpdate 
-offBeaconUpdate 
-onBeaconServiceChange 
-offBeaconServiceChange 
-openBLEPeripheral 
-closeBLEPeripheral 
-addPeripheralService 
-removePeripheralService 
-updateCharacteristic 
-startBLEAdvertising 
-stopBLEAdvertising 
-onBluetoothAdapterStateChange 
-offBluetoothAdapterStateChange 
-onCharacteristicRead 
-offCharacteristicRead 
-onCharacteristicWrite 
-offCharacteristicWrite 
-onCharacteristicDidSubscribe 
-offCharacteristicDidSubscribe 
-onCharacteristicDidUnsubscribe 
-offCharacteristicDidUnsubscribe 
-addPhoneContact 
-getSystemInfoSync 
-onGyroscopeChange 
-offGyroscopeChange 
-onAccelerometerChange 
-offAccelerometerChange 
-onCompassChange 
-offCompassChange 
-getServerTime 
-makePhoneCall 
-vibrate 
-watchShake 
-rsa 
-sendSMS 
-setKeepScreenOn 
-setClipboard 
-getClipboard 
-scan 
-getSystemInfo 
-setScreenBrightness 
-getScreenBrightness 
-startWifi 
-stopWifi 
-connectWifi 
-getWifiList 
-setWifiList 
-getConnectedWifi 
-onGetWifiList 
-offGetWifiList 
-onWifiConnected 
-offWifiConnected 
-onMemoryWarning 
-offMemoryWarning 
-vibrateLong 
-vibrateShort 
-getHCEState 
-startHCE 
-stopHCE 
-onHCEMessage 
-offHCEMessage 
-sendHCEMessage 
-getBatteryInfo 
-getBatteryInfoSync 
-onDeviceMotionChange 
-offDeviceMotionChange 
-getDeviceInfo 
-registerSSID 
-unregisterSSID 
-getCarrierName 
-isSystemRoot 
-setScreenOrientation 
-getScreenOrientation 
-getDeviceID 
-exit 
-seNFCServiceIsv 
-addEventCal 
-addEventCalendar 
-onLowPowerWarning 
-offLowPowerWarning 
-isLowPowerMode 
-getLocation 
-openLocation 
-chooseLocation 
-reGeoCode 
-geoCode 
-onContinuousLocation 
-offContinuousLocation 
-startContinuousLocation 
-stopContinuousLocation 
-calculateRoute 
-compressImage 
-previewImage 
-chooseFileFromDisk 
-chooseImage 
-chooseVideo 
-saveImage 
-getImageInfo 
-saveVideoToPhotosAlbum 
-generateImageFromCode 
-saveImageToPhotosAlbum 
-textToSpeech 
-onAudioInterruptionBegin 
-onAudioInterruptionEnd 
-offAudioInterruptionBegin 
-offAudioInterruptionEnd 
-httpRequest 
-sendSocketMessage 
-closeSocket 
-onSocketOpen 
-offSocketOpen 
-onSocketMessage 
-offSocketMessage 
-onSocketError 
-offSocketError 
-onSocketClose 
-offSocketClose 
-getNetworkType 
-onNetworkStatusChange 
-offNetworkStatusChange 
-sendMtop 
-getTBCode 
-setTBSessionInfo 
-getTBSessionInfo 
-openRpc 
-tradePay 
-getUserInfo 
-getAuthCode 
-authorize 
-getAuthUserInfo 
-ARScan 
-addCardAuth 
-openSetting 
-getSetting 
-openCustomerService 
-getConfigService 
-getOpenUserData 
-openOtherApplication 
-donateInBrowser 
-getStorageInfo 
-getStorageInfoSync 
-setStorage 
-setStorageSync 
-getStorage 
-getStorageSync 
-clearStorage 
-clearStorageSync 
-removeStorage 
-removeStorageSync 
-showAuthGuide 
-getAuthStatus 
-alert 
-confirm 
-prompt 
-showToast 
-hideToast 
-showLoading 
-hideLoading 
-showNavigationBarLoading 
-hideNavigationBarLoading 
-setNavigationBar 
-showActionSheet 
-choosePhoneContact 
-chooseAlipayContact 
-datePicker 
-chooseCity 
-multiLevelSelect 
-optionsSelect 
-chooseContact 
-hideShareMenu 
-startPullDownRefresh 
-setTransparentTitle 
-showBackToHomepage 
-setViewTop 
-setCanPullDown 
-setBackgroundImage 
-removeBackgroundImage 
-setBackgroundColor 
-setBackgroundTextStyle 
-setBackButton 
-setLocatedCity 
-onLocatedComplete 
-setTabBarBadge 
-removeTabBarBadge 
-showTabBarRedDot 
-hideTabBarRedDot 
-setTabBarStyle 
-setTabBarItem 
-showTabBar 
-hideTabBar 
-getTitleColor 
-regionPicker 
-getMenuButtonBoundingClientRect 
-onUserCaptureScreen 
-offUserCaptureScreen 
-onTitleCloseClick 
-offTitleCloseClick 
-onTitleMoreClick 
-offTitleMoreClick 
-iotCreateService 
-iotCheckService 
-saveFile 
-removeSavedFile 
-getSavedFileInfo 
-getSavedFileList 
-getFileInfo 
-openDocument 
-openTaobao 
-reportBizReady 
-getVisitToken 
-navigateToCouponDetail 
-openCardList 
-openVoucherList 
-openTicketList 
-openCardDetail 
-openVoucherDetail 
-openTicketDetail 
-openMerchantCardList 
-openMerchantVoucherList 
-openMerchantTicketList 
-openKBVoucherDetail 
-paySignCenter 
-zmCreditBorrow 
-textRiskIdentification 
-openCarService 
-openChatWindow 
-__openLifePayment 
-chooseAddress 
-getAddress 
-startZMCreditRent 
-zmRentTransition 
-chooseInvoiceTitle 
-zmFreeDeposit 
-hideAddToDesktopMenu 
-hideAllAddToDesktopMenu 
-hideFavoriteMenu 
-hideAllFavoriteMenu 
-setCustomPopMenu 
-getRunScene 
-navigateToMiniProgram 
-navigateBackMiniProgram 
-isCollected 
-isFavorite 
-addToFavorite 
-removeFromFavorite 
-onFavorite 
-offFavorite 
-onInternalFavorite 
-offInternalFavorite 
-canFavorite 
-hideBackHome 
-getRunData 
-isSpeechRecognizeAvailable 
-startSpeechRecognize 
-stopSpeechRecognize 
-onSpeechRecognizeResult 
-offSpeechRecognizeResult 
-onSpeechRecognizeError 
-offSpeechRecognizeError 
-startZMVerify 
-startAPVerify 
-createRtcRoomContext 
-getExtConfig </code></pre>
-<p>所有在 my 这个对象上面挂载的方法都在这里了，比文档里面的要多得多。</p>
-<pre class=" language-js"><code class="language-js">on 
-off 
-emit</code></pre>
-<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// A 页面</span>
-my<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'test'</span><span class="token punctuation">,</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 被触发,回调被执行，打印出 {a:1}</span>
-<span class="token comment" spellcheck="true">// B 页面</span>
-my<span class="token punctuation">.</span><span class="token function">emit</span><span class="token punctuation">(</span><span class="token string">'test'</span><span class="token punctuation">,</span><span class="token punctuation">{</span>a<span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
-<p>这三个函数明显是事件总线的实现机制，经过测试完全可用（未测试低版本基础库） <del>~</del></p>
-<h2 id="通过-my-实现全局数据共享"><a href="#通过-my-实现全局数据共享" class="headerlink" title="通过 my 实现全局数据共享"></a>通过 my 实现全局数据共享</h2><p>一般小程序里面全局数据我们使用 globalData 处理，它本质上也只是一个全局对象。my 的性质和他类似，我们甚至可以修改 my 本身的数据，实现全局的页面数据共享</p>
-<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// A 页面</span>
-my<span class="token punctuation">.</span>a<span class="token operator">=</span><span class="token number">1</span>
-<span class="token comment" spellcheck="true">// B 页面</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>my<span class="token punctuation">.</span>a<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 1</span></code></pre>
-<p>完全没问题，这还是引用类型数据，如果修改就直接修改啦，不需要获取上一个页面的实例，然后再去写一大摞代码~<br>eg:</p>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> pages <span class="token operator">=</span> <span class="token function">getCurrentPages</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> lastPage <span class="token operator">=</span> pages<span class="token punctuation">[</span>pages<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-lastPage<span class="token punctuation">.</span><span class="token function">setData</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-    a<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<p>一对比，明显优雅太多太多了。</p>
-<h2 id="警告"><a href="#警告" class="headerlink" title="警告"></a>警告</h2><p>本篇博客的一些技法，都不是常规业务实现办法，责任自负。<br>小程序的这些非公共方法，在使用的时候，最好能做一层 polyfill，防止某些环境某些方法不存在。</p>
-<p>参考资料：</p>
-<ul>
-<li><a href="https://doingsth.github.io/yongqiang.shen/js/wxapp/" target="_blank" rel="noopener">教你做一个小程序框架 - yongqiang.shen</a></li>
+                <p><img src="/images/16216988358049.jpg"></p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
+<li>修改本地步数，比如健康的数据，比较麻烦，没有找到特别方便的方法。</li>
+<li>摇步器，慢慢慢，工作时间内只能摇 20 公里左右</li>
+<li>通过第三方同步数据，比如乐心健康，小米运动等通过接口同步到微星、支付宝等平台</li>
+</ol>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>实现其实挺简单的，github 上面的代码也挺多，包括 nodejs 的实现，shell 的实现，python 的实现。<br>这里我们选择了 nodejs 的实现，前端使用 react + antd，后端使用 nestjs，使用时候，直接返回日志给用户，方便用户查看失败详情。<br>代码写的比较烂，就暂时不开源了。<br>访问地址：<a href="https://walk.jscoder.com/" target="_blank" rel="noopener">https://walk.jscoder.com/</a></p>
+<h2 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h2><ol>
+<li>注册小米运动 app</li>
+<li>小米运动 app，我的-第三方接入，设置接入的第三方平台，支持微信、QQ、支付宝、阿里体育</li>
+<li><a href="https://walk.jscoder.com/" target="_blank" rel="noopener">https://walk.jscoder.com/</a> 输入小米运动的账号密码，需要的步数，点击确定</li>
+</ol>
+<h3 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h3><ol>
+<li>不要频繁修改你的数据</li>
+<li>不要在 0:00 ~ 5:00 这个时间段修改你的数据</li>
+<li>我不会记录你的密码，但是依然建议你使用临时密码</li>
+</ol>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://github.com/Devifish/sport-editor" target="_blank" rel="noopener">Devifish/sport-editor: 通过小米运动API实现的自动刷运动步数工具😒（可同步到微信、支付宝）</a></li>
+<li><a href="https://github.com/mixool/mimotion" target="_blank" rel="noopener">mixool/mimotion: 小米运动 微信步数 支付宝步数</a></li>
+<li><a href="https://github.com/lisztomania-Zero/SportsChange" target="_blank" rel="noopener">lisztomania-Zero/SportsChange: 微信、支付宝、QQ、阿里体育运动步数修改</a></li>
 </ul>
 
             </div>
@@ -834,11 +434,7 @@ lastPage<span class="token punctuation">.</span><span class="token function">set
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
-                                    <span class="chip bg-color">小程序</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -874,9 +470,10 @@ lastPage<span class="token punctuation">.</span><span class="token function">set
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2021/05/22/front-end/sync-movement-steps/">
                     <div class="card-image">
@@ -899,9 +496,9 @@ lastPage<span class="token punctuation">.</span><span class="token function">set
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-22
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-22
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -914,6 +511,7 @@ lastPage<span class="token punctuation">.</span><span class="token function">set
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -924,26 +522,23 @@ lastPage<span class="token punctuation">.</span><span class="token function">set
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/04/18/front-end/mini-waterflow-list/">
+                <a href="/2021/04/24/front-end/mini-my/">
                     <div class="card-image">
                         
-                        <img src="/../../coverImages/mini-alipay.jpeg" class="responsive-img" alt="封装小程序分页组件 waterflow-list">
+                        <img src="/../../coverImages/mini-alipay.jpeg" class="responsive-img" alt="【支付宝小程序】我们常用的 'my' 是什么？">
                         
-                        <span class="card-title">封装小程序分页组件 waterflow-list</span>
+                        <span class="card-title">【支付宝小程序】我们常用的 'my' 是什么？</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            小程序开发中，列表分页组件是比较常见的需求，每次都要写 totalNum、pageSize、loading 状态等，写得多了，始终觉得很麻烦，萌生了封装一个容器组件的念头。
-需求
-封装列表分页组件，包含加载状态
-尽量少的暴露接口，减少可配置
+                            支付宝小程序开发中我们使用的 my 其实就是 jsbrige 注入的一个对象。JSBridge，简单来说就是web和native之间的桥梁,有了它你就可以在web页面中唤起native应用提供的能力。例如：唤起相册，获取应用登陆用户信息等等
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-18
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-24
                             </span>
                         <span class="publish-author">
                             
