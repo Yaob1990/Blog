@@ -2,7 +2,7 @@
 title: 运动步数修改器 web 版本
 date: 2021-05-22 23:30:00
 categories: 前端
-img: ../../coverImages/step.jpeg
+img: ../../coverImages/walk.jpeg
 ---
 
 ![](/images/16216988358049.jpg)
