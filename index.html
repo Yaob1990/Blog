@@ -405,11 +405,10 @@
 <script>
   $.ajax({
     method: 'GET',
-    url: 'https://word.aocoding.com/api/word/random',
+    url: 'https://admin.jscoder.com/api/admin/blog/word/random',
     dataType: 'json',
     success(data) {
-      console.log(data)
-      if (data.code === 0) {
+      if (data.code === 200) {
         if (data.data.word) {
           $('#dream').text(data.data.word)
         }
