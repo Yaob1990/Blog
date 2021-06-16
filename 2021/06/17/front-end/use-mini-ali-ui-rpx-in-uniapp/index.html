@@ -5,8 +5,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="在 uniapp 中使用小程序ui组件库（mini-ali-ui-rpx）, 不知">
-    <meta name="description" content="uniapp 提供了很多开箱即用的特性，但是业务开发中，弹框之类好像很少使用原生的小程序组件，这个特性其实是支持的。从 uniapp 开发者角度，支持原生小程序特性有利于开发者对现有的小程序做快速迁移，能够兼容社区绝大多数 ui 组件库。
-">
+    <meta name="description" content="uniapp 提供了很多开箱即用的特性，但是业务开发中，好像很少使用原生的小程序组件，这个特性是支持的。从 uniapp 开发者角度，支持原生小程序特性有利于开发者对现有的小程序做快速迁移，能够兼容社区绝大多数 ui 组件库。
+兼容操作（以">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -376,7 +376,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    334
+                    327
                 </div>
                 
 
@@ -399,7 +399,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>uniapp 提供了很多开箱即用的特性，但是业务开发中，弹框之类好像很少使用原生的小程序组件，这个特性其实是支持的。从 uniapp 开发者角度，支持原生小程序特性有利于开发者对现有的小程序做快速迁移，能够兼容社区绝大多数 ui 组件库。</p>
+                <p>uniapp 提供了很多开箱即用的特性，但是业务开发中，好像很少使用原生的小程序组件，这个特性是支持的。从 uniapp 开发者角度，支持原生小程序特性有利于开发者对现有的小程序做快速迁移，能够兼容社区绝大多数 ui 组件库。</p>
 <h2 id="兼容操作（以支付宝小程序为例）"><a href="#兼容操作（以支付宝小程序为例）" class="headerlink" title="兼容操作（以支付宝小程序为例）"></a>兼容操作（以支付宝小程序为例）</h2><ol>
 <li><p>在 src 目录中新建 <code>wxcomponents/mycomponents</code> 文件夹，用于存放小程序组件</p>
 </li>
@@ -412,13 +412,17 @@
     &lt;custom name=&quot;uni-app&quot;&gt;&lt;/custom&gt;
 &lt;/view&gt;</code></pre>
 <h2 id="引入-mini-ali-ui-rpx"><a href="#引入-mini-ali-ui-rpx" class="headerlink" title="引入 mini-ali-ui-rpx"></a>引入 mini-ali-ui-rpx</h2><ol>
-<li>通过 npm 下载 <code>mini-ali-ui-rpx</code> 文件</li>
-<li>复制 <code>mini-ali-ui-rpx</code> 到 <code>mycomponents</code> 文件夹下</li>
-<li>在 pages.json 的 globalStyle -&gt; usingComponents 引入组件，注意如果使用的组件依赖一些基础组件，如<code>am-icon/am-button</code>，这些组件必须也要被引入，否则找不到组件，报错。<br>代码地址：<a href="https://github.com/Yaob1990/use-mini-ali-ui-rpx-in-uniapp" target="_blank" rel="noopener">Yaob1990/use-mini-ali-ui-rpx-in-uniapp: 在 uniapp 中使用 mini-ali-ui-rpx</a></li>
+<li><p>通过 npm 下载 <code>mini-ali-ui-rpx</code> 文件</p>
+</li>
+<li><p>复制 <code>mini-ali-ui-rpx</code> 到 <code>mycomponents</code> 文件夹下</p>
+</li>
+<li><p>在 pages.json 的 globalStyle -&gt; usingComponents 引入组件，注意如果使用的组件依赖一些基础组件，如<code>am-icon/am-button</code>，这些组件必须也要被引入，否则找不到组件，报错。</p>
+<p>代码地址：<a href="https://github.com/Yaob1990/use-mini-ali-ui-rpx-in-uniapp" target="_blank" rel="noopener">Yaob1990/use-mini-ali-ui-rpx-in-uniapp: 在 uniapp 中使用 mini-ali-ui-rpx</a></p>
+<p>在线预览（加载较慢😭）：<a href="http://42.192.184.113:40425/" target="_blank" rel="noopener">http://42.192.184.113:40425/</a></p>
+</li>
 </ol>
 </li>
 </ol>
-<p>在线预览：<a href="https://sandbox.jscoder.com/use-mini-ali-ui-rpx-in-uniapp" target="_blank" rel="noopener">https://sandbox.jscoder.com/use-mini-ali-ui-rpx-in-uniapp</a></p>
 <h2 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h2><ul>
 <li><a href="https://uniapp.dcloud.io/frame?id=%E5%B0%8F%E7%A8%8B%E5%BA%8F%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BB%84%E4%BB%B6%E6%94%AF%E6%8C%81" target="_blank" rel="noopener">框架简介 - uni-app官网</a></li>
 </ul>
@@ -490,8 +494,8 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            uniapp 提供了很多开箱即用的特性，但是业务开发中，弹框之类好像很少使用原生的小程序组件，这个特性其实是支持的。从 uniapp 开发者角度，支持原生小程序特性有利于开发者对现有的小程序做快速迁移，能够兼容社区绝大多数 ui 组件库。
-
+                            uniapp 提供了很多开箱即用的特性，但是业务开发中，好像很少使用原生的小程序组件，这个特性是支持的。从 uniapp 开发者角度，支持原生小程序特性有利于开发者对现有的小程序做快速迁移，能够兼容社区绝大多数 ui 组件库。
+兼容操作（以
                         
                     </div>
                     <div class="publish-info">
