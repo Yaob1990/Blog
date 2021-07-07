@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>git merge --squash</title>
+      <link href="/2021/07/07/tool/git-squash-merge/"/>
+      <url>/2021/07/07/tool/git-squash-merge/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>做一个情商高的人，首先需要学会闭嘴。</p></blockquote><p>在开发过程中，git squash merge 是个比较低频使用的命令，这也是一个比较危险的命令（操作 git 记录），如果你不明白他的真实用途，建议不要使用。</p><h2 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h2><p>如果你在gitlab合并分支提交的时候勾选了<code>squash</code>选项，那么你的多个git提交记录会被合成一个提交记录，默认的提交名称变为<code>Merge branch &#39;branch-d&#39; into &#39;master&#39;</code><br><img src="/images/16256150683432.jpg"></p><h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><p><img src="/images/16256149942897.jpg"></p><ul><li>你的代码确实被合入了主分支，但是commit记录全丢</li><li>如果你继续用本地分支提交代码，你会发现，我自己和自己冲突了，what fuck ？？？？</li></ul><h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p><code>git squash</code> 就是用来改写提交记录，压缩commit的，这就是它本来的用法鸭~，错的不是git，错的是你。。。。你不该选择 git merge –squash 。</p><p>master 视角<br><img src="/images/16256154828571.jpg"></p><p>branch e 视角<br><img src="/images/16256156817818.jpg"></p><p>上图 <code>Branch e</code> 被合入 <code>master</code> 分支，<code>Branch e</code> 有多个提交，被压缩成一个提交。这个提交是一个全新的提交，和 <code>Branch e</code> 没有任何关系，hash 也完全不同。所以现在<code>master</code>和<code>Branch e</code> 是两条平行线。这就解释了为啥自己和自己冲突，因为master，确实多了commit记录，但是因为 hash 完全不同，没办法和其他分支做关联。如果需要出现交汇点，你需要从 master 再 merge 到 <code>branch e</code>。</p><p>是不是觉得<code>git</code>太不人性化了，太蠢了？em……</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>在 uniapp 中使用小程序ui组件库（mini-ali-ui-rpx）</title>
       <link href="/2021/06/17/front-end/use-mini-ali-ui-rpx-in-uniapp/"/>
       <url>/2021/06/17/front-end/use-mini-ali-ui-rpx-in-uniapp/</url>
