@@ -4,12 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="git merge --squash, 不知">
-    <meta name="description" content="
-做一个情商高的人，首先需要学会闭嘴。
-
-在开发过程中，git squash merge 是个比较低频使用的命令，这也是一个比较危险的命令（操作 git 记录），如果你不明白他的真实用途，建议不要使用。
-场景如果你在gitlab合并分支提交">
+    <meta name="keywords" content="ts 方法装饰器, 不知">
+    <meta name="description" content="装饰器在java中叫注解，体现了面向切面（AOP）的编程思想。
+方法装饰器// 定义装饰器
+export  function logger(target: any, propertyKey: string, descriptor: Prop">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +15,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>git merge --squash | 不知</title>
+    <title>ts 方法装饰器 | 不知</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -223,12 +221,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('../../coverImages/git.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('../../coverImages/typescriptLogo.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">git merge --squash</h1>
+                    <h1 class="description center-align post-title">ts 方法装饰器</h1>
                 </div>
             </div>
         </div>
@@ -345,8 +343,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/git/">
-                                <span class="chip bg-color">git</span>
+                            <a href="/tags/typescript/">
+                                <span class="chip bg-color">typescript</span>
                             </a>
                         
                     </div>
@@ -357,8 +355,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%B7%A5%E5%85%B7/" class="post-category">
-                                工具
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                前端
                             </a>
                         
                     </div>
@@ -370,7 +368,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-07-07
+                    2021-07-12
                 </div>
                 
 
@@ -379,7 +377,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    379
+                    296
                 </div>
                 
 
@@ -402,21 +400,38 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <blockquote>
-<p>做一个情商高的人，首先需要学会闭嘴。</p>
-</blockquote>
-<p>在开发过程中，git squash merge 是个比较低频使用的命令，这也是一个比较危险的命令（操作 git 记录），如果你不明白他的真实用途，建议不要使用。</p>
-<h2 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h2><p>如果你在gitlab合并分支提交的时候勾选了<code>squash</code>选项，那么你的多个git提交记录会被合成一个提交记录，默认的提交名称变为<code>Merge branch &#39;branch-d&#39; into &#39;master&#39;</code><br><img src="/images/16256150683432.jpg"></p>
-<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><p><img src="/images/16256149942897.jpg"></p>
-<ul>
-<li>你的代码确实被合入了主分支，但是commit记录全丢</li>
-<li>如果你继续用本地分支提交代码，你会发现，我自己和自己冲突了，what fuck ？？？？</li>
+                <p>装饰器在java中叫注解，体现了面向切面（AOP）的编程思想。</p>
+<h2 id="方法装饰器"><a href="#方法装饰器" class="headerlink" title="方法装饰器"></a>方法装饰器</h2><pre class=" language-typescript"><code class="language-typescript"><span class="token comment" spellcheck="true">// 定义装饰器</span>
+<span class="token keyword">export</span>  <span class="token keyword">function</span> <span class="token function">logger</span><span class="token punctuation">(</span>target<span class="token punctuation">:</span> <span class="token keyword">any</span><span class="token punctuation">,</span> propertyKey<span class="token punctuation">:</span> <span class="token keyword">string</span><span class="token punctuation">,</span> descriptor<span class="token punctuation">:</span> PropertyDescriptor<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"初始化"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> original <span class="token operator">=</span> descriptor<span class="token punctuation">.</span>value<span class="token punctuation">;</span>
+    descriptor<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">:</span> <span class="token keyword">any</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span>
+        <span class="token keyword">const</span> result <span class="token operator">=</span> original<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token operator">...</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">Index</span> <span class="token keyword">extends</span> <span class="token class-name">Vue</span> <span class="token punctuation">{</span>
+  <span class="token keyword">private</span> title <span class="token operator">=</span> <span class="token string">"学习装饰器"</span>
+  <span class="token comment" spellcheck="true">// 使用装饰器</span>
+  @logger
+  <span class="token keyword">private</span> <span class="token function">imgClick</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"图片被点击"</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<h3 id="参数详解："><a href="#参数详解：" class="headerlink" title="参数详解："></a>参数详解：</h3><ul>
+<li>target：类，也就是这里的 <code>Index</code></li>
+<li>propertyKey：类属性函数的名称，这里是 <code>imgClick</code></li>
+<li>descriptor：属性描述符，通过descriptor上面的属性，即可实现属性只读，数据重写等功能</li>
 </ul>
-<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p><code>git squash</code> 就是用来改写提交记录，压缩commit的，这就是它本来的用法鸭~，错的不是git，错的是你。。。。你不该选择 git merge –squash 。</p>
-<p>master 视角<br><img src="/images/16256154828571.jpg"></p>
-<p>branch e 视角<br><img src="/images/16256156817818.jpg"></p>
-<p>上图 <code>Branch e</code> 被合入 <code>master</code> 分支，<code>Branch e</code> 有多个提交，被压缩成一个提交。这个提交是一个全新的提交，和 <code>Branch e</code> 没有任何关系，hash 也完全不同。所以现在<code>master</code>和<code>Branch e</code> 是两条平行线。这就解释了为啥自己和自己冲突，因为master，确实多了commit记录，但是因为 hash 完全不同，没办法和其他分支做关联。如果需要出现交汇点，你需要从 master 再 merge 到 <code>branch e</code>。</p>
-<p>是不是觉得<code>git</code>太不人性化了，太蠢了？em……</p>
+<p>使用装饰器后，初始化时候会打印 <code>初始化</code>，descriptor.value 获取绑定的函数<code>imgClick</code>，对<code>imgClick</code>进行重写，打印参数，输出结果。</p>
+<p>看起来比较复杂的装饰器，在一步一步的分支之后，也挺好理解的，本质上我们使用方法装饰器，往往是对方法的重写，或者是执行 f(g(fn()))类似的函数。</p>
+<h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><ol>
+<li>防抖节流</li>
+<li>埋点</li>
+<li>…<br>任何和主业务无关，可以被提炼出公共函数的场景都可以尝试使用装饰器去实现。</li>
+</ol>
 
             </div>
             <hr/>
@@ -430,8 +445,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/git/">
-                                    <span class="chip bg-color">git</span>
+                                <a href="/tags/typescript/">
+                                    <span class="chip bg-color">typescript</span>
                                 </a>
                             
                         </div>
@@ -469,9 +484,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2021/07/12/front-end/method-decorator/">
                     <div class="card-image">
@@ -490,9 +506,9 @@ export  function logger(target: any, propertyKey: string, descriptor: Prop
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-07-12
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-12
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -505,6 +521,7 @@ export  function logger(target: any, propertyKey: string, descriptor: Prop
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -523,31 +540,34 @@ export  function logger(target: any, propertyKey: string, descriptor: Prop
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/06/17/front-end/use-mini-ali-ui-rpx-in-uniapp/">
+                <a href="/2021/07/07/tool/git-squash-merge/">
                     <div class="card-image">
                         
-                        <img src="/../../coverImages/mini-alipay.jpeg" class="responsive-img" alt="在 uniapp 中使用小程序ui组件库（mini-ali-ui-rpx）">
+                        <img src="/../../coverImages/git.jpg" class="responsive-img" alt="git merge --squash">
                         
-                        <span class="card-title">在 uniapp 中使用小程序ui组件库（mini-ali-ui-rpx）</span>
+                        <span class="card-title">git merge --squash</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            uniapp 提供了很多开箱即用的特性，但是业务开发中，好像很少使用原生的小程序组件，这个特性是支持的。从 uniapp 开发者角度，支持原生小程序特性有利于开发者对现有的小程序做快速迁移，能够兼容社区绝大多数 ui 组件库。
-引入小程序组
+                            
+做一个情商高的人，首先需要学会闭嘴。
+
+在开发过程中，git squash merge 是个比较低频使用的命令，这也是一个比较危险的命令（操作 git 记录），如果你不明白他的真实用途，建议不要使用。
+场景如果你在gitlab合并分支提交
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-17
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-07
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
-                                    前端
+                            <a href="/categories/%E5%B7%A5%E5%85%B7/" class="post-category">
+                                    工具
                                 </a>
                             
                             
@@ -557,8 +577,8 @@ export  function logger(target: any, propertyKey: string, descriptor: Prop
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
-                        <span class="chip bg-color">小程序</span>
+                    <a href="/tags/git/">
+                        <span class="chip bg-color">git</span>
                     </a>
                     
                 </div>
