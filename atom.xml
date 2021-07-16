@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jscoder.com/"/>
-  <updated>2021-07-12T15:21:11.174Z</updated>
+  <updated>2021-07-16T00:08:42.304Z</updated>
   <id>https://jscoder.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>重构 uniapp 项目(0):&amp;ensp;相信自己</title>
+    <link href="https://jscoder.com/2021/07/16/front-end/refactoring-believe-yourself/"/>
+    <id>https://jscoder.com/2021/07/16/front-end/refactoring-believe-yourself/</id>
+    <published>2021-07-15T22:00:00.000Z</published>
+    <updated>2021-07-16T00:08:42.304Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;  重构不是一个好活，需要对技术和业务的多重理解，重构又是一个好活，能够站在更加全然的高度，去俯视项目，给项目做手术。&lt;/p&gt;
+&lt;h2 id=&quot;前端重构&quot;&gt;&lt;a href=&quot;#前端重构&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="小程序" scheme="https://jscoder.com/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>ts 方法装饰器</title>
     <link href="https://jscoder.com/2021/07/12/front-end/method-decorator/"/>
     <id>https://jscoder.com/2021/07/12/front-end/method-decorator/</id>
     <published>2021-07-12T15:30:00.000Z</published>
-    <updated>2021-07-12T15:21:11.174Z</updated>
+    <updated>2021-07-16T00:08:42.304Z</updated>
     
     <summary type="html">
     
@@ -49,7 +75,7 @@
     <link href="https://jscoder.com/2021/07/07/tool/git-squash-merge/"/>
     <id>https://jscoder.com/2021/07/07/tool/git-squash-merge/</id>
     <published>2021-07-07T00:00:00.000Z</published>
-    <updated>2021-07-12T15:21:11.174Z</updated>
+    <updated>2021-07-16T00:08:42.304Z</updated>
     
     <summary type="html">
     
@@ -57,10 +83,8 @@
       
         
         
-          &lt;blockquote&gt;
-&lt;p&gt;做一个情商高的人，首先需要学会闭嘴。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;在开发过程中，git squash merge 是个比较低频使用的命令，这也是一个比较危险的命令（操作 git
+          &lt;p&gt;在开发过程中，git squash merge 是个比较低频使用的命令，这也是一个比较危险的命令（操作 git 记录），如果你不明白他的真实用途，建议不要使用。&lt;/p&gt;
+&lt;h2 id=&quot;场景&quot;&gt;&lt;a href=&quot;#场景&quot; class=&quot;headerlink&quot;
         
       
     
@@ -79,7 +103,7 @@
     <link href="https://jscoder.com/2021/06/17/front-end/use-mini-ali-ui-rpx-in-uniapp/"/>
     <id>https://jscoder.com/2021/06/17/front-end/use-mini-ali-ui-rpx-in-uniapp/</id>
     <published>2021-06-16T22:00:00.000Z</published>
-    <updated>2021-07-12T15:21:11.174Z</updated>
+    <updated>2021-07-16T00:08:42.304Z</updated>
     
     <summary type="html">
     
@@ -107,7 +131,7 @@
     <link href="https://jscoder.com/2021/05/25/front-end/typescript-utility-types/"/>
     <id>https://jscoder.com/2021/05/25/front-end/typescript-utility-types/</id>
     <published>2021-05-24T23:30:00.000Z</published>
-    <updated>2021-07-12T15:21:11.174Z</updated>
+    <updated>2021-07-16T00:08:42.304Z</updated>
     
     <summary type="html">
     
@@ -135,7 +159,7 @@
     <link href="https://jscoder.com/2021/05/22/front-end/sync-movement-steps/"/>
     <id>https://jscoder.com/2021/05/22/front-end/sync-movement-steps/</id>
     <published>2021-05-22T15:30:00.000Z</published>
-    <updated>2021-07-12T15:21:11.174Z</updated>
+    <updated>2021-07-16T00:08:42.304Z</updated>
     
     <summary type="html">
     
@@ -163,7 +187,7 @@
     <link href="https://jscoder.com/2021/04/24/front-end/mini-my/"/>
     <id>https://jscoder.com/2021/04/24/front-end/mini-my/</id>
     <published>2021-04-24T09:00:00.000Z</published>
-    <updated>2021-07-12T15:21:11.174Z</updated>
+    <updated>2021-07-16T00:08:42.304Z</updated>
     
     <summary type="html">
     
@@ -190,7 +214,7 @@
     <link href="https://jscoder.com/2021/04/18/front-end/mini-waterflow-list/"/>
     <id>https://jscoder.com/2021/04/18/front-end/mini-waterflow-list/</id>
     <published>2021-04-18T13:00:00.000Z</published>
-    <updated>2021-07-12T15:21:11.174Z</updated>
+    <updated>2021-07-16T00:08:42.304Z</updated>
     
     <summary type="html">
     
@@ -218,7 +242,7 @@
     <link href="https://jscoder.com/2021/04/11/front-end/font/"/>
     <id>https://jscoder.com/2021/04/11/front-end/font/</id>
     <published>2021-04-11T08:00:00.000Z</published>
-    <updated>2021-07-12T15:21:11.174Z</updated>
+    <updated>2021-07-16T00:08:42.304Z</updated>
     
     <summary type="html">
     
@@ -246,7 +270,7 @@
     <link href="https://jscoder.com/2021/03/23/front-end/settimeout/"/>
     <id>https://jscoder.com/2021/03/23/front-end/settimeout/</id>
     <published>2021-03-22T23:00:00.000Z</published>
-    <updated>2021-07-12T15:21:11.174Z</updated>
+    <updated>2021-07-16T00:08:42.304Z</updated>
     
     <summary type="html">
     
@@ -274,7 +298,7 @@
     <link href="https://jscoder.com/2021/03/10/front-end/vuex-4.0-source/"/>
     <id>https://jscoder.com/2021/03/10/front-end/vuex-4.0-source/</id>
     <published>2021-03-10T14:40:00.000Z</published>
-    <updated>2021-07-12T15:21:11.174Z</updated>
+    <updated>2021-07-16T00:08:42.304Z</updated>
     
     <summary type="html">
     
@@ -302,7 +326,7 @@
     <link href="https://jscoder.com/2020/12/17/ops/easy-docker/"/>
     <id>https://jscoder.com/2020/12/17/ops/easy-docker/</id>
     <published>2020-12-17T15:00:00.000Z</published>
-    <updated>2021-07-12T15:21:11.174Z</updated>
+    <updated>2021-07-16T00:08:42.304Z</updated>
     
     <summary type="html">
     
@@ -329,7 +353,7 @@
     <link href="https://jscoder.com/2020/12/14/front-end/atomic-in-tailwindcss/"/>
     <id>https://jscoder.com/2020/12/14/front-end/atomic-in-tailwindcss/</id>
     <published>2020-12-14T15:00:00.000Z</published>
-    <updated>2021-07-12T15:21:11.174Z</updated>
+    <updated>2021-07-16T00:08:42.304Z</updated>
     
     <summary type="html">
     
@@ -359,7 +383,7 @@
     <link href="https://jscoder.com/2020/12/03/tool/git-cherry-pick/"/>
     <id>https://jscoder.com/2020/12/03/tool/git-cherry-pick/</id>
     <published>2020-12-03T15:00:00.000Z</published>
-    <updated>2021-07-12T15:21:11.174Z</updated>
+    <updated>2021-07-16T00:08:42.304Z</updated>
     
     <summary type="html">
     
@@ -386,7 +410,7 @@
     <link href="https://jscoder.com/2020/12/02/tool/git-timemachine/"/>
     <id>https://jscoder.com/2020/12/02/tool/git-timemachine/</id>
     <published>2020-12-02T15:00:00.000Z</published>
-    <updated>2021-07-12T15:21:11.174Z</updated>
+    <updated>2021-07-16T00:08:42.304Z</updated>
     
     <summary type="html">
     
@@ -417,7 +441,7 @@
     <link href="https://jscoder.com/2020/12/01/tool/filter-branch/"/>
     <id>https://jscoder.com/2020/12/01/tool/filter-branch/</id>
     <published>2020-12-01T14:00:00.000Z</published>
-    <updated>2021-07-12T15:21:11.174Z</updated>
+    <updated>2021-07-16T00:08:42.304Z</updated>
     
     <summary type="html">
     
@@ -445,7 +469,7 @@
     <link href="https://jscoder.com/2020/11/30/tool/git-rebase/"/>
     <id>https://jscoder.com/2020/11/30/tool/git-rebase/</id>
     <published>2020-11-29T23:18:46.000Z</published>
-    <updated>2021-07-12T15:21:11.174Z</updated>
+    <updated>2021-07-16T00:08:42.304Z</updated>
     
     <summary type="html">
     
@@ -475,7 +499,7 @@
     <link href="https://jscoder.com/2020/11/29/anything/jscoder/"/>
     <id>https://jscoder.com/2020/11/29/anything/jscoder/</id>
     <published>2020-11-29T13:33:36.000Z</published>
-    <updated>2021-07-12T15:21:11.174Z</updated>
+    <updated>2021-07-16T00:08:42.304Z</updated>
     
     <summary type="html">
     
@@ -502,7 +526,7 @@
     <link href="https://jscoder.com/2020/09/21/front-end/vue3-h5/"/>
     <id>https://jscoder.com/2020/09/21/front-end/vue3-h5/</id>
     <published>2020-09-21T14:22:22.000Z</published>
-    <updated>2021-07-12T15:21:11.174Z</updated>
+    <updated>2021-07-16T00:08:42.304Z</updated>
     
     <summary type="html">
     
@@ -530,7 +554,7 @@
     <link href="https://jscoder.com/2020/08/16/front-end/leran-herbjs/"/>
     <id>https://jscoder.com/2020/08/16/front-end/leran-herbjs/</id>
     <published>2020-08-16T08:29:42.000Z</published>
-    <updated>2021-07-12T15:21:11.174Z</updated>
+    <updated>2021-07-16T00:08:42.304Z</updated>
     
     <summary type="html">
     
@@ -550,33 +574,6 @@
     
     
       <category term="支付宝小程序,herbjs" scheme="https://jscoder.com/tags/%E6%94%AF%E4%BB%98%E5%AE%9D%E5%B0%8F%E7%A8%8B%E5%BA%8F-herbjs/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>async await 的终极封装</title>
-    <link href="https://jscoder.com/2020/08/06/front-end/async-await/"/>
-    <id>https://jscoder.com/2020/08/06/front-end/async-await/</id>
-    <published>2020-08-06T02:00:00.000Z</published>
-    <updated>2021-07-12T15:21:11.174Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;async-await-的终极封装&quot;&gt;&lt;a href=&quot;#async-await-的终极封装&quot; class=&quot;headerlink&quot; title=&quot;async await 的终极封装&quot;&gt;&lt;/a&gt;async await
-        
-      
-    
-    </summary>
-    
-    
-      <category term="前端" scheme="https://jscoder.com/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="promise" scheme="https://jscoder.com/tags/promise/"/>
     
   </entry>
   

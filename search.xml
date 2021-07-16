@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>重构 uniapp 项目(0):&amp;ensp;相信自己</title>
+      <link href="/2021/07/16/front-end/refactoring-believe-yourself/"/>
+      <url>/2021/07/16/front-end/refactoring-believe-yourself/</url>
+      
+        <content type="html"><![CDATA[<p>  重构不是一个好活，需要对技术和业务的多重理解，重构又是一个好活，能够站在更加全然的高度，去俯视项目，给项目做手术。</p><h2 id="前端重构"><a href="#前端重构" class="headerlink" title="前端重构"></a>前端重构</h2><p>  前端重构高度依赖 git 信息，人员变动，业务变动，会导致原有的项目结构出现各种变动，命名可能不再语义化，逻辑不再清晰，写法可能千姿百态。如果没有或者丢失 git 信息，那你将寸步难行。</p><p>  挺羡慕后端，重构也不是什么大不了的事情，只要测试用例都过，基本是完成了 80%，后端的重构给人一种安全和确定感，前端的重构，有一种两眼一抹黑的感觉。</p><h2 id="能不能不重构"><a href="#能不能不重构" class="headerlink" title="能不能不重构"></a>能不能不重构</h2><p>  这个问题很难去回答。开发过程中应该有意识的进行一部分重构，对于不好的写法，腐败的味道及时剔除，那这样的项目可能就不存在问题，因为重构已经是它的一部分。</p><p>  而对于没有强力执行的项目，长期迭代，屎山堆积的项目，请慎重考虑重构。</p><h2 id="重构中的压力"><a href="#重构中的压力" class="headerlink" title="重构中的压力"></a>重构中的压力</h2><p>  如果很幸运，领导也支持，那么推行重构过程中你还将面临一些压力。</p><p>  项目无法运行。这几乎不可能，现代 IDE 提供很好的错误机制，这类错误可以很快的去定位到。</p><p>  项目中各种黑魔法。比如我遇到 uniapp 中，没有引入注册子组件，但是它竟然可以正常使用，可能是它的父级或者兄弟组件使用，使得它这里也能正常使用。这种问题，一般能够在项目测试中发现。</p><p>  无法实现优化目标。多套开发环境，需要手动去切换请求地址，开始没有什么思路，后续思考尝试了多种方式，最终通过 vue 环境变量的方式实现。如果某些功能，你确实无法实现，不要放弃，给自己一点时间，本次无法优化，可以放到后续，平时业务中去优化。</p><p>  线上事故。即使你对自己的重构非常有信心，测试也尽心尽力，每一个地方都点了。但是你依然无法避免线上事故。因为有测试同事的介入，这个事故应该是不严重的，它不会阻塞你的主流程，也不会对你的业务造成实质性的影响。最坏最坏，提桶跑路咯，如果一个公司对于犯错 0 容忍，那这并不是你的问题，是这个机制的问题，它并没有给线上 0 事故提供一系列的制度保证。（其实，这也保证不了，google，apple，这种量级的公司每年都有线上事故，黑天鹅永远存在）</p><h2 id="大胆重构，挥舞你的手术刀"><a href="#大胆重构，挥舞你的手术刀" class="headerlink" title="大胆重构，挥舞你的手术刀"></a>大胆重构，挥舞你的手术刀</h2><p>  梳理项目结构，非公共模块，不要放到公共目录中，该移动的移动，该合并的合并。</p><p>  消灭黑魔法，用前端的视角，给项目注入新的生命力，不要再纠结项目怎么这样神奇的运行了，手起刀落，用最稳妥的方式，把黑魔法消灭。</p><p>  更新项目依赖 <code>package.json</code> 。不要直接全部更新，项目中如果某些功能确实需要新的依赖支持，尝试单独去更新这部分依赖，比如我的 uniapp 项目不支持可选链，那我去更新它的 <code>babel</code> 依赖就可以了，尽量小的修改，避免引入过多的外界因素。</p><p>  拦路虎，消灭或者绕过。我选择了消灭，比如 <code>life-follow</code> 这个组件，始终无法正常使用，我深入研究了 uniapp 的事件机制，给官方提交了 mr，推动了支付宝 <code>life-follow</code> 在 uniapp 中的正常使用。</p><p>  信任 IDE。移动文件位置，优化导入，这些事情，请大胆放心的交给 IDE ，不要再去一个一个的写它的路径，IDE 非常擅长这些事情。</p><p>  引入新思路。重构是对过去的一次修补，也是对未来的一种开拓和展望。尝试在重构中通过命令进行环境判断、装饰器模式进行埋点、非生产环境不上报 log 数据。这些本该是项目的一部分，然而，因为各种原因，需要靠一次重构去实现，这也许也是重构的价值，角度不一样，思路也不一样。</p><h2 id="相信自己"><a href="#相信自己" class="headerlink" title="相信自己"></a>相信自己</h2><p>大胆假设，小心求证，相信你一定可以把项目梳理的井井有条，自己和项目都能够快速成长。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://github.com/dcloudio/uni-app/issues/2410" target="_blank" rel="noopener">支付宝小程序使用花呗分期插件，⽆法监听到插件提供的onChange事件，报错为事件信息不存在。 · Issue #2410 · dcloudio/uni-app</a></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 小程序 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>ts 方法装饰器</title>
       <link href="/2021/07/12/front-end/method-decorator/"/>
       <url>/2021/07/12/front-end/method-decorator/</url>
@@ -33,7 +52,7 @@
       <link href="/2021/07/07/tool/git-squash-merge/"/>
       <url>/2021/07/07/tool/git-squash-merge/</url>
       
-        <content type="html"><![CDATA[<blockquote><p>做一个情商高的人，首先需要学会闭嘴。</p></blockquote><p>在开发过程中，git squash merge 是个比较低频使用的命令，这也是一个比较危险的命令（操作 git 记录），如果你不明白他的真实用途，建议不要使用。</p><h2 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h2><p>如果你在gitlab合并分支提交的时候勾选了<code>squash</code>选项，那么你的多个git提交记录会被合成一个提交记录，默认的提交名称变为<code>Merge branch &#39;branch-d&#39; into &#39;master&#39;</code><br><img src="/images/16256150683432.jpg"></p><h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><p><img src="/images/16256149942897.jpg"></p><ul><li>你的代码确实被合入了主分支，但是commit记录全丢</li><li>如果你继续用本地分支提交代码，你会发现，我自己和自己冲突了，what fuck ？？？？</li></ul><h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p><code>git squash</code> 就是用来改写提交记录，压缩commit的，这就是它本来的用法鸭~，错的不是git，错的是你。。。。你不该选择 git merge –squash 。</p><p>master 视角<br><img src="/images/16256154828571.jpg"></p><p>branch e 视角<br><img src="/images/16256156817818.jpg"></p><p>上图 <code>Branch e</code> 被合入 <code>master</code> 分支，<code>Branch e</code> 有多个提交，被压缩成一个提交。这个提交是一个全新的提交，和 <code>Branch e</code> 没有任何关系，hash 也完全不同。所以现在<code>master</code>和<code>Branch e</code> 是两条平行线。这就解释了为啥自己和自己冲突，因为master，确实多了commit记录，但是因为 hash 完全不同，没办法和其他分支做关联。如果需要出现交汇点，你需要从 master 再 merge 到 <code>branch e</code>。</p><p>是不是觉得<code>git</code>太不人性化了，太蠢了？em……</p>]]></content>
+        <content type="html"><![CDATA[<p>在开发过程中，git squash merge 是个比较低频使用的命令，这也是一个比较危险的命令（操作 git 记录），如果你不明白他的真实用途，建议不要使用。</p><h2 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h2><p>如果你在gitlab合并分支提交的时候勾选了<code>squash</code>选项，那么你的多个git提交记录会被合成一个提交记录，默认的提交名称变为<code>Merge branch &#39;branch-d&#39; into &#39;master&#39;</code><br><img src="/images/16256150683432.jpg"></p><h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><p><img src="/images/16256149942897.jpg"></p><ul><li>你的代码确实被合入了主分支，但是commit记录全丢</li><li>如果你继续用本地分支提交代码，你会发现，我自己和自己冲突了，what fuck ？？？？</li></ul><h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p><code>git squash</code> 就是用来改写提交记录，压缩commit的，这就是它本来的用法鸭~，错的不是git，错的是你。。。。你不该选择 git merge –squash 。</p><p>master 视角<br><img src="/images/16256154828571.jpg"></p><p>branch e 视角<br><img src="/images/16256156817818.jpg"></p><p>上图 <code>Branch e</code> 被合入 <code>master</code> 分支，<code>Branch e</code> 有多个提交，被压缩成一个提交。这个提交是一个全新的提交，和 <code>Branch e</code> 没有任何关系，hash 也完全不同。所以现在<code>master</code>和<code>Branch e</code> 是两条平行线。这就解释了为啥自己和自己冲突，因为master，确实多了commit记录，但是因为 hash 完全不同，没办法和其他分支做关联。如果需要出现交汇点，你需要从 master 再 merge 到 <code>branch e</code>。</p><p>是不是觉得<code>git</code>太不人性化了，太蠢了？em……</p>]]></content>
       
       
       <categories>
