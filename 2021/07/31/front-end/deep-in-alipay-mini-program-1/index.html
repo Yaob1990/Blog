@@ -5,10 +5,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="深入理解支付宝小程序 -- web Components、rpx 篇, 不知">
-    <meta name="description" content="
-深入理解总是困难的，耐心和寂寞相伴，沉默和思考相随，进一退三，推着我们前进，是对未知的渴望，是残存的技术热情。
-
-本系列，将开始对支付宝小程序的运行时的分析，网上资料比较少，一些猜想不一定对，我姑且说之，您姑且听之。因为微信小程序的先驱性">
+    <meta name="description" content="web Components微信小程序调试ide版本：v1.02.1907300微信小程序 ide 使用 nw.js 开发，我们可以尝试打开它的控制台
+document.getElementsByTagName(&#39;webview&#39;)[0].">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -369,7 +367,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-07-28
+                    2021-07-31
                 </div>
                 
 
@@ -378,7 +376,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    942
+                    895
                 </div>
                 
 
@@ -401,18 +399,14 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <blockquote>
-<p>深入理解总是困难的，耐心和寂寞相伴，沉默和思考相随，进一退三，推着我们前进，是对未知的渴望，是残存的技术热情。</p>
-</blockquote>
-<p>本系列，将开始对支付宝小程序的运行时的分析，网上资料比较少，一些猜想不一定对，我姑且说之，您姑且听之。因为微信小程序的先驱性，会对两者的部分实现进行对比。</p>
-<h2 id="web-Components"><a href="#web-Components" class="headerlink" title="web Components"></a>web Components</h2><h3 id="微信小程序"><a href="#微信小程序" class="headerlink" title="微信小程序"></a>微信小程序</h3><p>调试ide版本：v1.02.1907300<br>微信小程序 ide 使用 nw.js 开发，我们可以尝试打开它的控制台</p>
+                <h2 id="web-Components"><a href="#web-Components" class="headerlink" title="web Components"></a>web Components</h2><h3 id="微信小程序"><a href="#微信小程序" class="headerlink" title="微信小程序"></a>微信小程序</h3><p>调试ide版本：v1.02.1907300<br>微信小程序 ide 使用 nw.js 开发，我们可以尝试打开它的控制台</p>
 <pre class=" language-js"><code class="language-js">document<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">'webview'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">showDevTools</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">,</span><span class="token keyword">null</span><span class="token punctuation">)</span></code></pre>
 <p><img src="/images/16272568175378.jpg"></p>
 <p>我们拿到了微信小程序的渲染层页面，注意body中的标签 <code>wx-view</code>、<code>wx-open-data</code>，这看起来是一种类似 <code>web Components</code>的实现，这是一种浏览器原生支持的组件形式。</p>
 <h3 id="支付宝小程序"><a href="#支付宝小程序" class="headerlink" title="支付宝小程序"></a>支付宝小程序</h3><p>调试 ide 版本：2.1.9<br>支付宝小程序是使用 Electron 开发的，我们也可以打开它的控制台：</p>
 <pre class=" language-js"><code class="language-js">document<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">'webview'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">openDevTools</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
 <p>外部套着模拟器，内部是<code>iframe</code>，这里应该就是小程序本身代码，也就是 <code>iframe</code> 部分<br><img src="/images/16272573416726.jpg"></p>
-<p>这里并没有和小程序类采用了组件的形式，而是<code>原生标签+class</code>的形式。尝试全局修改<code>a-view</code>的样式，竟然真的生效了。<br>进一步测试发现，标签选择器会被编译成<code>.a-*</code>的形式，不局限于已有的标签，如果是<code>a</code>标签也会这样编译。</p>
+<p>这里并没有和小程序类采用了组件的形式，而是<code>原生标签 + class</code>的形式。尝试全局修改<code>a-view</code>的样式，竟然真的生效了。<br>进一步测试发现，标签选择器会被编译成<code>.a-*</code>的形式，不局限于已有的标签，如果是<code>a</code>标签也会这样编译。</p>
 <h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>微信小程序的标签需要基础库去解析，支付宝这里似乎是没有的，他直接编译成了<code>html</code>,并且<code>html</code>没有做到样式隔离，能够被外部影响。如果无意中写了类似标签，还是非常难以排查的。</p>
 <h2 id="rpx"><a href="#rpx" class="headerlink" title="rpx"></a>rpx</h2><p>rpx 是小程序平台的响应式单位。</p>
 <blockquote>
@@ -464,12 +458,19 @@
         document<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span>style<span class="token punctuation">.</span>fontSize <span class="token operator">!==</span> t <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>document<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span>style<span class="token punctuation">.</span>fontSize <span class="token operator">=</span> t<span class="token punctuation">)</span>
     <span class="token punctuation">}</span></code></pre>
 <p>编译之后的样式文件：</p>
-<pre><code>/*ACSSCompileContext:{&quot;atImports&quot;:[]}*/var internal_style;
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">/*ACSSCompileContext:{"atImports":[]}*/</span><span class="token keyword">var</span> internal_style<span class="token punctuation">;</span>
 
-internal_style = &quot;.title {background:red;font-size:0.5rem}.ttt {font-size:0.5rem}.hair {height:1px}.a-view {background:orange}.ttt .a-a {font-size:100px!important}#id {font-size:1rem}&quot;;
-export default internal_style;</code></pre>
+internal_style <span class="token operator">=</span> <span class="token string">".title {background:red;font-size:0.5rem}.ttt {font-size:0.5rem}.hair {height:1px}.a-view {background:orange}.ttt .a-a {font-size:100px!important}#id {font-size:1rem}"</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> internal_style<span class="token punctuation">;</span></code></pre>
 <h3 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h3><p>微信小程序，rpx 被转换成了px。支付宝小程设置了根字体，rpx 最终被转换成了 rem。支付宝根字体的转换找到了代码，rpx 转 px 没有找到代码，猜测，应该是在编译过程中已经进行了转换，我分析的运行时部分没有这部分代码。</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>貌似一样的众多小程序，仔细分析，发现还是有很多很多的不同，某些不同，还是基础架构层面的不同，深入分析，应该可以挖掘出更多有意思的东西。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://zhuanlan.zhihu.com/p/81775922" target="_blank" rel="noopener">小程序底层实现原理及一些思考 - 知乎</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/121815358" target="_blank" rel="noopener">小程序底层实现原理及一些思考（2） - 知乎</a></li>
+<li><a href="https://mp.weixin.qq.com/s/PX7b_qV6tYKnN3ecoz9Ehw" target="_blank" rel="noopener">独家！支付宝首次披露其小程序技术架构</a></li>
+<li><a href="https://juejin.cn/post/6882265367251517447" target="_blank" rel="noopener">利用sourceMap定位错误实践</a></li>
+<li><a href="http://tiaocaoer.com/xcx_study/" target="_blank" rel="noopener">微信小程序开发专区 | 薛定喵君</a></li>
+</ul>
 
             </div>
             <hr/>
@@ -522,32 +523,31 @@ export default internal_style;</code></pre>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/07/28/front-end/deep-in-alipay-mini-program/">
+                <a href="/2021/07/31/front-end/deep-in-alipay-mini-program-2/">
                     <div class="card-image">
                         
-                        <img src="/../../coverImages/mini-alipay.jpeg" class="responsive-img" alt="深入理解支付宝小程序 -- web Components、rpx 篇">
+                        <img src="/../../coverImages/mini-alipay.jpeg" class="responsive-img" alt="深入理解支付宝小程序 -- sjs 篇">
                         
-                        <span class="card-title">深入理解支付宝小程序 -- web Components、rpx 篇</span>
+                        <span class="card-title">深入理解支付宝小程序 -- sjs 篇</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-深入理解总是困难的，耐心和寂寞相伴，沉默和思考相随，进一退三，推着我们前进，是对未知的渴望，是残存的技术热情。
+                            在平时的开发中，我们很少会主动去使用 sjs，程序能够运行，不加班，已经是极好的事情了:)。但我们这个系列不可以，深入原理部分，必须对每一个细节都了若指掌，差之毫厘谬以千里。
+sjs 定义以下是官方定义：
 
-本系列，将开始对支付宝小程序的运行时的分析，网上资料比较少，一些猜想不一定对，我姑且说之，您姑且听之。因为微信小程序的先驱性
+SJS（safe/subset 
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-28
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-07-31
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -560,7 +560,6 @@ export default internal_style;</code></pre>
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -579,23 +578,26 @@ export default internal_style;</code></pre>
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/07/20/front-end/refactoring-deep-in-uniapp/">
+                <a href="/2021/07/31/front-end/deep-in-alipay-mini-program-0/">
                     <div class="card-image">
                         
-                        <img src="/../../coverImages/refactoring.jpeg" class="responsive-img" alt="重构 uniapp 项目(1)：浅浅理解 uniapp">
+                        <img src="/../../coverImages/mini-alipay.jpeg" class="responsive-img" alt="深入理解支付宝小程序 -- 准备篇">
                         
-                        <span class="card-title">重构 uniapp 项目(1)：浅浅理解 uniapp</span>
+                        <span class="card-title">深入理解支付宝小程序 -- 准备篇</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                              uniapp 在业内名气口碑都挺不错的，选择这个框架，能够让开发者快速出活，依托 vue 的生态，相关开发者也多，企业也容易招聘。然而小程序和web毕竟还是有点区别，某些时候还是需要对uniapp 有一定的理解，才能够顺利的搬砖。本篇，
+                            
+深入理解总是困难的，耐心和寂寞相伴，沉默和思考相随，进一退三，推着我们前进，是对未知的渴望，是残存的技术热情。
+
+本系列，将开始对支付宝小程序的运行时的分析，网上资料比较少，一些猜想不一定对，我姑且说之，您姑且听之。因为微信小程序的先驱性
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-31
                             </span>
                         <span class="publish-author">
                             
