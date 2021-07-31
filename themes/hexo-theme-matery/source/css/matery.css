@@ -1166,7 +1166,7 @@ article .article-tags .chip {
     margin: 2px 2px 10px;
     font-size: 1.05rem;
     line-height: 1.85rem;
-    text-indent: 2em;
+    /* text-indent: 2em; */
 }
 
 #articleContent blockquote p {

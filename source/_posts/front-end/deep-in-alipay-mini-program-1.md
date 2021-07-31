@@ -1,15 +1,11 @@
 ---
 title: 深入理解支付宝小程序 -- web Components、rpx 篇
-date: 2021-07-28 08:00:00
+date: 2021-07-31 21:30:00
 categories: 前端
 img: ../../coverImages/mini-alipay.jpeg
 tags:
   - 小程序
 ---
-
-> 深入理解总是困难的，耐心和寂寞相伴，沉默和思考相随，进一退三，推着我们前进，是对未知的渴望，是残存的技术热情。
-
-本系列，将开始对支付宝小程序的运行时的分析，网上资料比较少，一些猜想不一定对，我姑且说之，您姑且听之。因为微信小程序的先驱性，会对两者的部分实现进行对比。
 
 ## web Components
 ### 微信小程序
@@ -31,7 +27,7 @@ document.getElementsByTagName('webview')[1].openDevTools()
 外部套着模拟器，内部是`iframe`，这里应该就是小程序本身代码，也就是 `iframe` 部分
 ![](/images/16272573416726.jpg)
 
-这里并没有和小程序类采用了组件的形式，而是`原生标签+class`的形式。尝试全局修改`a-view`的样式，竟然真的生效了。
+这里并没有和小程序类采用了组件的形式，而是`原生标签 + class`的形式。尝试全局修改`a-view`的样式，竟然真的生效了。
 进一步测试发现，标签选择器会被编译成`.a-*`的形式，不局限于已有的标签，如果是`a`标签也会这样编译。
 
 ### 分析
@@ -101,7 +97,7 @@ function Sy() {
     }
 ```
 编译之后的样式文件：
-```
+```javascript
 /*ACSSCompileContext:{"atImports":[]}*/var internal_style;
 
 internal_style = ".title {background:red;font-size:0.5rem}.ttt {font-size:0.5rem}.hair {height:1px}.a-view {background:orange}.ttt .a-a {font-size:100px!important}#id {font-size:1rem}";
@@ -114,3 +110,11 @@ export default internal_style;
 
 ## 总结
 貌似一样的众多小程序，仔细分析，发现还是有很多很多的不同，某些不同，还是基础架构层面的不同，深入分析，应该可以挖掘出更多有意思的东西。
+
+## 参考
+
+- [小程序底层实现原理及一些思考 - 知乎](https://zhuanlan.zhihu.com/p/81775922)
+- [小程序底层实现原理及一些思考（2） - 知乎](https://zhuanlan.zhihu.com/p/121815358)
+- [独家！支付宝首次披露其小程序技术架构](https://mp.weixin.qq.com/s/PX7b_qV6tYKnN3ecoz9Ehw)
+- [利用sourceMap定位错误实践](https://juejin.cn/post/6882265367251517447)
+- [微信小程序开发专区 | 薛定喵君](http://tiaocaoer.com/xcx_study/)
