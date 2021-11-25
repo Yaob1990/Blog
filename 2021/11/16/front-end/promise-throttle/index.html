@@ -4,8 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="uniapp 中支付宝小程序自定义组件的调用, 不知">
-    <meta name="description" content="uniapp 这个缝合怪，挺厉害的，啥都能做，甚至你能够使用小程序的原生组件。具体文档：https://uniapp.dcloud.io/frame?id=%e5%b0%8f%e7%a8%8b%e5%ba%8f%e8%87%aa%e5%ae">
+    <meta name="keywords" content="抛弃 loadsh，封装更现代的防抖、节流, 不知">
+    <meta name="description" content="一般意义上的防抖节流函数防抖（debounce）函数防抖，就是指触发事件后，在 n 秒后只能执行一次，如果在 n 秒内又触发了事件，则会重新计算函数的执行时间。简单的说，当一个动作连续触发，只执行最后一次。
+函数节流（throttle）限制">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
      <meta name="referrer" content="no-referrer-when-downgrade">
@@ -14,7 +15,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>uniapp 中支付宝小程序自定义组件的调用 | 不知</title>
+    <title>抛弃 loadsh，封装更现代的防抖、节流 | 不知</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -220,12 +221,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('../../coverImages/uniapp.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">uniapp 中支付宝小程序自定义组件的调用</h1>
+                    <h1 class="description center-align post-title">抛弃 loadsh，封装更现代的防抖、节流</h1>
                 </div>
             </div>
         </div>
@@ -342,8 +343,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
-                                <span class="chip bg-color">小程序</span>
+                            <a href="/tags/promise/">
+                                <span class="chip bg-color">promise</span>
                             </a>
                         
                     </div>
@@ -367,7 +368,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-09-26
+                    2021-11-16
                 </div>
                 
 
@@ -376,14 +377,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    296
+                    564
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -399,19 +400,59 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>uniapp 这个缝合怪，挺厉害的，啥都能做，甚至你能够使用小程序的原生组件。<br>具体文档：<br><a href="https://uniapp.dcloud.io/frame?id=%E5%B0%8F%E7%A8%8B%E5%BA%8F%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BB%84%E4%BB%B6%E6%94%AF%E6%8C%81" target="_blank" rel="noopener">https://uniapp.dcloud.io/frame?id=%e5%b0%8f%e7%a8%8b%e5%ba%8f%e8%87%aa%e5%ae%9a%e4%b9%89%e7%bb%84%e4%bb%b6%e6%94%af%e6%8c%81</a></p>
-<h2 id="调用坑"><a href="#调用坑" class="headerlink" title="调用坑"></a>调用坑</h2><p>写法1：</p>
-<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>example @<span class="token keyword">get</span><span class="token operator">=</span><span class="token string">"onGet"</span> <span class="token operator">/</span><span class="token operator">></span></code></pre>
-<p>如果这样写，那么会走向 uniapp 的事件分发，但是支付宝这里事件的默认参数是 undefined，拿不到事件信息，所以这里会抛出 js 异常</p>
-<p>写法2：</p>
-<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>example onGet<span class="token operator">=</span><span class="token string">"onGet"</span> <span class="token operator">/</span><span class="token operator">></span></code></pre>
-<p>使用小程序原生写法，会报 <code>event not found</code>,这是因为 uniapp 对事件有自己的封装，没有直接暴露给小程序，添加以下模板代码之后，可以调用成功：</p>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">this</span><span class="token punctuation">.</span>$scope<span class="token punctuation">.</span>onGet <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>onGet<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span></code></pre>
-<h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><p>如果使用组件比较多，模板代码可以放到 webpack loader 中去实现，思路就是模板中使用 <code>onGet</code> 写法的通过正则找出来，然后再 <code>onLoad()</code> 中挂载上去。</p>
-<p>当我写好了 loader，并且 uniapp 编译成功之后，打开小程序编译器，迎接秋天的美好的时候</p>
-<p><img src="/images/16326137933990.jpg"></p>
-<p><img src="/images/a.gif" alt="a"></p>
-<p>悲剧…一天就这样过去了…啊啊啊！！！</p>
+                <h2 id="一般意义上的防抖节流"><a href="#一般意义上的防抖节流" class="headerlink" title="一般意义上的防抖节流"></a>一般意义上的防抖节流</h2><h3 id="函数防抖（debounce）"><a href="#函数防抖（debounce）" class="headerlink" title="函数防抖（debounce）"></a>函数防抖（debounce）</h3><p>函数防抖，就是指触发事件后，在 n 秒后只能执行一次，如果在 n 秒内又触发了事件，则会重新计算函数的执行时间。简单的说，当一个动作连续触发，只执行最后一次。</p>
+<h3 id="函数节流（throttle）"><a href="#函数节流（throttle）" class="headerlink" title="函数节流（throttle）"></a>函数节流（throttle）</h3><p>限制一个函数在一定时间内只能执行一次</p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><p>lodash 里面提供了非常完备的实现，核心是使用定时器去延迟函数的执行</p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><ol>
+<li>这样的防抖节流，只能屏蔽某一个时间段的特定操作。我们的点击，往往后面是一个网络请求，如果网络请求的事件长于这个时间，那么就可能出现防抖失效的情况。持续间隔点击按钮，可能会短时间内给后端发送多个请求，如果业务场无法保证幂等，就会出现问题。</li>
+<li>ui 交互中，防抖实际上是延迟函数的执行，某些场景，会让人觉得卡顿，如果对交互的要求比较高，需要严格控制防抖的时间，一般不超过 200ms</li>
+</ol>
+<h2 id="如何防御"><a href="#如何防御" class="headerlink" title="如何防御"></a>如何防御</h2><p>简单的实现，在业务代码中设置标志位，当有 promise 执行的时候，执行锁，等 promise 执行完毕，再释放锁。缺点，需要在业务中写很多重复的代码。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> status <span class="token operator">=</span> <span class="token boolean">false</span>
+
+<span class="token keyword">function</span> <span class="token function">btnClick</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>status<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//   do something</span>
+    status <span class="token operator">=</span> ture
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<h2 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h2><p>我们可以参考防抖的实现，进行封装, 把函数用 Promise 进行包裹，然后设置标志位，就可以避免在业务中频繁设置标志位。<br>节流，我们可以设置函数执行的时候，同时执行一个定时器，也用 Promise 进行包装，当两个 Promise 都执行完毕的时候，再释放函数。</p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token comment" spellcheck="true">/**
+ * promise 节流函数版本
+ * @param fn
+ * @param time
+ * @param delayTime
+ * @constructor
+ */</span>
+<span class="token keyword">function</span> <span class="token function">PromiseThrottleFn</span><span class="token punctuation">(</span>fn<span class="token punctuation">:</span> <span class="token keyword">Function</span><span class="token punctuation">,</span> time <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> delayTime <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> status <span class="token operator">=</span> <span class="token string">''</span>
+  <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>status <span class="token operator">===</span> <span class="token string">'lock'</span><span class="token punctuation">)</span> <span class="token keyword">return</span>
+    status <span class="token operator">=</span> <span class="token string">'lock'</span>
+    <span class="token keyword">try</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> data <span class="token operator">=</span> Promise<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+        <span class="token comment" spellcheck="true">// @ts-ignore</span>
+        fn<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token operator">...</span>arguments<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span>resolve<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+          <span class="token function">setTimeout</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> time<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">]</span><span class="token punctuation">)</span>
+      <span class="token comment" spellcheck="true">// @ts-ignore</span>
+      <span class="token keyword">return</span> data<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span> <span class="token keyword">finally</span> <span class="token punctuation">{</span>
+      <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+        status <span class="token operator">=</span> <span class="token string">''</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span> delayTime<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>函数我放到了个人的工具函数库中，可以直接通过 npm 安装：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 安装</span>
+npm install @aocoding<span class="token operator">/</span>victorinox
+<span class="token comment" spellcheck="true">// 使用</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> PromiseThrottleFn <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@aocoding/victorinox'</span></code></pre>
 
             </div>
             <hr/>
@@ -425,8 +466,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
-                                    <span class="chip bg-color">小程序</span>
+                                <a href="/tags/promise/">
+                                    <span class="chip bg-color">promise</span>
                                 </a>
                             
                         </div>
@@ -464,9 +505,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2021/11/16/front-end/promise-throttle/">
                     <div class="card-image">
@@ -485,9 +527,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-11-16
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-16
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -500,6 +542,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -518,31 +561,30 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/08/22/reading/how-javascript-works/">
+                <a href="/2021/09/26/front-end/uniapp-alipay-mini/">
                     <div class="card-image">
                         
-                        <img src="/../../coverImages/How-JavaScript-Works.jpeg" class="responsive-img" alt="JavaScript 悟道读后感">
+                        <img src="/../../coverImages/uniapp.jpg" class="responsive-img" alt="uniapp 中支付宝小程序自定义组件的调用">
                         
-                        <span class="card-title">JavaScript 悟道读后感</span>
+                        <span class="card-title">uniapp 中支付宝小程序自定义组件的调用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            以前读过蝴蝶书🦋，对作者印象深刻，jsLint 尝试用过，几乎不可配置，在我的地盘，你就得乖乖听我的。
-《JavaScript 悟道》这本书英文版本是 2019 年出版，中文版出的速度还是挺不错的，虽然 es 规范现在年年更新，但是书本身
+                            uniapp 这个缝合怪，挺厉害的，啥都能做，甚至你能够使用小程序的原生组件。具体文档：https://uniapp.dcloud.io/frame?id=%e5%b0%8f%e7%a8%8b%e5%ba%8f%e8%87%aa%e5%ae
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-22
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-26
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E9%98%85%E8%AF%BB/" class="post-category">
-                                    阅读
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
                                 </a>
                             
                             
@@ -552,8 +594,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E9%98%85%E8%AF%BB/">
-                        <span class="chip bg-color">阅读</span>
+                    <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
+                        <span class="chip bg-color">小程序</span>
                     </a>
                     
                 </div>
