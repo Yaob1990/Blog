@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>H5-dooring 后端常见问题</title>
+      <link href="/2022/01/23/back-endback-end-node-high-cpu/"/>
+      <url>/2022/01/23/back-endback-end-node-high-cpu/</url>
+      
+        <content type="html"><![CDATA[<p>H5-dooring 后端是 koa2，数据库是直接读写的本地json文件，没有sql，没有redis。我们上线之后，一直有各种各样的问题，简单梳理下，不涉及具体代码，不涉及业务细节。</p><h2 id="pm2-频繁重启"><a href="#pm2-频繁重启" class="headerlink" title="pm2 频繁重启"></a>pm2 频繁重启</h2><p>日志文件是直接读写，没有按照时间分割，导致日志文件暴增，node 可用内存64位一般情况下是 1.4g，当内存溢出时候，直接导致 node 进程退出，pm2 频繁重启</p><h2 id="高-cpu"><a href="#高-cpu" class="headerlink" title="高 cpu"></a>高 cpu</h2><p>引入的 koa-compose 配置有问题，一直占据 cpu 时间片，200并发就能导致 cpu 100%，去除之后正常。</p><h2 id="静态文件处理"><a href="#静态文件处理" class="headerlink" title="静态文件处理"></a>静态文件处理</h2><p>静态文件使用 koa-static 处理，虽然也没啥大问题，但是效率明显偏低，静态文件，我们换成了 nginx，koa 只处理接口请求。</p><h2 id="缺少缓存"><a href="#缺少缓存" class="headerlink" title="缺少缓存"></a>缺少缓存</h2><p>频繁读写本地 json 文件，没有使用缓存（比如 Redis），性能不友好，对高并发的 H5 接口，我们加了内存缓存。</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这个项目的排查，学了不少后端的知识，H5-dooring 这个项目，前端挺美的，后端嘛，😝😝😝</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 后端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> koa </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>深入浅出 nodejs</title>
       <link href="/2022/01/23/reading/deepinnodejs/"/>
       <url>/2022/01/23/reading/deepinnodejs/</url>
