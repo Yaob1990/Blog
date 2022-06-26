@@ -4,9 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="umami 源码分析, 不知">
-    <meta name="description" content="umami 不使用 cookie 、localstorage 实现了 uv 识别，符合最新的隐私规范，代码也比较精简。花了一点时间，研究了这部分的实现，还是很有意思的。
-技术框架：next.js + mysql/postgresql整体看下">
+    <meta name="keywords" content="战争与和平 —— 技术主管的思考, 不知">
+    <meta name="description" content="战争：项目紧急或复杂和平：项目不急或简单
+战争资源：战争是资源的消耗战，工作强度往往超过 996，往往我们是极度的缺乏资源，又需要赢下这场战争。在团结内部的同时，也要尽力去争取一切可以争取的资源，比如说，水果零食，加班能不能尽量争取，道义放">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
      <meta name="referrer" content="no-referrer-when-downgrade">
@@ -15,7 +15,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>umami 源码分析 | 不知</title>
+    <title>战争与和平 —— 技术主管的思考 | 不知</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -221,12 +221,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('../../coverImages/umami.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('../../coverImages/develop.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">umami 源码分析</h1>
+                    <h1 class="description center-align post-title">战争与和平 —— 技术主管的思考</h1>
                 </div>
             </div>
         </div>
@@ -343,12 +343,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/umami/">
-                                <span class="chip bg-color">umami</span>
+                            <a href="/tags/%E6%80%BB%E7%BB%93/">
+                                <span class="chip bg-color">总结</span>
                             </a>
                         
-                            <a href="/tags/%E6%BA%90%E7%A0%81/">
-                                <span class="chip bg-color">源码</span>
+                            <a href="/tags/%E7%AE%A1%E7%90%86/">
+                                <span class="chip bg-color">管理</span>
                             </a>
                         
                     </div>
@@ -359,8 +359,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
-                                前端
+                            <a href="/categories/%E7%BC%96%E7%A0%81%E7%82%B9%E6%BB%B4/" class="post-category">
+                                编码点滴
                             </a>
                         
                     </div>
@@ -381,14 +381,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    812
+                    787
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    2 分
                 </div>
                 
 
@@ -404,70 +404,17 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>umami 不使用 cookie 、localstorage 实现了 uv 识别，符合最新的隐私规范，代码也比较精简。花了一点时间，研究了这部分的实现，还是很有意思的。</p>
-<h2 id="技术框架："><a href="#技术框架：" class="headerlink" title="技术框架："></a>技术框架：</h2><p>next.js + mysql/postgresql<br>整体看下来，nextjs 准备了很多的约定，比如说 api 目录在 <code>pages/api/</code>下面，比如说，<code>pages/api/user.js</code>，nextjs 框架有大量这样的约定。</p>
-<p>个人还是不太习惯这样的框架，总有种不伦不类的感觉，一些小项目可以这样搞，大型项目，还是需要明确的代码分成，封装。</p>
-<h2 id="用户识别"><a href="#用户识别" class="headerlink" title="用户识别"></a>用户识别</h2><p>uv 的核心是去做用户识别，一般会本地存储一个随机的id，每次页面路由变化，上报给后台。<br>而 umami 为了符合一系列的隐私规范，并没有这么做，没有使用 cookie或者 localStorage 。<br>上报路径”pages/api/collect.js”，最终会产生 session 并且通过 session 返回 token 。session 生成方法 <code>getSession</code></p>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> session_uuid <span class="token operator">=</span> <span class="token function">uuid</span><span class="token punctuation">(</span>website_id<span class="token punctuation">,</span> hostname<span class="token punctuation">,</span> ip<span class="token punctuation">,</span> userAgent<span class="token punctuation">)</span><span class="token punctuation">;</span>
-session <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">createSession</span><span class="token punctuation">(</span>website_id<span class="token punctuation">,</span> <span class="token punctuation">{</span>
-    session_uuid<span class="token punctuation">,</span>
-    hostname<span class="token punctuation">,</span>
-    browser<span class="token punctuation">,</span>
-    os<span class="token punctuation">,</span>
-    screen<span class="token punctuation">,</span>
-    language<span class="token punctuation">,</span>
-    country<span class="token punctuation">,</span>
-    device<span class="token punctuation">,</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<p>这部分代码就比较清楚了，根据网站id，域名，ip，userAgent 生成 session_uuid,然后和数据库通信创建或者使用 session。<br>核心是根据一些列的变量生成一个不变的 uuid，后续用户再次进入页面，根据用户的这些参数，去数据库查询这个 uuid，就实现了用户识别。</p>
-<p>里面也有一些其他的逻辑，比如跨域，忽略本地地址等，但是不影响我们对核心逻辑的理解。</p>
-<h2 id="上报脚本脚本"><a href="#上报脚本脚本" class="headerlink" title="上报脚本脚本"></a>上报脚本脚本</h2><p>上报脚本位置：<code>tracker/index.js</code><br>这个脚本很短，只有短短的225实现了上报功能。</p>
-<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>script <span class="token keyword">async</span> defer data<span class="token operator">-</span>website<span class="token operator">-</span>id<span class="token operator">=</span><span class="token string">"914685a1-8993-4d8c-895b-929c8646e814"</span> src<span class="token operator">=</span><span class="token string">"http://localhost:3000/umami.js"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span></code></pre>
-<ul>
-<li>async: async 脚本会在后台加载，并在加载就绪时运行。DOM 和其他脚本不会等待它们，它们也不会等待其它的东西。async 脚本就是一个会在加载完成时执行的完全独立的脚本。</li>
-<li>defer: 特性告诉浏览器不要等待脚本。相反，浏览器将继续处理 HTML，构建 DOM。脚本会“在后台”下载，然后等 DOM 构建完成后，脚本才会执行。</li>
-<li>data-website-id: 网站 id</li>
-</ul>
-<h2 id="挂载"><a href="#挂载" class="headerlink" title="挂载"></a>挂载</h2><pre class=" language-js"><code class="language-js"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>window<span class="token punctuation">.</span>umami<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">const</span> umami <span class="token operator">=</span> eventValue <span class="token operator">=</span><span class="token operator">></span> <span class="token function">trackEvent</span><span class="token punctuation">(</span>eventValue<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    umami<span class="token punctuation">.</span>trackView <span class="token operator">=</span> trackView<span class="token punctuation">;</span>
-    umami<span class="token punctuation">.</span>trackEvent <span class="token operator">=</span> trackEvent<span class="token punctuation">;</span>
-
-    window<span class="token punctuation">.</span>umami <span class="token operator">=</span> umami<span class="token punctuation">;</span>
-  <span class="token punctuation">}</span></code></pre>
-<p>方法都挂载到 window 上面，后续可以直接调用。</p>
-<h2 id="记录-pv-uv"><a href="#记录-pv-uv" class="headerlink" title="记录 pv uv"></a>记录 pv uv</h2><pre class=" language-js"><code class="language-js"><span class="token keyword">if</span> <span class="token punctuation">(</span>autoTrack <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span><span class="token function">trackingDisabled</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// 监听 pushState，replaceState 事件</span>
-    history<span class="token punctuation">.</span>pushState <span class="token operator">=</span> <span class="token function">hook</span><span class="token punctuation">(</span>history<span class="token punctuation">,</span> <span class="token string">'pushState'</span><span class="token punctuation">,</span> handlePush<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    history<span class="token punctuation">.</span>replaceState <span class="token operator">=</span> <span class="token function">hook</span><span class="token punctuation">(</span>history<span class="token punctuation">,</span> <span class="token string">'replaceState'</span><span class="token punctuation">,</span> handlePush<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-    <span class="token keyword">const</span> update <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-      console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">'update'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token keyword">if</span> <span class="token punctuation">(</span>document<span class="token punctuation">.</span>readyState <span class="token operator">===</span> <span class="token string">'complete'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">'complete'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token function">trackView</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>cssEvents<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-          <span class="token function">addEvents</span><span class="token punctuation">(</span>document<span class="token punctuation">)</span><span class="token punctuation">;</span>
-          <span class="token function">observeDocument</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-      <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-    document<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'readystatechange'</span><span class="token punctuation">,</span> update<span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-    <span class="token function">update</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span></code></pre>
-<p>这里最终会在<code>document.readyState === &#39;complete&#39;</code>时候，去做事件监听绑定等操作，发送第一次页面上报。<br>有一点不理解，为什么已经监听了<code>readystatechange</code>，还是又手动执行了一次<code>update()</code></p>
-<h2 id="监听路由改变"><a href="#监听路由改变" class="headerlink" title="监听路由改变"></a>监听路由改变</h2><pre class=" language-js"><code class="language-js"><span class="token keyword">export</span> <span class="token keyword">const</span> hook <span class="token operator">=</span> <span class="token punctuation">(</span>_this<span class="token punctuation">,</span> method<span class="token punctuation">,</span> callback<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-  <span class="token keyword">const</span> orig <span class="token operator">=</span> _this<span class="token punctuation">[</span>method<span class="token punctuation">]</span><span class="token punctuation">;</span>
-  <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-    callback<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> orig<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>_this<span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
-<p><code>history.pushState</code> hook劫持，为了在原生方法执行前，执行callback。这样实现了对原生 history 的监听。<code>handlePush</code> 方法会执行上报方法 trackView。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>整体代码比较简单，清晰，无侵入性的实现了网站统计。</p>
+                <p><strong>战争</strong>：项目紧急或复杂<br><strong>和平</strong>：项目不急或简单</p>
+<h2 id="战争"><a href="#战争" class="headerlink" title="战争"></a>战争</h2><p><strong>资源</strong>：战争是资源的消耗战，工作强度往往超过 996，往往我们是极度的缺乏资源，又需要赢下这场战争。在团结内部的同时，也要尽力去争取一切可以争取的资源，比如说，水果零食，加班能不能尽量争取，道义放两旁，利字摆中间。</p>
+<p><strong>代码贡献</strong>：项目紧急或者复杂，就意味着项目之中存在大量有待梳理与优化的点，意味着要投入更多的时间去整合资源、精简需求和迭代方案，个体的代码贡献与整体的效能提升相比，就显得没那么重要了。战争时代，技术主管可以少写、不写代码。</p>
+<p><strong>快速决策</strong>：事情千头万绪，各种人找你，快速决策的基础是必须对项目有深入的理解，不能任凭甲方牵着鼻子走，否则会疲于奔命，要有理有据的说服对方。</p>
+<p><strong>团队</strong>：战争时代，各种会议，对接，会消耗技术主管大量的时间，团队应该在缺少部分管理的情况下自行运作，各自推进项目进度，不能依靠技术主管去做事情的推进。用人所长，发挥团队的最高效能。</p>
+<p><strong>人员</strong>：因为项目的扩张，必然导致人员的扩张，快速筛选人才，挑选人才，团队磨合，对于不能融入团队，传递负能量，无法立即解决眼前问题的，杀伐果断。</p>
+<h2 id="和平"><a href="#和平" class="headerlink" title="和平"></a>和平</h2><p><strong>代码贡献</strong>：项目的稳定期，作为技术攻坚的带头人，引入业界前沿的技术、设计模式或者框架，让战争时代Quick And Dirty的方式和不得不情况下做出的妥协变得优雅又牢固，持续深挖团队的技术护城河，营造团队以精进技术为导向的氛围，培养各个方向顶尖的技术梯队，是和平年代技术主管的使命。</p>
+<p>这个阶段，技术主管应该多写困难的代码，解决共性问题，迎难而上。</p>
+<p><strong>团队</strong>：温情是这个时期的主旋律，给团队明确的技术方向，深挖团队护城河，不断引入最新的技术实践，营造技术氛围。深入了解团队成员的个性与技术擅长，给予适当的引导，和平时期尽量消灭一些浅层次问题，在战争时，才可以用人所长。</p>
+<p><strong>人员</strong>：适合培养新人，磨合团队，培养技术梯队。大型项目可以考虑人员的适度冗余，为战争做准备，避免战争期间大量的人员变动，冲击原有的团队文化，技术阵型。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>技术主管需要有广阔的技术视野，引领团队进步，同时对项目要有细粒度的把控。进能带领团队，迎接一个又一个挑战，退，能够实现复杂的业务逻辑，混口饭吃。</p>
 
             </div>
             <hr/>
@@ -481,12 +428,12 @@ session <span class="token operator">=</span> <span class="token keyword">await<
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/umami/">
-                                    <span class="chip bg-color">umami</span>
+                                <a href="/tags/%E6%80%BB%E7%BB%93/">
+                                    <span class="chip bg-color">总结</span>
                                 </a>
                             
-                                <a href="/tags/%E6%BA%90%E7%A0%81/">
-                                    <span class="chip bg-color">源码</span>
+                                <a href="/tags/%E7%AE%A1%E7%90%86/">
+                                    <span class="chip bg-color">管理</span>
                                 </a>
                             
                         </div>
@@ -524,9 +471,10 @@ session <span class="token operator">=</span> <span class="token keyword">await<
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2022/06/26/anything/zhan-zheng-yu-he-ping/">
                     <div class="card-image">
@@ -544,9 +492,9 @@ session <span class="token operator">=</span> <span class="token keyword">await<
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-06-26
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-26
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -559,6 +507,7 @@ session <span class="token operator">=</span> <span class="token keyword">await<
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -581,24 +530,24 @@ session <span class="token operator">=</span> <span class="token keyword">await<
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/04/18/front-end/mini-scroll-through/">
+                <a href="/2022/06/26/front-end/umami/">
                     <div class="card-image">
                         
-                        <img src="/../../coverImages/zhifubao-mini.png" class="responsive-img" alt="小程序中的滚动穿透">
+                        <img src="/../../coverImages/umami.png" class="responsive-img" alt="umami 源码分析">
                         
-                        <span class="card-title">小程序中的滚动穿透</span>
+                        <span class="card-title">umami 源码分析</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            在小程序开发中，弹出层滚动穿透是个比较棘手的问题。如下图，蓝色部分滚动，底部也跟着一起滚动，就是滚动穿透。
-常见的处理方法比如，禁止滚动，并不生效。而给主体加 overflow: hidden 又会导致主体滚动条高度为 0，需要关闭时候记录
+                            umami 不使用 cookie 、localstorage 实现了 uv 识别，符合最新的隐私规范，代码也比较精简。花了一点时间，研究了这部分的实现，还是很有意思的。
+技术框架：next.js + mysql/postgresql整体看下
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-18
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-26
                             </span>
                         <span class="publish-author">
                             
@@ -615,8 +564,12 @@ session <span class="token operator">=</span> <span class="token keyword">await<
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
-                        <span class="chip bg-color">小程序</span>
+                    <a href="/tags/umami/">
+                        <span class="chip bg-color">umami</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%BA%90%E7%A0%81/">
+                        <span class="chip bg-color">源码</span>
                     </a>
                     
                 </div>
