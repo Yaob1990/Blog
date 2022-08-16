@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>小程序预览和体验码不一致的坑</title>
+      <link href="/2022/08/20/front-end/alipay-mini-pkg-builder/"/>
+      <url>/2022/08/20/front-end/alipay-mini-pkg-builder/</url>
+      
+        <content type="html"><![CDATA[<h2 id="翻车现场"><a href="#翻车现场" class="headerlink" title="翻车现场"></a>翻车现场</h2><p>我们的小程序之前打包都是 ok 的，但是上次发版本，验证发现多处 css 异常。代码回退，使用旧版本的代码故障依旧。并且本地的 ide 打包出来时正常的，只在云端构建时候出现问题。</p><h2 id="快速解决问题"><a href="#快速解决问题" class="headerlink" title="快速解决问题"></a>快速解决问题</h2><p>直觉是存在 css 冲突，为了快速解决问题，把发现的几处修改了。但是还有哪些，挺难发现的，必须找到问题的根本原因。</p><h2 id="问题在哪？"><a href="#问题在哪？" class="headerlink" title="问题在哪？"></a>问题在哪？</h2><p>因为旧版本之前上传是正确的，本次本地都是 ok 的，只在线上出现问题。那么大概率是编译器有更新，本地编译器是随着 ide 发布的，线上可以直接更新。</p><p>我们的 ide 版本是 3.0.2，最新版本的 ide 是 3.1.3，更新最新版本的 ide，问题复现。</p><p>查看 ide 的 mini-pkg-builder hash：</p><p>3.0.2<br>md5: daa0f48beb478e414c8686ba02cc560a<br>sha-256: 5499c3918ab708f6df337abed8a126e9d19293394c746b77846553d2f1caea83</p><p>3.1.3<br>md5: f26ab0d68a13f86377bc6b7805de61ba<br>sha-256: a4b647abbd37776e8b8d1883d179ee6bb64c21f0a7deb7e00e406ae83c1fe561</p><p>编译器确实有变化。</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这个问题，真的挺搞的，不声不响更新核心组件，质量如何把关的，如何上线的，有没有开发者通知？</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 小程序 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>战争与和平</title>
       <link href="/2022/06/26/anything/zhan-zheng-yu-he-ping/"/>
       <url>/2022/06/26/anything/zhan-zheng-yu-he-ping/</url>
