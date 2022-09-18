@@ -4,9 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="小程序预览和体验码不一致的坑, 不知">
-    <meta name="description" content="翻车现场我们的小程序之前打包都是 ok 的，但是上次发版本，验证发现多处 css 异常。代码回退，使用旧版本的代码故障依旧。并且本地的 ide 打包出来时正常的，只在云端构建时候出现问题。
-快速解决问题直觉是存在 css 冲突，为了快速解决">
+    <meta name="keywords" content="大型项目前端手记, 不知">
+    <meta name="description" content="亿级流量的 c 端项目。主体是多个小程序，并且分化为多个版本。除了扯皮拉扯之外，总想聊一聊，不吐不快。
+保持技术栈的单调性因为各种原因，我们的技术栈百花齐放，uniapp，herbjs，内部小程序框架，vue(h5)，react(h5)，苦">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
      <meta name="referrer" content="no-referrer-when-downgrade">
@@ -15,7 +15,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>小程序预览和体验码不一致的坑 | 不知</title>
+    <title>大型项目前端手记 | 不知</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -221,12 +221,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('../../coverImages/mini-alipay.jpeg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('../../coverImages/week.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">小程序预览和体验码不一致的坑</h1>
+                    <h1 class="description center-align post-title">大型项目前端手记</h1>
                 </div>
             </div>
         </div>
@@ -343,8 +343,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
-                                <span class="chip bg-color">小程序</span>
+                            <a href="/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/">
+                                <span class="chip bg-color">项目管理</span>
                             </a>
                         
                     </div>
@@ -355,8 +355,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
-                                前端
+                            <a href="/categories/%E7%BC%96%E7%A0%81%E7%82%B9%E6%BB%B4/" class="post-category">
+                                编码点滴
                             </a>
                         
                     </div>
@@ -368,7 +368,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-08-20
+                    2022-09-18
                 </div>
                 
 
@@ -377,14 +377,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    295
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    4 分
                 </div>
                 
 
@@ -400,15 +400,34 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="翻车现场"><a href="#翻车现场" class="headerlink" title="翻车现场"></a>翻车现场</h2><p>我们的小程序之前打包都是 ok 的，但是上次发版本，验证发现多处 css 异常。代码回退，使用旧版本的代码故障依旧。并且本地的 ide 打包出来时正常的，只在云端构建时候出现问题。</p>
-<h2 id="快速解决问题"><a href="#快速解决问题" class="headerlink" title="快速解决问题"></a>快速解决问题</h2><p>直觉是存在 css 冲突，为了快速解决问题，把发现的几处修改了。但是还有哪些，挺难发现的，必须找到问题的根本原因。</p>
-<h2 id="问题在哪？"><a href="#问题在哪？" class="headerlink" title="问题在哪？"></a>问题在哪？</h2><p>因为旧版本之前上传是正确的，本次本地都是 ok 的，只在线上出现问题。那么大概率是编译器有更新，本地编译器是随着 ide 发布的，线上可以直接更新。</p>
-<p>我们的 ide 版本是 3.0.2，最新版本的 ide 是 3.1.3，更新最新版本的 ide，问题复现。</p>
-<p>查看 ide 的 mini-pkg-builder hash：</p>
-<p>3.0.2<br>md5: daa0f48beb478e414c8686ba02cc560a<br>sha-256: 5499c3918ab708f6df337abed8a126e9d19293394c746b77846553d2f1caea83</p>
-<p>3.1.3<br>md5: f26ab0d68a13f86377bc6b7805de61ba<br>sha-256: a4b647abbd37776e8b8d1883d179ee6bb64c21f0a7deb7e00e406ae83c1fe561</p>
-<p>编译器确实有变化。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这个问题，真的挺搞的，不声不响更新核心组件，质量如何把关的，如何上线的，有没有开发者通知？</p>
+                <p>亿级流量的 c 端项目。主体是多个小程序，并且分化为多个版本。除了扯皮拉扯之外，总想聊一聊，不吐不快。</p>
+<h2 id="保持技术栈的单调性"><a href="#保持技术栈的单调性" class="headerlink" title="保持技术栈的单调性"></a>保持技术栈的单调性</h2><p>因为各种原因，我们的技术栈百花齐放，uniapp，herbjs，内部小程序框架，vue(h5)，react(h5)，苦不堪言。对于新人进来，只能快速熟悉一块内容，熟悉其他的小程序需要重新学习框架，成本比较高，如果框架本身还出现一些bug，简直酸爽。</p>
+<h3 id="少有人走的路"><a href="#少有人走的路" class="headerlink" title="少有人走的路"></a>少有人走的路</h3><p>《少有人走的路》是本挺好的描述亲密关系的书，然而，技术上要小心。少有人选择的技术，那么就是坑多，因为部分业务是继承项目，所以框架沿用的原来的框架，没有文档，没有支持，吭哧吭哧，埋头苦干。没有人问，没有人解释，各种写法奇绝诡异。<br>再给我一次机会，我会毫不犹豫的选择使用熟悉的框架去重构，后续的维护成本会很低，对于长期项目，收益很高。</p>
+<h4 id="选择大路货"><a href="#选择大路货" class="headerlink" title="选择大路货"></a>选择大路货</h4><p>技术选型，选择大路货。虽然 v2ex 把 uniapp 喷的不要不要，然而开发效率，工程化，市场占有率，uniapp 是非常好的，能够让一般开发快速完成工作。<br>然而，uniapp 的 bug 也是有的，我们在开发过程中有遇到，我们选择给 uniapp 提交 mr，一般很快就会被合入。有人维护，有人讨论的技术，不用担心，一定可以找到比较快速的解决办法，没有就完善它，让它变得更美好。</p>
+<h4 id="内部框架是个p"><a href="#内部框架是个p" class="headerlink" title="内部框架是个p"></a>内部框架是个p</h4><p>见过太多的内部库，内部框架了，没有一个，是的没有一个，给我比较好的印象。</p>
+<ol>
+<li>你的同事水平不一定比你强，见过大量错别字的内部库 :(</li>
+<li>内部框架服务于特定领域，有它自身的局限</li>
+<li>内部框架往往公司的人事变迁，就没有人维护了，很多内部框架都是一两个人维护，有的内部看源码都很麻烦，单点风险太高。</li>
+<li>没有银弹，多少库，框架，只是拿着开源的改改，就是内部库了</li>
+</ol>
+<h2 id="保持核心方法的单调性"><a href="#保持核心方法的单调性" class="headerlink" title="保持核心方法的单调性"></a>保持核心方法的单调性</h2><h3 id="http"><a href="#http" class="headerlink" title="http"></a>http</h3><p>在我的项目里面，http 方法是比较核心的方法，初始状态下，有使用全局 http 的，也有直接使用 wx.request 方法的。后续做 token 校验的时候，困难重重，线上总是有大量的失效的 token。所以对所有 http 方法做了要求，全部使用我自己的库 @aocoding/mini-axios，集中处理token更新机制，后续异常逐渐降下来了。</p>
+<h3 id="合理封装，保持简单"><a href="#合理封装，保持简单" class="headerlink" title="合理封装，保持简单"></a>合理封装，保持简单</h3><p>很多按钮点击时候，需要用户高级授权，而高级授权又对应着判断是否已经授权，获取 code，和后端交互等复杂交互。<br>这里我们做了一个全局状态去存储授权，并封装成装饰器，按钮等行动点，可以直接使用装饰器去校验。进入页面时候，也可以使用装饰器去做一定的授权防御。</p>
+<h2 id="正确使用组件"><a href="#正确使用组件" class="headerlink" title="正确使用组件"></a>正确使用组件</h2><p>一般项目其实很难过度组件化，一个页面也就十几个组件。但是我接盘的一个项目，组件的划分匪夷所思。</p>
+<ul>
+<li>外层组件：起初我以为是复用，但是完全没有复用，基本都使用一次，原生小程序，不涉及业务逻辑</li>
+<li>内层组件：涉及业务逻辑，引用外层组件，内部框架</li>
+</ul>
+<p>这样的结果就是你需要在小程序里面跳来跳去，一个页面，组件应该有上百个….虽然业务确实比较复杂，但是咱真的至于这样么…</p>
+<h2 id="整洁代码"><a href="#整洁代码" class="headerlink" title="整洁代码"></a>整洁代码</h2><ol>
+<li>严禁大量的注释（调试）代码存在，必须删除，现在不能和过去告别，以后也会纠缠不清，想看以前的记录，请使用 git</li>
+<li>使用 ts，我们的项目基本都切换到了 ts，http 部分必须要有严格的类型定义，后续很少出现数据层面的bug。ts 不需要学的多深入，去做类型体操，花一周时间认真去学习，就能够应对项目中的绝大部分内容。随着 ts 越写越多，更多的场景也会推着你去学习新的知识。</li>
+</ol>
+<h3 id="重构"><a href="#重构" class="headerlink" title="重构"></a>重构</h3><ol>
+<li>不要怕，甩开膀子就是干！信心比能力更重要，面对屎山，要有不破楼兰誓不还的决心，小步迭代，长期推进，屎山也能变金山。</li>
+<li>长期项目，如果没有一定的重构机制，那一定是屎上堆屎。必须有完善的 review 机制，不合格代码不能因为任何原因合入，必须修改完所有的问题，把这养成习惯，去推动团队的运行。</li>
+<li>重构从主干代码开始，聚合项目中的各种通用方法，业务包装，主干代码串起项目骨架，其他的更多的是业务的填充。业务方面，保持各模块的解耦，公用方法的抽离，一个相对健壮的项目就出来了。</li>
+</ol>
 
             </div>
             <hr/>
@@ -422,8 +441,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
-                                    <span class="chip bg-color">小程序</span>
+                                <a href="/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/">
+                                    <span class="chip bg-color">项目管理</span>
                                 </a>
                             
                         </div>
@@ -461,9 +480,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2022/09/18/anything/da-xing-xiang-mu-qian-duan-shou-ji/">
                     <div class="card-image">
@@ -481,9 +501,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-09-18
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-18
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -496,6 +516,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -514,31 +535,31 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/06/26/anything/zhan-zheng-yu-he-ping/">
+                <a href="/2022/08/20/front-end/alipay-mini-pkg-builder/">
                     <div class="card-image">
                         
-                        <img src="/../../coverImages/develop.png" class="responsive-img" alt="战争与和平">
+                        <img src="/../../coverImages/mini-alipay.jpeg" class="responsive-img" alt="小程序预览和体验码不一致的坑">
                         
-                        <span class="card-title">战争与和平</span>
+                        <span class="card-title">小程序预览和体验码不一致的坑</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            战争：项目紧急或复杂和平：项目不急或简单
-战争资源：战争是资源的消耗战，工作强度往往超过 996，往往我们是极度的缺乏资源，又需要赢下这场战争。在团结内部的同时，也要尽力去争取一切可以争取的资源，比如说，水果零食，加班能不能尽量争取，道义放
+                            翻车现场我们的小程序之前打包都是 ok 的，但是上次发版本，验证发现多处 css 异常。代码回退，使用旧版本的代码故障依旧。并且本地的 ide 打包出来时正常的，只在云端构建时候出现问题。
+快速解决问题直觉是存在 css 冲突，为了快速解决
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-26
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-20
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%BC%96%E7%A0%81%E7%82%B9%E6%BB%B4/" class="post-category">
-                                    编码点滴
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
                                 </a>
                             
                             
@@ -548,12 +569,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%80%BB%E7%BB%93/">
-                        <span class="chip bg-color">总结</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%AE%A1%E7%90%86/">
-                        <span class="chip bg-color">管理</span>
+                    <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
+                        <span class="chip bg-color">小程序</span>
                     </a>
                     
                 </div>
