@@ -105,3 +105,9 @@ feed:
   content_limit: 140
   content_limit_delim: ' '
   order_by: -date
+
+# Generate categories from directory-tree
+# Dependencies: https://github.com/xu-song/hexo-auto-category
+# depth: the max_depth of directory-tree you want to generate, should > 0
+auto_category:
+ enable: true

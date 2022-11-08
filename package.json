@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "hexo": "4.1.1",
+    "hexo-auto-category": "^0.2.1",
     "hexo-deployer-cos-enhanced": "^1.0.1",
     "hexo-deployer-ftpsync": "^0.1.1",
     "hexo-deployer-git": "^2.1.0",

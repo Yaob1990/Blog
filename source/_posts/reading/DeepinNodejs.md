@@ -1,10 +1,11 @@
 ---
 title: 深入浅出 nodejs
-date: 2022-01-23 09:00:00
-categories: 阅读
+categories:
+  - reading
 img: ../../coverImages/book.jpeg
 tags:
   - 阅读
+date: 2022-01-23 09:00:00
 ---
 
 ![nodejs](/images/2022/01/23/nodejs.jpeg)
