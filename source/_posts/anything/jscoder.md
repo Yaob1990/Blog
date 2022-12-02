@@ -1,8 +1,9 @@
 ---
 title: 11 月的碎碎念
+categories:
+  - anything
 date: 2020-11-29 21:33:36
-categories: 编码点滴
-tags: 
+tags:
 ---
 
 

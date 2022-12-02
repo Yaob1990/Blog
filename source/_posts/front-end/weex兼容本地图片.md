@@ -1,10 +1,11 @@
 ---
 title: weex兼容本地图片
-date: 2019-07-5 05:55:00
-categories: 前端
+categories:
+  - front-end
 tags:
   - weex
   - 混合开发
+date: 2019-07-05 05:55:00
 ---
 
 做 weex 开发时候，不能使用本地图片，比较难受，必须使用网络图片。

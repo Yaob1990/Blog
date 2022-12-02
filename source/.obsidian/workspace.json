@@ -1,0 +1,162 @@
+{
+  "main": {
+    "id": "f4e8547598880fc9",
+    "type": "split",
+    "children": [
+      {
+        "id": "03a194274e7e84b0",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9f17a758a71a9876",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "_posts/front-end/regex.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "e0609753d5cde161",
+            "type": "leaf",
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "images/2022120201.png"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "4af4b94816f6bd64",
+    "type": "split",
+    "children": [
+      {
+        "id": "746d8434cdc27ae0",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4238afeaf14cfa8f",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "b988c4321686067a",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "深入浅出",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "6fab6a69bcb35510",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "13f4bb2512162934",
+    "type": "split",
+    "children": [
+      {
+        "id": "2d86862e20948509",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a21e1559d43c8581",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "_posts/front-end/regex.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "3b92cfb37c6206f6",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "_posts/front-end/regex.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "b4a0800cd18e59d4",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "e505594db9cddd2f",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "_posts/front-end/regex.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "9f17a758a71a9876",
+  "lastOpenFiles": [
+    "images/2022120201.png",
+    "_posts/front-end/regex.md",
+    "images/20221125071137_1.png",
+    "coverImages/regex.png",
+    "_obsidian/blog  temp.md",
+    "Pasted image 20221125071208.png.md",
+    "source/_posts/front-end/regex.md",
+    "Pasted image 20221125071137.png.md",
+    "source/_posts/reading/Distant-Saviour.md",
+    "source/_obsidian/blog  temp.md"
+  ]
+}

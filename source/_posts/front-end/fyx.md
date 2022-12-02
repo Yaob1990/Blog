@@ -1,12 +1,13 @@
 ---
 title: 丰云行app 探索
-date: 2020-06-17 08:21:37
-categories: 前端
+categories:
+  - front-end
 img: ../../coverImages/fyx.jpg
 tags:
   - axios
   - promise
 typora-root-url: ..\..
+date: 2020-06-17 08:21:37
 ---
 
 广汽丰田的风云行app，提供的车联网功能还是挺好用的，但是只能提供车辆的位置信息，不能提供行驶轨迹等功能。于是抓包看了下他的功能逻辑。

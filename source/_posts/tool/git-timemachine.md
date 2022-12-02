@@ -1,10 +1,11 @@
 ---
 title: 回到过去的一万种方式 —— git 时光机
-date: 2020-12-02 23:00:00
-categories: 工具
+categories:
+  - tool
 tags: git
 img: ../../coverImages/git.jpg
 typora-root-url: ../../images
+date: 2020-12-02 23:00:00
 ---
 
 > 时光无法倒流，git 却让我们有机会修改历史

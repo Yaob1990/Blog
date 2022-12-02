@@ -1,10 +1,13 @@
 ---
 title: H5-dooring 后端常见问题
-date: 2022-01-23 12:00:00
-categories: 后端
+categories:
+  - |-
+    back-end
+    back-end 
 img: ../../coverImages/h5-dooring.jpg
 tags:
   - koa
+date: 2022-01-23 12:00:00
 ---
 
 H5-dooring 后端是 koa2，数据库是直接读写的本地json文件，没有sql，没有redis。我们上线之后，一直有各种各样的问题，简单梳理下，不涉及具体代码，不涉及业务细节。

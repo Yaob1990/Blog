@@ -1,10 +1,11 @@
 ---
 title: 深入理解支付宝小程序 -- event、jsBridge通信篇
-date: 2021-07-31 23:00:00
-categories: 前端
+categories:
+  - front-end
 img: ../../coverImages/mini-alipay.jpeg
 tags:
   - 小程序
+date: 2021-07-31 23:00:00
 ---
 
 这篇我们将跟踪函数，尝试去分离出 `webview` 和 `worker` 的通信方式.

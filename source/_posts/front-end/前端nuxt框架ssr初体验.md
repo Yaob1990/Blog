@@ -1,11 +1,12 @@
 ---
 title: 前端nuxt框架ssr初体验
-date: 2020-03-08 20:16:00
-categories: 前端
+categories:
+  - front-end
 img: ../../coverImages/nuxtLogo.png
 tags:
   - nuxt
 typora-root-url: ..\..
+date: 2020-03-08 20:16:00
 ---
 
 

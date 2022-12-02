@@ -1,10 +1,11 @@
 ---
 title: 忘记该忘记的，记住该记住的 —— git filter-branch
-date: 2020-12-01 22:00:00
-categories: 工具
+categories:
+  - tool
 tags: git
 img: ../../coverImages/git.jpg
 typora-root-url: ../../images
+date: 2020-12-01 22:00:00
 ---
 
 Pro git 中把 `filter-branch` 称为 **核弹**，让人难以忘记，也充分说明了该命令的威力。

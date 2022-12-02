@@ -1,10 +1,11 @@
 ---
 title: 在 uniapp 中使用小程序ui组件库（mini-ali-ui-rpx）
-date: 2021-06-17 06:00:00
-categories: 前端
+categories:
+  - front-end
 tags:
   - 小程序
 img: ../../coverImages/mini-alipay.jpeg
+date: 2021-06-17 06:00:00
 ---
 
 uniapp 提供了很多开箱即用的特性，但是业务开发中，好像很少使用原生的小程序组件，这个特性是支持的。从 uniapp 开发者角度，支持原生小程序特性有利于开发者对现有的小程序做快速迁移，能够兼容社区绝大多数 ui 组件库。

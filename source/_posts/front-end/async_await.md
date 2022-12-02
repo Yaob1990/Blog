@@ -1,11 +1,12 @@
 ---
 title: async await 的终极封装
-date: 2020-08-06 10:00:00
-categories: 前端
+categories:
+  - front-end
 img: ../../coverImages/javascript_async_await.jpeg
 tags:
   - promise
 typora-root-url: ..\..
+date: 2020-08-06 10:00:00
 ---
 
 ## async await 的终极封装

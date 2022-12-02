@@ -1,12 +1,13 @@
 ---
 title: 前端怎么样处理emoji表情
-date: 2020-01-18 20:40:00
-categories: 前端
+categories:
+  - front-end
 img: ../../coverImages/emoji.jpg
 tags:
   - JSON
   - emoji
 typora-root-url: ..\..\..
+date: 2020-01-18 20:40:00
 ---
 
 > 一个 bug 的心路历程...

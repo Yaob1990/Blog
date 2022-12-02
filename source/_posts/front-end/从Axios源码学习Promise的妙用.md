@@ -1,13 +1,14 @@
 ---
 title: 从Axios源码学习Promise的妙用
-date: 2020-01-5 20:15:00
-categories: 前端
+categories:
+  - front-end
 img: ../../coverImages/axios.jpg
 tags:
   - axios
   - promise
 typora-root-url: ..\..
 typora-copy-images-to: ..\..\images
+date: 2020-01-05 20:15:00
 ---
 
 惭愧，虽然一直在使用`Promise/async/await`，但是自己其实对`Promise`并不是特别理解，导致这次遇到问题时候，一直不是特别明白。

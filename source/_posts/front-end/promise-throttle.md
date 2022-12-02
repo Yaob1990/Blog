@@ -1,9 +1,10 @@
 ---
 title: 抛弃 loadsh，封装更现代的防抖、节流
-date: 2021-11-16 22:22:22
-categories: 前端
+categories:
+  - front-end
 tags:
   - promise
+date: 2021-11-16 22:22:22
 ---
 
 ## 一般意义上的防抖节流

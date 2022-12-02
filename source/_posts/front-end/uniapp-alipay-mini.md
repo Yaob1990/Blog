@@ -1,10 +1,11 @@
 ---
 title: uniapp 中支付宝小程序自定义组件的调用
-date: 2021-09-26 07:54:00
-categories: 前端
+categories:
+  - front-end
 img: ../../coverImages/uniapp.jpg
 tags:
   - 小程序
+date: 2021-09-26 07:54:00
 ---
 
 uniapp 这个缝合怪，挺厉害的，啥都能做，甚至你能够使用小程序的原生组件。

@@ -1,10 +1,11 @@
 ---
 title: 深入理解支付宝小程序 -- sjs 篇
-date: 2021-07-31 22:00:00
-categories: 前端
+categories:
+  - front-end
 img: ../../coverImages/mini-alipay.jpeg
 tags:
   - 小程序
+date: 2021-07-31 22:00:00
 ---
 
 在平时的开发中，我们很少会主动去使用 `sjs`，程序能够运行，不加班，已经是极好的事情了:)。但我们这个系列不可以，深入原理部分，必须对每一个细节都了若指掌，差之毫厘谬以千里。

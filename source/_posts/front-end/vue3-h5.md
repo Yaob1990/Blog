@@ -1,12 +1,12 @@
 ---
 title: vue3 h5 脚手架
-date: 2020-09-21 22:22:22
-categories: 前端
+categories:
+  - front-end
 img: ../../coverImages/vue-3.jpg
 tags:
   - vue
 typora-root-url: ..\..
-
+date: 2020-09-21 22:22:22
 ---
 
 

@@ -1,11 +1,12 @@
 ---
 title: Typescript 该不该学？
-date: 2020-06-02 09:00:00
-categories: 前端
+categories:
+  - front-end
 img: ../../coverImages/typescriptLogo.jpg
 tags:
   - Typescript
 typora-root-url: ..\..
+date: 2020-06-02 09:00:00
 ---
 
 

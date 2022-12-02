@@ -1,10 +1,11 @@
 ---
 title: 【支付宝小程序】我们常用的 'my' 是什么？
-date: 2021-04-24 17:00:00
-categories: 前端
+categories:
+  - front-end
 img: ../../coverImages/mini-alipay.jpeg
 tags:
   - 小程序
+date: 2021-04-24 17:00:00
 ---
 
 支付宝小程序开发中我们使用的 `my` 其实就是 jsbrige 注入的一个对象。

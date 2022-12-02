@@ -1,10 +1,11 @@
 ---
 title: docker 简易入门
-date: 2020-12-17 23:00:00
 categories:
+  - ops
 img: ../../coverImages/docker.jpg
 tags:
   - docker
+date: 2020-12-17 23:00:00
 ---
 
 ![齐天大圣孙悟空](/images/20180125141147_61638d31e51d85f2a5d62e04191fe55f_1.jpg)

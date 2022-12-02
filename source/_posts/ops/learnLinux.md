@@ -1,11 +1,12 @@
 ---
 title: 基础Linux学习
-date: 2020-03-29 20:03:48
-categories: 运维
+categories:
+  - ops
 img: ../../coverImages/linux.jpg
 tags:
   - Linux
   - 运维
+date: 2020-03-29 20:03:48
 ---
 
 

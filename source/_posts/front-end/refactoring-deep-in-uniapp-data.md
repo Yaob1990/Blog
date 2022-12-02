@@ -1,10 +1,11 @@
 ---
 title: 重构 uniapp 项目(1)：uniapp 中的数据流机制
-date: 2021-07-20 23:30:00
-categories: 前端
+categories:
+  - front-end
 img: ../../coverImages/refactoring.jpeg
 tags:
   - 小程序
+date: 2021-07-20 23:30:00
 ---
 
   uniapp 遵循 vue 的语法，可以使用 vuex 等生态。

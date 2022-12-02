@@ -1,10 +1,11 @@
 ---
 title: 重构 uniapp 项目(1)：浅浅理解 uniapp
-date: 2021-07-20 23:30:00
-categories: 前端
+categories:
+  - front-end
 img: ../../coverImages/refactoring.jpeg
 tags:
   - 小程序
+date: 2021-07-20 23:30:00
 ---
 
   uniapp 在业内名气口碑都挺不错的，选择这个框架，能够让开发者快速出活，依托 vue 的生态，相关开发者也多，企业也容易招聘。然而小程序和web毕竟还是有点区别，某些时候还是需要对uniapp 有一定的理解，才能够顺利的搬砖。本篇，我们尝试解决 uniapp 的两个问题，一窥其内在机理。

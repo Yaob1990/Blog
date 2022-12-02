@@ -1,10 +1,11 @@
 ---
 title: 小程序预览和体验码不一致的坑
-date: 2022-08-20 22:53:02
-categories: 前端
+categories:
+  - front-end
 tags:
   - 小程序
 img: ../../coverImages/mini-alipay.jpeg
+date: 2022-08-20 22:53:02
 ---
 
 ## 翻车现场

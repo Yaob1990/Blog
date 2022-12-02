@@ -1,10 +1,13 @@
 ---
 title: nest 初体验
-date: 2020-02-23 17:07:03
-categories: 后端
+categories:
+  - |-
+    back-end
+    back-end 
 img: ../../coverImages/nest.svg
 tags:
   - nest
+date: 2020-02-23 17:07:03
 ---
 
 

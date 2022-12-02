@@ -1,10 +1,11 @@
 ---
 title: 重构 uniapp 项目(0)：相信自己
-date: 2021-07-16 06:00:00
-categories: 前端
+categories:
+  - front-end
 img: ../../coverImages/refactoring.jpeg
 tags:
   - 小程序
+date: 2021-07-16 06:00:00
 ---
 
   重构不是一个好活，需要对技术和业务的多重理解，重构又是一个好活，能够站在更加全然的高度，去俯视项目，给项目做手术。

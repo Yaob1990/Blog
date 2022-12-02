@@ -1,10 +1,11 @@
 ---
 title: 深入理解支付宝小程序 -- 准备篇
-date: 2021-07-31 21:00:00
-categories: 前端
+categories:
+  - front-end
 img: ../../coverImages/mini-alipay.jpeg
 tags:
   - 小程序
+date: 2021-07-31 21:00:00
 ---
 
 > 深入理解总是困难的，耐心和寂寞相伴，沉默和思考相随，进一退三，推着我们前进，是对未知的渴望，是残存的技术热情。

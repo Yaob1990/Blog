@@ -1,11 +1,12 @@
 ---
 title: webstorm 中调试typescript单文件
-date: 2020-05-22 10:56:35
-categories: 前端
+categories:
+  - front-end
 img: ../../coverImages/ts-node.svg
 tags:
   - typescript
 typora-root-url: ..\..
+date: 2020-05-22 10:56:35
 ---
 
 

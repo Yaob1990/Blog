@@ -1,10 +1,11 @@
 ---
 title: 小程序中的滚动穿透
-date: 2022-04-18 22:01:25
-categories: 前端
+categories:
+  - front-end
 tags:
   - 小程序
 img: ../../coverImages/zhifubao-mini.png
+date: 2022-04-18 22:01:25
 ---
 
 在小程序开发中，弹出层滚动穿透是个比较棘手的问题。如下图，蓝色部分滚动，底部也跟着一起滚动，就是滚动穿透。

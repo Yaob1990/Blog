@@ -1,10 +1,11 @@
 ---
 title: 从 Tailwind 看 css 中的原子化流变
-date: 2020-12-14 23:00:00
-categories: 前端
+categories:
+  - front-end
 img: ../../coverImages/tailwindcss.png
 tags:
   - css
+date: 2020-12-14 23:00:00
 ---
 
 > 回不到的过去，忘不掉的人。某个路口，转角再次遇见，她还是她吗，你还是你吗？

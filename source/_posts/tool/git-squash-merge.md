@@ -1,9 +1,10 @@
 ---
-title: git merge --squash 
-date: 2021-07-07 08:00:00
-categories: 工具
+title: git merge --squash
+categories:
+  - tool
 tags: git
 img: ../../coverImages/git.jpg
+date: 2021-07-07 08:00:00
 ---
 
 在开发过程中，git squash merge 是个比较低频使用的命令，这也是一个比较危险的命令（操作 git 记录），如果你不明白他的真实用途，建议不要使用。

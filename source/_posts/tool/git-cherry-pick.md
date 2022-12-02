@@ -1,9 +1,10 @@
 ---
 title: 弱水三千，只取一瓢 —— git cherry-pick
-date: 2020-12-03 23:00:00
-categories: 工具
+categories:
+  - tool
 tags: git
 img: ../../coverImages/git.jpg
+date: 2020-12-03 23:00:00
 ---
 
 ### 场景

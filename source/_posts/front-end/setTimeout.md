@@ -1,10 +1,11 @@
 ---
 title: js 中 setTimeout 计时器最大值
-date: 2021-03-23 07:00:00
-categories: 前端
+categories:
+  - front-end
 img: ../../coverImages/time.jpeg
 tags:
   - js
+date: 2021-03-23 07:00:00
 ---
 
 项目中踩坑，记录下。

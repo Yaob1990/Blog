@@ -1,10 +1,11 @@
 ---
 title: code-surfer 中文翻译
-date: 2020-05-12 6:25:00
-categories: 翻译
+categories:
+  - translation
 img: ../../coverImages/code-surfer.png
 tags:
   - code-surfer
+date: 2020-05-12 06:25:00
 ---
 
 [code-surfer](https://github.com/pomber/code-surfer)  炫酷的代码演示ppt。

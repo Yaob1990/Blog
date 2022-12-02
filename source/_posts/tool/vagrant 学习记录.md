@@ -1,9 +1,10 @@
 ---
 title: vagrant 学习记录
-date: 2019-01-06 18:27:43
-categories: 工具
+categories:
+  - tool
 tags:
   - vagrant
+date: 2019-01-06 18:27:43
 ---
 
 Vagrant 是virtualBox的命令行管理工具。

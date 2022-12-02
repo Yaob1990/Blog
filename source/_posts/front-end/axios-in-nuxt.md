@@ -1,11 +1,12 @@
 ---
 title: 在nuxtjs中组织api调用
-date: 2020-04-20 10:58:44
-categories: 前端
+categories:
+  - front-end
 img: ../../coverImages/nuxt-axios.png
 tags:
   - nuxt
 typora-root-url: ..\..
+date: 2020-04-20 10:58:44
 ---
 
 

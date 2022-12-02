@@ -1,10 +1,11 @@
 ---
 title: 封装小程序分页组件 waterflow-list
-date: 2021-04-18 21:00:00
-categories: 前端
+categories:
+  - front-end
 img: ../../coverImages/mini-alipay.jpeg
 tags:
   - 小程序
+date: 2021-04-18 21:00:00
 ---
 
 小程序开发中，列表分页组件是比较常见的需求，每次都要写 totalNum、pageSize、loading 状态等，写得多了，始终觉得很麻烦，萌生了封装一个容器组件的念头。

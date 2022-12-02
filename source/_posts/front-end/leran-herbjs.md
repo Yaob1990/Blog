@@ -1,11 +1,12 @@
 ---
 title: herbjs 简明数据流
-date: 2020-08-16 16:29:42
-categories: 前端
+categories:
+  - front-end
 img: ../../coverImages/zhifubao-mini.png
 tags:
-  - 支付宝小程序,herbjs
+  - '支付宝小程序,herbjs'
 typora-root-url: ..\..
+date: 2020-08-16 16:29:42
 ---
 
 最近在使用`herbjs`做支付宝小程序的开发，在熟悉了开发模式之后，还是挺好用的。

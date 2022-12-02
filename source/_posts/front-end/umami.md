@@ -1,11 +1,12 @@
 ---
 title: umami 源码分析
-date: 2022-06-26 22:53:02
-categories: 前端
+categories:
+  - front-end
 tags:
   - umami
   - 源码
 img: ../../coverImages/umami.png
+date: 2022-06-26 22:53:02
 ---
 
 umami 不使用 cookie 、localstorage 实现了 uv 识别，符合最新的隐私规范，代码也比较精简。花了一点时间，研究了这部分的实现，还是很有意思的。

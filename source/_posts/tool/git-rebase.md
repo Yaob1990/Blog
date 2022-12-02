@@ -1,10 +1,11 @@
 ---
 title: 重置过去，面向未来 —— git rebase
-date: 2020-11-30 07:18:46
-categories: 工具
+categories:
+  - tool
 tags: git
 img: ../../coverImages/git.jpg
 typora-root-url: ../../images
+date: 2020-11-30 07:18:46
 ---
 
 > git rebase 是一个危险的操作，如果不能熟练掌握，请不要使用它。（它并不是不可或缺的）

@@ -1,10 +1,11 @@
 ---
 title: 深入理解支付宝小程序 -- 杂篇
-date: 2021-07-31 23:59:00
-categories: 前端
+categories:
+  - front-end
 img: ../../coverImages/mini-alipay.jpeg
 tags:
   - 小程序
+date: 2021-07-31 23:59:00
 ---
 
 ## 路由

@@ -1,10 +1,11 @@
 ---
 title: 深入理解 ts 中的 utility 类型
-date: 2021-05-25 07:30:00
-categories: 前端
+categories:
+  - front-end
 tags:
   - Typescript
 img: ../../coverImages/typescriptLogo.jpg
+date: 2021-05-25 07:30:00
 ---
 
 平时开发中，有些场景总有种蹩手蹩脚的感觉，看到 Utility Types 才知道自己 native 了，很多场景 ts 都帮我们想好了。

@@ -1,10 +1,11 @@
 ---
 title: 一个意思的微信群广告
-date: 2022-10-06 18:00:00
-categories: 前端
+categories:
+  - front-end
 tags:
   - 安全
 img: ../../coverImages/xss.png
+date: 2022-10-06 18:00:00
 ---
 
 群广告，语不惊人死不休，

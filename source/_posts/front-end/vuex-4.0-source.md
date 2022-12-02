@@ -1,10 +1,11 @@
 ---
 title: vuex 4.0 源码解析
-date: 2021-03-10 22:40:00
-categories: 前端
+categories:
+  - front-end
 img: ../../coverImages/vuex.png
 tags:
   - 源码
+date: 2021-03-10 22:40:00
 ---
 
 vuex 源码短小精悍，很短时间就可以大致浏览一遍，值得学习。在后续看其他框架的过程中，也发现很多框架都有参考 vuex（比如 herbjs 的插件体系）。

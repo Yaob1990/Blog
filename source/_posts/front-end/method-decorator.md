@@ -1,10 +1,11 @@
 ---
 title: ts 方法装饰器
-date: 2021-07-12 23:30:00
-categories: 前端
+categories:
+  - front-end
 img: ../../coverImages/typescriptLogo.jpg
 tags:
   - typescript
+date: 2021-07-12 23:30:00
 ---
 
 装饰器在java中叫注解，体现了面向切面（AOP）的编程思想。

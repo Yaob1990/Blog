@@ -1,22 +1,18 @@
 {
   "main": {
-    "id": "f4e8547598880fc9",
+    "id": "e9df03863660d579",
     "type": "split",
     "children": [
       {
-        "id": "f4ff78a9f2561c75",
+        "id": "cc3c231686aa69e3",
         "type": "tabs",
         "children": [
           {
-            "id": "b5fc5e6518b69146",
+            "id": "ecf006d81935405b",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "source/_posts/reading/遥远的救世主.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -25,15 +21,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "4af4b94816f6bd64",
+    "id": "88425667c73b2a1b",
     "type": "split",
     "children": [
       {
-        "id": "746d8434cdc27ae0",
+        "id": "8166173a699c407d",
         "type": "tabs",
         "children": [
           {
-            "id": "4238afeaf14cfa8f",
+            "id": "fc10c331dca1ba33",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -43,12 +39,12 @@
             }
           },
           {
-            "id": "b988c4321686067a",
+            "id": "479b8ae4ae193c1a",
             "type": "leaf",
             "state": {
               "type": "search",
               "state": {
-                "query": "深入浅出",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -58,7 +54,7 @@
             }
           },
           {
-            "id": "6fab6a69bcb35510",
+            "id": "b435b314d0705f34",
             "type": "leaf",
             "state": {
               "type": "starred",
@@ -72,20 +68,19 @@
     "width": 300
   },
   "right": {
-    "id": "13f4bb2512162934",
+    "id": "60aefca29994e523",
     "type": "split",
     "children": [
       {
-        "id": "2d86862e20948509",
+        "id": "a7492ab1c88990fe",
         "type": "tabs",
         "children": [
           {
-            "id": "a21e1559d43c8581",
+            "id": "99e7a30c7b3da1e3",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "source/_posts/reading/遥远的救世主.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,19 +92,18 @@
             }
           },
           {
-            "id": "3b92cfb37c6206f6",
+            "id": "d139db3c18864b16",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "source/_posts/reading/遥远的救世主.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
             }
           },
           {
-            "id": "b4a0800cd18e59d4",
+            "id": "f909632c19d2ba81",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -120,13 +114,11 @@
             }
           },
           {
-            "id": "e505594db9cddd2f",
+            "id": "6af3562b473c8b14",
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "source/_posts/reading/遥远的救世主.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -136,12 +128,6 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "b5fc5e6518b69146",
-  "lastOpenFiles": [
-    "source/_obsidian/blog  temp.md",
-    "source/_posts/reading/遥远的救世主.md",
-    "source/_posts/reading/DeepinNodejs.md",
-    "source/_posts/anything/大型项目前端手记.md",
-    "source/coverImages/develop.png"
-  ]
+  "active": "ecf006d81935405b",
+  "lastOpenFiles": []
 }

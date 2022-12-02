@@ -1,12 +1,13 @@
 ---
 title: React Native 沉浸式状态栏和导航栏
-date: 2019-11-24 21:57:00
-categories: 前端
+categories:
+  - front-end
 img: ../../coverImages/reactNative.png
 tags:
   - React Native
   - 混合开发
 typora-root-url: ..\..
+date: 2019-11-24 21:57:00
 ---
 
 最近开始接触 React Native 的开发工作，对原生开发基本不了解，里面很多大大小小的坑。这次开发内容不是很复杂，数据交互不是非常多，主要是页面的布局。
