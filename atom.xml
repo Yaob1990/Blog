@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jscoder.com/"/>
-  <updated>2022-12-02T15:36:47.716Z</updated>
+  <updated>2022-12-26T09:38:16.432Z</updated>
   <id>https://jscoder.com/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>HomeAssistant 智能家居入门</title>
+    <link href="https://jscoder.com/2022/12/26/anything/smart-home/"/>
+    <id>https://jscoder.com/2022/12/26/anything/smart-home/</id>
+    <published>2022-12-26T03:34:00.000Z</published>
+    <updated>2022-12-26T09:38:16.432Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;智能家居有很多厂商的方案，但是基本都是打包方案，很难在 AB
+        
+      
+    
+    </summary>
+    
+    
+      <category term="anything" scheme="https://jscoder.com/categories/anything/"/>
+    
+    
+      <category term="智能家居" scheme="https://jscoder.com/tags/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85/"/>
+    
+  </entry>
+  
+  <entry>
     <title>正则表达式</title>
     <link href="https://jscoder.com/2022/12/02/front-end/regex/"/>
     <id>https://jscoder.com/2022/12/02/front-end/regex/</id>
     <published>2022-12-02T15:00:00.000Z</published>
-    <updated>2022-12-02T15:36:47.716Z</updated>
+    <updated>2022-12-26T09:38:16.432Z</updated>
     
     <summary type="html">
     
@@ -50,7 +77,7 @@
     <link href="https://jscoder.com/2022/11/08/reading/distant-saviour/"/>
     <id>https://jscoder.com/2022/11/08/reading/distant-saviour/</id>
     <published>2022-11-08T14:02:17.000Z</published>
-    <updated>2022-12-02T15:36:47.716Z</updated>
+    <updated>2022-12-26T09:38:16.432Z</updated>
     
     <summary type="html">
     
@@ -77,7 +104,7 @@
     <link href="https://jscoder.com/2022/10/06/front-end/xss/"/>
     <id>https://jscoder.com/2022/10/06/front-end/xss/</id>
     <published>2022-10-06T10:00:00.000Z</published>
-    <updated>2022-12-02T15:36:47.716Z</updated>
+    <updated>2022-12-26T09:38:16.432Z</updated>
     
     <summary type="html">
     
@@ -107,7 +134,7 @@
     <link href="https://jscoder.com/2022/09/18/anything/da-xing-xiang-mu-qian-duan-shou-ji/"/>
     <id>https://jscoder.com/2022/09/18/anything/da-xing-xiang-mu-qian-duan-shou-ji/</id>
     <published>2022-09-18T07:36:29.000Z</published>
-    <updated>2022-12-02T15:36:47.712Z</updated>
+    <updated>2022-12-26T09:38:16.432Z</updated>
     
     <summary type="html">
     
@@ -135,7 +162,7 @@
     <link href="https://jscoder.com/2022/08/20/front-end/alipay-mini-pkg-builder/"/>
     <id>https://jscoder.com/2022/08/20/front-end/alipay-mini-pkg-builder/</id>
     <published>2022-08-20T14:53:02.000Z</published>
-    <updated>2022-12-02T15:36:47.712Z</updated>
+    <updated>2022-12-26T09:38:16.432Z</updated>
     
     <summary type="html">
     
@@ -162,7 +189,7 @@
     <link href="https://jscoder.com/2022/06/26/anything/zhan-zheng-yu-he-ping/"/>
     <id>https://jscoder.com/2022/06/26/anything/zhan-zheng-yu-he-ping/</id>
     <published>2022-06-26T15:30:00.000Z</published>
-    <updated>2022-12-02T15:36:47.712Z</updated>
+    <updated>2022-12-26T09:38:16.432Z</updated>
     
     <summary type="html">
     
@@ -192,7 +219,7 @@
     <link href="https://jscoder.com/2022/06/26/front-end/umami/"/>
     <id>https://jscoder.com/2022/06/26/front-end/umami/</id>
     <published>2022-06-26T14:53:02.000Z</published>
-    <updated>2022-12-02T15:36:47.716Z</updated>
+    <updated>2022-12-26T09:38:16.432Z</updated>
     
     <summary type="html">
     
@@ -222,7 +249,7 @@
     <link href="https://jscoder.com/2022/04/18/front-end/mini-scroll-through/"/>
     <id>https://jscoder.com/2022/04/18/front-end/mini-scroll-through/</id>
     <published>2022-04-18T14:01:25.000Z</published>
-    <updated>2022-12-02T15:36:47.716Z</updated>
+    <updated>2022-12-26T09:38:16.432Z</updated>
     
     <summary type="html">
     
@@ -250,7 +277,7 @@
     <link href="https://jscoder.com/2022/01/23/back-endback-end-node-high-cpu/"/>
     <id>https://jscoder.com/2022/01/23/back-endback-end-node-high-cpu/</id>
     <published>2022-01-23T04:00:00.000Z</published>
-    <updated>2022-12-02T15:36:47.712Z</updated>
+    <updated>2022-12-26T09:38:16.432Z</updated>
     
     <summary type="html">
     
@@ -279,7 +306,7 @@ back-end " scheme="https://jscoder.com/categories/back-endback-end/"/>
     <link href="https://jscoder.com/2022/01/23/reading/deepinnodejs/"/>
     <id>https://jscoder.com/2022/01/23/reading/deepinnodejs/</id>
     <published>2022-01-23T01:00:00.000Z</published>
-    <updated>2022-12-02T15:36:47.716Z</updated>
+    <updated>2022-12-26T09:38:16.432Z</updated>
     
     <summary type="html">
     
@@ -307,7 +334,7 @@ back-end " scheme="https://jscoder.com/categories/back-endback-end/"/>
     <link href="https://jscoder.com/2021/11/16/front-end/promise-throttle/"/>
     <id>https://jscoder.com/2021/11/16/front-end/promise-throttle/</id>
     <published>2021-11-16T14:22:22.000Z</published>
-    <updated>2022-12-02T15:36:47.716Z</updated>
+    <updated>2022-12-26T09:38:16.432Z</updated>
     
     <summary type="html">
     
@@ -334,7 +361,7 @@ back-end " scheme="https://jscoder.com/categories/back-endback-end/"/>
     <link href="https://jscoder.com/2021/09/26/front-end/uniapp-alipay-mini/"/>
     <id>https://jscoder.com/2021/09/26/front-end/uniapp-alipay-mini/</id>
     <published>2021-09-25T23:54:00.000Z</published>
-    <updated>2022-12-02T15:36:47.716Z</updated>
+    <updated>2022-12-26T09:38:16.432Z</updated>
     
     <summary type="html">
     
@@ -361,7 +388,7 @@ back-end " scheme="https://jscoder.com/categories/back-endback-end/"/>
     <link href="https://jscoder.com/2021/08/22/reading/how-javascript-works/"/>
     <id>https://jscoder.com/2021/08/22/reading/how-javascript-works/</id>
     <published>2021-08-22T13:59:00.000Z</published>
-    <updated>2022-12-02T15:36:47.716Z</updated>
+    <updated>2022-12-26T09:38:16.432Z</updated>
     
     <summary type="html">
     
@@ -389,7 +416,7 @@ back-end " scheme="https://jscoder.com/categories/back-endback-end/"/>
     <link href="https://jscoder.com/2021/07/31/front-end/deep-in-alipay-mini-program-4/"/>
     <id>https://jscoder.com/2021/07/31/front-end/deep-in-alipay-mini-program-4/</id>
     <published>2021-07-31T15:59:00.000Z</published>
-    <updated>2022-12-02T15:36:47.712Z</updated>
+    <updated>2022-12-26T09:38:16.432Z</updated>
     
     <summary type="html">
     
@@ -417,7 +444,7 @@ back-end " scheme="https://jscoder.com/categories/back-endback-end/"/>
     <link href="https://jscoder.com/2021/07/31/front-end/deep-in-alipay-mini-program-3/"/>
     <id>https://jscoder.com/2021/07/31/front-end/deep-in-alipay-mini-program-3/</id>
     <published>2021-07-31T15:00:00.000Z</published>
-    <updated>2022-12-02T15:36:47.712Z</updated>
+    <updated>2022-12-26T09:38:16.432Z</updated>
     
     <summary type="html">
     
@@ -445,7 +472,7 @@ back-end " scheme="https://jscoder.com/categories/back-endback-end/"/>
     <link href="https://jscoder.com/2021/07/31/front-end/deep-in-alipay-mini-program-2/"/>
     <id>https://jscoder.com/2021/07/31/front-end/deep-in-alipay-mini-program-2/</id>
     <published>2021-07-31T14:00:00.000Z</published>
-    <updated>2022-12-02T15:36:47.712Z</updated>
+    <updated>2022-12-26T09:38:16.432Z</updated>
     
     <summary type="html">
     
@@ -473,7 +500,7 @@ back-end " scheme="https://jscoder.com/categories/back-endback-end/"/>
     <link href="https://jscoder.com/2021/07/31/front-end/deep-in-alipay-mini-program-1/"/>
     <id>https://jscoder.com/2021/07/31/front-end/deep-in-alipay-mini-program-1/</id>
     <published>2021-07-31T13:30:00.000Z</published>
-    <updated>2022-12-02T15:36:47.712Z</updated>
+    <updated>2022-12-26T09:38:16.432Z</updated>
     
     <summary type="html">
     
@@ -500,7 +527,7 @@ back-end " scheme="https://jscoder.com/categories/back-endback-end/"/>
     <link href="https://jscoder.com/2021/07/31/front-end/deep-in-alipay-mini-program-0/"/>
     <id>https://jscoder.com/2021/07/31/front-end/deep-in-alipay-mini-program-0/</id>
     <published>2021-07-31T13:00:00.000Z</published>
-    <updated>2022-12-02T15:36:47.712Z</updated>
+    <updated>2022-12-26T09:38:16.432Z</updated>
     
     <summary type="html">
     
@@ -530,7 +557,7 @@ back-end " scheme="https://jscoder.com/categories/back-endback-end/"/>
     <link href="https://jscoder.com/2021/07/20/front-end/refactoring-deep-in-uniapp-data/"/>
     <id>https://jscoder.com/2021/07/20/front-end/refactoring-deep-in-uniapp-data/</id>
     <published>2021-07-20T15:30:00.000Z</published>
-    <updated>2022-12-02T15:36:47.716Z</updated>
+    <updated>2022-12-26T09:38:16.432Z</updated>
     
     <summary type="html">
     
@@ -540,33 +567,6 @@ back-end " scheme="https://jscoder.com/categories/back-endback-end/"/>
         
           &lt;p&gt;  uniapp 遵循 vue 的语法，可以使用 vuex 等生态。&lt;/p&gt;
 &lt;h2 id=&quot;数据操作猜想&quot;&gt;&lt;a href=&quot;#数据操作猜想&quot; class=&quot;headerlink&quot; title=&quot;数据操作猜想&quot;&gt;&lt;/a&gt;数据操作猜想&lt;/h2&gt;&lt;p&gt;vue 在 H5
-        
-      
-    
-    </summary>
-    
-    
-      <category term="front-end" scheme="https://jscoder.com/categories/front-end/"/>
-    
-    
-      <category term="小程序" scheme="https://jscoder.com/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>重构 uniapp 项目(1)：浅浅理解 uniapp</title>
-    <link href="https://jscoder.com/2021/07/20/front-end/refactoring-deep-in-uniapp/"/>
-    <id>https://jscoder.com/2021/07/20/front-end/refactoring-deep-in-uniapp/</id>
-    <published>2021-07-20T15:30:00.000Z</published>
-    <updated>2022-12-02T15:36:47.716Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;  uniapp 在业内名气口碑都挺不错的，选择这个框架，能够让开发者快速出活，依托 vue 的生态，相关开发者也多，企业也容易招聘。然而小程序和web毕竟还是有点区别，某些时候还是需要对uniapp 有一定的理解，才能够顺利的搬砖。本篇，我们尝试解决 uniapp
         
       
     
