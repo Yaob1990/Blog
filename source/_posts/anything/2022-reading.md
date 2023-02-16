@@ -9,7 +9,7 @@ date: 2023-01-08 23:00
 
 ## 主题阅读
 
-## 函数式编程
+### 函数式编程
 
 * [JavaScript ES6函数式编程入门经典 (豆瓣)](https://book.douban.com/subject/30180100/)
 * [JavaScript函数式编程指南 (豆瓣)](https://book.douban.com/subject/30283769/)
