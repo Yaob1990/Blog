@@ -28,7 +28,7 @@ javascript 的方言">
     
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 4.1.1"><link rel="alternate" href="/atom.xml" title="不知" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="不知" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-duotone-light.css" type="text/css"></head>
 
 
@@ -377,14 +377,14 @@ javascript 的方言">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    5 分
                 </div>
                 
 
@@ -400,7 +400,7 @@ javascript 的方言">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="引"><a href="#引" class="headerlink" title="引"></a>引</h1><p>all in js，编程语言的相互编译并不是复杂的问题，在<a href="https://github.com/jashkenas/coffeescript/wiki/List-of-languages-that-compile-to-JS" target="_blank" rel="noopener">github</a>上面可以看到大量的编译器，<code>java</code>，<code>ruby</code>，<code>python</code>，甚至远古的 <code>smallTalk</code>，<code>lisp</code>，都可以编译为<code> javascript</code>。</p>
+                <h1 id="引"><a href="#引" class="headerlink" title="引"></a>引</h1><p>all in js，编程语言的相互编译并不是复杂的问题，在<a target="_blank" rel="noopener" href="https://github.com/jashkenas/coffeescript/wiki/List-of-languages-that-compile-to-JS">github</a>上面可以看到大量的编译器，<code>java</code>，<code>ruby</code>，<code>python</code>，甚至远古的 <code>smallTalk</code>，<code>lisp</code>，都可以编译为<code> javascript</code>。</p>
 <p><code>javascript</code> 的方言派系大致可以分成两派：</p>
 <ol>
 <li><code>CoffeeScript</code> ：由ruby社区创建的方言，<code>CoffeeScript</code> 吸收了 <code>Ruby</code>, <code>Python</code>, <code>Haskell</code> 语言的设计思想, 将 <code>JavaScript</code> 的代码变得清晰简洁, 盛极一时。</li>
@@ -409,45 +409,45 @@ javascript 的方言">
 <p><code>CoffeeScript </code>已然式微，Typescript 背靠微软这颗大树，在前端界掀起腥风血雨，知名的开源框架，<code>React</code>、<code>Vue</code>、<code>Angular</code>无不投入其怀抱，甚至<code>github</code>上面稍微用户多一点的类库，都会有 issue 提到是否提供 Typescript 的  <code>.d.ts</code> 文件（有这个文件，就提供了 <code>Typescript</code>的支持 ）。</p>
 <p>官方说，<code>Typescript</code> 是<code>Javascript</code>的超集，似乎可以把他理解成基于 <code>Javascript</code> 的独立语言？我并不这么理解，<code>Typescript</code> 最终的执行宿主环境，还是v8引擎，它最终还是要编译成<code>JavaScript</code>。它的用户绝大部分也还是<code>JavaScript</code>用户，这些原因，使得它对新特性的添加非常克制，新特性几乎都可以在TC39（一个推动 JavaScript 发展的委员会，由各个主流浏览器厂商的代表构成，制定ECMAScript标准，标准生成的流程，并实现）中找到原型。</p>
 <p><code>Typescript</code> 只不过是 <code>Beta</code> 版本的 <code>Javascript</code>。学不学完全不是问题了，现在不学，以后肯定还是要学:smile:。</p>
-<h1 id="项目"><a href="#项目" class="headerlink" title="项目"></a>项目</h1><h3 id="一句-web端-（-基于-vue-和-Typescript-写法）"><a href="#一句-web端-（-基于-vue-和-Typescript-写法）" class="headerlink" title="一句 web端 （ 基于 vue 和 Typescript 写法）"></a><a href="https://word.aocoding.com/" target="_blank" rel="noopener">一句 web端</a> （ 基于 <code>vue</code> 和 Typescript 写法）</h3><pre class=" language-typescript"><code class="language-typescript"><span class="token operator">&lt;</span>script lang<span class="token operator">=</span><span class="token string">"ts"</span><span class="token operator">></span>
+<h1 id="项目"><a href="#项目" class="headerlink" title="项目"></a>项目</h1><h3 id="一句-web端-（-基于-vue-和-Typescript-写法）"><a href="#一句-web端-（-基于-vue-和-Typescript-写法）" class="headerlink" title="一句 web端 （ 基于 vue 和 Typescript 写法）"></a><a target="_blank" rel="noopener" href="https://word.aocoding.com/">一句 web端</a> （ 基于 <code>vue</code> 和 Typescript 写法）</h3><pre class=" language-typescript"><code class="language-typescript"><span class="token operator">&lt;</span>script lang<span class="token operator">=</span><span class="token string">"ts"</span><span class="token operator">></span>
 <span class="token comment" spellcheck="true">// class 组件写法</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> Component<span class="token punctuation">,</span> Vue <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vue-property-decorator'</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> Mutation <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vuex-class'</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> message <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'ant-design-vue'</span>
+<span class="token keyword">import</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> Component<span class="token punctuation">,</span> Vue <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">from</span> <span class="token string">'vue-property-decorator'</span>
+<span class="token keyword">import</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> Mutation <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">from</span> <span class="token string">'vuex-class'</span>
+<span class="token keyword">import</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> message <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">from</span> <span class="token string">'ant-design-vue'</span>
 
 <span class="token comment" spellcheck="true">// 装饰器</span>
-@<span class="token function">Component</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">IndexPage</span> <span class="token keyword">extends</span> <span class="token class-name">Vue</span> <span class="token punctuation">{</span>
+@<span class="token function">Component</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">IndexPage</span> <span class="token keyword">extends</span> <span class="token class-name">Vue</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
   <span class="token comment" spellcheck="true">// 原data</span>
-  form <span class="token operator">=</span> <span class="token punctuation">{</span>
+  form <span class="token operator">=</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     word<span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
     <span class="token keyword">from</span><span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
     source<span class="token punctuation">:</span> <span class="token string">''</span>
-  <span class="token punctuation">}</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
   <span class="token comment" spellcheck="true">// vuex state</span>
  <span class="token comment" spellcheck="true">// ! 断言不为空，兼容写法（断言）</span>
   <span class="token comment" spellcheck="true">//  由于Ts最新版本使用了strictPropertyInitialization，如果变量没有在构造函数中使用或赋值，都需要添加!，进行显式赋值断言</span>
   @<span class="token function">Mutation</span><span class="token punctuation">(</span><span class="token string">'showloading'</span><span class="token punctuation">)</span> showloading<span class="token operator">!</span><span class="token punctuation">:</span> <span class="token keyword">boolean</span>
 
-  rules <span class="token operator">=</span> <span class="token punctuation">{</span>
+  rules <span class="token operator">=</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     word<span class="token punctuation">:</span> <span class="token punctuation">[</span>
-      <span class="token punctuation">{</span>
+      <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         required<span class="token punctuation">:</span> <span class="token keyword">true</span><span class="token punctuation">,</span>
         message<span class="token punctuation">:</span> <span class="token string">'请输入内容'</span><span class="token punctuation">,</span>
         whitespace<span class="token punctuation">:</span> <span class="token keyword">true</span><span class="token punctuation">,</span>
         trigger<span class="token punctuation">:</span> <span class="token string">'blur'</span>
-      <span class="token punctuation">}</span>
+      <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
     <span class="token punctuation">]</span><span class="token punctuation">,</span>
     <span class="token keyword">from</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
-      <span class="token punctuation">{</span>
+      <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         required<span class="token punctuation">:</span> <span class="token keyword">true</span><span class="token punctuation">,</span>
         message<span class="token punctuation">:</span> <span class="token string">'请输入来源'</span><span class="token punctuation">,</span>
         whitespace<span class="token punctuation">:</span> <span class="token keyword">true</span><span class="token punctuation">,</span>
         trigger<span class="token punctuation">:</span> <span class="token string">'blur'</span>
-      <span class="token punctuation">}</span>
+      <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
     <span class="token punctuation">]</span>
-  <span class="token punctuation">}</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
 <span class="token comment" spellcheck="true">// 兼容写法</span>
 <span class="token comment" spellcheck="true">// nuxt 中$api被挂载到了this下面</span>
@@ -456,34 +456,35 @@ javascript 的方言">
   <span class="token comment" spellcheck="true">// 兼容写法</span>
   <span class="token comment" spellcheck="true">// formRef 类型</span>
   <span class="token comment" spellcheck="true">// 解释：https://stackoverflow.com/questions/52109471/typescript-in-vue-property-validate-does-not-exist-on-type-vue-element</span>
-  <span class="token keyword">get</span> <span class="token function">formRef</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> Vue <span class="token operator">&amp;</span> <span class="token punctuation">{</span> validate<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">boolean</span> <span class="token punctuation">}</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>form as Vue <span class="token operator">&amp;</span> <span class="token punctuation">{</span> validate<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">boolean</span> <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
+  <span class="token keyword">get</span> <span class="token function">formRef</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> Vue <span class="token operator">&amp;</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> validate<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">boolean</span> <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>form as Vue <span class="token operator">&amp;</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> validate<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">boolean</span> <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-  <span class="token keyword">public</span> async <span class="token function">onSubmit</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">public</span> async <span class="token function">onSubmit</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token keyword">const</span> self <span class="token operator">=</span> <span class="token keyword">this</span>
     <span class="token keyword">const</span> verify<span class="token punctuation">:</span> <span class="token keyword">boolean</span> <span class="token operator">=</span> await <span class="token keyword">this</span><span class="token punctuation">.</span>formRef<span class="token punctuation">.</span><span class="token function">validate</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>verify<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      <span class="token keyword">try</span> <span class="token punctuation">{</span>
-        <span class="token keyword">const</span> <span class="token punctuation">{</span> code<span class="token punctuation">,</span> msg<span class="token punctuation">,</span> data <span class="token punctuation">}</span> <span class="token operator">=</span> await self<span class="token punctuation">.</span>$api<span class="token punctuation">.</span><span class="token function">index</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>verify<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+      <span class="token keyword">try</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">const</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> code<span class="token punctuation">,</span> msg<span class="token punctuation">,</span> data <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token operator">=</span> await self<span class="token punctuation">.</span>$api<span class="token punctuation">.</span><span class="token function">index</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
           <span class="token operator">...</span><span class="token keyword">this</span><span class="token punctuation">.</span>form
-        <span class="token punctuation">}</span><span class="token punctuation">)</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>code <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>code <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
           message<span class="token punctuation">.</span><span class="token function">success</span><span class="token punctuation">(</span><span class="token string">'添加成功'</span><span class="token punctuation">)</span>
-          <span class="token keyword">this</span><span class="token punctuation">.</span>form <span class="token operator">=</span> <span class="token punctuation">{</span>
+          <span class="token keyword">this</span><span class="token punctuation">.</span>form <span class="token operator">=</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
             word<span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
             <span class="token keyword">from</span><span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
             source<span class="token punctuation">:</span> <span class="token string">''</span>
-          <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+          <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">else</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
           message<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span>
-        <span class="token punctuation">}</span>
-      <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">error</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span></code></pre>
-<p>github:    <a href="https://github.com/justOneWord/one_word_web" target="_blank" rel="noopener">https://github.com/justOneWord/one_word_web</a></p>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+      <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">error</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
+<p>github:    <a target="_blank" rel="noopener" href="https://github.com/justOneWord/one_word_web">https://github.com/justOneWord/one_word_web</a></p>
 <p>个人感受：</p>
 <ol>
 <li>传统vue组件写法过度为<code>vue-class-component</code>写法，改变比较大，使用装饰器代替传统的代码组织形式。</li>
@@ -494,10 +495,10 @@ javascript 的方言">
 <p>大量使用装饰器语法，简化写法</p>
 <pre class=" language-typescript"><code class="language-typescript"><span class="token comment" spellcheck="true">// 装饰器</span>
 @<span class="token function">Controller</span><span class="token punctuation">(</span><span class="token string">'word'</span><span class="token punctuation">)</span>
-<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">WordController</span> <span class="token punctuation">{</span>
-  <span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token keyword">private</span> readonly wordService<span class="token punctuation">:</span>WordService<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token punctuation">}</span>
-
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">WordController</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  <span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token keyword">private</span> readonly wordService<span class="token punctuation">:</span>WordService<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+ 
   <span class="token comment" spellcheck="true">// 三个装饰器</span>
   @<span class="token function">Post</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
   <span class="token comment" spellcheck="true">// 参数校验管道</span>
@@ -505,15 +506,15 @@ javascript 的方言">
   <span class="token comment" spellcheck="true">// 手动返回200，否则会返回201，也可以放到全局拦截器去做</span>
   @<span class="token function">HttpCode</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span>
   <span class="token comment" spellcheck="true">// body 类型 WordDto</span>
-  async <span class="token function">add</span><span class="token punctuation">(</span>@<span class="token function">Body</span><span class="token punctuation">(</span><span class="token punctuation">)</span> body<span class="token punctuation">:</span> WordDto<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  async <span class="token function">add</span><span class="token punctuation">(</span>@<span class="token function">Body</span><span class="token punctuation">(</span><span class="token punctuation">)</span> body<span class="token punctuation">:</span> WordDto<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
       <span class="token keyword">return</span>   await <span class="token keyword">this</span><span class="token punctuation">.</span>wordService<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>body<span class="token punctuation">)</span>
-  <span class="token punctuation">}</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
   @<span class="token function">Get</span><span class="token punctuation">(</span><span class="token string">'random'</span><span class="token punctuation">)</span>
-  random <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  random <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>wordService<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 </code></pre>
 <p><code>wordService</code>（部分）:</p>
 <pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">constructor</span><span class="token punctuation">(</span>
@@ -523,32 +524,32 @@ javascript 的方言">
     @<span class="token function">InjectRepository</span><span class="token punctuation">(</span>Word<span class="token punctuation">)</span> <span class="token keyword">private</span> readonly wordReposition<span class="token punctuation">:</span> Repository<span class="token operator">&lt;</span>Word<span class="token operator">></span><span class="token punctuation">,</span>
     @<span class="token function">InjectRepository</span><span class="token punctuation">(</span>Hitoapi<span class="token punctuation">)</span>
     <span class="token keyword">private</span> readonly hitoApiReposition<span class="token punctuation">:</span> Repository<span class="token operator">&lt;</span>Hitoapi<span class="token operator">></span><span class="token punctuation">,</span>
-  <span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  <span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
  <span class="token comment" spellcheck="true">// 指定 body 类型为 `WordDto`</span>
-async <span class="token function">add</span><span class="token punctuation">(</span>body<span class="token punctuation">:</span> WordDto<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+async <span class="token function">add</span><span class="token punctuation">(</span>body<span class="token punctuation">:</span> WordDto<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 查找是否存在</span>
     <span class="token comment" spellcheck="true">// result 会自动推导出类型，不需要手动指定</span>
-    <span class="token keyword">const</span> result <span class="token operator">=</span> await <span class="token keyword">this</span><span class="token punctuation">.</span>wordReposition<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token punctuation">{</span> word<span class="token punctuation">:</span> body<span class="token punctuation">.</span>word <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>result<span class="token punctuation">.</span>length <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> result <span class="token operator">=</span> await <span class="token keyword">this</span><span class="token punctuation">.</span>wordReposition<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> word<span class="token punctuation">:</span> body<span class="token punctuation">.</span>word <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>result<span class="token punctuation">.</span>length <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         <span class="token comment" spellcheck="true">// ApiCode 代码提示，也是Typescript提供的能力</span>
       <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">ApiException</span><span class="token punctuation">(</span><span class="token string">'资源已经存在'</span><span class="token punctuation">,</span> ApiCode<span class="token punctuation">.</span>EXIST_ERROR<span class="token punctuation">,</span> <span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-    <span class="token keyword">const</span> newWord <span class="token operator">=</span> await <span class="token keyword">this</span><span class="token punctuation">.</span>wordReposition<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token keyword">const</span> newWord <span class="token operator">=</span> await <span class="token keyword">this</span><span class="token punctuation">.</span>wordReposition<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
       <span class="token operator">...</span>body<span class="token punctuation">,</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'newWord'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">const</span> newResult <span class="token operator">=</span> await <span class="token keyword">this</span><span class="token punctuation">.</span>wordReposition<span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span>newWord<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>newResult<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>newResult<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
       <span class="token comment" spellcheck="true">//  插入成功</span>
       <span class="token keyword">return</span> <span class="token keyword">true</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">else</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
       <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">ApiException</span><span class="token punctuation">(</span><span class="token string">'添加失败'</span><span class="token punctuation">,</span> ApiCode<span class="token punctuation">.</span>BUSINESS_ERROR<span class="token punctuation">,</span> <span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 </code></pre>
-<p>github: <a href="https://github.com/justOneWord/one_word_api" target="_blank" rel="noopener">https://github.com/justOneWord/one_word_api</a></p>
+<p>github: <a target="_blank" rel="noopener" href="https://github.com/justOneWord/one_word_api">https://github.com/justOneWord/one_word_api</a></p>
 <p>个人感受：</p>
 <ol>
 <li><code>nestjs</code> 框架基于 Typescript 开发，整体使用行云流水，没有为了用Typescript而用Typescript的感觉。</li>
@@ -556,9 +557,9 @@ async <span class="token function">add</span><span class="token punctuation">(</
 </ol>
 <p>参考文档：</p>
 <ol>
-<li><p><a href="https://www.blackglory.me/javascript-dialects-and-factions/" target="_blank" rel="noopener">漫谈 JavaScript 方言与派系</a></p>
+<li><p><a target="_blank" rel="noopener" href="https://www.blackglory.me/javascript-dialects-and-factions/">漫谈 JavaScript 方言与派系</a></p>
 </li>
-<li><p><a href="https://zhuanlan.zhihu.com/p/139731168" target="_blank" rel="noopener">前端开发的瓶颈与未来之路</a></p>
+<li><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/139731168">前端开发的瓶颈与未来之路</a></p>
 </li>
 </ol>
 

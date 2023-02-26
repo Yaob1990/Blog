@@ -29,7 +29,7 @@ export  function logger(target: any, propertyKey: string, descriptor: Prop">
     
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 4.1.1"><link rel="alternate" href="/atom.xml" title="不知" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="不知" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-duotone-light.css" type="text/css"></head>
 
 
@@ -378,7 +378,7 @@ export  function logger(target: any, propertyKey: string, descriptor: Prop">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    296
+                    312
                 </div>
                 
 
@@ -403,24 +403,25 @@ export  function logger(target: any, propertyKey: string, descriptor: Prop">
             <div id="articleContent">
                 <p>装饰器在java中叫注解，体现了面向切面（AOP）的编程思想。</p>
 <h2 id="方法装饰器"><a href="#方法装饰器" class="headerlink" title="方法装饰器"></a>方法装饰器</h2><pre class=" language-typescript"><code class="language-typescript"><span class="token comment" spellcheck="true">// 定义装饰器</span>
-<span class="token keyword">export</span>  <span class="token keyword">function</span> <span class="token function">logger</span><span class="token punctuation">(</span>target<span class="token punctuation">:</span> <span class="token keyword">any</span><span class="token punctuation">,</span> propertyKey<span class="token punctuation">:</span> <span class="token keyword">string</span><span class="token punctuation">,</span> descriptor<span class="token punctuation">:</span> PropertyDescriptor<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">export</span>  <span class="token keyword">function</span> <span class="token function">logger</span><span class="token punctuation">(</span>target<span class="token punctuation">:</span> <span class="token keyword">any</span><span class="token punctuation">,</span> propertyKey<span class="token punctuation">:</span> <span class="token keyword">string</span><span class="token punctuation">,</span> descriptor<span class="token punctuation">:</span> PropertyDescriptor<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"初始化"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">const</span> original <span class="token operator">=</span> descriptor<span class="token punctuation">.</span>value<span class="token punctuation">;</span>
-    descriptor<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">:</span> <span class="token keyword">any</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    descriptor<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">:</span> <span class="token keyword">any</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span>
         <span class="token keyword">const</span> result <span class="token operator">=</span> original<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token operator">...</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> result<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">Index</span> <span class="token keyword">extends</span> <span class="token class-name">Vue</span> <span class="token punctuation">{</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">Index</span> <span class="token keyword">extends</span> <span class="token class-name">Vue</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
   <span class="token keyword">private</span> title <span class="token operator">=</span> <span class="token string">"学习装饰器"</span>
   <span class="token comment" spellcheck="true">// 使用装饰器</span>
   @logger
-  <span class="token keyword">private</span> <span class="token function">imgClick</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">private</span> <span class="token function">imgClick</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"图片被点击"</span><span class="token punctuation">)</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
 <h3 id="参数详解："><a href="#参数详解：" class="headerlink" title="参数详解："></a>参数详解：</h3><ul>
 <li>target：类，也就是这里的 <code>Index</code></li>
 <li>propertyKey：类属性函数的名称，这里是 <code>imgClick</code></li>

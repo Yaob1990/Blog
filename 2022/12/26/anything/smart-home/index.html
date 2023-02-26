@@ -34,7 +34,7 @@ Home Assista">
     
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 4.1.1"><link rel="alternate" href="/atom.xml" title="不知" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="不知" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-duotone-light.css" type="text/css"></head>
 
 
@@ -445,45 +445,45 @@ Home Assista">
 <p><img src="/images/2022/12/26/16720467728426.jpg"></p>
 <p><img src="/images/2022/12/26/16720467818118.jpg"></p>
 <p><img src="/images/2022/12/26/16720467884269.jpg"></p>
-<h2 id="米家设备——Xiaomi-Miot-Auto"><a href="#米家设备——Xiaomi-Miot-Auto" class="headerlink" title="米家设备——Xiaomi Miot Auto"></a>米家设备——Xiaomi Miot Auto</h2><p><a href="https://iot.mi.com/new/doc/design/spec/overall" target="_blank" rel="noopener">MIoT-Spec</a> 是小米 IoT 平台根据硬件产品的联网方式、产品功能的特点、用户使用场景的特征和用户对硬件产品使用体验的要求，设计的描述硬件产品功能定义的标准规范。</p>
-<p>本插件利用了 <strong>miot</strong> 协议的规范，可将小米设备自动接入 <a href="https://www.home-assistant.io/" target="_blank" rel="noopener">HomeAssistant</a>，目前已支持大部分小米米家智能设备。且该插件支持 HA 后台界面集成，无需配置 yaml 即可轻松将小米设备接入 HA。</p>
-<h2 id="支持的设备"><a href="#支持的设备" class="headerlink" title="支持的设备"></a><a href="https://github.com/al-one/hass-xiaomi-miot/issues/12" target="_blank" rel="noopener">支持的设备</a></h2><ul>
-<li>🔌 <a href="https://home.miot-spec.com/s/plug" target="_blank" rel="noopener">插座</a> / <a href="https://home.miot-spec.com/s/switch" target="_blank" rel="noopener">开关</a></li>
-<li>💡 <a href="https://home.miot-spec.com/s/light" target="_blank" rel="noopener">智能灯</a></li>
-<li>❄️ <a href="https://home.miot-spec.com/s/aircondition" target="_blank" rel="noopener">空调</a> / <a href="https://home.miot-spec.com/s/acpartner" target="_blank" rel="noopener">空调伴侣</a> / <a href="https://home.miot-spec.com/s/miir.aircondition" target="_blank" rel="noopener">红外空调</a></li>
-<li>🌀 <a href="https://home.miot-spec.com/s/fan" target="_blank" rel="noopener">风扇</a> / <a href="https://home.miot-spec.com/s/ven_fan" target="_blank" rel="noopener">凉霸</a></li>
-<li>🛀 <a href="https://home.miot-spec.com/s/bhf_light" target="_blank" rel="noopener">浴霸</a> / 🔥 <a href="https://home.miot-spec.com/s/heater" target="_blank" rel="noopener">取暖器</a> / <a href="https://home.miot-spec.com/s/airrtc" target="_blank" rel="noopener">温控器</a></li>
-<li>📷 <a href="https://home.miot-spec.com/s/camera" target="_blank" rel="noopener">摄像头</a> / <a href="https://home.miot-spec.com/s/cateye" target="_blank" rel="noopener">猫眼/可视门铃</a> <a href="https://github.com/al-one/hass-xiaomi-miot/issues/100#issuecomment-903078604" target="_blank" rel="noopener">❓️</a></li>
-<li>📺 <a href="https://home.miot-spec.com/s/tv" target="_blank" rel="noopener">电视</a> / 📽️ <a href="https://home.miot-spec.com/s/projector" target="_blank" rel="noopener">投影仪</a> / <a href="https://home.miot-spec.com/s/tvbox" target="_blank" rel="noopener">机顶盒</a></li>
-<li>🗣️ <a href="https://home.miot-spec.com/s/wifispeaker" target="_blank" rel="noopener">小爱音箱</a> <a href="https://github.com/al-one/hass-xiaomi-miot/issues/100#issuecomment-885989099" target="_blank" rel="noopener">❓️</a></li>
-<li>🎮️ <a href="https://home.miot-spec.com/s/chuangmi.remote" target="_blank" rel="noopener">万能遥控器</a> <a href="https://github.com/al-one/hass-xiaomi-miot/commit/fbcc8063783e53b9480574536a034d338634f4e8#commitcomment-56563663" target="_blank" rel="noopener">❓️</a></li>
-<li>🔐 <a href="https://home.miot-spec.com/s/lock" target="_blank" rel="noopener">智能门锁</a> / 🚪 <a href="https://home.miot-spec.com/s/door" target="_blank" rel="noopener">智慧门</a></li>
-<li>👕 <a href="https://home.miot-spec.com/s/washer" target="_blank" rel="noopener">洗衣机</a> / <a href="https://home.miot-spec.com/s/dry" target="_blank" rel="noopener">干衣机</a> / <a href="https://home.miot-spec.com/s/fridge" target="_blank" rel="noopener">冰箱</a></li>
-<li>🚰 <a href="https://home.miot-spec.com/s/waterpuri" target="_blank" rel="noopener">净水器</a> / <a href="https://home.miot-spec.com/s/kettle" target="_blank" rel="noopener">饮水机</a></li>
-<li>♻️ <a href="https://home.miot-spec.com/s/airpurifier" target="_blank" rel="noopener">空气净化器</a> / <a href="https://home.miot-spec.com/s/airfresh" target="_blank" rel="noopener">新风机</a> / <a href="https://home.miot-spec.com/s/hood" target="_blank" rel="noopener">油烟机</a></li>
-<li>🌡 <a href="https://home.miot-spec.com/s/sensor_ht" target="_blank" rel="noopener">温湿度传感器</a> / <a href="https://home.miot-spec.com/s/flood" target="_blank" rel="noopener">水侵传感器</a> / <a href="https://home.miot-spec.com/s/sensor_smoke" target="_blank" rel="noopener">烟雾传感器</a></li>
-<li>🥘 <a href="https://home.miot-spec.com/s/cooker" target="_blank" rel="noopener">电饭煲</a> / <a href="https://home.miot-spec.com/s/pre_cooker" target="_blank" rel="noopener">压力锅</a></li>
-<li>🍲 <a href="https://home.miot-spec.com/s/ihcooker" target="_blank" rel="noopener">电磁炉</a> / <a href="https://home.miot-spec.com/s/oven" target="_blank" rel="noopener">烤箱</a> / <a href="https://home.miot-spec.com/s/microwave" target="_blank" rel="noopener">微波炉</a></li>
-<li>🍗 <a href="https://home.miot-spec.com/s/fryer" target="_blank" rel="noopener">空气炸锅</a> / <a href="https://home.miot-spec.com/s/mfcp" target="_blank" rel="noopener">多功能锅</a></li>
-<li>🍵 <a href="https://home.miot-spec.com/s/health_pot" target="_blank" rel="noopener">养生壶</a> / ☕️ <a href="https://home.miot-spec.com/s/coffee" target="_blank" rel="noopener">咖啡机</a></li>
-<li>🍹 <a href="https://home.miot-spec.com/s/juicer" target="_blank" rel="noopener">破壁机</a> / <a href="https://home.miot-spec.com/s/juicer" target="_blank" rel="noopener">搅拌机</a> / <a href="https://home.miot-spec.com/s/f_washer" target="_blank" rel="noopener">果蔬清洗机</a></li>
-<li>♨️ <a href="https://home.miot-spec.com/s/waterheater" target="_blank" rel="noopener">热水器</a> / <a href="https://home.miot-spec.com/s/dishwasher" target="_blank" rel="noopener">洗碗机</a> / <a href="https://home.miot-spec.com/s/foot_bath" target="_blank" rel="noopener">足浴器</a></li>
-<li>🦠 <a href="https://home.miot-spec.com/s/steriliser" target="_blank" rel="noopener">消毒柜</a></li>
-<li>🪟 <a href="https://home.miot-spec.com/s/curtain" target="_blank" rel="noopener">窗帘电机</a> / <a href="https://home.miot-spec.com/s/wopener" target="_blank" rel="noopener">开窗器</a> / <a href="https://home.miot-spec.com/s/airer" target="_blank" rel="noopener">晾衣机</a></li>
-<li>🧹 <a href="https://home.miot-spec.com/s/vacuum" target="_blank" rel="noopener">扫地/扫拖机器人</a> / <a href="https://home.miot-spec.com/s/.mop" target="_blank" rel="noopener">擦地机</a></li>
-<li>💦 <a href="https://home.miot-spec.com/s/humidifier" target="_blank" rel="noopener">加湿器</a> / <a href="https://home.miot-spec.com/s/derh" target="_blank" rel="noopener">除湿器</a> / <a href="https://home.miot-spec.com/s/diffuser" target="_blank" rel="noopener">除味器</a></li>
-<li>🍃 <a href="https://home.miot-spec.com/s/airmonitor" target="_blank" rel="noopener">空气检测仪</a> / 🪴 <a href="https://home.miot-spec.com/s/plantmonitor" target="_blank" rel="noopener">植物监测仪</a></li>
-<li>🛏 <a href="https://home.miot-spec.com/s/bed" target="_blank" rel="noopener">电动床</a> / <a href="https://home.miot-spec.com/s/blanket" target="_blank" rel="noopener">电热毯/水暖床垫</a> / 😴 <a href="https://home.miot-spec.com/s/lunar" target="_blank" rel="noopener">睡眠监测仪</a></li>
-<li>💆 <a href="https://home.miot-spec.com/s/massage" target="_blank" rel="noopener">按摩椅</a> / <a href="https://home.miot-spec.com/s/magic_touch" target="_blank" rel="noopener">按摩仪</a></li>
-<li>🏃 <a href="https://home.miot-spec.com/s/walkingpad" target="_blank" rel="noopener">走步机</a> / <a href="https://home.miot-spec.com/s/treadmill" target="_blank" rel="noopener">跑步机</a> / <a href="https://home.miot-spec.com/s/desk" target="_blank" rel="noopener">升降桌</a></li>
-<li>🚽 <a href="https://home.miot-spec.com/s/toilet" target="_blank" rel="noopener">马桶(盖)</a> /️ <a href="https://home.miot-spec.com/s/.tow" target="_blank" rel="noopener">毛巾架</a> /️ 🪥 <a href="https://home.miot-spec.com/s/toothbrush" target="_blank" rel="noopener">牙刷</a></li>
-<li>🐱 <a href="https://home.miot-spec.com/s/feeder" target="_blank" rel="noopener">宠物喂食器</a> / ⛲ <a href="https://home.miot-spec.com/s/pet_waterer" target="_blank" rel="noopener">宠物饮水机</a> / 🐟 <a href="https://home.miot-spec.com/s/fishbowl" target="_blank" rel="noopener">鱼缸</a></li>
-<li>🦟 <a href="https://home.miot-spec.com/s/mosq" target="_blank" rel="noopener">驱蚊器</a> / <a href="https://home.miot-spec.com/s/s_lamp" target="_blank" rel="noopener">消毒/灭菌灯</a></li>
-<li>🚘 <a href="https://home.miot-spec.com/s/rv_mirror" target="_blank" rel="noopener">智能后视镜</a> / <a href="https://home.miot-spec.com/s/hud" target="_blank" rel="noopener">抬头显示HUD</a></li>
-<li>⌚️ <a href="https://home.miot-spec.com/s/watch" target="_blank" rel="noopener">智能/儿童手表</a> / <a href="https://home.miot-spec.com/s/bracelet" target="_blank" rel="noopener">手环</a></li>
-<li>🚶 <a href="https://home.miot-spec.com/s/motion" target="_blank" rel="noopener">人体传感器</a> / 🧲 <a href="https://home.miot-spec.com/s/magnet" target="_blank" rel="noopener">门窗传感器</a> <a href="https://github.com/al-one/hass-xiaomi-miot/issues/100#issuecomment-909031222" target="_blank" rel="noopener">❓️</a></li>
-<li>📳 <a href="https://home.miot-spec.com/s/vibration" target="_blank" rel="noopener">动静贴</a></li>
-<li>🌐 <a href="https://home.miot-spec.com/s/router" target="_blank" rel="noopener">路由器</a> / 🖨 <a href="https://home.miot-spec.com/s/printer" target="_blank" rel="noopener">打印机</a></li>
+<h2 id="米家设备——Xiaomi-Miot-Auto"><a href="#米家设备——Xiaomi-Miot-Auto" class="headerlink" title="米家设备——Xiaomi Miot Auto"></a>米家设备——Xiaomi Miot Auto</h2><p><a target="_blank" rel="noopener" href="https://iot.mi.com/new/doc/design/spec/overall">MIoT-Spec</a> 是小米 IoT 平台根据硬件产品的联网方式、产品功能的特点、用户使用场景的特征和用户对硬件产品使用体验的要求，设计的描述硬件产品功能定义的标准规范。</p>
+<p>本插件利用了 <strong>miot</strong> 协议的规范，可将小米设备自动接入 <a target="_blank" rel="noopener" href="https://www.home-assistant.io/">HomeAssistant</a>，目前已支持大部分小米米家智能设备。且该插件支持 HA 后台界面集成，无需配置 yaml 即可轻松将小米设备接入 HA。</p>
+<h2 id="支持的设备"><a href="#支持的设备" class="headerlink" title="支持的设备"></a><a target="_blank" rel="noopener" href="https://github.com/al-one/hass-xiaomi-miot/issues/12">支持的设备</a></h2><ul>
+<li>🔌 <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/plug">插座</a> / <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/switch">开关</a></li>
+<li>💡 <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/light">智能灯</a></li>
+<li>❄️ <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/aircondition">空调</a> / <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/acpartner">空调伴侣</a> / <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/miir.aircondition">红外空调</a></li>
+<li>🌀 <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/fan">风扇</a> / <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/ven_fan">凉霸</a></li>
+<li>🛀 <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/bhf_light">浴霸</a> / 🔥 <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/heater">取暖器</a> / <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/airrtc">温控器</a></li>
+<li>📷 <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/camera">摄像头</a> / <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/cateye">猫眼/可视门铃</a> <a target="_blank" rel="noopener" href="https://github.com/al-one/hass-xiaomi-miot/issues/100#issuecomment-903078604">❓️</a></li>
+<li>📺 <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/tv">电视</a> / 📽️ <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/projector">投影仪</a> / <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/tvbox">机顶盒</a></li>
+<li>🗣️ <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/wifispeaker">小爱音箱</a> <a target="_blank" rel="noopener" href="https://github.com/al-one/hass-xiaomi-miot/issues/100#issuecomment-885989099">❓️</a></li>
+<li>🎮️ <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/chuangmi.remote">万能遥控器</a> <a target="_blank" rel="noopener" href="https://github.com/al-one/hass-xiaomi-miot/commit/fbcc8063783e53b9480574536a034d338634f4e8#commitcomment-56563663">❓️</a></li>
+<li>🔐 <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/lock">智能门锁</a> / 🚪 <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/door">智慧门</a></li>
+<li>👕 <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/washer">洗衣机</a> / <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/dry">干衣机</a> / <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/fridge">冰箱</a></li>
+<li>🚰 <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/waterpuri">净水器</a> / <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/kettle">饮水机</a></li>
+<li>♻️ <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/airpurifier">空气净化器</a> / <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/airfresh">新风机</a> / <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/hood">油烟机</a></li>
+<li>🌡 <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/sensor_ht">温湿度传感器</a> / <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/flood">水侵传感器</a> / <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/sensor_smoke">烟雾传感器</a></li>
+<li>🥘 <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/cooker">电饭煲</a> / <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/pre_cooker">压力锅</a></li>
+<li>🍲 <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/ihcooker">电磁炉</a> / <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/oven">烤箱</a> / <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/microwave">微波炉</a></li>
+<li>🍗 <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/fryer">空气炸锅</a> / <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/mfcp">多功能锅</a></li>
+<li>🍵 <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/health_pot">养生壶</a> / ☕️ <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/coffee">咖啡机</a></li>
+<li>🍹 <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/juicer">破壁机</a> / <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/juicer">搅拌机</a> / <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/f_washer">果蔬清洗机</a></li>
+<li>♨️ <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/waterheater">热水器</a> / <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/dishwasher">洗碗机</a> / <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/foot_bath">足浴器</a></li>
+<li>🦠 <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/steriliser">消毒柜</a></li>
+<li>🪟 <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/curtain">窗帘电机</a> / <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/wopener">开窗器</a> / <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/airer">晾衣机</a></li>
+<li>🧹 <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/vacuum">扫地/扫拖机器人</a> / <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/.mop">擦地机</a></li>
+<li>💦 <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/humidifier">加湿器</a> / <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/derh">除湿器</a> / <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/diffuser">除味器</a></li>
+<li>🍃 <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/airmonitor">空气检测仪</a> / 🪴 <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/plantmonitor">植物监测仪</a></li>
+<li>🛏 <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/bed">电动床</a> / <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/blanket">电热毯/水暖床垫</a> / 😴 <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/lunar">睡眠监测仪</a></li>
+<li>💆 <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/massage">按摩椅</a> / <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/magic_touch">按摩仪</a></li>
+<li>🏃 <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/walkingpad">走步机</a> / <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/treadmill">跑步机</a> / <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/desk">升降桌</a></li>
+<li>🚽 <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/toilet">马桶(盖)</a> /️ <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/.tow">毛巾架</a> /️ 🪥 <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/toothbrush">牙刷</a></li>
+<li>🐱 <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/feeder">宠物喂食器</a> / ⛲ <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/pet_waterer">宠物饮水机</a> / 🐟 <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/fishbowl">鱼缸</a></li>
+<li>🦟 <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/mosq">驱蚊器</a> / <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/s_lamp">消毒/灭菌灯</a></li>
+<li>🚘 <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/rv_mirror">智能后视镜</a> / <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/hud">抬头显示HUD</a></li>
+<li>⌚️ <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/watch">智能/儿童手表</a> / <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/bracelet">手环</a></li>
+<li>🚶 <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/motion">人体传感器</a> / 🧲 <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/magnet">门窗传感器</a> <a target="_blank" rel="noopener" href="https://github.com/al-one/hass-xiaomi-miot/issues/100#issuecomment-909031222">❓️</a></li>
+<li>📳 <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/vibration">动静贴</a></li>
+<li>🌐 <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/router">路由器</a> / 🖨 <a target="_blank" rel="noopener" href="https://home.miot-spec.com/s/printer">打印机</a></li>
 </ul>
 <p>接入之后，几乎不需要任何配置就可以直接使用，并且和手机使用米家不冲突。</p>
 <h2 id="ESP32"><a href="#ESP32" class="headerlink" title="ESP32"></a>ESP32</h2><p>上面这些东西，包括进一步的自动化，可以玩一个月了，如果还不过瘾，可以继续看看 ESP32，自己动手做智能家居。</p>
@@ -492,13 +492,13 @@ Home Assista">
 <h3 id="独立网关"><a href="#独立网关" class="headerlink" title="独立网关"></a>独立网关</h3><p><img src="/images/2022/12/26/16720468061875.jpg"></p>
 <p><img src="/images/2022/12/26/16720468142750.jpg"></p>
 <p>小黄鱼有很多出售这种 zigBee 带网关的，就是使用 ESP32 来实现的，ESP32 运行服务器，mqtt 等内容，对外发送报文，这样就可以不走 H omeAssistant 类似平台，但是弱点也很明显，支持的设备有限，每次新增设备类型，就需要刷新固件，或者自己编译固件，如果对方固件不开源，那可玩性就大打折扣。</p>
-<h3 id="自己做摄像头"><a href="#自己做摄像头" class="headerlink" title="自己做摄像头"></a>自己做摄像头</h3><p><a href="https://zhuanlan.zhihu.com/p/577606023" target="_blank" rel="noopener">ESP32 CAM通过ESPHome连接到Homeassistant - 知乎</a></p>
+<h3 id="自己做摄像头"><a href="#自己做摄像头" class="headerlink" title="自己做摄像头"></a>自己做摄像头</h3><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/577606023">ESP32 CAM通过ESPHome连接到Homeassistant - 知乎</a></p>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
-<li><a href="https://zhuanlan.zhihu.com/p/577606023" target="_blank" rel="noopener">ESP32 CAM通过ESPHome连接到Homeassistant - 知乎</a></li>
-<li><a href="https://iot.mi.com/new/doc/introduction/main" target="_blank" rel="noopener">小米IoT开发者平台</a></li>
-<li><a href="https://www.home-assistant.io/" target="_blank" rel="noopener">Home Assistant</a></li>
-<li><a href="https://www.zigbee2mqtt.io/" target="_blank" rel="noopener">Home | Zigbee2MQTT</a></li>
-<li><a href="https://www.xiaoweigod.com/network/2235.html" target="_blank" rel="noopener">小米智能家居第三方控制之一：提取米家API并控制-小伟博客</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/577606023">ESP32 CAM通过ESPHome连接到Homeassistant - 知乎</a></li>
+<li><a target="_blank" rel="noopener" href="https://iot.mi.com/new/doc/introduction/main">小米IoT开发者平台</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.home-assistant.io/">Home Assistant</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.zigbee2mqtt.io/">Home | Zigbee2MQTT</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.xiaoweigod.com/network/2235.html">小米智能家居第三方控制之一：提取米家API并控制-小伟博客</a></li>
 </ul>
 
             </div>

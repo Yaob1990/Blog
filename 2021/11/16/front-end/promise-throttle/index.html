@@ -28,7 +28,7 @@
     
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 4.1.1"><link rel="alternate" href="/atom.xml" title="不知" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="不知" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-duotone-light.css" type="text/css"></head>
 
 
@@ -377,7 +377,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    564
+                    604
                 </div>
                 
 
@@ -410,14 +410,15 @@
 <h2 id="如何防御"><a href="#如何防御" class="headerlink" title="如何防御"></a>如何防御</h2><p>简单的实现，在业务代码中设置标志位，当有 promise 执行的时候，执行锁，等 promise 执行完毕，再释放锁。缺点，需要在业务中写很多重复的代码。</p>
 <pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> status <span class="token operator">=</span> <span class="token boolean">false</span>
 
-<span class="token keyword">function</span> <span class="token function">btnClick</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span>status<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">function</span> <span class="token function">btnClick</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>status<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span>
-  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">else</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">//   do something</span>
     status <span class="token operator">=</span> ture
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
 <h2 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h2><p>我们可以参考防抖的实现，进行封装, 把函数用 Promise 进行包裹，然后设置标志位，就可以避免在业务中频繁设置标志位。<br>节流，我们可以设置函数执行的时候，同时执行一个定时器，也用 Promise 进行包装，当两个 Promise 都执行完毕的时候，再释放函数。</p>
 <pre class=" language-typescript"><code class="language-typescript"><span class="token comment" spellcheck="true">/**
  * promise 节流函数版本
@@ -426,33 +427,35 @@
  * @param delayTime
  * @constructor
  */</span>
-<span class="token keyword">function</span> <span class="token function">PromiseThrottleFn</span><span class="token punctuation">(</span>fn<span class="token punctuation">:</span> <span class="token keyword">Function</span><span class="token punctuation">,</span> time <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> delayTime <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">function</span> <span class="token function">PromiseThrottleFn</span><span class="token punctuation">(</span>fn<span class="token punctuation">:</span> <span class="token keyword">Function</span><span class="token punctuation">,</span> time <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> delayTime <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
   <span class="token keyword">let</span> status <span class="token operator">=</span> <span class="token string">''</span>
-  <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span>status <span class="token operator">===</span> <span class="token string">'lock'</span><span class="token punctuation">)</span> <span class="token keyword">return</span>
     status <span class="token operator">=</span> <span class="token string">'lock'</span>
-    <span class="token keyword">try</span> <span class="token punctuation">{</span>
+    <span class="token keyword">try</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
       <span class="token keyword">const</span> data <span class="token operator">=</span> Promise<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
         <span class="token comment" spellcheck="true">// @ts-ignore</span>
         fn<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token operator">...</span>arguments<span class="token punctuation">)</span><span class="token punctuation">,</span>
-        <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span>resolve<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+        <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span>resolve<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
           <span class="token function">setTimeout</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> time<span class="token punctuation">)</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
       <span class="token punctuation">]</span><span class="token punctuation">)</span>
       <span class="token comment" spellcheck="true">// @ts-ignore</span>
       <span class="token keyword">return</span> data<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
-    <span class="token punctuation">}</span> <span class="token keyword">finally</span> <span class="token punctuation">{</span>
-      <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">finally</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+      <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         status <span class="token operator">=</span> <span class="token string">''</span>
-      <span class="token punctuation">}</span><span class="token punctuation">,</span> delayTime<span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
+      <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span> delayTime<span class="token punctuation">)</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
 <p>函数我放到了个人的工具函数库中，可以直接通过 npm 安装：</p>
 <pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 安装</span>
 npm install @aocoding<span class="token operator">/</span>victorinox
 <span class="token comment" spellcheck="true">// 使用</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> PromiseThrottleFn <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@aocoding/victorinox'</span></code></pre>
+<span class="token keyword">import</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> PromiseThrottleFn <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">from</span> <span class="token string">'@aocoding/victorinox'</span>
+</code></pre>
 
             </div>
             <hr/>

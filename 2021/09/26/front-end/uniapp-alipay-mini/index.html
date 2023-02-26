@@ -27,7 +27,7 @@
     
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 4.1.1"><link rel="alternate" href="/atom.xml" title="不知" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="不知" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-duotone-light.css" type="text/css"></head>
 
 
@@ -399,14 +399,17 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>uniapp 这个缝合怪，挺厉害的，啥都能做，甚至你能够使用小程序的原生组件。<br>具体文档：<br><a href="https://uniapp.dcloud.io/frame?id=%E5%B0%8F%E7%A8%8B%E5%BA%8F%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BB%84%E4%BB%B6%E6%94%AF%E6%8C%81" target="_blank" rel="noopener">https://uniapp.dcloud.io/frame?id=%e5%b0%8f%e7%a8%8b%e5%ba%8f%e8%87%aa%e5%ae%9a%e4%b9%89%e7%bb%84%e4%bb%b6%e6%94%af%e6%8c%81</a></p>
+                <p>uniapp 这个缝合怪，挺厉害的，啥都能做，甚至你能够使用小程序的原生组件。<br>具体文档：<br><a target="_blank" rel="noopener" href="https://uniapp.dcloud.io/frame?id=%E5%B0%8F%E7%A8%8B%E5%BA%8F%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BB%84%E4%BB%B6%E6%94%AF%E6%8C%81">https://uniapp.dcloud.io/frame?id=%e5%b0%8f%e7%a8%8b%e5%ba%8f%e8%87%aa%e5%ae%9a%e4%b9%89%e7%bb%84%e4%bb%b6%e6%94%af%e6%8c%81</a></p>
 <h2 id="调用坑"><a href="#调用坑" class="headerlink" title="调用坑"></a>调用坑</h2><p>写法1：</p>
-<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>example @<span class="token keyword">get</span><span class="token operator">=</span><span class="token string">"onGet"</span> <span class="token operator">/</span><span class="token operator">></span></code></pre>
+<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>example @<span class="token keyword">get</span><span class="token operator">=</span><span class="token string">"onGet"</span> <span class="token operator">/</span><span class="token operator">></span>
+</code></pre>
 <p>如果这样写，那么会走向 uniapp 的事件分发，但是支付宝这里事件的默认参数是 undefined，拿不到事件信息，所以这里会抛出 js 异常</p>
 <p>写法2：</p>
-<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>example onGet<span class="token operator">=</span><span class="token string">"onGet"</span> <span class="token operator">/</span><span class="token operator">></span></code></pre>
+<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>example onGet<span class="token operator">=</span><span class="token string">"onGet"</span> <span class="token operator">/</span><span class="token operator">></span>
+</code></pre>
 <p>使用小程序原生写法，会报 <code>event not found</code>,这是因为 uniapp 对事件有自己的封装，没有直接暴露给小程序，添加以下模板代码之后，可以调用成功：</p>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">this</span><span class="token punctuation">.</span>$scope<span class="token punctuation">.</span>onGet <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>onGet<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span></code></pre>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">this</span><span class="token punctuation">.</span>$scope<span class="token punctuation">.</span>onGet <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>onGet<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span>
+</code></pre>
 <h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><p>如果使用组件比较多，模板代码可以放到 webpack loader 中去实现，思路就是模板中使用 <code>onGet</code> 写法的通过正则找出来，然后再 <code>onLoad()</code> 中挂载上去。</p>
 <p>当我写好了 loader，并且 uniapp 编译成功之后，打开小程序编译器，迎接秋天的美好的时候</p>
 <p><img src="/images/16326137933990.jpg"></p>

@@ -28,7 +28,7 @@ document.getElementsByTagName(&#39;webview&#39;)[0].">
     
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 4.1.1"><link rel="alternate" href="/atom.xml" title="不知" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="不知" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-duotone-light.css" type="text/css"></head>
 
 
@@ -377,14 +377,14 @@ document.getElementsByTagName(&#39;webview&#39;)[0].">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    895
+                    951
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    4 分
                 </div>
                 
 
@@ -401,11 +401,13 @@ document.getElementsByTagName(&#39;webview&#39;)[0].">
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="web-Components"><a href="#web-Components" class="headerlink" title="web Components"></a>web Components</h2><h3 id="微信小程序"><a href="#微信小程序" class="headerlink" title="微信小程序"></a>微信小程序</h3><p>调试ide版本：v1.02.1907300<br>微信小程序 ide 使用 nw.js 开发，我们可以尝试打开它的控制台</p>
-<pre class=" language-js"><code class="language-js">document<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">'webview'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">showDevTools</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">,</span><span class="token keyword">null</span><span class="token punctuation">)</span></code></pre>
+<pre class=" language-js"><code class="language-js">document<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">'webview'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">showDevTools</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">,</span><span class="token keyword">null</span><span class="token punctuation">)</span>
+</code></pre>
 <p><img src="/images/16272568175378.jpg"></p>
 <p>我们拿到了微信小程序的渲染层页面，注意body中的标签 <code>wx-view</code>、<code>wx-open-data</code>，这看起来是一种类似 <code>web Components</code>的实现，这是一种浏览器原生支持的组件形式。</p>
 <h3 id="支付宝小程序"><a href="#支付宝小程序" class="headerlink" title="支付宝小程序"></a>支付宝小程序</h3><p>调试 ide 版本：2.1.9<br>支付宝小程序是使用 Electron 开发的，我们也可以打开它的控制台：</p>
-<pre class=" language-js"><code class="language-js">document<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">'webview'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">openDevTools</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<pre class=" language-js"><code class="language-js">document<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">'webview'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">openDevTools</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
 <p>外部套着模拟器，内部是<code>iframe</code>，这里应该就是小程序本身代码，也就是 <code>iframe</code> 部分<br><img src="/images/16272573416726.jpg"></p>
 <p>这里并没有和小程序类采用了组件的形式，而是<code>原生标签 + class</code>的形式。尝试全局修改<code>a-view</code>的样式，竟然真的生效了。<br>进一步测试发现，标签选择器会被编译成<code>.a-*</code>的形式，不局限于已有的标签，如果是<code>a</code>标签也会这样编译。</p>
 <h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>微信小程序的标签需要基础库去解析，支付宝这里似乎是没有的，他直接编译成了<code>html</code>,并且<code>html</code>没有做到样式隔离，能够被外部影响。如果无意中写了类似标签，还是非常难以排查的。</p>
@@ -414,7 +416,8 @@ document.getElementsByTagName(&#39;webview&#39;)[0].">
 <p>rpx（responsive pixel）可以根据屏幕宽度进行自适应，规定屏幕宽为 750rpx。以 Apple iPhone6 为例，屏幕宽度为 375px，共有 750 个物理像素，则 750 rpx = 375 px = 750 物理像素，1rpx = 0.5 px = 1 物理像素。</p>
 </blockquote>
 <h3 id="微信小程序-1"><a href="#微信小程序-1" class="headerlink" title="微信小程序"></a>微信小程序</h3><p>viewport 设置</p>
-<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>meta name<span class="token operator">=</span><span class="token string">"viewport"</span> content<span class="token operator">=</span><span class="token string">"width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1"</span><span class="token operator">></span></code></pre>
+<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>meta name<span class="token operator">=</span><span class="token string">"viewport"</span> content<span class="token operator">=</span><span class="token string">"width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1"</span><span class="token operator">></span>
+</code></pre>
 <p>rpx 转换：</p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> BASE_DEVICE_WIDTH <span class="token operator">=</span> <span class="token number">750</span><span class="token punctuation">;</span>
 <span class="token keyword">var</span> isIOS <span class="token operator">=</span> navigator<span class="token punctuation">.</span>userAgent<span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span><span class="token string">'iPhone'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -422,55 +425,59 @@ document.getElementsByTagName(&#39;webview&#39;)[0].">
 <span class="token keyword">var</span> deviceDPR <span class="token operator">=</span> window<span class="token punctuation">.</span>devicePixelRatio <span class="token operator">||</span> <span class="token number">2</span><span class="token punctuation">;</span>
 <span class="token keyword">var</span> checkDeviceWidth <span class="token operator">=</span>
   window<span class="token punctuation">.</span>__checkDeviceWidth__ <span class="token operator">||</span>
-  <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token keyword">var</span> newDeviceWidth <span class="token operator">=</span> window<span class="token punctuation">.</span>screen<span class="token punctuation">.</span>width <span class="token operator">||</span> <span class="token number">375</span><span class="token punctuation">;</span>
     <span class="token keyword">var</span> newDeviceDPR <span class="token operator">=</span> window<span class="token punctuation">.</span>devicePixelRatio <span class="token operator">||</span> <span class="token number">2</span><span class="token punctuation">;</span>
     <span class="token keyword">var</span> newDeviceHeight <span class="token operator">=</span> window<span class="token punctuation">.</span>screen<span class="token punctuation">.</span>height <span class="token operator">||</span> <span class="token number">375</span><span class="token punctuation">;</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span>window<span class="token punctuation">.</span>screen<span class="token punctuation">.</span>orientation <span class="token operator">&amp;&amp;</span> <span class="token regex">/^landscape/</span><span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>screen<span class="token punctuation">.</span>orientation<span class="token punctuation">.</span>type <span class="token operator">||</span> <span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">)</span> newDeviceWidth <span class="token operator">=</span> newDeviceHeight<span class="token punctuation">;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>newDeviceWidth <span class="token operator">!==</span> deviceWidth <span class="token operator">||</span> newDeviceDPR <span class="token operator">!==</span> deviceDPR<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>newDeviceWidth <span class="token operator">!==</span> deviceWidth <span class="token operator">||</span> newDeviceDPR <span class="token operator">!==</span> deviceDPR<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
       deviceWidth <span class="token operator">=</span> newDeviceWidth<span class="token punctuation">;</span>
       deviceDPR <span class="token operator">=</span> newDeviceDPR<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
 <span class="token function">checkDeviceWidth</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">var</span> eps <span class="token operator">=</span> <span class="token number">1e-4</span><span class="token punctuation">;</span>
 <span class="token keyword">var</span> transformRPX <span class="token operator">=</span>
   window<span class="token punctuation">.</span>__transformRpx__ <span class="token operator">||</span>
-  <span class="token keyword">function</span> <span class="token punctuation">(</span>number<span class="token punctuation">,</span> newDeviceWidth<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">function</span> <span class="token punctuation">(</span>number<span class="token punctuation">,</span> newDeviceWidth<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span>number <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
     number <span class="token operator">=</span> <span class="token punctuation">(</span>number <span class="token operator">/</span> BASE_DEVICE_WIDTH<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>newDeviceWidth <span class="token operator">||</span> deviceWidth<span class="token punctuation">)</span><span class="token punctuation">;</span>
     number <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>number <span class="token operator">+</span> eps<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>number <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      <span class="token keyword">if</span> <span class="token punctuation">(</span>deviceDPR <span class="token operator">===</span> <span class="token number">1</span> <span class="token operator">||</span> <span class="token operator">!</span>isIOS<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>number <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>deviceDPR <span class="token operator">===</span> <span class="token number">1</span> <span class="token operator">||</span> <span class="token operator">!</span>isIOS<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
-      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">else</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> <span class="token number">0.5</span><span class="token punctuation">;</span>
-      <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
+      <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> number<span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+</code></pre>
 <h3 id="支付宝小程序-1"><a href="#支付宝小程序-1" class="headerlink" title="支付宝小程序"></a>支付宝小程序</h3><p>viewport 设置</p>
-<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>meta name<span class="token operator">=</span><span class="token string">"viewport"</span> content<span class="token operator">=</span><span class="token string">"width=device-width, initial-scale=1, user-scalable=0, viewport-fit=cover"</span><span class="token operator">></span></code></pre>
+<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>meta name<span class="token operator">=</span><span class="token string">"viewport"</span> content<span class="token operator">=</span><span class="token string">"width=device-width, initial-scale=1, user-scalable=0, viewport-fit=cover"</span><span class="token operator">></span>
+</code></pre>
 <p>根字体设置:</p>
 <pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// af-appx.min.js</span>
-<span class="token keyword">function</span> <span class="token function">Sy</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">function</span> <span class="token function">Sy</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         _y <span class="token operator">=</span> document<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span>clientWidth<span class="token punctuation">,</span> xy <span class="token operator">=</span> document<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span>clientHeight<span class="token punctuation">,</span> wy <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span>_y<span class="token punctuation">,</span> xy<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">var</span> t <span class="token operator">=</span> <span class="token number">100</span> <span class="token operator">*</span> _y <span class="token operator">/</span> <span class="token number">750</span> <span class="token operator">+</span> <span class="token string">"px"</span><span class="token punctuation">;</span>
         document<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span>style<span class="token punctuation">.</span>fontSize <span class="token operator">!==</span> t <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>document<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span>style<span class="token punctuation">.</span>fontSize <span class="token operator">=</span> t<span class="token punctuation">)</span>
-    <span class="token punctuation">}</span></code></pre>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
 <p>编译之后的样式文件：</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">/*ACSSCompileContext:{"atImports":[]}*/</span><span class="token keyword">var</span> internal_style<span class="token punctuation">;</span>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">/*ACSSCompileContext:&amp;#123;"atImports":[]&amp;#125;*/</span><span class="token keyword">var</span> internal_style<span class="token punctuation">;</span>
 
-internal_style <span class="token operator">=</span> <span class="token string">".title {background:red;font-size:0.5rem}.ttt {font-size:0.5rem}.hair {height:1px}.a-view {background:orange}.ttt .a-a {font-size:100px!important}#id {font-size:1rem}"</span><span class="token punctuation">;</span>
-<span class="token keyword">export</span> <span class="token keyword">default</span> internal_style<span class="token punctuation">;</span></code></pre>
+internal_style <span class="token operator">=</span> <span class="token string">".title &amp;#123;background:red;font-size:0.5rem&amp;#125;.ttt &amp;#123;font-size:0.5rem&amp;#125;.hair &amp;#123;height:1px&amp;#125;.a-view &amp;#123;background:orange&amp;#125;.ttt .a-a &amp;#123;font-size:100px!important&amp;#125;#id &amp;#123;font-size:1rem&amp;#125;"</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> internal_style<span class="token punctuation">;</span>
+</code></pre>
 <h3 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h3><p>微信小程序，rpx 被转换成了px。支付宝小程设置了根字体，rpx 最终被转换成了 rem。支付宝根字体的转换找到了代码，rpx 转 px 没有找到代码，猜测，应该是在编译过程中已经进行了转换，我分析的运行时部分没有这部分代码。</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>貌似一样的众多小程序，仔细分析，发现还是有很多很多的不同，某些不同，还是基础架构层面的不同，深入分析，应该可以挖掘出更多有意思的东西。</p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li><a href="https://zhuanlan.zhihu.com/p/81775922" target="_blank" rel="noopener">小程序底层实现原理及一些思考 - 知乎</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/121815358" target="_blank" rel="noopener">小程序底层实现原理及一些思考（2） - 知乎</a></li>
-<li><a href="https://mp.weixin.qq.com/s/PX7b_qV6tYKnN3ecoz9Ehw" target="_blank" rel="noopener">独家！支付宝首次披露其小程序技术架构</a></li>
-<li><a href="https://juejin.cn/post/6882265367251517447" target="_blank" rel="noopener">利用sourceMap定位错误实践</a></li>
-<li><a href="http://tiaocaoer.com/xcx_study/" target="_blank" rel="noopener">微信小程序开发专区 | 薛定喵君</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/81775922">小程序底层实现原理及一些思考 - 知乎</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/121815358">小程序底层实现原理及一些思考（2） - 知乎</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/PX7b_qV6tYKnN3ecoz9Ehw">独家！支付宝首次披露其小程序技术架构</a></li>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6882265367251517447">利用sourceMap定位错误实践</a></li>
+<li><a target="_blank" rel="noopener" href="http://tiaocaoer.com/xcx_study/">微信小程序开发专区 | 薛定喵君</a></li>
 </ul>
 
             </div>

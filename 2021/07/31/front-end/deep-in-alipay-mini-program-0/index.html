@@ -30,7 +30,7 @@
     
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 4.1.1"><link rel="alternate" href="/atom.xml" title="不知" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="不知" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-duotone-light.css" type="text/css"></head>
 
 
@@ -414,7 +414,8 @@
 npm install -g asar
 
 // 解包
-asar extract vol_modules.asar ./vol_modules/</code></pre>
+asar extract vol_modules.asar ./vol_modules/
+</code></pre>
 <p>它其实是一个 node_modules 的包，内部有众多的包，后续我们主要分析 <code>lyra-integration-ide</code> 包，它的名字叫做：小程序模拟器集成。</p>
 <h2 id="ide-开发者模式"><a href="#ide-开发者模式" class="headerlink" title="ide 开发者模式"></a>ide 开发者模式</h2><p>ide 是基于 <code>electron</code>,我们可以打开它的开发者模式：<br><img src="/images/16277299421308.jpg"></p>
 <p>在打开的控制台中输入：<code>document.getElementsByTagName(&#39;webview&#39;)[1].openDevTools()</code></p>
@@ -422,21 +423,23 @@ asar extract vol_modules.asar ./vol_modules/</code></pre>
 <h2 id="mini-pkg-builder"><a href="#mini-pkg-builder" class="headerlink" title="mini-pkg-builder"></a>mini-pkg-builder</h2><p><code>mini-pkg-builder</code>，这个程序在 miniu 和 ide 都有使用到，路径稍有不同：<br>miniu：<code>/Users/tom/.miniu/compiler/tiny6.3.0_cube0.49.18/mini-pkg-builder</code>,<br>ide: <code>/Applications/小程序开发者工具.app/Contents/Resources/app/builder/mini-pkg-builder</code></p>
 <p>这个程序本质上是小程序的打包程序，尝试对其输入进行重定向输出：</p>
 <pre class=" language-shell"><code class="language-shell">#!/bin/bash
-echo "$*" >> /Users/tom/.miniu/compiler/tiny6.3.0_cube0.49.18/mini-pkg-builder.txt</code></pre>
+echo "$*" >> /Users/tom/.miniu/compiler/tiny6.3.0_cube0.49.18/mini-pkg-builder.txt
+</code></pre>
 <p>拦截之后得到：</p>
 <pre class=" language-shell"><code class="language-shell">// ide
 --input /Users/tom/MiniProjects/blank --output /var/folders/p1/9gklj64n229bys726brqv6040000gn/T/.miniu_dist/ng-main --zrender --prod --no-vuerender --output-code-placeholder --sourcemap false --cheap build --thread-pool-timeout 500 --cache-directory /Users/tom/MiniProjects/blank/.miniu/cache --target web --appxcompatible tiny --external appx --mode concurrent --modulize-minify process --modulize-minify-concurrent 7 --project-config-json %7B%22enableAppxNg%22%3Atrue%7D --stat-flag tag,meta --stat-output-path /var/folders/p1/9gklj64n229bys726brqv6040000gn/T/.miniu_dist/ng-main.json --webpackstats /var/folders/p1/9gklj64n229bys726brqv6040000gn/T/.miniu_dist/ng-webpack-stat.json
 --input /Users/tom/MiniProjects/blank --output /Users/tom/MiniProjects/blank/.miniu/plugins/dev/dist/ng-main --zrender --no-vuerender --sourcemap --cheap build --force-sourcemap --thread-pool-timeout 500 --cache-directory /Users/tom/MiniProjects/blank/.miniu/cache --target web --appxcompatible tiny --external appx --mode concurrent --modulize-minify process --modulize-minify-concurrent 7 --project-config-json %7B%22enableAppxNg%22%3Atrue%7D --watch --no-minify --output-code-placeholder --notify-flag lifecycle --notify-type ipc
 // miniu
---input /Users/tom/MiniProjects/blank --output /Users/tom/MiniProjects/blank/.miniu/plugins/dev/dist/ng-main --zrender --no-vuerender --sourcemap --cheap build --force-sourcemap --thread-pool-timeout 500 --cache-directory /Users/tom/MiniProjects/blank/.miniu/cache --target web --appxcompatible tiny --external appx --mode concurrent --modulize-minify process --modulize-minify-concurrent 7 --project-config-json %7B%22enableAppxNg%22%3Atrue%7D --watch --no-minify --output-code-placeholder --notify-flag lifecycle --notify-type ipc</code></pre>
+--input /Users/tom/MiniProjects/blank --output /Users/tom/MiniProjects/blank/.miniu/plugins/dev/dist/ng-main --zrender --no-vuerender --sourcemap --cheap build --force-sourcemap --thread-pool-timeout 500 --cache-directory /Users/tom/MiniProjects/blank/.miniu/cache --target web --appxcompatible tiny --external appx --mode concurrent --modulize-minify process --modulize-minify-concurrent 7 --project-config-json %7B%22enableAppxNg%22%3Atrue%7D --watch --no-minify --output-code-placeholder --notify-flag lifecycle --notify-type ipc
+</code></pre>
 <p>这里其实就是小程序的编译命令，它本质是是多入口的 webpack 编译，常用参数 <code>sourcemap</code> ,<code>target web</code> 挺眼熟的。</p>
 <h2 id="构建产物"><a href="#构建产物" class="headerlink" title="构建产物"></a>构建产物</h2><p>这里是单入口的页面，多入口类似，为了方便分析，我们一般会控制变量，只保留最简单的功能。<br>.<br>├── appConfig.json<br>├── assets<br>│   └── logo.png<br>├── index.html<br>├── index.js<br>├── index.worker.html<br>├── index.worker.js<br>└── manifest.json</p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li><a href="https://zhuanlan.zhihu.com/p/81775922" target="_blank" rel="noopener">小程序底层实现原理及一些思考 - 知乎</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/121815358" target="_blank" rel="noopener">小程序底层实现原理及一些思考（2） - 知乎</a></li>
-<li><a href="https://mp.weixin.qq.com/s/PX7b_qV6tYKnN3ecoz9Ehw" target="_blank" rel="noopener">独家！支付宝首次披露其小程序技术架构</a></li>
-<li><a href="https://juejin.cn/post/6882265367251517447" target="_blank" rel="noopener">利用sourceMap定位错误实践</a></li>
-<li><a href="http://tiaocaoer.com/xcx_study/" target="_blank" rel="noopener">微信小程序开发专区 | 薛定喵君</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/81775922">小程序底层实现原理及一些思考 - 知乎</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/121815358">小程序底层实现原理及一些思考（2） - 知乎</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/PX7b_qV6tYKnN3ecoz9Ehw">独家！支付宝首次披露其小程序技术架构</a></li>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6882265367251517447">利用sourceMap定位错误实践</a></li>
+<li><a target="_blank" rel="noopener" href="http://tiaocaoer.com/xcx_study/">微信小程序开发专区 | 薛定喵君</a></li>
 </ul>
 
             </div>

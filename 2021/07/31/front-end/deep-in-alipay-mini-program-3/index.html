@@ -31,7 +31,7 @@
     
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 4.1.1"><link rel="alternate" href="/atom.xml" title="不知" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="不知" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-duotone-light.css" type="text/css"></head>
 
 
@@ -411,7 +411,8 @@
 <h2 id="小程序模型分析"><a href="#小程序模型分析" class="headerlink" title="小程序模型分析"></a>小程序模型分析</h2><p>这里其实很明确了，我们说的 webview 层，不是只有 html，而是一套封装了<code>事件处理、dom 操作、页面渲染、diff 算法</code>的接口。通过 <code>AlipayJSBridge</code> 页面层获取数据，然后根据数据，做一整套的渲染流程，其中有大量的 <code>js</code>代码，同时<code>sjs</code> 也在这一层。<br>业务层用户的代码也并不是被直接执行，其中存在着一套公共的处理系统，由这套系统去做用户代码的调度，同时这层代码去做 <code>AlipayJSBridge</code> 的沟通事务。</p>
 <h2 id="如何保证事件的唯一性"><a href="#如何保证事件的唯一性" class="headerlink" title="如何保证事件的唯一性"></a>如何保证事件的唯一性</h2><p>事件的执行可能有快慢，先触发的并不一定先收到返回值，js 的异步特性，也不会允许线程阻塞去等待。小程序的处理很巧妙，一个 id 解决。<br><img src="/images/16277406930646.jpg"></p>
 <p>这是 <code>af-appx.min.js</code> 发送的数据，注意其中的 <code>i</code>, 它是一个递增的值，这样发送和收到的消息就可以找到彼此了。<br>这里的消息发送，最终走向了：</p>
-<pre class=" language-js"><code class="language-js">AlipayJSBridge<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>t<span class="token punctuation">,</span> e<span class="token punctuation">,</span> n<span class="token punctuation">)</span></code></pre>
+<pre class=" language-js"><code class="language-js">AlipayJSBridge<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>t<span class="token punctuation">,</span> e<span class="token punctuation">,</span> n<span class="token punctuation">)</span>
+</code></pre>
 <p>其中 t:’postmessage’,<br>e:<br><img src="/images/16277409067028.jpg"></p>
 <p> 其中内部的 p，包含了传递的事件数据。</p>
 <h2 id="页面通信分析"><a href="#页面通信分析" class="headerlink" title="页面通信分析"></a>页面通信分析</h2><p>从 webview 传递到逻辑层，都会触发 <code>this.port.postMessage</code>，我们尝试分离出触发 <code>this.port.postMessage</code> 的部分方法：</p>
@@ -431,11 +432,11 @@
 </blockquote>
 <p>对 WebAssembly 不熟悉，暂时无法进一步深入。</p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li><a href="https://zhuanlan.zhihu.com/p/81775922" target="_blank" rel="noopener">小程序底层实现原理及一些思考 - 知乎</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/121815358" target="_blank" rel="noopener">小程序底层实现原理及一些思考（2） - 知乎</a></li>
-<li><a href="https://mp.weixin.qq.com/s/PX7b_qV6tYKnN3ecoz9Ehw" target="_blank" rel="noopener">独家！支付宝首次披露其小程序技术架构</a></li>
-<li><a href="https://juejin.cn/post/6882265367251517447" target="_blank" rel="noopener">利用sourceMap定位错误实践</a></li>
-<li><a href="http://tiaocaoer.com/xcx_study/" target="_blank" rel="noopener">微信小程序开发专区 | 薛定喵君</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/81775922">小程序底层实现原理及一些思考 - 知乎</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/121815358">小程序底层实现原理及一些思考（2） - 知乎</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/PX7b_qV6tYKnN3ecoz9Ehw">独家！支付宝首次披露其小程序技术架构</a></li>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6882265367251517447">利用sourceMap定位错误实践</a></li>
+<li><a target="_blank" rel="noopener" href="http://tiaocaoer.com/xcx_study/">微信小程序开发专区 | 薛定喵君</a></li>
 </ul>
 
             </div>

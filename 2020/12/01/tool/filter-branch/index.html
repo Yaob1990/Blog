@@ -30,7 +30,7 @@
     
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 4.1.1"><link rel="alternate" href="/atom.xml" title="不知" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="不知" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-duotone-light.css" type="text/css"></head>
 
 
@@ -409,11 +409,14 @@
 </ol>
 <h3 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h3><p>可以使用<code>filter-branch</code>实现上述需求。</p>
 <p>从每一个提交移除一个文件：</p>
-<pre class=" language-shell"><code class="language-shell">git filter-branch --tree-filter 'rm -f passwords.txt' HEAD</code></pre>
+<pre class=" language-shell"><code class="language-shell">git filter-branch --tree-filter 'rm -f passwords.txt' HEAD
+</code></pre>
 <p>从每一个提交移除一个目录：</p>
-<pre class=" language-shell"><code class="language-shell">git filter-branch --tree-filter 'rm -rf node_modules' HEAD</code></pre>
+<pre class=" language-shell"><code class="language-shell">git filter-branch --tree-filter 'rm -rf node_modules' HEAD
+</code></pre>
 <p>限制移除范围：</p>
-<pre class=" language-shell"><code class="language-shell">git filter-branch --tree-filter 'rm -rf node_modules' HEAD~30..HEAD</code></pre>
+<pre class=" language-shell"><code class="language-shell">git filter-branch --tree-filter 'rm -rf node_modules' HEAD~30..HEAD
+</code></pre>
 <p>全局修改邮箱地址：</p>
 <pre class=" language-shell"><code class="language-shell">git filter-branch --commit-filter '
     if [ "$GIT_AUTHOR_EMAIL" = "schacon@localhost" ];
@@ -422,7 +425,8 @@
       GIT_AUTHOR_EMAIL="schacon@example.com";
       git commit-tree "$@";
         else
-        fi' HEAD</code></pre>
+        fi' HEAD
+</code></pre>
 <h3 id="详细参数："><a href="#详细参数：" class="headerlink" title="详细参数："></a>详细参数：</h3><ul>
 <li><p><code>--tree-filter </code>表示修改文件列表</p>
 </li>
@@ -437,13 +441,15 @@
 <li><p><code>--all</code>是针对所有的分支。</p>
 </li>
 </ul>
-<pre><code>  [^依云：初次使用 git 的“核弹级选项”：filter-branch]: https://blog.lilydjwg.me/2011/4/22/tried-the-nuclear-option-filter-branch-of-git-the-first-time.26331.html</code></pre>
+<pre><code>  [^依云：初次使用 git 的“核弹级选项”：filter-branch]: https://blog.lilydjwg.me/2011/4/22/tried-the-nuclear-option-filter-branch-of-git-the-first-time.26331.html
+</code></pre>
 <pre><code>title: 忘记该忘记的，记住该记住的 —— git filter-branch
 date: 2020-12-01 22:00:00
 categories: 工具
 tags: git
 img: ../../coverImages/git.jpg
-typora-root-url: ../../images</code></pre>
+typora-root-url: ../../images
+</code></pre>
 <p>Pro git 中把 <code>filter-branch</code> 称为 <strong>核弹</strong>，让人难以忘记，也充分说明了该命令的威力。</p>
 <h3 id="问题场景-1"><a href="#问题场景-1" class="headerlink" title="问题场景"></a>问题场景</h3><ol>
 <li>在你的开源仓库中提交了，一个数据库的配置文件。</li>
@@ -461,7 +467,8 @@ git filter-branch --commit-filter &#39;
       GIT_AUTHOR_EMAIL=&quot;schacon@example.com&quot;;
       git commit-tree &quot;$@&quot;;
     else
-    fi&#39; HEAD</code></pre>
+    fi&#39; HEAD
+</code></pre>
 <ul>
 <li><p><code>--tree-filter</code>表示修改文件列表</p>
 </li>
@@ -474,8 +481,8 @@ git filter-branch --commit-filter &#39;
 <li><p><code>-f</code>是忽略备份。不加这个选项第二次运行这个命令时会出错，意思是 git 上次做了备份，现在再要运行的话得处理掉上次的备份。</p>
 </li>
 <li><p><code>--all</code>是针对所有的分支。</p>
-<p>[[<strong><a href="https://git-scm.com/docs/git-filter-branch" target="_blank" rel="noopener">https://git-scm.com/docs/git-filter-branch</a></strong>] ] 官方文档</p>
-<p>[[<strong>依云：初次使用 git 的“核弹级选项”：filter-branch</strong>] ] <a href="https://blog.lilydjwg.me/2011/4/22/tried-the-nuclear-option-filter-branch-of-git-the-first-time.26331.html" target="_blank" rel="noopener">https://blog.lilydjwg.me/2011/4/22/tried-the-nuclear-option-filter-branch-of-git-the-first-time.26331.html</a></p>
+<p>[[<strong><a target="_blank" rel="noopener" href="https://git-scm.com/docs/git-filter-branch">https://git-scm.com/docs/git-filter-branch</a></strong>] ] 官方文档</p>
+<p>[[<strong>依云：初次使用 git 的“核弹级选项”：filter-branch</strong>] ] <a target="_blank" rel="noopener" href="https://blog.lilydjwg.me/2011/4/22/tried-the-nuclear-option-filter-branch-of-git-the-first-time.26331.html">https://blog.lilydjwg.me/2011/4/22/tried-the-nuclear-option-filter-branch-of-git-the-first-time.26331.html</a></p>
 </li>
 </ul>
 <h3 id="详细参数：-1"><a href="#详细参数：-1" class="headerlink" title="详细参数："></a>详细参数：</h3><p>全局修改邮箱地址：</p>
@@ -486,7 +493,8 @@ date: 2020-12-01 22:00:00
 categories: 工具
 tags: git
 img: ../../coverImages/git.jpg
-typora-root-url: ../../images</code></pre>
+typora-root-url: ../../images
+</code></pre>
 <p>Pro git 中把 <code>filter-branch</code> 称为 <strong>核弹</strong>，让人难以忘记，也充分说明了该命令的威力。</p>
 <h3 id="问题场景-2"><a href="#问题场景-2" class="headerlink" title="问题场景"></a>问题场景</h3><ol>
 <li>在你的开源仓库中提交了，一个数据库的配置文件。</li>
@@ -504,7 +512,8 @@ git filter-branch --commit-filter &#39;
       GIT_AUTHOR_EMAIL=&quot;schacon@example.com&quot;;
       git commit-tree &quot;$@&quot;;
     else
-    fi&#39; HEAD</code></pre>
+    fi&#39; HEAD
+</code></pre>
 <ul>
 <li><p><code>--tree-filter</code>表示修改文件列表</p>
 </li>
@@ -517,8 +526,8 @@ git filter-branch --commit-filter &#39;
 <li><p><code>-f</code>是忽略备份。不加这个选项第二次运行这个命令时会出错，意思是 git 上次做了备份，现在再要运行的话得处理掉上次的备份。</p>
 </li>
 <li><p><code>--all</code>是针对所有的分支。</p>
-<p>[[<strong><a href="https://git-scm.com/docs/git-filter-branch" target="_blank" rel="noopener">https://git-scm.com/docs/git-filter-branch</a></strong>] ] 官方文档</p>
-<p>[[<strong>依云：初次使用 git 的“核弹级选项”：filter-branch</strong>] ] <a href="https://blog.lilydjwg.me/2011/4/22/tried-the-nuclear-option-filter-branch-of-git-the-first-time.26331.html" target="_blank" rel="noopener">https://blog.lilydjwg.me/2011/4/22/tried-the-nuclear-option-filter-branch-of-git-the-first-time.26331.html</a></p>
+<p>[[<strong><a target="_blank" rel="noopener" href="https://git-scm.com/docs/git-filter-branch">https://git-scm.com/docs/git-filter-branch</a></strong>] ] 官方文档</p>
+<p>[[<strong>依云：初次使用 git 的“核弹级选项”：filter-branch</strong>] ] <a target="_blank" rel="noopener" href="https://blog.lilydjwg.me/2011/4/22/tried-the-nuclear-option-filter-branch-of-git-the-first-time.26331.html">https://blog.lilydjwg.me/2011/4/22/tried-the-nuclear-option-filter-branch-of-git-the-first-time.26331.html</a></p>
 </li>
 </ul>
 <h3 id="详细参数：-2"><a href="#详细参数：-2" class="headerlink" title="详细参数："></a>详细参数：</h3><p>全局修改邮箱地址：</p>
@@ -529,7 +538,8 @@ date: 2020-12-01 22:00:00
 categories: 工具
 tags: git
 img: ../../coverImages/git.jpg
-typora-root-url: ../../images</code></pre>
+typora-root-url: ../../images
+</code></pre>
 <p>Pro git 中把 <code>filter-branch</code> 称为 <strong>核弹</strong>，让人难以忘记，也充分说明了该命令的威力。</p>
 <h3 id="问题场景-3"><a href="#问题场景-3" class="headerlink" title="问题场景"></a>问题场景</h3><ol>
 <li>在你的开源仓库中提交了，一个数据库的配置文件。</li>
@@ -547,7 +557,8 @@ git filter-branch --commit-filter &#39;
       GIT_AUTHOR_EMAIL=&quot;schacon@example.com&quot;;
       git commit-tree &quot;$@&quot;;
     else
-    fi&#39; HEAD</code></pre>
+    fi&#39; HEAD
+</code></pre>
 <ul>
 <li><p><code>--tree-filter</code>表示修改文件列表</p>
 </li>
@@ -560,8 +571,8 @@ git filter-branch --commit-filter &#39;
 <li><p><code>-f</code>是忽略备份。不加这个选项第二次运行这个命令时会出错，意思是 git 上次做了备份，现在再要运行的话得处理掉上次的备份。</p>
 </li>
 <li><p><code>--all</code>是针对所有的分支。</p>
-<p>[[[<strong><a href="https://git-scm.com/docs/git-filter-branch" target="_blank" rel="noopener">https://git-scm.com/docs/git-filter-branch</a></strong>] ] ] 官方文档</p>
-<p>[[[<strong>依云：初次使用 git 的“核弹级选项”：filter-branch</strong>] ] ] <a href="https://blog.lilydjwg.me/2011/4/22/tried-the-nuclear-option-filter-branch-of-git-the-first-time.26331.html" target="_blank" rel="noopener">https://blog.lilydjwg.me/2011/4/22/tried-the-nuclear-option-filter-branch-of-git-the-first-time.26331.html</a></p>
+<p>[[[<strong><a target="_blank" rel="noopener" href="https://git-scm.com/docs/git-filter-branch">https://git-scm.com/docs/git-filter-branch</a></strong>] ] ] 官方文档</p>
+<p>[[[<strong>依云：初次使用 git 的“核弹级选项”：filter-branch</strong>] ] ] <a target="_blank" rel="noopener" href="https://blog.lilydjwg.me/2011/4/22/tried-the-nuclear-option-filter-branch-of-git-the-first-time.26331.html">https://blog.lilydjwg.me/2011/4/22/tried-the-nuclear-option-filter-branch-of-git-the-first-time.26331.html</a></p>
 </li>
 </ul>
 

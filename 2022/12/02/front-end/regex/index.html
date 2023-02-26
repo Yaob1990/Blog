@@ -33,7 +33,7 @@
     
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 4.1.1"><link rel="alternate" href="/atom.xml" title="不知" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="不知" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-duotone-light.css" type="text/css"></head>
 
 
@@ -378,7 +378,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    1.5k
                 </div>
                 
 
@@ -455,30 +455,35 @@
 </ol>
 <h3 id="分组引用"><a href="#分组引用" class="headerlink" title="分组引用"></a>分组引用</h3><p>分组引用比普通模式多了分组编号， #1 #2 #3</p>
 <p>![[Pasted image 20221125073625.png]]</p>
-<h3 id="提取数据、替换"><a href="#提取数据、替换" class="headerlink" title="提取数据、替换"></a>提取数据、替换</h3><pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> regex <span class="token operator">=</span> <span class="token regex">/(\d{4})-(\d{2})-(\d{2})/</span><span class="token punctuation">;</span> 
+<h3 id="提取数据、替换"><a href="#提取数据、替换" class="headerlink" title="提取数据、替换"></a>提取数据、替换</h3><pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> regex <span class="token operator">=</span> <span class="token regex">/(\d&amp;#123;4&amp;#125;)-(\d&amp;#123;2&amp;#125;)-(\d&amp;#123;2&amp;#125;)/</span><span class="token punctuation">;</span> 
 <span class="token keyword">var</span> string <span class="token operator">=</span> <span class="token string">"2017-06-12"</span><span class="token punctuation">;</span> 
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span> string<span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span>regex<span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span> 
-<span class="token comment" spellcheck="true">// => ["2017-06-12", "2017", "06", "12", index: 0, input: "2017-06-12"]</span></code></pre>
+<span class="token comment" spellcheck="true">// => ["2017-06-12", "2017", "06", "12", index: 0, input: "2017-06-12"]</span>
+</code></pre>
 <h3 id="反向引用"><a href="#反向引用" class="headerlink" title="反向引用"></a>反向引用</h3><p>可以在正则本身里引用分组，但只能引用之前出现的分组，即反向引用。<br>反向引用实际开发中因为对正则掌握不全面，很少使用，需要重视。</p>
 <p>匹配 <code>2022-11-25</code> 字符，可以使用</p>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> reg <span class="token operator">=</span> \d<span class="token punctuation">{</span><span class="token number">4</span><span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token punctuation">)</span>\d<span class="token punctuation">{</span><span class="token number">2</span><span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token punctuation">)</span>\d<span class="token punctuation">{</span><span class="token number">2</span><span class="token punctuation">}</span>\</code></pre>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> reg <span class="token operator">=</span> \d<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token number">4</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token punctuation">)</span>\d<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token number">2</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token punctuation">)</span>\d<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token number">2</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>\
+</code></pre>
 <p>![[Pasted image 20221125075148.png]]</p>
 <p><strong>也可以使用反向引用。注意下面的正则中的 <code>\1</code>，是分组引用，后面第二个 <code>-</code> 就可以使用分组引用的 <code>\</code> 去实现。</strong></p>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> reg <span class="token operator">=</span> \d<span class="token punctuation">{</span><span class="token number">4</span><span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token punctuation">)</span>\d<span class="token punctuation">{</span><span class="token number">2</span><span class="token punctuation">}</span>\<span class="token number">1</span>\d<span class="token punctuation">{</span><span class="token number">2</span><span class="token punctuation">}</span>\</code></pre>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> reg <span class="token operator">=</span> \d<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token number">4</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token punctuation">)</span>\d<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token number">2</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>\<span class="token number">1</span>\d<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token number">2</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>\
+</code></pre>
 <p>![[Pasted image 20221125074823.png]]</p>
-<h2 id="回溯"><a href="#回溯" class="headerlink" title="回溯"></a>回溯</h2><p>回溯和算法中的回溯非常像，都是先占有，然后等后面的匹配出现问题了，再回退，重新匹配。<br>正则 <code>/ab{1,3}c/</code>，匹配文本 <code>abbbc</code>，形式如下：<br>![[Pasted image 20221125080009.png]]<br>先匹配 3 个 b，然后匹配 c，这里一次性通过了，没有产生回溯。<br>如果匹配字符串 <code>abbc</code>, 那么将产生回溯<br>![[Pasted image 20221125080132.png]]<br>他会持续性的匹配 b 字符，知道出错，然后产生回退（回溯）。</p>
+<h2 id="回溯"><a href="#回溯" class="headerlink" title="回溯"></a>回溯</h2><p>回溯和算法中的回溯非常像，都是先占有，然后等后面的匹配出现问题了，再回退，重新匹配。<br>正则 <code>/ab&#123;1,3&#125;c/</code>，匹配文本 <code>abbbc</code>，形式如下：<br>![[Pasted image 20221125080009.png]]<br>先匹配 3 个 b，然后匹配 c，这里一次性通过了，没有产生回溯。<br>如果匹配字符串 <code>abbc</code>, 那么将产生回溯<br>![[Pasted image 20221125080132.png]]<br>他会持续性的匹配 b 字符，知道出错，然后产生回退（回溯）。</p>
 <h3 id="回溯形式"><a href="#回溯形式" class="headerlink" title="回溯形式"></a>回溯形式</h3><h4 id="贪婪量词"><a href="#贪婪量词" class="headerlink" title="贪婪量词"></a>贪婪量词</h4><p>在局部是贪婪地，但是也要满足整体的正确匹配。</p>
 <h4 id="惰性量词"><a href="#惰性量词" class="headerlink" title="惰性量词"></a>惰性量词</h4><p>惰性量词就是在贪婪量词后面加个问号，表示尽可能少的匹配。</p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> string <span class="token operator">=</span> <span class="token string">"12345"</span><span class="token punctuation">;</span> 
-<span class="token keyword">var</span> regex <span class="token operator">=</span> <span class="token regex">/(\d{1,3}?)(\d{1,3})/</span><span class="token punctuation">;</span> 
+<span class="token keyword">var</span> regex <span class="token operator">=</span> <span class="token regex">/(\d&amp;#123;1,3&amp;#125;?)(\d&amp;#123;1,3&amp;#125;)/</span><span class="token punctuation">;</span> 
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span> string<span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span>regex<span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span> 
-<span class="token comment" spellcheck="true">// => ["1234", "1", "234", index: 0, input: "12345"]</span></code></pre>
+<span class="token comment" spellcheck="true">// => ["1234", "1", "234", index: 0, input: "12345"]</span>
+</code></pre>
 <p>![[Pasted image 20221125081204.png]]</p>
-<p>惰性量词，匹配到第一次就结束，但是为了整体匹配达成，需要进行多次匹配。因此最后 <code>{1,3}?</code> 的匹配是 <code>12</code></p>
+<p>惰性量词，匹配到第一次就结束，但是为了整体匹配达成，需要进行多次匹配。因此最后 <code>&#123;1,3&#125;?</code> 的匹配是 <code>12</code></p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> string <span class="token operator">=</span> <span class="token string">"12345"</span><span class="token punctuation">;</span> 
-<span class="token keyword">var</span> regex <span class="token operator">=</span> <span class="token regex">/(\d{1,3}?)(\d{1,3}$)/</span><span class="token punctuation">;</span> 
+<span class="token keyword">var</span> regex <span class="token operator">=</span> <span class="token regex">/(\d&amp;#123;1,3&amp;#125;?)(\d&amp;#123;1,3&amp;#125;$)/</span><span class="token punctuation">;</span> 
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span> string<span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span>regex<span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span> 
-<span class="token comment" spellcheck="true">// => ['12345', '12', '345', index: 0, input: '12345', groups: undefined]</span></code></pre>
+<span class="token comment" spellcheck="true">// => ['12345', '12', '345', index: 0, input: '12345', groups: undefined]</span>
+</code></pre>
 <p>![[Pasted image 20221125081303.png]]</p>
 <h4 id="分支结构"><a href="#分支结构" class="headerlink" title="分支结构"></a>分支结构</h4><p>分支结构也是惰性的，比如 <code>/can|candy/</code>，匹配字符串 <code>candy</code>，得到的结果是 <code>can</code>，前面的分支满足了，就不会尝试后面的匹配。</p>
 <h3 id="语言本身"><a href="#语言本身" class="headerlink" title="语言本身"></a>语言本身</h3><h4 id="语言结构"><a href="#语言结构" class="headerlink" title="语言结构"></a>语言结构</h4><table>
@@ -533,7 +538,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 </tr>
 <tr>
 <td>量词限定符</td>
-<td><code>{m}、{m, n}、{m,}、?、*、+ </code></td>
+<td><code>&#123;m&#125;、&#123;m, n&#125;、&#123;m,&#125;、?、*、+ </code></td>
 <td>3</td>
 </tr>
 <tr>

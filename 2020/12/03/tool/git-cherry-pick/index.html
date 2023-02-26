@@ -29,7 +29,7 @@ g">
     
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 4.1.1"><link rel="alternate" href="/atom.xml" title="不知" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="不知" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-duotone-light.css" type="text/css"></head>
 
 
@@ -405,9 +405,11 @@ g">
 <h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><pre class=" language-shell"><code class="language-shell">git checkout A // 切换到 A 分支
 git cherry-pick C1 // 拣选 C1 并合并到 A 分支
 git checkout B  // 切换到 B 分支
-git cherry-pick C1  // 拣选 C1 并合并到 B 分支</code></pre>
+git cherry-pick C1  // 拣选 C1 并合并到 B 分支
+</code></pre>
 <p><code>cherry-pick</code> 捡樱桃，这名字很可爱：）。commit 就像一地的樱桃，我们需要做的就是去捡起大大小小的樱桃。</p>
-<pre><code>$ git cherry-pick &lt;commitHash&gt;</code></pre>
+<pre><code>$ git cherry-pick &lt;commitHash&gt;
+</code></pre>
 <p>获得需要合并的 commit 值，切换到待合并的分支，执行 <code>cherry-pick</code>，</p>
 <h3 id="详细参数"><a href="#详细参数" class="headerlink" title="详细参数"></a>详细参数</h3><pre><code>--quit                      终止反转或拣选操作
 --continue                  继续反转或拣选操作
@@ -426,7 +428,8 @@ git cherry-pick C1  // 拣选 C1 并合并到 B 分支</code></pre>
 --ff                        允许快进式
 --allow-empty               保留初始化的空提交
 --allow-empty-message       允许提交说明为空
---keep-redundant-commits    保持多余的、空的提交</code></pre>
+--keep-redundant-commits    保持多余的、空的提交
+</code></pre>
 <h3 id="尾"><a href="#尾" class="headerlink" title="尾"></a>尾</h3><p>红尘过往，弱水三千，只取一瓢。<br>git 的 <code>cherry-pick</code> 是简单明确的，不会出错。而你我的生活，从没有平行宇宙，这一瓢水又从何而取…</p>
 
             </div>

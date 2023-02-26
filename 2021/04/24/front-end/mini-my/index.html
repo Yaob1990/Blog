@@ -27,7 +27,7 @@
     
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 4.1.1"><link rel="alternate" href="/atom.xml" title="不知" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="不知" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-duotone-light.css" type="text/css"></head>
 
 
@@ -376,7 +376,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    849
+                    869
                 </div>
                 
 
@@ -402,10 +402,12 @@
                 <p>支付宝小程序开发中我们使用的 <code>my</code> 其实就是 jsbrige 注入的一个对象。<br>JSBridge，简单来说就是web和native之间的桥梁,有了它你就可以在web页面中唤起native应用提供的能力。例如：唤起相册，获取应用登陆用户信息等等。</p>
 <p>在支付宝小程序中，’my’ 这个对象可读可写。</p>
 <pre class=" language-js"><code class="language-js">my<span class="token punctuation">.</span>a <span class="token operator">=</span> <span class="token number">1</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>my<span class="token punctuation">.</span>a<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 1</span></code></pre>
-<h2 id="遍历-my-对象"><a href="#遍历-my-对象" class="headerlink" title="遍历 my 对象"></a>遍历 my 对象</h2><pre class=" language-js"><code class="language-js"> Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>my<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>key <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>my<span class="token punctuation">.</span>a<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 1</span>
+</code></pre>
+<h2 id="遍历-my-对象"><a href="#遍历-my-对象" class="headerlink" title="遍历 my 对象"></a>遍历 my 对象</h2><pre class=" language-js"><code class="language-js"> Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>my<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>key <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
- <span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+ <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span>
+</code></pre>
 <p>结果：</p>
 <pre class=" language-js"><code class="language-js">isIDE 
 on 
@@ -796,32 +798,37 @@ offSpeechRecognizeError
 startZMVerify 
 startAPVerify 
 createRtcRoomContext 
-getExtConfig </code></pre>
+getExtConfig 
+</code></pre>
 <p>所有在 my 这个对象上面挂载的方法都在这里了，比文档里面的要多得多。</p>
 <pre class=" language-js"><code class="language-js">on 
 off 
-emit</code></pre>
+emit
+</code></pre>
 <pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// A 页面</span>
-my<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'test'</span><span class="token punctuation">,</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 被触发,回调被执行，打印出 {a:1}</span>
+my<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'test'</span><span class="token punctuation">,</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 被触发,回调被执行，打印出 &amp;#123;a:1&amp;#125;</span>
 <span class="token comment" spellcheck="true">// B 页面</span>
-my<span class="token punctuation">.</span><span class="token function">emit</span><span class="token punctuation">(</span><span class="token string">'test'</span><span class="token punctuation">,</span><span class="token punctuation">{</span>a<span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
-<p>这三个函数明显是事件总线的实现机制，经过测试完全可用（未测试低版本基础库） <del>~</del></p>
+my<span class="token punctuation">.</span><span class="token function">emit</span><span class="token punctuation">(</span><span class="token string">'test'</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>a<span class="token punctuation">:</span><span class="token number">1</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span>
+</code></pre>
+<p>这三个函数明显是事件总线的实现机制，经过测试完全可用（未测试低版本基础库） ~~~~</p>
 <h2 id="通过-my-实现全局数据共享"><a href="#通过-my-实现全局数据共享" class="headerlink" title="通过 my 实现全局数据共享"></a>通过 my 实现全局数据共享</h2><p>一般小程序里面全局数据我们使用 globalData 处理，它本质上也只是一个全局对象。my 的性质和他类似，我们甚至可以修改 my 本身的数据，实现全局的页面数据共享</p>
 <pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// A 页面</span>
 my<span class="token punctuation">.</span>a<span class="token operator">=</span><span class="token number">1</span>
 <span class="token comment" spellcheck="true">// B 页面</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>my<span class="token punctuation">.</span>a<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 1</span></code></pre>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>my<span class="token punctuation">.</span>a<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 1</span>
+</code></pre>
 <p>完全没问题，这还是引用类型数据，如果修改就直接修改啦，不需要获取上一个页面的实例，然后再去写一大摞代码~<br>eg:</p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> pages <span class="token operator">=</span> <span class="token function">getCurrentPages</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> lastPage <span class="token operator">=</span> pages<span class="token punctuation">[</span>pages<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-lastPage<span class="token punctuation">.</span><span class="token function">setData</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+lastPage<span class="token punctuation">.</span><span class="token function">setData</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     a<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
 <p>一对比，明显优雅太多太多了。</p>
 <h2 id="警告"><a href="#警告" class="headerlink" title="警告"></a>警告</h2><p>本篇博客的一些技法，都不是常规业务实现办法，责任自负。<br>小程序的这些非公共方法，在使用的时候，最好能做一层 polyfill，防止某些环境某些方法不存在。</p>
 <p>参考资料：</p>
 <ul>
-<li><a href="https://doingsth.github.io/yongqiang.shen/js/wxapp/" target="_blank" rel="noopener">教你做一个小程序框架 - yongqiang.shen</a></li>
+<li><a target="_blank" rel="noopener" href="https://doingsth.github.io/yongqiang.shen/js/wxapp/">教你做一个小程序框架 - yongqiang.shen</a></li>
 </ul>
 
             </div>

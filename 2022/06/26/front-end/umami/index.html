@@ -28,7 +28,7 @@
     
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 4.1.1"><link rel="alternate" href="/atom.xml" title="不知" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="不知" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-duotone-light.css" type="text/css"></head>
 
 
@@ -381,7 +381,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    812
+                    844
                 </div>
                 
 
@@ -409,7 +409,7 @@
 <p>个人还是不太习惯这样的框架，总有种不伦不类的感觉，一些小项目可以这样搞，大型项目，还是需要明确的代码分成，封装。</p>
 <h2 id="用户识别"><a href="#用户识别" class="headerlink" title="用户识别"></a>用户识别</h2><p>uv 的核心是去做用户识别，一般会本地存储一个随机的id，每次页面路由变化，上报给后台。<br>而 umami 为了符合一系列的隐私规范，并没有这么做，没有使用 cookie或者 localStorage 。<br>上报路径”pages/api/collect.js”，最终会产生 session 并且通过 session 返回 token 。session 生成方法 <code>getSession</code></p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> session_uuid <span class="token operator">=</span> <span class="token function">uuid</span><span class="token punctuation">(</span>website_id<span class="token punctuation">,</span> hostname<span class="token punctuation">,</span> ip<span class="token punctuation">,</span> userAgent<span class="token punctuation">)</span><span class="token punctuation">;</span>
-session <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">createSession</span><span class="token punctuation">(</span>website_id<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+session <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">createSession</span><span class="token punctuation">(</span>website_id<span class="token punctuation">,</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     session_uuid<span class="token punctuation">,</span>
     hostname<span class="token punctuation">,</span>
     browser<span class="token punctuation">,</span>
@@ -418,54 +418,59 @@ session <span class="token operator">=</span> <span class="token keyword">await<
     language<span class="token punctuation">,</span>
     country<span class="token punctuation">,</span>
     device<span class="token punctuation">,</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
 <p>这部分代码就比较清楚了，根据网站id，域名，ip，userAgent 生成 session_uuid,然后和数据库通信创建或者使用 session。<br>核心是根据一些列的变量生成一个不变的 uuid，后续用户再次进入页面，根据用户的这些参数，去数据库查询这个 uuid，就实现了用户识别。</p>
 <p>里面也有一些其他的逻辑，比如跨域，忽略本地地址等，但是不影响我们对核心逻辑的理解。</p>
 <h2 id="上报脚本脚本"><a href="#上报脚本脚本" class="headerlink" title="上报脚本脚本"></a>上报脚本脚本</h2><p>上报脚本位置：<code>tracker/index.js</code><br>这个脚本很短，只有短短的225实现了上报功能。</p>
-<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>script <span class="token keyword">async</span> defer data<span class="token operator">-</span>website<span class="token operator">-</span>id<span class="token operator">=</span><span class="token string">"914685a1-8993-4d8c-895b-929c8646e814"</span> src<span class="token operator">=</span><span class="token string">"http://localhost:3000/umami.js"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span></code></pre>
+<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>script <span class="token keyword">async</span> defer data<span class="token operator">-</span>website<span class="token operator">-</span>id<span class="token operator">=</span><span class="token string">"914685a1-8993-4d8c-895b-929c8646e814"</span> src<span class="token operator">=</span><span class="token string">"http://localhost:3000/umami.js"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
 <ul>
 <li>async: async 脚本会在后台加载，并在加载就绪时运行。DOM 和其他脚本不会等待它们，它们也不会等待其它的东西。async 脚本就是一个会在加载完成时执行的完全独立的脚本。</li>
 <li>defer: 特性告诉浏览器不要等待脚本。相反，浏览器将继续处理 HTML，构建 DOM。脚本会“在后台”下载，然后等 DOM 构建完成后，脚本才会执行。</li>
 <li>data-website-id: 网站 id</li>
 </ul>
-<h2 id="挂载"><a href="#挂载" class="headerlink" title="挂载"></a>挂载</h2><pre class=" language-js"><code class="language-js"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>window<span class="token punctuation">.</span>umami<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<h2 id="挂载"><a href="#挂载" class="headerlink" title="挂载"></a>挂载</h2><pre class=" language-js"><code class="language-js"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>window<span class="token punctuation">.</span>umami<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token keyword">const</span> umami <span class="token operator">=</span> eventValue <span class="token operator">=</span><span class="token operator">></span> <span class="token function">trackEvent</span><span class="token punctuation">(</span>eventValue<span class="token punctuation">)</span><span class="token punctuation">;</span>
     umami<span class="token punctuation">.</span>trackView <span class="token operator">=</span> trackView<span class="token punctuation">;</span>
     umami<span class="token punctuation">.</span>trackEvent <span class="token operator">=</span> trackEvent<span class="token punctuation">;</span>
 
     window<span class="token punctuation">.</span>umami <span class="token operator">=</span> umami<span class="token punctuation">;</span>
-  <span class="token punctuation">}</span></code></pre>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
 <p>方法都挂载到 window 上面，后续可以直接调用。</p>
-<h2 id="记录-pv-uv"><a href="#记录-pv-uv" class="headerlink" title="记录 pv uv"></a>记录 pv uv</h2><pre class=" language-js"><code class="language-js"><span class="token keyword">if</span> <span class="token punctuation">(</span>autoTrack <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span><span class="token function">trackingDisabled</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<h2 id="记录-pv-uv"><a href="#记录-pv-uv" class="headerlink" title="记录 pv uv"></a>记录 pv uv</h2><pre class=" language-js"><code class="language-js"><span class="token keyword">if</span> <span class="token punctuation">(</span>autoTrack <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span><span class="token function">trackingDisabled</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 监听 pushState，replaceState 事件</span>
     history<span class="token punctuation">.</span>pushState <span class="token operator">=</span> <span class="token function">hook</span><span class="token punctuation">(</span>history<span class="token punctuation">,</span> <span class="token string">'pushState'</span><span class="token punctuation">,</span> handlePush<span class="token punctuation">)</span><span class="token punctuation">;</span>
     history<span class="token punctuation">.</span>replaceState <span class="token operator">=</span> <span class="token function">hook</span><span class="token punctuation">(</span>history<span class="token punctuation">,</span> <span class="token string">'replaceState'</span><span class="token punctuation">,</span> handlePush<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    <span class="token keyword">const</span> update <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> update <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
       console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">'update'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token keyword">if</span> <span class="token punctuation">(</span>document<span class="token punctuation">.</span>readyState <span class="token operator">===</span> <span class="token string">'complete'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>document<span class="token punctuation">.</span>readyState <span class="token operator">===</span> <span class="token string">'complete'</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">'complete'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token function">trackView</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>cssEvents<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>cssEvents<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
           <span class="token function">addEvents</span><span class="token punctuation">(</span>document<span class="token punctuation">)</span><span class="token punctuation">;</span>
           <span class="token function">observeDocument</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-      <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+      <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
 
     document<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'readystatechange'</span><span class="token punctuation">,</span> update<span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
     <span class="token function">update</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span></code></pre>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
 <p>这里最终会在<code>document.readyState === &#39;complete&#39;</code>时候，去做事件监听绑定等操作，发送第一次页面上报。<br>有一点不理解，为什么已经监听了<code>readystatechange</code>，还是又手动执行了一次<code>update()</code></p>
-<h2 id="监听路由改变"><a href="#监听路由改变" class="headerlink" title="监听路由改变"></a>监听路由改变</h2><pre class=" language-js"><code class="language-js"><span class="token keyword">export</span> <span class="token keyword">const</span> hook <span class="token operator">=</span> <span class="token punctuation">(</span>_this<span class="token punctuation">,</span> method<span class="token punctuation">,</span> callback<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+<h2 id="监听路由改变"><a href="#监听路由改变" class="headerlink" title="监听路由改变"></a>监听路由改变</h2><pre class=" language-js"><code class="language-js"><span class="token keyword">export</span> <span class="token keyword">const</span> hook <span class="token operator">=</span> <span class="token punctuation">(</span>_this<span class="token punctuation">,</span> method<span class="token punctuation">,</span> callback<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
   <span class="token keyword">const</span> orig <span class="token operator">=</span> _this<span class="token punctuation">[</span>method<span class="token punctuation">]</span><span class="token punctuation">;</span>
-  <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     callback<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> orig<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>_this<span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+</code></pre>
 <p><code>history.pushState</code> hook劫持，为了在原生方法执行前，执行callback。这样实现了对原生 history 的监听。<code>handlePush</code> 方法会执行上报方法 trackView。</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>整体代码比较简单，清晰，无侵入性的实现了网站统计。</p>
 

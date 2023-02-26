@@ -6,10 +6,11 @@
     <meta charset="utf-8">
     <meta name="keywords" content="js 中 setTimeout 计时器最大值, 不知">
     <meta name="description" content="项目中踩坑，记录下。没有意识到 setTimeout/setInterval 计时器有最大值问题。
-setTimeout(() =&gt; {
+setTimeout(() =&gt; &amp;amp;#123;
   console.log(1111)
-}, 2 ** 31)
-这部分代码，不会等到计时器结束，而是会">
+&amp;amp;#125;, 2 ** 31)
+
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
      <meta name="referrer" content="no-referrer-when-downgrade">
@@ -31,7 +32,7 @@ setTimeout(() =&gt; {
     
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 4.1.1"><link rel="alternate" href="/atom.xml" title="不知" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="不知" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-duotone-light.css" type="text/css"></head>
 
 
@@ -380,7 +381,7 @@ setTimeout(() =&gt; {
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    189
+                    193
                 </div>
                 
 
@@ -404,9 +405,10 @@ setTimeout(() =&gt; {
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>项目中踩坑，记录下。<br>没有意识到 <code>setTimeout/setInterval</code> 计时器有最大值问题。</p>
-<pre class=" language-js"><code class="language-js"><span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+<pre class=" language-js"><code class="language-js"><span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">1111</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">2</span> <span class="token operator">**</span> <span class="token number">31</span><span class="token punctuation">)</span></code></pre>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span> <span class="token number">2</span> <span class="token operator">**</span> <span class="token number">31</span><span class="token punctuation">)</span>
+</code></pre>
 <p>这部分代码，不会等到计时器结束，而是会被会被立即执行。</p>
 <h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>setTimeout/setInterval 使用 <code>int32</code> 存储延时参数值，也就是说最大延时值是 <code>2^31-1</code>(约为24.85天) ，超过这个值会被立即执行。</p>
 <h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h3 id="web"><a href="#web" class="headerlink" title="web"></a>web</h3><p>在 web 页面中很少有需要这么大延时值得情况，根据业务场景，超过1小时，不做定时器设置，1小时以内，做定时器设置。</p>

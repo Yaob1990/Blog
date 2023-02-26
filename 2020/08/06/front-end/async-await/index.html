@@ -7,11 +7,10 @@
     <meta name="keywords" content="async await 的终极封装, 不知">
     <meta name="description" content="async await 的终极封装在看同事代码时候，看到下面这一段，有点意思。
 let [res,error] = await getList()
-if(error){
+if(error)&amp;amp;#123;
   // 错误处理
-}
-// 业务处理
-注意，这里代码没有使用try ">
+&amp;amp;#125;
+// 业务">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
      <meta name="referrer" content="no-referrer-when-downgrade">
@@ -33,7 +32,7 @@ if(error){
     
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 4.1.1"><link rel="alternate" href="/atom.xml" title="不知" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="不知" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-duotone-light.css" type="text/css"></head>
 
 
@@ -382,7 +381,7 @@ if(error){
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    399
+                    435
                 </div>
                 
 
@@ -407,41 +406,45 @@ if(error){
             <div id="articleContent">
                 <h2 id="async-await-的终极封装"><a href="#async-await-的终极封装" class="headerlink" title="async await 的终极封装"></a>async await 的终极封装</h2><p>在看同事代码时候，看到下面这一段，有点意思。</p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">let</span> <span class="token punctuation">[</span>res<span class="token punctuation">,</span>error<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">getList</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token keyword">if</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">{</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
   <span class="token comment" spellcheck="true">// 错误处理</span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">// 业务处理</span></code></pre>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// 业务处理</span>
+</code></pre>
 <p>注意，这里代码没有使用try catch，而是把错误处理封装成了数组形式。</p>
 <p>继续，看看他的代码是怎么写的：</p>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">promieWapper</span><span class="token punctuation">(</span>promise<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-    promise<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>res <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">promieWapper</span><span class="token punctuation">(</span>promise<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    promise<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>res <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
       <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">[</span>res<span class="token punctuation">,</span> undefined<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">catch</span><span class="token punctuation">(</span>err <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">catch</span><span class="token punctuation">(</span>err <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
       <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">[</span>undefined<span class="token punctuation">,</span> err<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-getList <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">promieWapper</span><span class="token punctuation">(</span><span class="token function">getData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+getList <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">promieWapper</span><span class="token punctuation">(</span><span class="token function">getData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
 <p>看起来也不是很复杂，就是在promise 外面在套一层promise，返回结果，放到一个数组中。</p>
 <p>很巧妙的实现了，错误的处理，使用时候，直接进行数组的判断，不需要去写丑陋的 try catch</p>
 <h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><p>仔细看一下上面的代码，其实有点小问题，内部返回的就是promise，还有必要再嵌套一层 promise ？</p>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">promieWapper</span><span class="token punctuation">(</span>promise<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">return</span> promise<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>res <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">promieWapper</span><span class="token punctuation">(</span>promise<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> promise<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>res <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
       <span class="token keyword">return</span> <span class="token punctuation">[</span>res<span class="token punctuation">,</span> undefined<span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">catch</span><span class="token punctuation">(</span>err <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">catch</span><span class="token punctuation">(</span>err <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
       retirn <span class="token punctuation">[</span>undefined<span class="token punctuation">,</span> err<span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
 <p>这样写感觉更清爽一点， then 返回的部分也还是 promise，异常也会被 catch 捕获到。</p>
-<h2 id="添加函数类型（ts）"><a href="#添加函数类型（ts）" class="headerlink" title="添加函数类型（ts）"></a>添加函数类型（ts）</h2><pre class=" language-typescript"><code class="language-typescript">async <span class="token keyword">function</span> promieWapper<span class="token operator">&lt;</span>T<span class="token punctuation">,</span> U <span class="token operator">=</span> Error<span class="token operator">></span><span class="token punctuation">(</span>promise<span class="token punctuation">:</span> Promise<span class="token operator">&lt;</span>T<span class="token operator">></span><span class="token punctuation">)</span><span class="token punctuation">:</span> Promise<span class="token operator">&lt;</span><span class="token punctuation">[</span>U<span class="token punctuation">,</span> undefined<span class="token punctuation">]</span> <span class="token operator">|</span> <span class="token punctuation">[</span><span class="token keyword">null</span><span class="token punctuation">,</span> T<span class="token punctuation">]</span><span class="token operator">></span> <span class="token punctuation">{</span>
+<h2 id="添加函数类型（ts）"><a href="#添加函数类型（ts）" class="headerlink" title="添加函数类型（ts）"></a>添加函数类型（ts）</h2><pre class=" language-typescript"><code class="language-typescript">async <span class="token keyword">function</span> promieWapper<span class="token operator">&lt;</span>T<span class="token punctuation">,</span> U <span class="token operator">=</span> Error<span class="token operator">></span><span class="token punctuation">(</span>promise<span class="token punctuation">:</span> Promise<span class="token operator">&lt;</span>T<span class="token operator">></span><span class="token punctuation">)</span><span class="token punctuation">:</span> Promise<span class="token operator">&lt;</span><span class="token punctuation">[</span>U<span class="token punctuation">,</span> undefined<span class="token punctuation">]</span> <span class="token operator">|</span> <span class="token punctuation">[</span><span class="token keyword">null</span><span class="token punctuation">,</span> T<span class="token punctuation">]</span><span class="token operator">></span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
   <span class="token keyword">return</span> promise<span class="token punctuation">.</span>then<span class="token operator">&lt;</span><span class="token punctuation">[</span><span class="token keyword">null</span><span class="token punctuation">,</span> T<span class="token punctuation">]</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token keyword">null</span><span class="token punctuation">,</span> data<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
     <span class="token punctuation">.</span><span class="token keyword">catch</span><span class="token operator">&lt;</span><span class="token punctuation">[</span>U<span class="token punctuation">,</span> undefined<span class="token punctuation">]</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">(</span>error<span class="token punctuation">:</span> U<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">[</span>error<span class="token punctuation">,</span> undefined<span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
 <p>node 中一般 Error 会放在第一个参数位置，这里参考 node 优先处理错误。</p>
 <h2 id="3年前…"><a href="#3年前…" class="headerlink" title="3年前…"></a>3年前…</h2><p>我觉得我同事牛逼极了，能想出这么天才的方法！</p>
-<p>直到我看到了这个库：<a href="https://github.com/scopsy/await-to-js" target="_blank" rel="noopener">await-to-js</a></p>
+<p>直到我看到了这个库：<a target="_blank" rel="noopener" href="https://github.com/scopsy/await-to-js">await-to-js</a></p>
 <p>上面的最终写法，也是参考了这个库。这个库 2.3m/month 的下载量，还是3年前写的，写好基本没有更新过，真牛逼！</p>
 
             </div>

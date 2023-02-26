@@ -30,7 +30,7 @@ git rebase 是一个平常使用较少的一个命令，这次准备分享 git �
     
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 4.1.1"><link rel="alternate" href="/atom.xml" title="不知" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="不知" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-duotone-light.css" type="text/css"></head>
 
 
@@ -415,10 +415,12 @@ Date:   Mon Nov 30 21:17:25 2020 +0800
 commit 1569f1e8dfa9bca26e0233780a43e0961209ad8c
 Date:   Mon Nov 30 21:17:12 2020 +0800
 
-    add 1.txt</code></pre>
+    add 1.txt
+</code></pre>
 <ol>
 <li><p>列出本地最近记录</p>
-<pre class=" language-shell"><code class="language-shell">git rebase -i HEAD~2</code></pre>
+<pre class=" language-shell"><code class="language-shell">git rebase -i HEAD~2
+</code></pre>
 </li>
 <li><p>这时候会进入 <code>vi</code>模式</p>
 <pre class=" language-shell"><code class="language-shell">pick 60b798f add a b
@@ -442,12 +444,14 @@ pick d39bbcd add 1.txt add 2.txt
 # .       原始提交，使用注释部分的 oneline 作为提交说明）。使用
 # .       -c <提交> 可以编辑提交说明。
 #
-# 可以对这些行重新排序，将从上至下执行。</code></pre>
+# 可以对这些行重新排序，将从上至下执行。
+</code></pre>
 <p>vi 模式修改 <code>pick</code> 保存之后，就可以实现合并提交记录。</p>
 <p><strong>注意：</strong>第一行<code>pick 60b798f add a b</code>不能是<code>s</code>，可以是<code>pick</code>或者<code>reword</code>。合并必须有一个基点，第一行就是一个基点，后续的变更合并都必须有第一行这个可合并的对象存在。</p>
 </li>
 <li><p>如果退出了 <code>vi</code>窗口，想要继续编辑：</p>
-<pre class=" language-shell"><code class="language-shell">git rebase --edit-todo</code></pre>
+<pre class=" language-shell"><code class="language-shell">git rebase --edit-todo
+</code></pre>
 </li>
 </ol>
 <h3 id="场景二：分支合并"><a href="#场景二：分支合并" class="headerlink" title="场景二：分支合并"></a>场景二：分支合并</h3><p><code>git merge</code> 和 <code>git rebase</code> 都可以实现分支合并。</p>

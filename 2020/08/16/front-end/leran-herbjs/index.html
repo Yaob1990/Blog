@@ -29,7 +29,7 @@
     
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 4.1.1"><link rel="alternate" href="/atom.xml" title="不知" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="不知" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-duotone-light.css" type="text/css"></head>
 
 
@@ -378,14 +378,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    860
+                    1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    4 分
                 </div>
                 
 
@@ -418,100 +418,105 @@
 <p>herbjs 吸收了 vuex 的精华，给小程序增加了，全局 store，页面store，等一系列的 vuex 功能。还支持 <code>typescript</code>,<code>插件体系</code>等功能。</p>
 <p>区别于 <code>uni-app</code>,<code>taro</code>,这些框架，herbjs 并没有修改小程序本身的逻辑，原有的生命周期都还在，原有的写法也都适用，更多的可以看成是原生小程序的增强版。</p>
 <p>个人觉得，<code>简明的数据流</code>是这个框架最优雅的地方，方便大量 vue 开发者快速上手开发。</p>
-<p>官方文档: <a href="https://www.yuque.com/herbjs/doc" target="_blank" rel="noopener">https://www.yuque.com/herbjs/doc</a></p>
+<p>官方文档: <a target="_blank" rel="noopener" href="https://www.yuque.com/herbjs/doc">https://www.yuque.com/herbjs/doc</a></p>
 <p>官方文档，其实说的已经比较明白了，值得多看几遍。</p>
-<h3 id="简明数据流"><a href="#简明数据流" class="headerlink" title="简明数据流"></a>简明数据流</h3><p>项目地址：<a href="https://github.com/Yaob1990/leran_herbjs" target="_blank" rel="noopener">https://github.com/Yaob1990/leran_herbjs</a></p>
+<h3 id="简明数据流"><a href="#简明数据流" class="headerlink" title="简明数据流"></a>简明数据流</h3><p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/Yaob1990/leran_herbjs">https://github.com/Yaob1990/leran_herbjs</a></p>
 <h4 id="页面级别数据流"><a href="#页面级别数据流" class="headerlink" title="页面级别数据流"></a>页面级别数据流</h4><p>页面中，通过 <code>setData</code>数据</p>
-<pre class=" language-typescript"><code class="language-typescript">Page<span class="token operator">&lt;</span>IPageState<span class="token punctuation">,</span> IPageMethods<span class="token punctuation">,</span> IPageStore<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-  <span class="token function">onLoad</span><span class="token punctuation">(</span>options<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<pre class=" language-typescript"><code class="language-typescript">Page<span class="token operator">&lt;</span>IPageState<span class="token punctuation">,</span> IPageMethods<span class="token punctuation">,</span> IPageStore<span class="token operator">></span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  <span class="token function">onLoad</span><span class="token punctuation">(</span>options<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  data<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+  data<span class="token punctuation">:</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     num<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token function">plus</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setData</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+  <span class="token function">plus</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setData</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
       num<span class="token punctuation">:</span> <span class="token operator">++</span><span class="token keyword">this</span><span class="token punctuation">.</span>data<span class="token punctuation">.</span>num<span class="token punctuation">,</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token function">minus</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setData</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+  <span class="token function">minus</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setData</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
       num<span class="token punctuation">:</span> <span class="token operator">--</span><span class="token keyword">this</span><span class="token punctuation">.</span>data<span class="token punctuation">.</span>num<span class="token punctuation">,</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
 <h4 id="组件中数据流"><a href="#组件中数据流" class="headerlink" title="组件中数据流"></a>组件中数据流</h4><p>外部传入参数，注意如果是监听事件必须是<code>on</code>开头</p>
-<pre class=" language-typescript"><code class="language-typescript">Component<span class="token operator">&lt;</span>IComponentData<span class="token punctuation">,</span> IComponentProps<span class="token punctuation">,</span> IComponentMethods<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+<pre class=" language-typescript"><code class="language-typescript">Component<span class="token operator">&lt;</span>IComponentData<span class="token punctuation">,</span> IComponentProps<span class="token punctuation">,</span> IComponentMethods<span class="token operator">></span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
   mapStateToData<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-  data<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  data<span class="token punctuation">:</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     text<span class="token punctuation">:</span> <span class="token string">'component'</span><span class="token punctuation">,</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  props<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-    onPlus<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-    onMinus<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token function">didMount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token function">didUnmount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-  methods<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-    <span class="token function">plus</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+  props<span class="token punctuation">:</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    onPlus<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+    onMinus<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+  <span class="token function">didMount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+  <span class="token function">didUnmount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+  methods<span class="token punctuation">:</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token function">plus</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
       <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span><span class="token function">onPlus</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token function">minus</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+    <span class="token function">minus</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
       <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span><span class="token function">onMinus</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
 <p>组件使用：</p>
-<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>action</span> <span class="token attr-name">onPlus</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>plus<span class="token punctuation">"</span></span> <span class="token attr-name">onMinus</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>minus<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>action</span><span class="token punctuation">></span></span></code></pre>
-<h4 id="页面-store-数据流"><a href="#页面-store-数据流" class="headerlink" title="页面 store 数据流"></a>页面 store 数据流</h4><pre class=" language-typescript"><code class="language-typescript">Page<span class="token operator">&lt;</span>IPageData<span class="token punctuation">,</span> IPageMethods<span class="token punctuation">,</span> IPageStore<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-  <span class="token function">plus</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>action</span> <span class="token attr-name">onPlus</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>plus<span class="token punctuation">"</span></span> <span class="token attr-name">onMinus</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>minus<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>action</span><span class="token punctuation">></span></span>
+</code></pre>
+<h4 id="页面-store-数据流"><a href="#页面-store-数据流" class="headerlink" title="页面 store 数据流"></a>页面 store 数据流</h4><pre class=" language-typescript"><code class="language-typescript">Page<span class="token operator">&lt;</span>IPageData<span class="token punctuation">,</span> IPageMethods<span class="token punctuation">,</span> IPageStore<span class="token operator">></span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  <span class="token function">plus</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'plus'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token function">minus</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+  <span class="token function">minus</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'minus'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token function">multiply</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+  <span class="token function">multiply</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token string">'multiplyAsync'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
 <p>store 部分</p>
 <pre class=" language-typescript"><code class="language-typescript">
-Store<span class="token operator">&lt;</span>IPageState<span class="token punctuation">,</span> IPageGetters<span class="token punctuation">,</span> IPageMutations<span class="token punctuation">,</span> IPageActions<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-  state<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+Store<span class="token operator">&lt;</span>IPageState<span class="token punctuation">,</span> IPageGetters<span class="token punctuation">,</span> IPageMutations<span class="token punctuation">,</span> IPageActions<span class="token operator">></span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  state<span class="token punctuation">:</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     num<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
   <span class="token comment" spellcheck="true">// 全局 Getter 可以被 App、Page、Component 都能访问到</span>
   <span class="token comment" spellcheck="true">// 页面 Getter 只能被当前 Page 和 当前 Page 内的 Component 访问到</span>
-  getters<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-    desc<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">{</span> state<span class="token punctuation">,</span> getters <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-      <span class="token keyword">if</span> <span class="token punctuation">(</span>state<span class="token punctuation">.</span>num <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  getters<span class="token punctuation">:</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    desc<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> state<span class="token punctuation">,</span> getters <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>state<span class="token punctuation">.</span>num <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> <span class="token string">'正值'</span><span class="token punctuation">;</span>
-      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>state<span class="token punctuation">.</span>num <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>state<span class="token punctuation">.</span>num <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> <span class="token string">'负值'</span><span class="token punctuation">;</span>
-      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">else</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> <span class="token string">'零'</span><span class="token punctuation">;</span>
-      <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  mutations<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-    <span class="token function">plus</span><span class="token punctuation">(</span>state<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+  mutations<span class="token punctuation">:</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token function">plus</span><span class="token punctuation">(</span>state<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
       state<span class="token punctuation">.</span>num <span class="token operator">=</span> <span class="token operator">++</span>state<span class="token punctuation">.</span>num<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token function">minus</span><span class="token punctuation">(</span>state<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+    <span class="token function">minus</span><span class="token punctuation">(</span>state<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
       state<span class="token punctuation">.</span>num <span class="token operator">=</span> <span class="token operator">--</span>state<span class="token punctuation">.</span>num<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token function">multiply</span><span class="token punctuation">(</span>state<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+    <span class="token function">multiply</span><span class="token punctuation">(</span>state<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
       state<span class="token punctuation">.</span>num <span class="token operator">=</span> state<span class="token punctuation">.</span>num <span class="token operator">*</span> <span class="token number">10</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  actions<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-    async <span class="token function">multiplyAsync</span><span class="token punctuation">(</span><span class="token punctuation">{</span> state<span class="token punctuation">,</span> commit<span class="token punctuation">,</span> dispatch <span class="token punctuation">}</span><span class="token punctuation">,</span> payload<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+  actions<span class="token punctuation">:</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    async <span class="token function">multiplyAsync</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> state<span class="token punctuation">,</span> commit<span class="token punctuation">,</span> dispatch <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span> payload<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+      <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         <span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'multiply'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">5000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+      <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span> <span class="token number">5000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
 <h4 id="全局-store"><a href="#全局-store" class="headerlink" title="全局 store"></a>全局 store</h4><p>全局 store 和页面类似，只是多一个 <code>$global</code>参数，详见文档。</p>
 <h3 id="开发体会"><a href="#开发体会" class="headerlink" title="开发体会"></a>开发体会</h3><p>小程序的开发框架百花齐放，uni-app，taro，mpvue。</p>
 <p>然而，自己也只是停留在会用的程度，没有再去想一想为什么可以这样编译，内部的原理。这阶段的工作估计会长期和小程序打交道，希望自己能够深入的研究小程序的背后逻辑，而不仅仅会用就行。</p>
@@ -636,11 +641,10 @@ Store<span class="token operator">&lt;</span>IPageState<span class="token punctu
                         
                             async await 的终极封装在看同事代码时候，看到下面这一段，有点意思。
 let [res,error] = await getList()
-if(error){
+if(error)&amp;#123;
   // 错误处理
-}
-// 业务处理
-注意，这里代码没有使用try 
+&amp;#125;
+// 业务
                         
                     </div>
                     <div class="publish-info">

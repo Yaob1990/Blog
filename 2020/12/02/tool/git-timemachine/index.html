@@ -31,7 +31,7 @@ git checkoutgit checkout hotfix //">
     
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 4.1.1"><link rel="alternate" href="/atom.xml" title="不知" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="不知" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-duotone-light.css" type="text/css"></head>
 
 
@@ -408,14 +408,17 @@ git checkoutgit checkout hotfix //">
 </blockquote>
 <p>查看修改历史，代码回退是开发中经常用到的命令，但是很多时候，我们并不是非常明确其中的区别。这篇博客尝试说清楚其中的区别。</p>
 <h3 id="git-checkout"><a href="#git-checkout" class="headerlink" title="git checkout"></a>git checkout</h3><pre class=" language-shell"><code class="language-shell">git checkout hotfix // 切换分支
-git checkout abbcde // 切换 commit</code></pre>
+git checkout abbcde // 切换 commit
+</code></pre>
 <p><code>checkout</code> 能够返回 commit ，用于查看 commit ，但是并不能修改或者回退 commit。</p>
-<h3 id="git-revert"><a href="#git-revert" class="headerlink" title="git revert"></a>git revert</h3><pre class=" language-shell"><code class="language-shell">git revert HEAD^ // 回退到上一次的提交</code></pre>
+<h3 id="git-revert"><a href="#git-revert" class="headerlink" title="git revert"></a>git revert</h3><pre class=" language-shell"><code class="language-shell">git revert HEAD^ // 回退到上一次的提交
+</code></pre>
 <p><code>revert</code> 的回退严格来说并不是回退，他是用之前的 commit ，复制一遍，产生新的 commit ，实现的代码回退。</p>
 <h3 id="git-reset"><a href="#git-reset" class="headerlink" title="git reset"></a>git reset</h3><pre class=" language-shell"><code class="language-shell">git reset c1 // 回退commit,保留源码到工作区
 git reset --soft c1 // 回退到某个版本，只回退了commit的信息，不会恢复到index file一级。如果还要提交，直接commit即可；
 git reset --mixed c1 // 回退到某个版本，回退文件保存在工作区中，并且是 unstaged 状态，如果需要提交，需要 staged，之后再commit
-git reset --hard c1 // 彻底回退到某个版本，本地的源码也会变为上一个版本的内容，撤销的commit中所包含的更改被冲掉；</code></pre>
+git reset --hard c1 // 彻底回退到某个版本，本地的源码也会变为上一个版本的内容，撤销的commit中所包含的更改被冲掉；
+</code></pre>
 <h3 id="一万种方式？？"><a href="#一万种方式？？" class="headerlink" title="一万种方式？？"></a>一万种方式？？</h3><p>一生二二生三三生万物，施主，不要有执念。</p>
 
             </div>

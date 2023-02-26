@@ -30,7 +30,7 @@
     
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 4.1.1"><link rel="alternate" href="/atom.xml" title="不知" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="不知" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-duotone-light.css" type="text/css"></head>
 
 
@@ -415,7 +415,7 @@ back-end
 <li><code>npm i -g @nestjs/cli</code></li>
 <li><code>nest new project-name</code></li>
 </ol>
-<h3 id="文档理解"><a href="#文档理解" class="headerlink" title="文档理解"></a>文档理解</h3><p><a href="https://docs.nestjs.cn/6/firststeps" target="_blank" rel="noopener">官方文档</a> 写的还不错，看一遍，基本也能理解。不准备重复官方文档，针对文档的各个模块写一点自己的理解。</p>
+<h3 id="文档理解"><a href="#文档理解" class="headerlink" title="文档理解"></a>文档理解</h3><p><a target="_blank" rel="noopener" href="https://docs.nestjs.cn/6/firststeps">官方文档</a> 写的还不错，看一遍，基本也能理解。不准备重复官方文档，针对文档的各个模块写一点自己的理解。</p>
 <h4 id="控制器（controller）"><a href="#控制器（controller）" class="headerlink" title="控制器（controller）"></a>控制器（controller）</h4><p>可以看成是路由控制器，负责传入的请求和客户端的返回响应。</p>
 <p>如果返回对象或者数组格式，会被自动包装成<code>JSON</code>格式。</p>
 <h4 id="提供者（Providers）"><a href="#提供者（Providers）" class="headerlink" title="提供者（Providers）"></a>提供者（Providers）</h4><p>Provider只是一个用 <code>@Injectable()</code> 装饰器注释的类。通过Controller 的 <code>constructor</code>注入，并实例化。不需要手动实例化，也就是java中常说的依赖注入。</p>

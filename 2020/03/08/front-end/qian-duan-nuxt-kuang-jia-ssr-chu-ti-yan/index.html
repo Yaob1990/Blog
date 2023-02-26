@@ -29,7 +29,7 @@
     
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 4.1.1"><link rel="alternate" href="/atom.xml" title="不知" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="不知" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-duotone-light.css" type="text/css"></head>
 
 
@@ -385,7 +385,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    5 分
                 </div>
                 
 
@@ -431,32 +431,34 @@
 <p>能不能，复古一点，服务端直接渲染好页面，前端不发送初始化请求，前端拿到页面直接渲染，交互再通过ajax？</p>
 <p><code>vue</code>也提供了ssr的渲染方案，社区中比较成熟的要数<code>nuxt</code>实现。</p>
 <h3 id="nuxt-入门"><a href="#nuxt-入门" class="headerlink" title="nuxt 入门"></a>nuxt 入门</h3><p>nuxt 整体学习门槛不高，我整理下我学习遇到的集个问题，详细的还请查看文档。</p>
-<h4 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h4><pre class=" language-javascript"><code class="language-javascript">$ npx create<span class="token operator">-</span>nuxt<span class="token operator">-</span>app <span class="token operator">&lt;</span>项目名<span class="token operator">></span></code></pre>
+<h4 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h4><pre class=" language-javascript"><code class="language-javascript">$ npx create<span class="token operator">-</span>nuxt<span class="token operator">-</span>app <span class="token operator">&lt;</span>项目名<span class="token operator">></span>
+</code></pre>
 <h4 id="2-路由"><a href="#2-路由" class="headerlink" title="2. 路由"></a>2. 路由</h4><p>在pages目录下的vue文件，会自动配置为路由，不需要手动配置。参数的获取遵循约定即可（详情，请查看文档）</p>
 <h4 id="3-异步数据-asyncData"><a href="#3-异步数据-asyncData" class="headerlink" title="3. 异步数据(asyncData)"></a>3. 异步数据(<code>asyncData</code>)</h4><p>框架提供了<code>asyncData</code>获取异步数据，注意：<code>asyncData</code>方法会在组件（<strong>限于页面组件</strong>）每次加载之前被调用。它可以在服务端或路由更新之前被调用。</p>
 <p><code>asyncData</code>执行的时候，页面还没有初始化，访问不到页面的方法，<code>asyncData</code>的返回结果，会被挂载到页面的data上面，渲染的时候，可以拿到数据，<code>server</code>端渲染为<code>html</code></p>
 <h4 id="4-异步数据（fetch）"><a href="#4-异步数据（fetch）" class="headerlink" title="4.异步数据（fetch）"></a>4.异步数据（fetch）</h4><p><em>fetch 方法用于在渲染页面前填充应用的状态树（store）数据， 与 asyncData 方法类似，不同的是它不会设置组件的数据。</em></p>
 <h4 id="5-vuex"><a href="#5-vuex" class="headerlink" title="5. vuex"></a>5. vuex</h4><p>按照示例直接声明即可，不需要进行实例化</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">export</span> <span class="token keyword">const</span> state <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">export</span> <span class="token keyword">const</span> state <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
   counter<span class="token punctuation">:</span> <span class="token number">0</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span>
 
-<span class="token keyword">export</span> <span class="token keyword">const</span> mutations <span class="token operator">=</span> <span class="token punctuation">{</span>
-  increment <span class="token punctuation">(</span>state<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> mutations <span class="token operator">=</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  increment <span class="token punctuation">(</span>state<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     state<span class="token punctuation">.</span>counter<span class="token operator">++</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">export</span> <span class="token keyword">const</span> actions<span class="token operator">=</span><span class="token punctuation">{</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> actions<span class="token operator">=</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 服务端执行</span>
-  <span class="token keyword">async</span> <span class="token function">nuxtServerInit</span><span class="token punctuation">(</span><span class="token punctuation">{</span> commit <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">const</span> <span class="token punctuation">{</span>
-      data<span class="token punctuation">:</span> <span class="token punctuation">{</span> code<span class="token punctuation">,</span> data <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">await</span> axios<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'https://loacalhost:3000'</span><span class="token punctuation">)</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>code <span class="token operator">===</span> <span class="token string">'000'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">async</span> <span class="token function">nuxtServerInit</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> commit <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+      data<span class="token punctuation">:</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> code<span class="token punctuation">,</span> data <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token operator">=</span> <span class="token keyword">await</span> axios<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'https://loacalhost:3000'</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>code <span class="token operator">===</span> <span class="token string">'000'</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
       <span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'setConfig'</span><span class="token punctuation">,</span> data<span class="token punctuation">.</span>Config<span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
 <p>如果，我想，设置初始化数据，然后再执行页面的<code>asyncData</code>方法，直接使用是不行的。需要在状态树中指定 <code>nuxtServerInit</code>方法。</p>
 <p>页面首先执行<code>nuxtServerInit</code>方法，结束后触发<code>asyncData</code>或者页面<code>fetch</code>方法</p>
 <p><img src="/images/render.jpg"></p>
@@ -464,9 +466,10 @@
 <p>在<code>next</code>项目中，需要在<code>plugins</code>文件夹下声明，并在<code>nuxt.config.js</code>中配置插件</p>
 <h4 id="7-注意第三方包的引入方式"><a href="#7-注意第三方包的引入方式" class="headerlink" title="7.注意第三方包的引入方式"></a>7.注意第三方包的引入方式</h4><p>服务端是没有<code>window、document</code>的，如果第三方包含有这些，那么就会报错，需要指定这些包为浏览器渲染类型。</p>
 <pre><code>let tool
-if (process.client) {
+if (process.client) &#123;
   tool = require(&#39;name&#39;)
-}</code></pre>
+&#125;
+</code></pre>
 <p>通过<code>commonjs</code>的方式引入，不能通过es6的方式引入。</p>
 <h3 id="同构项目"><a href="#同构项目" class="headerlink" title="同构项目"></a>同构项目</h3><p>周末把公司的一个h5项目进行了同构。之前是 6s 出界面，然后是ajax请求，到可用差不多要7~8s。同构之后，初始请求全部放到服务端进行，1s出界面，2s dom渲染结束，页面可用。可以说，提升还是非常大的。</p>
 <h3 id="大前端"><a href="#大前端" class="headerlink" title="大前端"></a>大前端</h3><p>使用了nuxt之后，前端真的不只是前端了，完全可以站在更高的角度去看待问题，能做到事情也更多了。api缓存，组件缓存，页面缓存，即使已经比较满意了，依然有很多可以优化的点。</p>

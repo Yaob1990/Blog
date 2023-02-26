@@ -30,7 +30,7 @@ SJS（safe/subset ">
     
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 4.1.1"><link rel="alternate" href="/atom.xml" title="不知" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="不知" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-duotone-light.css" type="text/css"></head>
 
 
@@ -424,29 +424,31 @@ SJS（safe/subset ">
 TypeError<span class="token punctuation">:</span> eval is not a <span class="token keyword">function</span>
 
 <span class="token comment" spellcheck="true">// VM194 index.html:3 Module build failed (from /snapshot/code-repo/out/target/bundle/node_modules/@ali/antcube-thread-loader/lib/cjs.js):</span>
-SyntaxError<span class="token punctuation">:</span> <span class="token function">identifier</span><span class="token punctuation">(</span>eval<span class="token punctuation">)</span> is disallowed <span class="token keyword">in</span> sjs</code></pre>
+SyntaxError<span class="token punctuation">:</span> <span class="token function">identifier</span><span class="token punctuation">(</span>eval<span class="token punctuation">)</span> is disallowed <span class="token keyword">in</span> sjs
+</code></pre>
 <p>注意这里两个报错是不一样的！在<code>af-appx.worker.min.js</code> 中，eval 并全局指向了 <code>undefined</code>, 在 sjs 中，<code>eval</code> 是不被运行使用。不被允许，并不是不存在的意思，也就是这个方法是存在的，只是我不让你使用。</p>
 <h3 id="双线程架构"><a href="#双线程架构" class="headerlink" title="双线程架构"></a>双线程架构</h3><p>小程序的架构中 js 一般在独立线程中执行，页面的渲染在 <code>webview</code> 中执行，两者通过 <code>jsbridge</code> 进行通信。那么 <code>sjs</code> 在哪里执行？<br>这一次我们使用miniu构建我们的小程序，我们分析小程序打包的代码：<br>目录结构<br>.<br>├── appConfig.json<br>├── assets<br>│   └── logo.png<br>├── index.html<br>├── index.js<br>├── index.worker.html<br>├── index.worker.js<br>└── manifest.json</p>
 <p>index.html 中文件的加载顺序</p>
 <pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>index.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script language-javascript">
-    window<span class="token punctuation">.</span><span class="token function">bootstrapApp</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    window<span class="token punctuation">.</span><span class="token function">bootstrapApp</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
       worker<span class="token punctuation">:</span> <span class="token string">'index.worker.js?version=1627720007775a8392433130335686'</span><span class="token punctuation">,</span>
       onReady<span class="token punctuation">:</span> onReady<span class="token punctuation">,</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+</code></pre>
 <p>页面在加载时候，会先加载 <code>index.js</code> 文件，然后启动 works，执行用户的业务代码。<br>我们的 <code>sjs</code> 代码被打入 <code>index.js</code> 中，这里我把 <code>a:222</code>,改成了<code>a=eval(333)</code>,页面正常显示。<br><img src="/images/16277221107831.jpg"></p>
 <p><code>index.sjs</code> 应该并不是用户逻辑的代码，而是服务于<code>webview</code>部分的代码，所有和webview 相关的代码都被放到了这里，它的运行环境就是 <code>webview</code>。<br>我们继续尝试，<code>a</code> 改成 <code>window.innerHeight</code>,页面运行成功，显示 <code>595</code> 高度，验证了我们的猜想，这里可以访问到完整的 <code>webview</code> 环境。</p>
 <h2 id="安全"><a href="#安全" class="headerlink" title="安全"></a>安全</h2><p>小程序各种安全体系下，<code>sjs</code> 比较容易产生风险。<br>小程序打包需要执行 <code>mini-pkg-builder</code> 程序，我们在本地预览，远程调试时候，都是他在做小程序的打包工作，这是一个加密的 unix 可执行文件，尝试反编译，无果。</p>
 <p>我们小程序上传时候，会在服务端的容器中执行 <code>mini-pkg-builder</code> 程序。保证了程序本身不会被用户影响，即使本地尝试修改这个文件，也不会影响到正式发布。</p>
 <p>然而，攻与防从来都是相对的，这里会不会存在逻辑bug，就不得而知了，有趣的你是不是跃跃欲试了。</p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li><a href="https://zhuanlan.zhihu.com/p/81775922" target="_blank" rel="noopener">小程序底层实现原理及一些思考 - 知乎</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/121815358" target="_blank" rel="noopener">小程序底层实现原理及一些思考（2） - 知乎</a></li>
-<li><a href="https://mp.weixin.qq.com/s/PX7b_qV6tYKnN3ecoz9Ehw" target="_blank" rel="noopener">独家！支付宝首次披露其小程序技术架构</a></li>
-<li><a href="https://juejin.cn/post/6882265367251517447" target="_blank" rel="noopener">利用sourceMap定位错误实践</a></li>
-<li><a href="http://tiaocaoer.com/xcx_study/" target="_blank" rel="noopener">微信小程序开发专区 | 薛定喵君</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/81775922">小程序底层实现原理及一些思考 - 知乎</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/121815358">小程序底层实现原理及一些思考（2） - 知乎</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/PX7b_qV6tYKnN3ecoz9Ehw">独家！支付宝首次披露其小程序技术架构</a></li>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6882265367251517447">利用sourceMap定位错误实践</a></li>
+<li><a target="_blank" rel="noopener" href="http://tiaocaoer.com/xcx_study/">微信小程序开发专区 | 薛定喵君</a></li>
 </ul>
 
             </div>

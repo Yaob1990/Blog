@@ -29,7 +29,7 @@ https://carapp.gtmc.com.cn/api/appg">
     
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 4.1.1"><link rel="alternate" href="/atom.xml" title="不知" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="不知" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-duotone-light.css" type="text/css"></head>
 
 
@@ -382,14 +382,14 @@ https://carapp.gtmc.com.cn/api/appg">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    675
+                    709
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 
@@ -409,12 +409,13 @@ https://carapp.gtmc.com.cn/api/appg">
 <h3 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h3><pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 登录地址（post）：</span>
 https<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>carapp<span class="token punctuation">.</span>gtmc<span class="token punctuation">.</span>com<span class="token punctuation">.</span>cn<span class="token operator">/</span>api<span class="token operator">/</span>appgtmc<span class="token operator">/</span>reg<span class="token operator">/</span>action<span class="token operator">/</span>AppUserInfoAction<span class="token operator">/</span>appUserLogin<span class="token punctuation">.</span>json
 <span class="token comment" spellcheck="true">// 参数（body）</span>
-accessToken<span class="token operator">=</span><span class="token operator">&amp;</span>appVersion<span class="token operator">=</span><span class="token number">4.3</span><span class="token punctuation">.</span><span class="token number">0</span><span class="token operator">&amp;</span>checkCode<span class="token operator">=</span><span class="token operator">&amp;</span>deviceId<span class="token operator">=</span><span class="token operator">&amp;</span>deviceType<span class="token operator">=</span><span class="token number">2</span><span class="token operator">&amp;</span>distinctId<span class="token operator">=</span><span class="token operator">&amp;</span>loginType<span class="token operator">=</span><span class="token number">2</span><span class="token operator">&amp;</span>password<span class="token operator">=</span><span class="token operator">&amp;</span>phoneName<span class="token operator">=</span><span class="token operator">&amp;</span>phoneNumber<span class="token operator">=</span><span class="token operator">&amp;</span>pushId<span class="token operator">=</span></code></pre>
+accessToken<span class="token operator">=</span><span class="token operator">&amp;</span>appVersion<span class="token operator">=</span><span class="token number">4.3</span><span class="token punctuation">.</span><span class="token number">0</span><span class="token operator">&amp;</span>checkCode<span class="token operator">=</span><span class="token operator">&amp;</span>deviceId<span class="token operator">=</span><span class="token operator">&amp;</span>deviceType<span class="token operator">=</span><span class="token number">2</span><span class="token operator">&amp;</span>distinctId<span class="token operator">=</span><span class="token operator">&amp;</span>loginType<span class="token operator">=</span><span class="token number">2</span><span class="token operator">&amp;</span>password<span class="token operator">=</span><span class="token operator">&amp;</span>phoneName<span class="token operator">=</span><span class="token operator">&amp;</span>phoneNumber<span class="token operator">=</span><span class="token operator">&amp;</span>pushId<span class="token operator">=</span>
+</code></pre>
 <p>返回值：</p>
-<pre><code>{
-    &quot;data&quot;: {
+<pre><code>&#123;
+    &quot;data&quot;: &#123;
         &quot;jwt&quot;: &quot;&quot;,
-        &quot;rData&quot;: {
+        &quot;rData&quot;: &#123;
             &quot;birthday&quot;: &quot;&quot;,
             &quot;passWord&quot;: &quot;111&quot;,
             &quot;communtiyFlag&quot;: &quot;0&quot;,
@@ -431,49 +432,54 @@ accessToken<span class="token operator">=</span><span class="token operator">&am
             &quot;name&quot;: &quot;1&quot;,
             &quot;status&quot;: &quot;0&quot;,
             &quot;username&quot;: &quot;11&quot;
-        }
-    },
+        &#125;
+    &#125;,
     &quot;success&quot;: true,
     &quot;resultCode&quot;: 200,
     &quot;elapsedMilliseconds&quot;: 0
-}</code></pre>
+&#125;
+</code></pre>
 <p>jwt 就是登录凭证，有了这个登录凭证后续的请求都可以进行鉴权。</p>
 <p>这里后端返回了<code>passWord</code>字段，个人觉得非常不合适。后端要么是直接返回的用户数据，要么就没有做非对称加密，直接数据库解码出用户的密码字段！通过网络劫持，很容易就嗅探出用户的密码了。</p>
 <p>给广汽的邮箱和微信反应过这个问题，没有得到任何回应….</p>
 <h3 id="控制密码校验"><a href="#控制密码校验" class="headerlink" title="控制密码校验"></a>控制密码校验</h3><pre><code>// get 请求
 https://carapp.gtmc.com.cn/api/vhcApp/controlpwd/checkControlPwd?phone=&amp;pwd=
 // header 
-Authorization:{{jwt}}</code></pre>
+Authorization:&#123;&#123;jwt&#125;&#125;
+</code></pre>
 <p>通过用户的手机号码和控制密码,jwt校验,进行用户身份识别.</p>
 <p>返回:</p>
-<pre class=" language-js"><code class="language-js"><span class="token punctuation">{</span>
+<pre class=" language-js"><code class="language-js"><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token string">"resultCode"</span><span class="token punctuation">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
     <span class="token string">"errMsg"</span><span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
     <span class="token string">"elapsedMilliseconds"</span><span class="token punctuation">:</span> <span class="token number">35</span><span class="token punctuation">,</span>
-    <span class="token string">"data"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token string">"data"</span><span class="token punctuation">:</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         <span class="token string">"code"</span><span class="token punctuation">:</span> <span class="token string">"1"</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
     <span class="token string">"success"</span><span class="token punctuation">:</span> <span class="token boolean">true</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
 <p><code>code:1</code> 校验通过,经过测试,这个校验状态的有效期约为三分钟</p>
 <h3 id="获取车辆位置"><a href="#获取车辆位置" class="headerlink" title="获取车辆位置"></a>获取车辆位置</h3><pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// get 请求(vin 是车架号码)</span>
 https<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>carapp<span class="token punctuation">.</span>gtmc<span class="token punctuation">.</span>com<span class="token punctuation">.</span>cn<span class="token operator">/</span>api<span class="token operator">/</span>vhcApp<span class="token operator">/</span>lookForCar<span class="token operator">/</span>fixedPosition<span class="token operator">?</span>vin<span class="token operator">=</span>
 <span class="token comment" spellcheck="true">// header </span>
-Authorization<span class="token punctuation">:</span><span class="token punctuation">{</span><span class="token punctuation">{</span>jwt<span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre>
+Authorization<span class="token punctuation">:</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>jwt<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
 <p>返回结构:</p>
-<pre class=" language-js"><code class="language-js"><span class="token punctuation">{</span>
+<pre class=" language-js"><code class="language-js"><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token string">"resultCode"</span><span class="token punctuation">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
     <span class="token string">"errMsg"</span><span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
     <span class="token string">"elapsedMilliseconds"</span><span class="token punctuation">:</span> <span class="token number">1009</span><span class="token punctuation">,</span>
-    <span class="token string">"data"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token string">"data"</span><span class="token punctuation">:</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         <span class="token string">"remissId"</span><span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
         <span class="token string">"latitude"</span><span class="token punctuation">:</span> <span class="token string">"100"</span><span class="token punctuation">,</span>
         <span class="token string">"being"</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
         <span class="token string">"longitude"</span><span class="token punctuation">:</span> <span class="token string">"200"</span><span class="token punctuation">,</span>
         <span class="token string">"status"</span><span class="token punctuation">:</span> <span class="token number">1</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
     <span class="token string">"success"</span><span class="token punctuation">:</span> <span class="token boolean">true</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
 <p>其中 latitude longitude 就是车辆的经纬度了.</p>
 <h3 id="位置上报"><a href="#位置上报" class="headerlink" title="位置上报"></a>位置上报</h3><p>以上的信息似乎就可以获取车辆的位置信息,画出行驶轨迹了。</p>
 <p>然后，我在车辆行驶中时候抓包时候，发现车辆的位置一直是上一次停车的那个点。推测，车辆位置并不是实时上报，而是车辆停止，熄火后上报一次，功能也只用来追踪车辆的最终停止位置。</p>
@@ -551,11 +557,10 @@ Authorization<span class="token punctuation">:</span><span class="token punctuat
                         
                             async await 的终极封装在看同事代码时候，看到下面这一段，有点意思。
 let [res,error] = await getList()
-if(error){
+if(error)&amp;#123;
   // 错误处理
-}
-// 业务处理
-注意，这里代码没有使用try 
+&amp;#125;
+// 业务
                         
                     </div>
                     <div class="publish-info">

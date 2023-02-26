@@ -4,9 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="重构 uniapp 项目(0)：相信自己, 不知">
-    <meta name="description" content="  重构不是一个好活，需要对技术和业务的多重理解，重构又是一个好活，能够站在更加全然的高度，去俯视项目，给项目做手术。
-前端重构  前端重构高度依赖 git 信息，人员变动，业务变动，会导致原有的项目结构出现各种变动，命名可能不再语义化，逻">
+    <meta name="keywords" content="五福投放技术实现, 不知">
+    <meta name="description" content="今年支付宝五福在众多小程序中都有接入，技术上接入是无感知的，本篇博客尝试去分析实现这种无感知的接入。
+分析小程序约等于 h5，如果我们要实现类似五福的弹框，那么必然要引入一段js，由这段 js 去实现页面的效果。弹框怎么样保证在最前面，不被">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
      <meta name="referrer" content="no-referrer-when-downgrade">
@@ -15,7 +15,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>重构 uniapp 项目(0)：相信自己 | 不知 | 前端技术分享</title>
+    <title>五福投放技术实现 | 不知 | 前端技术分享</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -221,12 +221,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('../../coverImages/refactoring.jpeg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('../../coverImages/wufu.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">重构 uniapp 项目(0)：相信自己</h1>
+                    <h1 class="description center-align post-title">五福投放技术实现</h1>
                 </div>
             </div>
         </div>
@@ -341,13 +341,9 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
-                                <span class="chip bg-color">小程序</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -368,7 +364,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-07-16
+                    2023-02-26
                 </div>
                 
 
@@ -377,14 +373,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    839
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    3 分
                 </div>
                 
 
@@ -400,24 +396,35 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>  重构不是一个好活，需要对技术和业务的多重理解，重构又是一个好活，能够站在更加全然的高度，去俯视项目，给项目做手术。</p>
-<h2 id="前端重构"><a href="#前端重构" class="headerlink" title="前端重构"></a>前端重构</h2><p>  前端重构高度依赖 git 信息，人员变动，业务变动，会导致原有的项目结构出现各种变动，命名可能不再语义化，逻辑不再清晰，写法可能千姿百态。如果没有或者丢失 git 信息，那你将寸步难行。</p>
-<p>  挺羡慕后端，重构也不是什么大不了的事情，只要测试用例都过，基本是完成了 80%，后端的重构给人一种安全和确定感，前端的重构，有一种两眼一抹黑的感觉。</p>
-<h2 id="能不能不重构"><a href="#能不能不重构" class="headerlink" title="能不能不重构"></a>能不能不重构</h2><p>  这个问题很难去回答。开发过程中应该有意识的进行一部分重构，对于不好的写法，腐败的味道及时剔除，那这样的项目可能就不存在问题，因为重构已经是它的一部分。</p>
-<p>  而对于没有强力执行的项目，长期迭代，屎山堆积的项目，请慎重考虑重构。</p>
-<h2 id="重构中的压力"><a href="#重构中的压力" class="headerlink" title="重构中的压力"></a>重构中的压力</h2><p>  如果很幸运，领导也支持，那么推行重构过程中你还将面临一些压力。</p>
-<p>  项目无法运行。这几乎不可能，现代 IDE 提供很好的错误机制，这类错误可以很快的去定位到。</p>
-<p>  项目中各种黑魔法。比如我遇到 uniapp 中，没有引入注册子组件，但是它竟然可以正常使用，可能是它的父级或者兄弟组件使用，使得它这里也能正常使用。这种问题，一般能够在项目测试中发现。</p>
-<p>  无法实现优化目标。多套开发环境，需要手动去切换请求地址，开始没有什么思路，后续思考尝试了多种方式，最终通过 vue 环境变量的方式实现。如果某些功能，你确实无法实现，不要放弃，给自己一点时间，本次无法优化，可以放到后续，平时业务中去优化。</p>
-<p>  线上事故。即使你对自己的重构非常有信心，测试也尽心尽力，每一个地方都点了。但是你依然无法避免线上事故。因为有测试同事的介入，这个事故应该是不严重的，它不会阻塞你的主流程，也不会对你的业务造成实质性的影响。最坏最坏，提桶跑路咯，如果一个公司对于犯错 0 容忍，那这并不是你的问题，是这个机制的问题，它并没有给线上 0 事故提供一系列的制度保证。（其实，这也保证不了，google，apple，这种量级的公司每年都有线上事故，黑天鹅永远存在）</p>
-<h2 id="大胆重构，挥舞你的手术刀"><a href="#大胆重构，挥舞你的手术刀" class="headerlink" title="大胆重构，挥舞你的手术刀"></a>大胆重构，挥舞你的手术刀</h2><p>  梳理项目结构，非公共模块，不要放到公共目录中，该移动的移动，该合并的合并。</p>
-<p>  消灭黑魔法，用前端的视角，给项目注入新的生命力，不要再纠结项目怎么这样神奇的运行了，手起刀落，用最稳妥的方式，把黑魔法消灭。</p>
-<p>  更新项目依赖 <code>package.json</code> 。不要直接全部更新，项目中如果某些功能确实需要新的依赖支持，尝试单独去更新这部分依赖，比如我的 uniapp 项目不支持可选链，那我去更新它的 <code>babel</code> 依赖就可以了，尽量小的修改，避免引入过多的外界因素。</p>
-<p>  拦路虎，消灭或者绕过。我选择了消灭，比如 <code>life-follow</code> 这个组件，始终无法正常使用，我深入研究了 uniapp 的事件机制，给官方提交了 mr，推动了支付宝 <code>life-follow</code> 在 uniapp 中的正常使用。</p>
-<p>  信任 IDE。移动文件位置，优化导入，这些事情，请大胆放心的交给 IDE ，不要再去一个一个的写它的路径，IDE 非常擅长这些事情。</p>
-<p>  引入新思路。重构是对过去的一次修补，也是对未来的一种开拓和展望。尝试在重构中通过命令进行环境判断、装饰器模式进行埋点、非生产环境不上报 log 数据。这些本该是项目的一部分，然而，因为各种原因，需要靠一次重构去实现，这也许也是重构的价值，角度不一样，思路也不一样。</p>
-<h2 id="相信自己"><a href="#相信自己" class="headerlink" title="相信自己"></a>相信自己</h2><p>大胆假设，小心求证，相信你一定可以把项目梳理的井井有条，自己和项目都能够快速成长。</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://github.com/dcloudio/uni-app/issues/2410">支付宝小程序使用花呗分期插件，⽆法监听到插件提供的onChange事件，报错为事件信息不存在。 · Issue #2410 · dcloudio/uni-app</a></p>
+                <p>今年支付宝五福在众多小程序中都有接入，技术上接入是无感知的，本篇博客尝试去分析实现这种无感知的接入。</p>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>小程序约等于 h5，如果我们要实现类似五福的弹框，那么必然要引入一段js，由这段 js 去实现页面的效果。<br>弹框怎么样保证在最前面，不被页面的元素层级覆盖，我们需要获取页面最大的 <code>z-index</code> 值。</p>
+<h2 id="层级"><a href="#层级" class="headerlink" title="层级"></a>层级</h2><pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">getMaxZIndex</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token operator">...</span>document<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'*'</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span>r<span class="token punctuation">,</span> e<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>r<span class="token punctuation">,</span> <span class="token operator">+</span>window<span class="token punctuation">.</span><span class="token function">getComputedStyle</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">.</span>zIndex <span class="token operator">||</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
+<p><code>document.body.querySelectorAll(&#39;*&#39;)</code> 获取页面所有元素，返回 NodeList 类数组，转化为一般数组之后，通过 <code>window.getComputedStyle(e).zIndex</code> 获取最大的层级，在 reduce 函数中对比下大小，返回最大的 <code>z-index</code> 层级</p>
+<p>通过这部分，我们只需要在最大的 <code>z-index</code> 上面加1即可以保证我们的层级在最上面。</p>
+<h2 id="如何引入-js"><a href="#如何引入-js" class="headerlink" title="如何引入 js"></a>如何引入 js</h2><p>弹框已经不成问题，那我们怎么在众多的页面中去引入这段 js 呢？还不能在单体应用维度去操作。<br>nginx或者网关。我们的 html 文件都会从 nginx 去分发，我们可以从这个口子直接去做文件内容的替换。</p>
+<p>nginx 内置的 ngx_http_sub_module 模块可以帮助我们实现这部分功能。</p>
+<h3 id="ngx-http-sub-module："><a href="#ngx-http-sub-module：" class="headerlink" title="ngx_http_sub_module："></a>ngx_http_sub_module：</h3><p>1）介绍：</p>
+<p>ngx_http_sub_module模块是一个过滤器，它修改网站响应内容中的字符串。这个模块已经内置在nginx中，但是默认未安装，需要安装需要加上配置参数：–with-http_sub_module 如果已经安装nginx,只需要再添加这个模块就可以了。</p>
+<p>2）常用指令：</p>
+<p>2.1 sub_filter指令： sub_filter string（原字符串） replacement（用于替换的字符串）;<br>用于设置需要使用说明字符串替换说明字符串.string是要被替换的字符串，replacement是 新的字符串，它里面可以带变量。</p>
+<p>2.2 sub_filter_last_modified指令： sub_filter_last_modified on | off;<br>用于设置网页内替换后是否修改 可在nginx.conf的 http, server, location三个位置配置使 用，默认值是off；</p>
+<p>2.3 sub_filter_once指令：sub_filter_once on | off;<br>用于设置字符串替换次数，默认只替换一次。如果是on，默认只替换第一次匹配到的到字 符，如果是off，那么所有匹配到的字符都会被替换；</p>
+<p>2.4 sub_filter_types指令：sub_filter_types *<br>用于指定需要被替换的MIME类型,默认为“text/html”，如果制定为*，那么所有的；</p>
+<p>3）说明：<br>3.1以上指令可在nginx.conf的http, server, location三个位置配置使用；<br>3.2此模块替换不区分大小写；<br>3.3支持中文替换；</p>
+<pre class=" language-bash"><code class="language-bash">location ^~/im/ <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
+    proxy_pass http://p.qiao.baidu.com<span class="token punctuation">;</span>
+    add_header Access-Control-Allow-Origin *<span class="token punctuation">;</span>
+    sub_filter <span class="token string">'&lt;/body>'</span> <span class="token string">'&lt;script src="example.com" />&lt;/body>'</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">##将响应内容中&lt;/body>替换为对应的 script 标签</span>
+    sub_filter_once off<span class="token punctuation">;</span><span class="token comment" spellcheck="true">####所有匹配到的都替换</span>
+<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
+</code></pre>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>实现并不算太复杂，很像 http 时代的互联网运营商插入的小广告，也像 chrome 的插件机制。现在的实现还比较粗糙，在 nginx 层面，如果有网关，应该会更容易一点。<br>技术是一把双刃剑，想用好这把剑，要不断地修炼自己。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/kenwar/p/8296508.html">nginx替换响应内容 - kenwar - 博客园</a></li>
+</ul>
 
             </div>
             <hr/>
@@ -430,11 +437,7 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
-                                    <span class="chip bg-color">小程序</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -470,77 +473,29 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/07/20/front-end/refactoring-deep-in-uniapp/">
+                <a href="/2023/02/26/front-end/wufu/">
                     <div class="card-image">
                         
-                        <img src="/../../coverImages/refactoring.jpeg" class="responsive-img" alt="重构 uniapp 项目(1)：浅浅理解 uniapp">
+                        <img src="/../../coverImages/wufu.png" class="responsive-img" alt="五福投放技术实现">
                         
-                        <span class="card-title">重构 uniapp 项目(1)：浅浅理解 uniapp</span>
+                        <span class="card-title">五福投放技术实现</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                              uniapp 在业内名气口碑都挺不错的，选择这个框架，能够让开发者快速出活，依托 vue 的生态，相关开发者也多，企业也容易招聘。然而小程序和web毕竟还是有点区别，某些时候还是需要对uniapp 有一定的理解，才能够顺利的搬砖。本篇，
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-07-20
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/front-end/" class="post-category">
-                                    front-end
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
-                        <span class="chip bg-color">小程序</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/07/12/front-end/method-decorator/">
-                    <div class="card-image">
-                        
-                        <img src="/../../coverImages/typescriptLogo.jpg" class="responsive-img" alt="ts 方法装饰器">
-                        
-                        <span class="card-title">ts 方法装饰器</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            装饰器在java中叫注解，体现了面向切面（AOP）的编程思想。
-方法装饰器// 定义装饰器
-export  function logger(target: any, propertyKey: string, descriptor: Prop
+                            今年支付宝五福在众多小程序中都有接入，技术上接入是无感知的，本篇博客尝试去分析实现这种无感知的接入。
+分析小程序约等于 h5，如果我们要实现类似五福的弹框，那么必然要引入一段js，由这段 js 去实现页面的效果。弹框怎么样保证在最前面，不被
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-12
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-26
                             </span>
                         <span class="publish-author">
                             
@@ -554,13 +509,48 @@ export  function logger(target: any, propertyKey: string, descriptor: Prop
                         </span>
                     </div>
                 </div>
+
                 
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/typescript/">
-                        <span class="chip bg-color">typescript</span>
-                    </a>
-                    
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/02/16/front-end/eslint-source/">
+                    <div class="card-image">
+                        
+                        <img src="/../../coverImages/ESLint.png" class="responsive-img" alt="ESLint 自定义规则开发">
+                        
+                        <span class="card-title">ESLint 自定义规则开发</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            ESLint 是 js 代码格式化工具，能够自动发现并尝试修复代码中的问题，是团队开发的必备工具。大部分时候，使用既定规则即可，业界也有比较多的成熟配置：
+
+eslint:recommended ESLint内置的推荐规则在么有讲到 所有打
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-16
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/front-end/" class="post-category">
+                                    front-end
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
                 </div>
                 
             </div>
