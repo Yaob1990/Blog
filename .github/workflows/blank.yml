@@ -3,6 +3,7 @@ name: Deploy Hexo Blog
 on:
   push:
     branches:
+      - master
       - main
 
 jobs:
