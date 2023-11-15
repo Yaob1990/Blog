@@ -1,38 +1,40 @@
-# 文件路径 .github/workflows/deployment.yml
-name: Deployment
+name: Deploy Hexo Blog
 
 on:
   push:
-    branches: [ master ] # only push events on source branch trigger deployment
+    branches:
+      - main
 
 jobs:
-  hexo-deployment:
+  build-and-deploy:
     runs-on: ubuntu-latest
-    env:
-      TZ: Asia/Shanghai
 
     steps:
-      - name: Checkout source
+      - name: Checkout code
         uses: actions/checkout@v2
-        with:
-          submodules: true
 
       - name: Setup Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
-          node-version: '14.x'
+          node-version: '14'  # 选择合适的Node.js版本
 
-      - name: Install dependencies & Generate static files
-        run: |
-          node -v
-          npm i -g hexo-cli
-          npm i
-          hexo clean
-      - name: Deploy (Hexo g -d)
-        id: deploy
-        uses: sma11black/hexo-action@v1.0.4
+      - name: Install dependencies
+        run: npm install
+
+      - name: Generate static pages
+        run: npx hexo generate
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v1
         with:
-          deploy_key: ${{ secrets.DEPLOY_KEY }}
-      - name: Get the output
-        run: |
-          echo "${{ steps.deploy.outputs.notify }}"
+            username: ${{ secrets.DOCKERHUB_USERNAME }}
+            password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: your-docker-username/hexo-blog:latest
+
