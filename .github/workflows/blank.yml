@@ -37,5 +37,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: yekongbuye/hexo-blog:latest
+          tags: |
+            yekongbuye/hexo-blog:${{ github.sha }}
+            yekongbuye/hexo-blog:latest
 
