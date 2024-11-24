@@ -66,7 +66,7 @@ bottom_link:
     url:
     text: RSS
   icp:
-    url: beian.miit.gov.cn
+    url: https://beian.miit.gov.cn
     text: 苏ICP备15047519号-5
 
 # 底部显示来源信息

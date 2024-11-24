@@ -4,15 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "516f34f4052510ab",
+        "id": "2ba504a071e3c8c7",
         "type": "tabs",
         "children": [
           {
-            "id": "889ba751600cd6f5",
+            "id": "87fbb62192cf8949",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "_posts/front-end/obsidian-geo.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "obsidian-geo"
             }
           }
         ]
@@ -34,8 +40,10 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical"
-              }
+                "sortOrder": "byModifiedTime"
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
             }
           },
           {
@@ -50,7 +58,9 @@
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
             }
           },
           {
@@ -58,14 +68,26 @@
             "type": "leaf",
             "state": {
               "type": "starred",
-              "state": {}
+              "state": {},
+              "icon": "lucide-file",
+              "title": "插件不再活动"
+            }
+          },
+          {
+            "id": "27fdb3aaf46d77e0",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
             }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 340.5
   },
   "right": {
     "id": "13f4bb2512162934",
@@ -81,6 +103,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "_posts/front-end/obsidian-history-today.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,7 +111,9 @@
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-coming-in",
+              "title": "obsidian-history-today 的反向链接列表"
             }
           },
           {
@@ -97,9 +122,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "_posts/front-end/obsidian-history-today.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-going-out",
+              "title": "obsidian-history-today 的出链列表"
             }
           },
           {
@@ -110,7 +138,9 @@
               "state": {
                 "sortOrder": "frequency",
                 "useHierarchy": true
-              }
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
             }
           },
           {
@@ -118,7 +148,11 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "_posts/front-end/obsidian-history-today.md"
+              },
+              "icon": "lucide-list",
+              "title": "obsidian-history-today 的大纲"
             }
           }
         ]
@@ -130,20 +164,37 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "canvas:新建白板": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
-      "canvas:Create new canvas": false,
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
-      "command-palette:打开命令面板": false
+      "command-palette:打开命令面板": false,
+      "templater-obsidian:Templater": false
     }
   },
-  "active": "889ba751600cd6f5",
+  "active": "87fbb62192cf8949",
   "lastOpenFiles": [
+    "_posts/front-end/obsidian-history-today.md",
+    "_posts/front-end/obsidian-geo.md",
+    "_posts/front-end/images/obsidian-history-today/file-20241124230339238.png",
+    "_posts/front-end/images/obsidian-history-today/file-20241124225841523.png",
+    "_posts/front-end/images/obsidian-history-today/file-20241124224205768.png",
+    "template/post.md.md",
+    "images/aef939ee4be245030058b96876d18c949b3aa4adcaaa21801883e93362b4f38c873db7d0bf76938516005dac22d9bef199ef01a7368cb7b3273e328a16722a39.png",
+    "images/932aeb486d12eba3f85dff1cbe0652ef513c02ad1a4eb206138fb2de8062a56167eee2990db0eef70976504af164cdb68189b6238df749016ed93af7da692e6c.png",
+    "_posts/front-end/images/obsidian-history-today",
+    "_posts/front-end/images",
+    "_posts/front-end/未命名 1.md",
+    "template",
+    "images/20241124221136.png",
+    "images/image-20200816164049483.png",
+    "images/Pasted image 20241124221102.png",
+    "_posts/front-end/function-call.md",
+    "_posts/front-end/font.md",
     "images/2022120201.png",
     "_posts/front-end/regex.md",
     "images/20221125071137_1.png",
-    "coverImages/regex.png",
     "_obsidian/blog  temp.md",
     "Pasted image 20221125071208.png.md",
     "source/_posts/front-end/regex.md",

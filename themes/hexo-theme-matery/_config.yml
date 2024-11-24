@@ -509,7 +509,7 @@ banner:
 #ICP备案信息尾部显示
 icp:
   enable: true
-  url: http://beian.miit.gov.cn/ # 备案链接
+  # url: http://beian.miit.gov.cn/ # 备案链接
   text: 苏ICP备15047519号-5 # 备案信息
 
 # CDN访问加速
