@@ -1,0 +1,27 @@
+<% let years = []; site.posts.forEach((item) => { const year = date(item.date, 'YYYY'); if (!years.includes(year)) { years.push(year); } }); %>
+
+<div class="archives-container">
+    <% years.sort(function (a, b) {return b-a }).forEach(function(year) { %>
+        <h2 class="year"><%= year %></h2>
+        <%
+            // Get posts for the current year and sort them by date
+            let postsForYear = [];
+            site.posts.forEach((post) => {
+                if (date(post.date, 'YYYY') === year) {
+                    postsForYear.push(post);
+                }
+            });
+            postsForYear.sort((a, b) => b.date - a.date);
+        %>
+        <% postsForYear.forEach(function(post) { %>
+            <article class="post">
+                <a href="<%= url_for(post.path) %>">
+                    <h2 class="post-title">
+                        <%= post.title %>
+                        <small style="color: gray;"><%= date(post.date, config.date_format) %></small>
+                    </h2>
+                </a>
+            </article>
+        <% }); %>
+    <% }); %>
+</div>
